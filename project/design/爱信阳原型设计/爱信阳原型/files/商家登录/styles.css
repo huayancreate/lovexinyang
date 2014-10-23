@@ -1,0 +1,325 @@
+﻿body {
+  margin:0px;
+  background-image:none;
+  position:static;
+  left:auto;
+  width:970px;
+  margin-left:0;
+  margin-right:0;
+  text-align:left;
+}
+#base {
+  position:absolute;
+  z-index:0;
+}
+#u0 {
+  position:absolute;
+  left:0px;
+  top:-1px;
+  width:970px;
+  height:70px;
+  font-family:'微软雅黑 Regular', '微软雅黑';
+  color:#FFFFFF;
+  text-align:left;
+}
+#u0_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:970px;
+  height:70px;
+}
+#u1 {
+  position:absolute;
+  left:2px;
+  top:12px;
+  width:966px;
+  word-wrap:break-word;
+}
+#u2 {
+  position:absolute;
+  left:1px;
+  top:68px;
+  width:100px;
+  height:542px;
+  color:#FFFFFF;
+}
+#u2_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:100px;
+  height:542px;
+}
+#u3 {
+  position:absolute;
+  left:2px;
+  top:263px;
+  width:96px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u4 {
+  position:absolute;
+  left:101px;
+  top:68px;
+  width:769px;
+  height:542px;
+  font-family:'Arial Negreta', 'Arial';
+  font-weight:700;
+  font-size:24px;
+  color:#666666;
+}
+#u4_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:769px;
+  height:542px;
+}
+#u5 {
+  position:absolute;
+  left:2px;
+  top:263px;
+  width:765px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u6 {
+  position:absolute;
+  left:869px;
+  top:67px;
+  width:100px;
+  height:542px;
+}
+#u6_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:100px;
+  height:542px;
+}
+#u7 {
+  position:absolute;
+  left:2px;
+  top:263px;
+  width:96px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u8 {
+  position:absolute;
+  left:660px;
+  top:68px;
+  width:210px;
+  height:542px;
+  font-family:'Arial Negreta', 'Arial';
+  font-weight:700;
+  font-size:24px;
+  color:#666666;
+}
+#u8_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:210px;
+  height:542px;
+}
+#u9 {
+  position:absolute;
+  left:2px;
+  top:263px;
+  width:206px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u10 {
+  position:absolute;
+  left:0px;
+  top:608px;
+  width:970px;
+  height:11px;
+  font-family:'微软雅黑 Regular', '微软雅黑';
+  font-size:36px;
+  color:#FFFFFF;
+  text-align:left;
+}
+#u10_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:970px;
+  height:11px;
+}
+#u11 {
+  position:absolute;
+  left:2px;
+  top:-2px;
+  width:966px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u12 {
+  position:absolute;
+  left:0px;
+  top:617px;
+  width:970px;
+  height:91px;
+  font-family:'微软雅黑 Regular', '微软雅黑';
+  font-size:36px;
+  color:#FFFFFF;
+  text-align:left;
+}
+#u12_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:970px;
+  height:91px;
+}
+#u13 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:970px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u14 {
+  position:absolute;
+  left:180px;
+  top:629px;
+  width:80px;
+  height:19px;
+  font-family:'Droid Sans Regular', 'Droid Sans';
+  font-size:16px;
+}
+#u14_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:80px;
+  height:19px;
+}
+#u15 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:80px;
+  word-wrap:break-word;
+}
+#u16 {
+  position:absolute;
+  left:310px;
+  top:629px;
+  width:80px;
+  height:19px;
+  font-family:'Droid Sans Regular', 'Droid Sans';
+  font-size:16px;
+}
+#u16_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:80px;
+  height:19px;
+}
+#u17 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:80px;
+  word-wrap:break-word;
+}
+#u18 {
+  position:absolute;
+  left:444px;
+  top:629px;
+  width:80px;
+  height:19px;
+  font-family:'Droid Sans Regular', 'Droid Sans';
+  font-size:16px;
+}
+#u18_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:80px;
+  height:19px;
+}
+#u19 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:80px;
+  word-wrap:break-word;
+}
+#u20 {
+  position:absolute;
+  left:600px;
+  top:629px;
+  width:80px;
+  height:19px;
+  font-family:'Droid Sans Regular', 'Droid Sans';
+  font-size:16px;
+}
+#u20_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:80px;
+  height:19px;
+}
+#u21 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:80px;
+  word-wrap:break-word;
+}
+#u22 {
+  position:absolute;
+  left:180px;
+  top:670px;
+  width:730px;
+  height:17px;
+  font-family:'Droid Sans Regular', 'Droid Sans';
+  font-size:14px;
+  color:#999999;
+}
+#u22_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:730px;
+  height:17px;
+}
+#u23 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:730px;
+  word-wrap:break-word;
+}
+#u24 {
+  position:absolute;
+  left:135px;
+  top:70px;
+  width:506px;
+  height:315px;
+}
+#u24_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:506px;
+  height:315px;
+}
+#u25 {
+  position:absolute;
+  left:2px;
+  top:150px;
+  width:502px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
