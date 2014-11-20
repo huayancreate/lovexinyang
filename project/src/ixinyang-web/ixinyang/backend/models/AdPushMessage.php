@@ -1,9 +1,7 @@
 <?php
 
 namespace app\models;
-阿萨德撒的
 
-爱上大声地
 use Yii;
 
 /**
