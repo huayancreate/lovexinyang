@@ -1,7 +1,7 @@
 <?php
 
 namespace app\models;
-
+°¢ÈøµÂÈöµÄ
 use Yii;
 
 /**
