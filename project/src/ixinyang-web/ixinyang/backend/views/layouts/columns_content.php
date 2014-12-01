@@ -1,17 +1,24 @@
 <?php
 use backend\assets\AppAsset;
 use yii\helpers\Html;
-use hy\widgets\AreaDecorator;
-use yii\widgets\Block;
+use yii\widgets\Menu;
 
 AppAsset::register($this);
 ?>
-<?php AreaDecorator::begin(['viewFile'=>'@app/views/layouts/columns_breadcrumbs.php'])?>
-        
-        <?php Block::begin(['id' =>'content']);?>
-                <div class="span4">
-                   <?= $rightData ?>
-                </div>
-        <?php Block::end();?>
+<?php $this->beginContent('@app/views/layouts/main.php');?>
+	<div class="col-lg-3">
+		<ul class="list-group">
+ 			<li class="list-group-item">主页面
+ 			<span class="badge">14</span>
+ 			</li>
+  			<li class="list-group-item">测试1</li>
+  			<li class="list-group-item">测试1</li>
+  			<li class="list-group-item">测试1</li>
+  			<li class="list-group-item">测试1</li>
+		</ul>
+	</div>
+	<div class="col-lg-9">
+    	<?= $content ?>
+	</div>
 
-<?php AreaDecorator::end();?>
+<?php $this->endContent();?>

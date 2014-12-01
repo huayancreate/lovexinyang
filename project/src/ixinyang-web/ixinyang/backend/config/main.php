@@ -12,6 +12,7 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
+    'layout' => 'columns_content',
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',
