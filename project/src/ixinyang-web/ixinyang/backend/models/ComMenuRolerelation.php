@@ -14,7 +14,7 @@ use Yii;
  * @property integer $roleId
  * @property string $isValid
  */
-class Com_MenuRolerelation extends \yii\db\ActiveRecord
+class ComMenuRolerelation extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -55,7 +55,7 @@ class Com_MenuRolerelation extends \yii\db\ActiveRecord
     //删除操作
     public function Del($field,$value){
         
-        $model=new Com_MenuRolerelation();
+        $model=new ComMenuRolerelation();
 
         $condition=$field.'='.$value;
 
@@ -71,11 +71,10 @@ class Com_MenuRolerelation extends \yii\db\ActiveRecord
     public function updateOrDel($menuIdArray,$roleId){
 
         foreach ($menuIdArray as $id) {
-            if (($model = Com_MenuRolerelation::findOne($id)) !== null) { 
-                print_r($model);
+            if (($model = ComMenuRolerelation::findOne($id)) !== null) { 
                 $model->delete();
             }else{
-                $model=new Com_MenuRolerelation();
+                $model=new ComMenuRolerelation();
                 $model->roleId=$roleId;
                 $model->creater="administrator";
                 $model->updateTime=date("Y-m-d H:i:s");

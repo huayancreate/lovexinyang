@@ -15,7 +15,7 @@ use Yii;
  * @property string $isValid
  * @property string $updatePerson
  */
-class com_role extends \yii\db\ActiveRecord
+class ComRole extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc

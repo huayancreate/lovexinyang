@@ -15,7 +15,7 @@ use Yii;
  * @property string $updateTime
  * @property string $isValid
  */
-class Com_Menu extends \yii\db\ActiveRecord
+class ComMenu extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
