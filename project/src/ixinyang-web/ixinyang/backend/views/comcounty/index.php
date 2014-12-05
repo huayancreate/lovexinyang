@@ -100,7 +100,7 @@ background-color: #B0E0E6;
 } 
 </style>
 
-<script src="/yiitest/backend/web/assets/1d84e5b1/jquery.js"></script>
+<script src="/ixinyang-web/ixinyang/backend/web/assets/47b59c7b/jquery.js"></script>
 
 <script type="text/javascript"> 
 $(function(){
