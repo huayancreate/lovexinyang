@@ -3,10 +3,10 @@
 namespace cliff363825\kindeditor;
 
 use Yii;
-use yii\widgets\InputWidget;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\web\JsExpression;
+use yii\widgets\InputWidget;
 
 class KindEditorWidget extends InputWidget
 {
@@ -17,6 +17,11 @@ class KindEditorWidget extends InputWidget
      * @var array
      */
     public $clientOptions = [];
+
+    /**
+     * @var string
+     */
+    public $csrfCookieParam = '_csrfCookie';
 
     /**
      * @var boolean
@@ -190,13 +195,10 @@ KindEditor.ready(function(K) {
                 $options[$key] = $this->clientOptions[$key];
             }
         }
-        /* @var $request \yii\web\Request */
-        $request = Yii::$app->request;
-        $options['extraFileUploadParams'][$request->csrfParam] = $request->getCsrfToken();
-        if ($request->enableCsrfCookie) {
-            $options['extraFileUploadParams']['token'] = $_COOKIE[$request->csrfParam];
-        } else {
-            $options['extraFileUploadParams']['token'] = Yii::$app->session->get($request->csrfParam);
+        $options['extraFileUploadParams'][Yii::$app->request->csrfParam] = Yii::$app->request->getCsrfToken();
+        $options['extraFileUploadParams'][Yii::$app->session->name] = Yii::$app->session->id;
+        if (Yii::$app->request->enableCsrfCookie) {
+            $options['extraFileUploadParams'][$this->csrfCookieParam] = $_COOKIE[Yii::$app->request->csrfParam];
         }
         $this->clientOptions = $options;
     }

@@ -69,10 +69,28 @@ return array (
   'cliff363825/yii2-kindeditor' => 
   array (
     'name' => 'cliff363825/yii2-kindeditor',
-    'version' => '1.0.0.0',
+    'version' => '1.0.1.0',
     'alias' => 
     array (
       '@cliff363825/kindeditor' => $vendorDir . '/cliff363825/yii2-kindeditor',
+    ),
+  ),
+  'kartik-v/yii2-krajee-base' => 
+  array (
+    'name' => 'kartik-v/yii2-krajee-base',
+    'version' => '1.4.0.0',
+    'alias' => 
+    array (
+      '@kartik/base' => $vendorDir . '/kartik-v/yii2-krajee-base',
+    ),
+  ),
+  'kartik-v/yii2-date-range' => 
+  array (
+    'name' => 'kartik-v/yii2-date-range',
+    'version' => '1.5.0.0',
+    'alias' => 
+    array (
+      '@kartik/daterange' => $vendorDir . '/kartik-v/yii2-date-range',
     ),
   ),
 );

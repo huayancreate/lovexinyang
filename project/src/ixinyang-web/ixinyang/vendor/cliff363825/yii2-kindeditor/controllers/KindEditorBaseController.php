@@ -3,11 +3,16 @@
 namespace cliff363825\kindeditor\controllers;
 
 use Yii;
-use yii\web\Controller;
 use yii\helpers\FileHelper;
+use yii\web\Controller;
 
 class KindEditorBaseController extends Controller
 {
+    /**
+     * @var string
+     */
+    public $csrfCookieParam = '_csrfCookie';
+
     /**
      * file upload max size
      * default: 2MB
@@ -40,15 +45,12 @@ class KindEditorBaseController extends Controller
     public function init()
     {
         parent::init();
-        $token = Yii::$app->request->post('token');
-        if (!empty($token)) {
-            /* @var $request \yii\web\Request */
-            $request = Yii::$app->getRequest();
-            if ($request->enableCsrfCookie) {
-                $_COOKIE[$request->csrfParam] = $token;
-            } else {
-                Yii::$app->getSession()->set($request->csrfParam, $token);
-            }
+        if (($sessionId = Yii::$app->request->post(Yii::$app->session->name)) !== null) {
+            Yii::$app->session->setId($sessionId);
+            Yii::$app->session->open();
+        }
+        if (Yii::$app->request->enableCsrfCookie) {
+            $_COOKIE[Yii::$app->request->csrfParam] = Yii::$app->request->post($this->csrfCookieParam);
         }
     }
 
@@ -271,7 +273,7 @@ class KindEditorBaseController extends Controller
 
     public function setMaxSize($maxSize)
     {
-        $this->_maxSize = (int) $maxSize;
+        $this->_maxSize = (int)$maxSize;
     }
 
     public function getMaxSize()

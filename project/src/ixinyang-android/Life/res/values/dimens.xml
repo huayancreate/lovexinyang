@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="activity_horizontal_margin">16.0dp</dimen>
+    <dimen name="activity_vertical_margin">16.0dp</dimen>
+    <dimen name="head_text_size">18.0sp</dimen>
+    <dimen name="default_text_size">15.0sp</dimen>
+    <dimen name="store_text_size">13.0sp</dimen>
+    <dimen name="set_text_size">14.0sp</dimen>
+    <dimen name="padding">10dp</dimen>
+    <dimen name="city_16_text">16.0sp</dimen>
+    <dimen name="price_text_size">22.0sp</dimen>
+    <dimen name="group_purchase_title">20.0sp</dimen>
+    <dimen name="text_12">12.0sp</dimen>
+
+</resources>

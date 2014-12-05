@@ -122,60 +122,6 @@
         "installation-source": "dist"
     },
     {
-        "name": "bower-asset/jquery.inputmask",
-        "version": "3.1.38",
-        "version_normalized": "3.1.38.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/RobinHerbots/jquery.inputmask.git",
-            "reference": "464cddbdea65411896468f40321e68abcc75a34c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/464cddbdea65411896468f40321e68abcc75a34c",
-            "reference": "464cddbdea65411896468f40321e68abcc75a34c",
-            "shasum": ""
-        },
-        "require": {
-            "bower-asset/jquery": ">=1.7"
-        },
-        "type": "bower-asset-library",
-        "extra": {
-            "bower-asset-main": [
-                "./dist/inputmask/jquery.inputmask.js",
-                "./dist/inputmask/jquery.inputmask.extensions.js",
-                "./dist/inputmask/jquery.inputmask.date.extensions.js",
-                "./dist/inputmask/jquery.inputmask.numeric.extensions.js",
-                "./dist/inputmask/jquery.inputmask.phone.extensions.js",
-                "./dist/inputmask/jquery.inputmask.regex.extensions.js"
-            ],
-            "bower-asset-ignore": [
-                "**/.*",
-                "qunit/",
-                "nuget/",
-                "tools/",
-                "js/",
-                "*.md",
-                "build.properties",
-                "build.xml",
-                "jquery.inputmask.jquery.json"
-            ]
-        },
-        "installation-source": "dist",
-        "license": [
-            "http://opensource.org/licenses/mit-license.php"
-        ],
-        "description": "jquery.inputmask is a jquery plugin which create an input mask.",
-        "keywords": [
-            "form",
-            "input",
-            "inputmask",
-            "jQuery",
-            "mask",
-            "plugins"
-        ]
-    },
-    {
         "name": "bower-asset/typeahead.js",
         "version": "v0.10.5",
         "version_normalized": "0.10.5.0",
@@ -998,24 +944,78 @@
         ]
     },
     {
-        "name": "cliff363825/yii2-kindeditor",
-        "version": "1.0.0",
-        "version_normalized": "1.0.0.0",
+        "name": "bower-asset/jquery.inputmask",
+        "version": "3.1.42",
+        "version_normalized": "3.1.42.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/cliff363825/yii2-kindeditor.git",
-            "reference": "1cf9e1601061ee05d04bcbab21df783b8a6217d2"
+            "url": "https://github.com/RobinHerbots/jquery.inputmask.git",
+            "reference": "ba392f1c9c1f7a05d1b89a5e49cbd0610face768"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/cliff363825/yii2-kindeditor/zipball/1cf9e1601061ee05d04bcbab21df783b8a6217d2",
-            "reference": "1cf9e1601061ee05d04bcbab21df783b8a6217d2",
+            "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/ba392f1c9c1f7a05d1b89a5e49cbd0610face768",
+            "reference": "ba392f1c9c1f7a05d1b89a5e49cbd0610face768",
+            "shasum": ""
+        },
+        "require": {
+            "bower-asset/jquery": ">=1.7"
+        },
+        "type": "bower-asset-library",
+        "extra": {
+            "bower-asset-main": [
+                "./dist/inputmask/jquery.inputmask.js",
+                "./dist/inputmask/jquery.inputmask.extensions.js",
+                "./dist/inputmask/jquery.inputmask.date.extensions.js",
+                "./dist/inputmask/jquery.inputmask.numeric.extensions.js",
+                "./dist/inputmask/jquery.inputmask.phone.extensions.js",
+                "./dist/inputmask/jquery.inputmask.regex.extensions.js"
+            ],
+            "bower-asset-ignore": [
+                "**/.*",
+                "qunit/",
+                "nuget/",
+                "tools/",
+                "js/",
+                "*.md",
+                "build.properties",
+                "build.xml",
+                "jquery.inputmask.jquery.json"
+            ]
+        },
+        "installation-source": "dist",
+        "license": [
+            "http://opensource.org/licenses/mit-license.php"
+        ],
+        "description": "jquery.inputmask is a jquery plugin which create an input mask.",
+        "keywords": [
+            "form",
+            "input",
+            "inputmask",
+            "jQuery",
+            "mask",
+            "plugins"
+        ]
+    },
+    {
+        "name": "cliff363825/yii2-kindeditor",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cliff363825/yii2-kindeditor.git",
+            "reference": "8b56c606f3d349d0e988e9a56fd083e1657e784d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/cliff363825/yii2-kindeditor/zipball/8b56c606f3d349d0e988e9a56fd083e1657e784d",
+            "reference": "8b56c606f3d349d0e988e9a56fd083e1657e784d",
             "shasum": ""
         },
         "require": {
             "yiisoft/yii2": "*"
         },
-        "time": "2014-10-04 14:46:56",
+        "time": "2014-11-29 04:58:35",
         "type": "yii2-extension",
         "installation-source": "dist",
         "autoload": {
@@ -1036,6 +1036,105 @@
         "description": "KindEditor Widget for Yii2",
         "keywords": [
             "kindeditor",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-krajee-base",
+        "version": "v1.4.0",
+        "version_normalized": "1.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-krajee-base.git",
+            "reference": "40bf7a9628a2820f142e3621eb34f91df1a4f831"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/40bf7a9628a2820f142e3621eb34f91df1a4f831",
+            "reference": "40bf7a9628a2820f142e3621eb34f91df1a4f831",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2-bootstrap": "@dev"
+        },
+        "time": "2014-11-28 19:16:36",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\base\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "Base library and foundation components for all Yii2 Krajee extensions.",
+        "homepage": "https://github.com/kartik-v/yii2-krajee-base",
+        "keywords": [
+            "base",
+            "extension",
+            "foundation",
+            "krajee",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-date-range",
+        "version": "v1.5.0",
+        "version_normalized": "1.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-date-range.git",
+            "reference": "57e08a50c0404e95c18d24ddd8381ad7ba2edc4d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-date-range/zipball/57e08a50c0404e95c18d24ddd8381ad7ba2edc4d",
+            "reference": "57e08a50c0404e95c18d24ddd8381ad7ba2edc4d",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-11-28 19:22:35",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\daterange\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "An advanced Yii 2 date range picker input for based on bootstrap-daterangepicker plugin.",
+        "homepage": "https://github.com/kartik-v/yii2-date-range",
+        "keywords": [
+            "bootstrap",
+            "bootstrap 3",
+            "date",
+            "date-range",
+            "extension",
+            "range",
+            "time",
+            "widget",
             "yii2"
         ]
     }

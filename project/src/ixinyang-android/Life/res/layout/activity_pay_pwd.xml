@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/citylist_divider"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_weight="0"
+        android:background="@drawable/bg_actionbar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:src="@drawable/abs__ic_ab_back_holo_dark" />
+
+        <ImageButton
+            android:id="@+id/img_goback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:background="@drawable/ic_action_home" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="@string/pay_pwd"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/head_text_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10.0dip"
+            android:background="@drawable/divider"
+            android:scaleType="centerCrop" />
+
+        <RelativeLayout
+            android:id="@+id/rl_modify_pay_pwd"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingBottom="12.0dip"
+            android:paddingTop="12.0dip" >
+
+            <ImageView
+                android:id="@+id/img_zhang1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:src="@drawable/ic_modify_pay_pswd" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img_zhang1"
+                android:paddingTop="4.0dip"
+                android:text="修改支付密码"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/default_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10.0dip"
+                android:drawablePadding="3.0dip"
+                android:drawableRight="@drawable/ic_global_arrow_right_2px"
+                android:paddingTop="4.0dip"
+                android:textColor="@color/green"
+                android:textSize="@dimen/default_text_size" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/divider"
+            android:scaleType="centerCrop" />
+
+        <RelativeLayout
+            android:id="@+id/rel_find_pwd"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingBottom="12.0dip"
+            android:paddingTop="12.0dip" >
+
+            <ImageView
+                android:id="@+id/img_find_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:src="@drawable/ic_pay_pswd" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img_find_pwd"
+                android:paddingTop="4.0dip"
+                android:text="找回支付密码"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/default_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10.0dip"
+                android:drawablePadding="3.0dip"
+                android:drawableRight="@drawable/ic_global_arrow_right_2px"
+                android:paddingTop="4.0dip"
+                android:textColor="@color/green"
+                android:textSize="@dimen/default_text_size" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/divider"
+            android:scaleType="centerCrop" />
+    </LinearLayout>
+
+</LinearLayout>

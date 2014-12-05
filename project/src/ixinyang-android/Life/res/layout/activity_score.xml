@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/citylist_divider"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:background="@drawable/bg_actionbar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:src="@drawable/abs__ic_ab_back_holo_dark" />
+
+        <ImageButton
+            android:id="@+id/ib_goback_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:background="@drawable/ic_action_home" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="@string/jifen"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/head_text_size" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="3.0dip"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/tv_grade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10.0dip"
+            android:text="当前等级：VIP1"
+            android:textColor="@color/text_color_gray"
+            android:textSize="@dimen/city_16_text" />
+
+        <TextView
+            android:id="@+id/tv_growth_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10.0dip"
+            android:layout_toRightOf="@id/tv_grade"
+            android:text="成长值：423"
+            android:textColor="@color/text_color_gray"
+            android:textSize="@dimen/city_16_text" />
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_grade"
+            android:layout_marginBottom="5.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="5.0dip"
+            android:background="@drawable/ic_user_growth_1" />
+
+        <ProgressBar
+            android:id="@+id/progress_horizontal"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="200dip"
+            android:layout_height="10.0dip"
+            android:layout_below="@id/tv_grade"
+            android:layout_marginBottom="5.0dip"
+            android:layout_marginTop="10.0dip"
+            android:layout_toRightOf="@id/tv_money"
+            android:max="100"
+            android:progress="50" />
+
+        <TextView
+            android:id="@+id/tv_degree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_growth_value"
+            android:layout_marginBottom="5.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="5.0dip"
+            android:layout_toRightOf="@id/progress_horizontal"
+            android:background="@drawable/ic_user_growth_2" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_money"
+            android:layout_marginTop="10.0dip"
+            android:background="@drawable/divider"
+            android:scaleType="centerCrop" />
+    </RelativeLayout>
+
+        <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="15.0dip"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/rl_now_jifen"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingBottom="12.0dip"
+            android:paddingTop="12.0dip" >
+
+            <ImageView
+                android:id="@+id/img_now"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:src="@drawable/ic_global_account_integral" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img_now"
+                android:paddingTop="4.0dip"
+                android:text="现有积分：0"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/default_text_size" />
+
+            <TextView
+                android:id="@+id/tv_now_shuoming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10.0dip"
+                android:drawablePadding="3.0dip"
+                android:drawableRight="@drawable/ic_global_arrow_right_2px"
+                android:paddingTop="4.0dip"
+                android:text="积分记录"
+                android:textColor="@color/green"
+                android:textSize="@dimen/default_text_size" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/divider"
+            android:scaleType="centerCrop" />
+
+        <RelativeLayout
+            android:id="@+id/rl_shuoming"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingBottom="12.0dip"
+            android:paddingTop="12.0dip" >
+
+            <ImageView
+                android:id="@+id/img_biao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:src="@drawable/ic_global_account_integral_info" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img_biao"
+                android:paddingTop="4.0dip"
+                android:text="积分规则"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/default_text_size" />
+
+            <TextView
+                android:id="@+id/tv_now_set2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10.0dip"
+                android:drawablePadding="3.0dip"
+                android:drawableRight="@drawable/ic_global_arrow_right_2px"
+                android:paddingTop="4.0dip"
+                android:textColor="@color/green"
+                android:textSize="@dimen/default_text_size" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/divider"
+            android:scaleType="centerCrop" />
+    </LinearLayout>
+    
+</LinearLayout>

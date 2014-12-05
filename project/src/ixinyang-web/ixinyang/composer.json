@@ -19,7 +19,10 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "yiisoft/yii2-jui": "*",
-        "cliff363825/yii2-kindeditor": "*"
+        "cliff363825/yii2-kindeditor": "*",
+        "3ch3r46/yii2-bootui": "*",
+        "kartik-v/yii2-widgets": "*",
+        "kartik-v/yii2-date-range": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
