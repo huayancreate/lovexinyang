@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/citylist_divider"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/bg_actionbar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/ll_img"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="10dip"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/i1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_action_home" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_mine"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="10dip"
+            android:layout_toRightOf="@id/ll_img"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_mine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dip"
+                android:text="@string/my_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/head_text_size" />
+        </LinearLayout>
+
+        <!-- 头部右边 -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dip"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:id="@+id/iv_map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/actionbar_message_enable" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10.0dp"
+                android:paddingTop="20.0dp" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/set_layout_bg" >
+
+                    <TextView
+                        android:id="@+id/txt_login"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="5.0dp"
+                        android:paddingLeft="15.0dp"
+                        android:paddingRight="15.0dp"
+                        android:paddingTop="5.0dp"
+                        android:text="@string/login_label_signin"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/head_text_size" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10.0dp"
+                android:layout_marginTop="10.0dp"
+                android:background="@drawable/set_layout_bg" >
+
+                <RelativeLayout
+                    android:id="@+id/vip_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <ImageView
+                        android:id="@+id/img_coupon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_coupon_enabled" />
+
+                    <TextView
+                        android:id="@+id/txt_vip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/img_coupon"
+                        android:paddingBottom="15.0dp"
+                        android:paddingTop="15.0dp"
+                        android:text="@string/my_vip"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/head_text_size" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/line_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/vip_layout" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:src="@drawable/widget_line" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/daijin_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3.0dp"
+                    android:layout_toRightOf="@id/line_layout" >
+
+                    <ImageView
+                        android:id="@+id/img_daijin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_user_main_favorite" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/img_daijin"
+                        android:paddingBottom="15.0dp"
+                        android:paddingTop="15.0dp"
+                        android:text="@string/my_daijin"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/head_text_size" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_daily_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10.0dp"
+                android:layout_marginTop="10.0dp"
+                android:background="@drawable/set_layout_bg" >
+
+                <ImageView
+                    android:id="@+id/img_tuijian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_order_account_recommend_enable" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/img_tuijian"
+                    android:paddingBottom="10.0dp"
+                    android:paddingLeft="5.0dp"
+                    android:paddingRight="5.0dp"
+                    android:paddingTop="10.0dp"
+                    android:text="@string/tuijian"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_global_arrow_right_2px" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/order_rel"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10.0dp"
+                android:layout_marginTop="10.0dp"
+                android:background="@drawable/set_layout_bg" >
+
+                <ImageView
+                    android:id="@+id/img_yuding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_order" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/img_yuding"
+                    android:paddingBottom="10.0dp"
+                    android:paddingLeft="5.0dp"
+                    android:paddingRight="5.0dp"
+                    android:paddingTop="10.0dp"
+                    android:text="@string/yuding"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_global_arrow_right_2px" />
+            </RelativeLayout>
+            <!-- 我的积分 -->
+
+            <RelativeLayout
+                android:id="@+id/rl_integral"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10.0dp"
+                android:layout_marginTop="10.0dp"
+                android:background="@drawable/set_layout_bg" >
+
+                <ImageView
+                    android:id="@+id/img_jifen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_order_lottery_enable" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/img_jifen"
+                    android:paddingBottom="10.0dp"
+                    android:paddingLeft="5.0dp"
+                    android:paddingRight="5.0dp"
+                    android:paddingTop="10.0dp"
+                    android:text="@string/jifen"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_global_arrow_right_2px" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
