@@ -5,14 +5,12 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
 use cliff363825\kindeditor\KindEditorWidget;
 use yii\jui\Dialog;
+use yii\web\jqueryAsset;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\StoApplyInfo */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-
-<link href="/yii2test/backend/web/assets/map/map.css" rel="stylesheet">
-
 
     <div class="sto-apply-info-form">
         <?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
@@ -303,7 +301,8 @@ Dialog::end();
 </script>
 <?php
 $this->registerCssFile(Yii::$app->urlManager->baseUrl.'/css/zTreeStyle.css', []);
-//$this->registerJs(Yii::$app->urlManager->baseUrl.'/js/map.js',\yii\web\View::POS_END);
+$this->registerCssFile(Yii::$app->urlManager->baseUrl.'/map/map.css', []);
+$this->registerJsFile(Yii::$app->urlManager->baseUrl.'/map/map.js',['depends' => [JqueryAsset::className()]]);
 $this->registerJs($this->blocks['JS_END'], \yii\web\View::POS_END);
 $this->registerJs($this->blocks['JS_END1'], \yii\web\View::POS_END);
 ?>
