@@ -10,10 +10,7 @@ use Yii;
  * @property integer $countyId
  * @property string $countyName
  * @property integer $cityCenterId
-<<<<<<< HEAD
  * @property string $isValid
-=======
->>>>>>> origin/dev
  */
 class ComCounty extends \yii\db\ActiveRecord
 {
@@ -31,11 +28,9 @@ class ComCounty extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-<<<<<<< HEAD
             [['cityCenterId'], 'integer'],
             [['countyName'], 'string', 'max' => 600],
             [['isValid'], 'string', 'max' => 3]
-=======
               //区县名称不能为空
             [['countyName'],'required','message'=>'区县名称不能为空'],
              //区县名称是否重复
@@ -45,7 +40,6 @@ class ComCounty extends \yii\db\ActiveRecord
           
             [['cityCenterId'], 'integer'],
             [['countyName'], 'string', 'max' => 200]
->>>>>>> origin/dev
         ];
     }
 
@@ -57,13 +51,10 @@ class ComCounty extends \yii\db\ActiveRecord
         return [
             'countyId' => '区县ID',
             'countyName' => '区县名称',
-<<<<<<< HEAD
             'cityCenterId' => '市区id（扩展备用）',
             'isValid' => '0 无效、1 有效',
-=======
             'cityCenterId' => '市区名称',
             'isValid'=>'是否有效',
->>>>>>> origin/dev
         ];
     }
 }

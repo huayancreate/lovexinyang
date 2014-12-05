@@ -9,31 +9,14 @@ AppAsset::register($this);
 ?>
 <?php $this->beginContent('@app/views/layouts/main.php');?>
 	<div class="col-lg-3">
-<<<<<<< HEAD
-		<ul class="list-group">
- 			<li class="list-group-item">主页面
- 			<span class="badge">14</span>
- 			</li>
-  			<li class="list-group-item">
-  				<?= Html::a('角色管理','index.php?r=comrole/index')?>
-  			</li>
-  			<li class="list-group-item">
-  				<?= Html::a('店铺信息','index.php?r=stostoreinfo/index')?>
-  			</li>
-  			<li class="list-group-item">
-          <?= Html::a('申请分店','index.php?r=shopinforeview/index')?>
-        </li>
-  			<li class="list-group-item">测试1</li>
-		</ul>
-=======
 	<?php
 		$items = [
         // Important: you need to specify url as 'controller/action',
         // not just as 'controller' even if default action is used.
         	['label' => 'Home', 'url' => ['site/index'], 'badge' => '5','items' => [
-            	['label' => 'New Arrivals', 'url' => ['site/index', 'tag' => 'new']],
-            	['label' => 'Most Popular', 'url' => ['product/index', 'tag' => 'popular']],
-            	['label' => 'Most Popular', 'url' => ['product/index', 'tag' => 'popular']],
+            	['label' => '角色管理', 'url' => ['comrole/index', 'tag' => 'new']],
+            	['label' => '店铺信息', 'url' => ['stostoreinfo/index', 'tag' => 'popular']],
+            	['label' => '申请分店', 'url' => ['shopinforeview/index', 'tag' => 'popular']],
             	['label' => 'Most Popular', 'url' => ['product/index', 'tag' => 'popular']],
             	['label' => 'Most Popular', 'url' => ['product/index', 'tag' => 'popular']],
         	]],
@@ -51,7 +34,6 @@ AppAsset::register($this);
     		'items' => $items,
 		]);
 	?>
->>>>>>> origin/dev
 	</div>
 	<div class="col-lg-9">
     	<?= $content ?>

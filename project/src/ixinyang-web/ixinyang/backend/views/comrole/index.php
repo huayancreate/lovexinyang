@@ -59,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'template' => '{edit} {delete}',
                 'buttons'=>[
                     'edit' => function ($url, $model, $key) {
-                        return Html::a('编辑','javascript:void(0)', ['title' => '编辑','onclick'=>'getRoleEdit('.$model->id.');'] ); 
+                        return Html::a('权限设置','javascript:void(0)', ['title' => '权限设置','onclick'=>'getRoleEdit('.$model->id.');'] ); 
                     },
                     // 'delete'=>function($url,$model,$key){
                     //     return Html::a('删除','index.php?r=comrole/delete&id='.$model->id,['title' => '删除'] ); 
