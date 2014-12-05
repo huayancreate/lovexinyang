@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/set_layout_bg" >
+
+        <ImageView
+            android:id="@+id/img_biao_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/txt_biao_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/img_biao_icon"
+            android:layout_marginBottom="10.0dip"
+            android:layout_marginTop="5.0dip"
+            android:layout_toRightOf="@id/img_biao_icon"
+            android:singleLine="true"
+            android:text="金仕堡健身会所"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/txt_biao_title"
+            android:layout_marginBottom="10.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_toRightOf="@id/txt_biao_title"
+            android:background="@drawable/ic_group" />
+
+          <RatingBar
+                    android:id="@+id/rtb_item_store"
+                    style="@style/roomRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/txt_biao_title"
+                    android:layout_below="@id/txt_biao_title"
+                    android:layout_marginBottom="10.0dip"
+                    android:numStars="5"
+                    android:rating="2" >
+                </RatingBar>
+                
+                  <TextView
+                    android:id="@+id/tv_biao_pingjia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_biao_title"
+                    android:layout_marginBottom="10.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_toRightOf="@id/rtb_item_store"
+                    android:text="116人评价"
+                    android:textColor="@color/viewfinder_mask"
+                    android:textSize="@dimen/store_text_size" />
+
+        <TextView
+            android:id="@+id/tv_biao_cate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rtb_item_store"
+            android:layout_marginBottom="10.0dip"
+            android:layout_alignLeft="@id/rtb_item_store"
+            android:text="美发"
+            android:textColor="@color/viewfinder_mask"
+            android:textSize="@dimen/text_12" />
+
+        <TextView
+            android:id="@+id/tv_biao_lu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tv_biao_cate"
+            android:layout_below="@id/rtb_item_store"
+            android:layout_marginBottom="10.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_toRightOf="@id/tv_biao_cate"
+            android:text="蜀山区"
+            android:textColor="@color/viewfinder_mask"
+            android:textSize="@dimen/text_12" />
+
+        <TextView
+            android:id="@+id/tv_biao_near"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv_biao_lu"
+            android:layout_marginRight="10.0dip"
+            android:layout_alignParentRight="true"
+            android:text="9.1km"
+            android:textColor="@color/viewfinder_mask"
+            android:textSize="@dimen/text_12" />
+
+    </RelativeLayout>
+
+</LinearLayout>

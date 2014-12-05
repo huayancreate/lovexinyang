@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/login_bg"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <include layout="@layout/view_page_header" />
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="3.0dp"
+        android:orientation="vertical"
+        android:padding="3.0dp" >
+
+        <RelativeLayout
+            android:id="@+id/share_seting_layout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/txt_share_seting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3.0dp"
+                android:layout_marginTop="3.0dp"
+                android:padding="5.0dp"
+                android:text="分享设置"
+                android:textColor="@color/black"
+                android:textSize="@dimen/store_text_size"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_share_seting"
+                android:src="@drawable/divider" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/share_seting_layout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/share_seting_layout1" >
+
+            <TextView
+                android:id="@+id/txt_sina_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5.0dp"
+                android:layout_marginTop="5.0dp"
+                android:drawableLeft="@drawable/ic_oauth_sina_weibo_authorized"
+                android:drawablePadding="5.0dp"
+                android:gravity="center_vertical"
+                android:padding="5.0dp"
+                android:text="新浪微博"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size" />
+
+            <TextView
+                android:id="@+id/txt_sina_bang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="5.0dp"
+                android:layout_marginTop="5.0dp"
+                android:padding="5.0dp"
+                android:text="未绑定"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/set_text_size" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_sina_share"
+                android:src="@drawable/divider" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/share_seting_layout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/share_seting_layout2" >
+
+            <TextView
+                android:id="@+id/txt_tenxun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5.0dp"
+                android:layout_marginTop="5.0dp"
+                android:drawableLeft="@drawable/ic_oauth_tencent_weibo_authorized"
+                android:drawablePadding="5.0dp"
+                android:gravity="center_vertical"
+                android:padding="5.0dp"
+                android:text="腾讯QQ"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size" />
+
+            <TextView
+                android:id="@+id/txt_tenxun_bang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="5.0dp"
+                android:layout_marginTop="5.0dp"
+                android:padding="5.0dp"
+                android:text="未绑定"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/set_text_size" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_tenxun"
+                android:src="@drawable/divider" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/share_seting_layout4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/share_seting_layout3" >
+
+            <TextView
+                android:id="@+id/txt_weixin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5.0dp"
+                android:layout_marginTop="5.0dp"
+                android:drawableLeft="@drawable/ic_oauth_weixin_authorized"
+                android:drawablePadding="5.0dp"
+                android:gravity="center_vertical"
+                android:padding="5.0dp"
+                android:text="微信"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size" />
+
+            <TextView
+                android:id="@+id/txt_weixin_bang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="5.0dp"
+                android:layout_marginTop="5.0dp"
+                android:padding="5.0dp"
+                android:text="未绑定"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/set_text_size" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_weixin"
+                android:src="@drawable/divider" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

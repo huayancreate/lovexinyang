@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">爱信阳</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="progress_loading">正在加载，请稍后…</string>
+    <string name="progress_login">正在验证数据，请稍后…</string>
+    <string name="request_loading">正在请求服务器，请稍后…</string>
+    <string name="network_show_title">没有可用网络</string>
+    <string name="network_show_msg">是否对网络进行设置？</string>
+    <string name="network_show_setting">设置</string>
+    <string name="network_show_exit">离开</string>
+    <string name="network_show_error">网络异常！</string>
+    <string name="network_show_connectionless">无网络连接！</string>
+    <string name="send_data_error">发送数据失败</string>
+    <string name="update_success">修改成功</string>
+    <string name="dialog_title_getDataFail">获取数据失败</string>
+    <string name="dialog_title_newwork_request_timeout">网络超时，服务器断开或者请检查网络连接是否正常</string>
+    <string name="dialog_title_newData">暂无数据</string>
+    <string name="dialog_title_getUserInfoDataFail">获取用户信息失败</string>
+    <string name="exit">退出</string>
+    <string name="userNameError">用户名不能为空!</string>
+    <string name="passwordError">密码不能为空!</string>
+    <string name="error">出错</string>
+    <string name="mainmenu">主菜单</string>
+    <string name="daiban">待办</string>
+    <string name="more">更多</string>
+    <string name="sinaweibo">新浪微博</string>
+    <string name="qzone">腾讯QQ</string>
+    <string name="login_username_hint">请输入您的账号</string>
+    <string name="userName_password_error">用户名或者密码错误!</string>
+    <string name="login_label_signin">登录</string>
+    <string name="find_password">找回密码</string>
+    <string name="my_vip">我的会员卡</string>
+    <string name="membership_detail">会员卡详情</string>
+    <string name="my_daijin">我的收藏</string>
+    <string name="tuijian">每日推荐</string>
+	<string name="jifen">我的积分</string>
+    <string name="yuding">订单管理</string>
+    <string name="recommend">首页</string>
+    <string name="my_store">商家</string>
+    <string name="my_content">我的</string>
+    <string name="my_more">更多</string>
+    <string name="share_seting">分享设置</string>
+    <string name="about_xinyan">关于爱信阳</string>
+    <string name="what_zhanye_info">"\u0009安徽华研电子科技有限公司成立于2011年10月，位于安徽省合肥市高新技术开发区。华研科技一直专注于软件研发、服务外包及硬件的研发。
+     \u0009华研科技倡导“专业、务实、高效、创新”的企业精神，具有良好的内部机制。优良的工作环境以及良好的激励机制，吸引了一批年轻的、有学识的、具有实干精神的人才。高素质、高水平、高效率的人才是华研科技在当今的软件IT行业长远发展的保障。
+     \u0009公司在项目研发方面的高投入，严要求，让公司具备了相应的创新能力及丰富的研发经验，这将成为您解决疑问和难题的有利保障。未来，公司将会继续专注于高新软件行业，瞄准企业剥离业务、软件开发烂尾项目以及企业边际业务为市场核心点，为客户及社会创造更大的财富。以帮助企业加快信息化建设、IT行业系统集成商和软件开发商，降低开发成本扩大企业利润为目标！"</string>
+    <string name="about_info">"安徽华研电子科技有限公司 版权所有
+ Copyright © 2014-2016"</string>
+    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
+    <string name="erweima">二维码扫描</string>
+    <string name="share_content">ShareSDK for Android不仅集成简单、支持如QQ好友、微信、新浪微博、腾讯微博等所有社交平台，而且还有强大的统计分析管理后台，实时了解用户、信息流、回流率、传播效应等数据，详情见官网http://sharesdk.cn @ShareSDK</string>
+    <string name="share">分享</string>
+    <string name="free_reg">免费注册</string>
+    <string name="quick_login">无账号快捷登录</string>
+    <string name="register">注 册</string>
+    <string name="hint_phone">请输入您的手机号</string>
+    <string name="get_code">获得验证码</string>
+    <string name="read_agreement">我已阅读并接受<a href="file:///android_asset/common_FQA/index.html">爱信阳用户协议</a></string>
+    <string name="film_xuan">全部</string>
+    <string name="hotel_order">未付款</string>
+    <string name="non_consumption">未消费</string>
+    <string name="dai_eva">待评价</string>
+    <string name="refund">退款</string>
+    <string name="group_purchase">商品</string>
+    <string name="use_help">代金券使用帮助</string>
+    <string name="choice_city">选择城市</string>
+    <string name="location_city">当前定位城市</string>
+    <string name="visit_city">最近访问的城市</string>
+    <string name="hot_city">热门城市</string>
+    <string name="all_city">全部城市</string>
+    <string name="choujiang_xiangqing">抽奖详情</string>
+    <string name="add">添加</string>
+    <string name="ok">确定</string>
+    <string name="cancle">取消</string>
+    <string name="group_purchase_detail">商品详情</string>
+    <string name="the_album">点击查看相册</string>
+    <string name="immediate_panic_buying">立即抢购</string>
+    <string name="store_detail">商家详情</string>
+    <string name="query">搜索</string>
+    <string name="tishi">输入店家或分类</string>
+    <string name="my_account">我的账户</string>
+    <string name="modify_user_name">修改用户名</string>
+    <string name="modify_pwd">修改密码</string>
+    <string name="save_verification">安全验证</string>
+    <string name="pay_pwd">支付密码</string>
+    <string name="modify_pay_pwd">修改支付密码</string>
+    <string name="vip_des">VIP1:0~300积分
+        \u0009VIP2:300~1000积分
+          \u0009VIP3:1000~3000积分
+            \u0009VIP4:3000~10000积分
+              \u0009VIP5:10000~30000积分
+                   \u0009VIP6:30000~100000积分</string>
+    <string name="submit_order">提交订单</string>
+    <string name="payment_order">支付订单</string>
+    <string name="pay_ok">确认支付</string>
+    <string name="feedback">意见反馈</string>
+<string name="hint_des">"温馨提示：
+      \u0009当支付不足时，代金券会被优先使用，其次才会使用爱信阳余额；代金券不找零，不兑现，请慎重使用。"
+ </string>
+ <string name="store_evaluation">商家评价</string>
+ <string name="xuzhi">
+  "\u0009有效期：014.8.29 至 2014.11.28（周末、法定节假日通用）
+\u0009使用时间：09:00-21:00
+\u0009预约提醒：电话预约，请至少提前24小时致电商家预约，预约逾期不保留
+\u0009使用规则：每张美团券限制2人入镜，不允许超出人数限制
+\u0009本单需一次性拍摄完成
+\u0009若消费者原因延时拍摄不收费
+\u0009韩国宫专业级资深摄影师一对一全程拍摄服务
+\u0009韩国宫资专业级深化妆造型师一对一全程服务
+\u0009韩国宫专业级资深礼服师全程贴心指导新人整体形象服务
+\u0009韩国宫专业级资深造型师采用专业化妆品全程贴心服务
+\u0009韩国宫专业灯光师全程贴心服务
+\u0009韩国宫专业资深设计师全程贴心设计50张完美精修版精品相片及看样服务
+\u0009团购用户不可同时享受商家其他优惠
+\u0009提供免费WiFi
+\u0009美团券密码一旦验证即代表消费成功，不可申请“随时退款”和“过期退款”，请您合理安排验证时间
+\u0009特别提醒：为了保证您的权益，请选择美团网线上支付，用户与美团以外的任何第三方发生的交易行为如出现问题，美团网都不承担责任，谢谢您的理解与支持！"
+     </string>
+     <string  name="recent_evaluation">半年内评价158</string>
+     <string name="notice">通知</string>
+     <string name="notice_clean">清空</string>
+     <string name="order_detail">订单详情</string>
+     <string name="send">发送</string>
+     <string name="feedback_hint">请输入反馈意见</string>
+     <string name="bind_phone">您绑定的手机号码</string>
+     <string name="bind_new_phone">绑定新手机号</string>
+     <string name="totle_price">总价：</string>
+     <string name="totle_num">数量：</string>
+</resources>

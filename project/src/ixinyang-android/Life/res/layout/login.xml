@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 登录界面 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/citylist_divider"
+    android:orientation="vertical" >
+
+    <!-- 头部导航 -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_weight="0"
+        android:background="@drawable/bg_actionbar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:src="@drawable/abs__ic_ab_back_holo_dark" />
+
+        <ImageButton
+            android:id="@+id/ib_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:background="@drawable/ic_action_home" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="@string/login_label_signin"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/head_text_size" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:id="@+id/ib_mines"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="120dip"
+                android:layout_marginRight="70dip"
+                android:background="@drawable/widget_line"
+                android:contentDescription="@id/ib_mines" />
+
+            <LinearLayout
+                android:id="@+id/ll_findpwd"
+                android:layout_width="70dip"
+                android:layout_height="50dip"
+                android:layout_alignParentRight="true"
+                android:layout_toLeftOf="@id/ib_mines"
+                android:gravity="center" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/find_password"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- 登录界面 -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dip"
+            android:background="@color/bg_table_subtitle"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/et_username"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:layout_marginTop="40dip"
+                android:background="@drawable/mei_edit_style"
+                android:hint="手机号"
+                android:textColorHint="@color/abs__bright_foreground_disabled_holo_dark" />
+
+            <EditText
+                android:id="@+id/et_userpwd"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dip"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:layout_marginTop="40dip"
+                android:background="@drawable/mei_edit_style"
+                android:hint="密码"
+                android:inputType="textPassword"
+                android:textColorHint="@color/abs__bright_foreground_disabled_holo_dark" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_marginTop="10dip"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:background="@drawable/bg_actionbar"
+                android:clickable="true"
+                android:text="@string/login_label_signin"
+                android:textColor="@color/white"
+                android:textSize="@dimen/head_text_size" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="10dip" >
+
+            <Button
+                android:id="@+id/btn_reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:text="@string/free_reg"
+                android:textColor="@color/green"
+                android:textSize="@dimen/default_text_size" />
+
+            <Button
+                android:id="@+id/txt_quick_login_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@null"
+                android:text="@string/quick_login"
+                android:textColor="@color/green"
+                android:textSize="@dimen/default_text_size" />
+        </RelativeLayout>
+    </LinearLayout>
+    <!-- 合作登录 -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:background="@drawable/account_oauth_login_sliding_drawer_header"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/ll_bottom_lg"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5.0dp"
+                android:paddingTop="5.0dp"
+                android:text="使用合作网站账号进行登录"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/default_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_login"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <ImageView
+                android:id="@+id/img_sina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10.0dp"
+                android:layout_marginLeft="20.0dp"
+                android:layout_marginRight="10.0dp"
+                android:layout_marginTop="10.0dp"
+                android:src="@drawable/account_ic_oauth_sina" />
+
+            <ImageView
+                android:id="@+id/img_qq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10.0dp"
+                android:src="@drawable/account_ic_oauth_qq" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

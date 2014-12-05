@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/citylist_divider"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_weight="0"
+        android:background="@drawable/bg_actionbar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:src="@drawable/abs__ic_ab_back_holo_dark" />
+
+        <ImageButton
+            android:id="@+id/imgbu_fanhui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:background="@drawable/ic_action_home" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="@string/submit_order"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/head_text_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10.0dip"
+        android:background="@drawable/set_layout_bg"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="12.0dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上岛咖啡2人餐"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/default_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="98元"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/default_text_size" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5.0dip"
+            android:layout_marginTop="5.0dip"
+            android:background="@drawable/divider"
+            android:scaleType="centerCrop" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="6.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="6.0dip" >
+
+            <TextView
+                android:id="@+id/tv_totle_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="8.0dip"
+                android:text="@string/totle_num"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/default_text_size" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/tv_minus_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_zoom_out"
+                    android:gravity="center_vertical" />
+
+                <EditText
+                    android:id="@+id/et_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/tv_minus_number"
+                    android:layout_marginLeft="5.0dip"
+                    android:layout_marginRight="5.0dip"
+                    android:layout_toRightOf="@id/tv_minus_number"
+                    android:background="@drawable/mei_edit_style"
+                    android:gravity="center"
+                    android:inputType="numberSigned"
+                    android:text="1"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/default_text_size" />
+
+                <TextView
+                    android:id="@+id/tv_add_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/tv_minus_number"
+                    android:layout_toRightOf="@id/et_number"
+                    android:background="@drawable/ic_zoom_in"
+                    android:gravity="center_vertical" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5.0dip"
+            android:layout_marginTop="5.0dip"
+            android:background="@drawable/divider"
+            android:scaleType="centerCrop" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="12.0dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/totle_price"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/default_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="98元"
+                android:textColor="@color/red_price"
+                android:textSize="@dimen/default_text_size" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5.0dip"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginTop="5.0dip"
+        android:text="@string/bind_phone"
+        android:textColor="@color/text_color_gray"
+        android:textSize="@dimen/city_16_text" />
+
+    <LinearLayout
+        android:id="@+id/ll_bangphone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10.0dip"
+        android:background="@drawable/set_layout_bg"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="12.0dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="138****7363"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/default_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:drawableRight="@drawable/ic_global_arrow_right_2px"
+                android:text="@string/bind_new_phone"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/default_text_size" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_submit_order"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20.0dip"
+        android:background="@drawable/shape_fe9900"
+        android:gravity="center"
+        android:paddingBottom="10.0dip"
+        android:paddingTop="10.0dip"
+        android:text="@string/submit_order"
+        android:textColor="@color/white"
+        android:textSize="@dimen/group_purchase_title" />
+
+</LinearLayout>

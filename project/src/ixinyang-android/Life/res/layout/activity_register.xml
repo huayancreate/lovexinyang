@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/login_bg" >
+
+    <FrameLayout
+        android:id="@+id/frame_layout_reg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <include layout="@layout/view_page_header" />
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/reg_div"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/frame_layout_reg"
+        android:layout_marginTop="20.0dp"
+        android:visibility="visible" >
+
+        <!-- 账号 -->
+
+        <EditText
+            android:id="@+id/edit_phone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="@string/hint_phone"
+            android:inputType="phone"
+            android:padding="15.0dip"
+            android:singleLine="true"
+            android:textColor="@color/login_edit"
+            android:textSize="@dimen/default_text_size" />
+
+        <TextView
+            android:id="@+id/check_code"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_phone"
+            android:layout_marginLeft="45.0dip"
+            android:layout_marginRight="45.0dip"
+            android:layout_marginTop="30.0dip"
+            android:background="@drawable/login_button_style"
+            android:gravity="center"
+            android:paddingBottom="10.0dp"
+            android:paddingTop="10.0dp"
+            android:text="@string/get_code"            
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/head_text_size" />
+
+        <CheckBox
+            android:id="@+id/ck_xieyi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/check_code"
+            android:layout_marginLeft="45.0dip"
+            android:layout_marginTop="10.0dip"
+            android:checked="true"
+            android:gravity="center"
+            android:paddingBottom="10.0dp"
+            android:paddingTop="10.0dp"
+            android:text="@string/read_agreement"
+            android:textColor="@color/viewfinder_mask"
+            android:textSize="@dimen/default_text_size" />
+    </RelativeLayout>
+
+</RelativeLayout>

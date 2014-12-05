@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_store"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/citylist_divider"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/bg_actionbar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/ll_img111"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dip"
+                android:src="@drawable/abs__ic_ab_back_holo_dark" />
+
+            <ImageView
+                android:id="@+id/ib_returns"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_action_home" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5.0dip"
+            android:layout_toRightOf="@id/ll_img111"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dip"
+                android:text="@string/store_detail"
+                android:textColor="@color/white"
+                android:textSize="@dimen/head_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical" >
+
+            <include layout="@layout/top_right_collection" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp" >
+
+                <ImageView
+                    android:id="@+id/img_blumn"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/icon_luncher_big" />
+
+                <TextView
+                    android:id="@+id/txt_shop_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/img_blumn"
+                    android:layout_marginBottom="10.0dip"
+                    android:layout_marginTop="15.0dip"
+                    android:layout_toRightOf="@id/img_blumn"
+                    android:singleLine="true"
+                    android:text="晨色宝贝"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/rtb_store"
+                    style="@style/roomRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/txt_shop_title"
+                    android:layout_below="@id/txt_shop_title"
+                    android:layout_marginBottom="10.0dip"
+                    android:numStars="5"
+                    android:rating="1.5" >
+                </RatingBar>
+
+                <TextView
+                    android:id="@+id/tv_fenshu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_shop_title"
+                    android:layout_marginBottom="10.0dip"
+                    android:layout_marginLeft="5.0dip"
+                    android:layout_toRightOf="@id/rtb_store"
+                    android:text="1.5分"
+                    android:textColor="@color/viewfinder_mask"
+                    android:textSize="@dimen/store_text_size" />
+
+                <TextView
+                    android:id="@+id/tv_pingjia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_shop_title"
+                    android:layout_marginBottom="10.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_toRightOf="@id/tv_fenshu"
+                    android:text="16人评价"
+                    android:textColor="@color/viewfinder_mask"
+                    android:textSize="@dimen/store_text_size" />
+
+                <ImageView
+                    android:id="@+id/vip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/rtb_store"
+                    android:layout_below="@id/rtb_store"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5.0dip"
+                    android:paddingTop="5.0dip"
+                    android:src="@drawable/vip" />
+
+                <TextView
+                    android:id="@+id/tv_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rtb_store"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_toRightOf="@id/vip"
+                    android:background="@drawable/shape_fe9900"
+                    android:paddingBottom="8.0dip"
+                    android:paddingLeft="15.0dip"
+                    android:paddingRight="15.0dip"
+                    android:paddingTop="8.0dip"
+                    android:text="会员卡"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/set_text_size" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10.0dip"
+                android:background="@drawable/divider"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tv_dianhua"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:drawableLeft="@drawable/ic_business_detail_phone"
+                android:drawablePadding="5.0dip"
+                android:drawableRight="@drawable/ic_global_arrow_right_2px"
+                android:gravity="center_vertical"
+                android:text="0551-62108116"
+                android:textColor="@color/viewfinder_mask"
+                android:textSize="@dimen/store_text_size" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10.0dip"
+                android:background="@drawable/divider"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tv_dizhi"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:drawableLeft="@drawable/ic_addr"
+                android:drawablePadding="5.0dip"
+                android:drawableRight="@drawable/ic_global_arrow_right_2px"
+                android:gravity="center_vertical"
+                android:text="瑶海区长江东路1137号圣大国际商贸中心708.709室"
+                android:textColor="@color/viewfinder_mask"
+                android:textSize="@dimen/store_text_size" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10.0dip"
+                android:background="@drawable/divider"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginTop="10.0dip"
+                android:text="本店所有商品"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/default_text_size" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:background="@drawable/cursor"
+                android:scaleType="centerCrop" />
+
+            <ListView
+                android:id="@+id/lv_near_store"
+                android:layout_width="fill_parent"
+                android:layout_height="520.0dip"
+                android:layout_margin="10.0dip"
+                android:divider="@null"
+                android:scrollbars="none" >
+            </ListView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginTop="10.0dip"
+                android:text="评价"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/default_text_size" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:layout_marginTop="5.0dip"
+                android:background="@drawable/cursor"
+                android:scaleType="centerCrop" />
+
+            <ListView
+                android:id="@+id/lv_evaluation"
+                android:layout_width="fill_parent"
+                android:layout_height="350.0dip"
+                android:layout_margin="10.0dip"
+                android:divider="@drawable/divider"
+                android:scrollbars="none" >
+            </ListView>
+
+            <TextView
+                android:id="@+id/tv_moreping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="10.0dip"
+                android:background="@drawable/shape_ff32b9aa"
+                android:paddingBottom="8.0dip"
+                android:paddingLeft="15.0dip"
+                android:paddingRight="15.0dip"
+                android:paddingTop="8.0dip"
+                android:text="查看半年内426条评价"
+                android:textColor="@color/white"
+                android:textSize="@dimen/set_text_size" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

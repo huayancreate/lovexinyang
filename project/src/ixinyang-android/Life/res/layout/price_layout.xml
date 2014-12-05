@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/price_layout"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="55.0dip"
+        android:layout_gravity="center_vertical"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_old_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="2.0dip"
+            android:layout_marginTop="11.0dip"
+            android:text="98"
+            android:textColor="@color/green"
+            android:textSize="@dimen/price_text_size"/>
+
+        <TextView
+            android:id="@+id/tv_yuan12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tv_old_price"
+            android:layout_marginBottom="10.0dip"
+            android:layout_toRightOf="@id/tv_old_price"
+            android:text="元"
+            android:textColor="@color/viewfinder_mask"
+            android:textSize="@dimen/store_text_size" />
+
+        <TextView
+            android:id="@+id/tv_new_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tv_old_price"
+            android:layout_marginBottom="2.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="5.0dip"
+            android:layout_marginTop="20.0dip"
+            android:layout_toRightOf="@id/tv_yuan12"
+            android:gravity="center"
+            android:text="278元"
+            android:textColor="@color/text_normal"
+            android:textSize="@dimen/store_text_size" />
+
+        <TextView
+            android:id="@+id/tv_buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8.0dip"
+            android:layout_marginLeft="5.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="8.0dip"
+            android:background="@drawable/shape_fe9900"
+            android:paddingBottom="8.0dip"
+            android:paddingLeft="15.0dip"
+            android:paddingRight="15.0dip"
+            android:paddingTop="8.0dip"
+            android:text="@string/immediate_panic_buying"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size" />
+    </RelativeLayout>
+
+</LinearLayout>
