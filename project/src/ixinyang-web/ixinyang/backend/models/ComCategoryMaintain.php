@@ -52,18 +52,18 @@ class ComCategoryMaintain extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'parentCategoryId' => 'Parent Category ID',
-            'categoryAttribute' => 'Category Attribute',
-            'categoryFeature' => 'Category Feature',
-            'categoryCode' => 'Category Code',
-            'categoryGrade' => 'Category Grade',
-            'categoryName' => 'Category Name',
-            'categoryType' => 'Category Type',
-            'operatorId' => 'Operator ID',
-            'operatorName' => 'Operator Name',
-            'updateTime' => 'Update Time',
-            'isValid' => 'Is Valid',
-            'sort' => 'Sort',
+            'parentCategoryId' => '父类别',
+            'categoryAttribute' => '类别属性',
+            'categoryFeature' => '类别特性',
+            'categoryCode' => '类别编码',
+            'categoryGrade' => '类别等级',
+            'categoryName' => '类别名称',
+            'categoryType' => '类别类型',
+            'operatorId' => '操作员Id',
+            'operatorName' => '操作员名称',
+            'updateTime' => '更新时间',
+            'isValid' => '状态',
+            'sort' => '排序',
         ];
     }
 }
