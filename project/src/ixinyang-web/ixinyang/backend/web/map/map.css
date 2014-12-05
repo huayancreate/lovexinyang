@@ -1,0 +1,42 @@
+            #preview{
+                border: 1px solid #bfd2e1;
+                width: 490px;
+                height: 368px;
+                font-family: Arial, Helvetica, sans-serif,"宋体";
+            }
+            #map_container{
+                height: 368px;
+            }
+            #float_search_bar{
+                z-index: 2012;
+                position: absolute;
+                width: 490px;
+                height: 31px;
+                background: url("http://dev.baidu.com/wiki/static/map/tuan/images/search_bar.png") repeat-x;
+                background-position: 0 -21px;
+                padding: 3px 0 0 10px;
+            }
+            #float_search_bar label, #float_search_bar span{
+                color: #0787cb;
+                font-size: 14px;
+            }
+            #float_search_bar input{
+                width: 180px;
+                height: 25px;
+                margin-top: 1px;
+            }
+            #float_search_bar input:focus{
+                outline: none;
+            }
+            #float_search_bar button{
+                border: 0;
+                color: white ;
+                width: 77px;
+                height: 25px;
+                background-image: -webkit-linear-gradient(top, #428bca 0%, #2d6ca2 100%);
+                background-image:-o-linear-gradient(top, #428bca 0%, #2d6ca2 100%);
+                border-color: #2b669a;
+                background-position: 0 0;
+                margin-right: 5px;
+                cursor: pointer;
+            }

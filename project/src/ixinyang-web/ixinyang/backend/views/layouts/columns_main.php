@@ -8,7 +8,7 @@ AppAsset::register($this);
 ?>
 <?php AreaDecorator::begin(['viewFile'=>'@app/views/layouts/columns_right.php'])?>
         <?php Block::begin(['id' =>'mainData']);?>
-        	<?= $content ?>
+        	<div>ceshi</div>
         <?php Block::end();?>
 
 <?php AreaDecorator::end();?>

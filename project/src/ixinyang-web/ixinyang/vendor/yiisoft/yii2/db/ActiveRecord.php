@@ -646,4 +646,12 @@ class ActiveRecord extends BaseActiveRecord
 
         return isset($transactions[$scenario]) && ($transactions[$scenario] & $operation);
     }
+
+     public static function updateBySql($tableName,$attributes, $condition = '', $params = [])
+    {
+        $command = static::getDb()->createCommand();
+        $command->update($tableName, $attributes, $condition, $params);
+
+        return $command->execute();
+    }
 }
