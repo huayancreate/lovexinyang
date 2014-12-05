@@ -3,9 +3,9 @@
 namespace backend\controllers; 
 
 use Yii; 
-use backend\models\com_role; 
-use backend\models\Com_Menu;
-use backend\models\Com_MenuRolerelation;
+use backend\models\comrole; 
+use backend\models\ComMenu;
+use backend\models\ComMenuRolerelation;
 use yii\data\ActiveDataProvider; 
 use yii\web\Controller; 
 use yii\web\NotFoundHttpException; 
@@ -16,7 +16,7 @@ use yii\filters\VerbFilter;
 
 
 /** 
- * ComroleController implements the CRUD actions for com_role model. 
+ * ComroleController implements the CRUD actions for comrole model. 
  */ 
 class ComroleController extends Controller
 { 
@@ -33,13 +33,13 @@ class ComroleController extends Controller
     } 
 
     /** 
-     * Lists all com_role models. 
+     * Lists all comrole models. 
      * @return mixed 
      */ 
     public function actionIndex() 
     { 
         $dataProvider = new ActiveDataProvider([ 
-            'query' => com_role::find(), 
+            'query' => ComRole::find(), 
         ]); 
 
         return $this->render('index', [ 
@@ -48,7 +48,7 @@ class ComroleController extends Controller
     } 
 
     /** 
-     * Displays a single com_role model. 
+     * Displays a single comrole model. 
      * @param integer $id
      * @return mixed 
      */ 
@@ -60,13 +60,13 @@ class ComroleController extends Controller
     } 
 
     /** 
-     * Creates a new com_role model. 
+     * Creates a new ComRole model. 
      * If creation is successful, the browser will be redirected to the 'view' page. 
      * @return mixed 
      */ 
     public function actionCreate() 
     { 
-        $model = new com_role(); 
+        $model = new ComRole(); 
 
         if ($model->load(Yii::$app->request->post())) { 
 
@@ -126,7 +126,7 @@ class ComroleController extends Controller
 
         foreach ($menuIdArray as $menuId) {
 
-            $comMenuRole=new Com_MenuRolerelation();
+            $comMenuRole=new ComMenuRolerelation();
             
             $comMenuRole->roleId=$roleId;
             $comMenuRole->menuId=$menuId;
@@ -170,7 +170,7 @@ class ComroleController extends Controller
             $strId=$_POST['menuId'];
             $menuIdArray=$this->stringInArray($strId);  //获菜单ID集合
 
-            $comMenuRole=new Com_MenuRolerelation();
+            $comMenuRole=new ComMenuRolerelation();
             $comMenuRole->del('roleId',$id);
 
             $this->menuRolereationModel($menuIdArray,$id);
@@ -204,7 +204,7 @@ class ComroleController extends Controller
         
         $this->findModel($id)->delete();
 
-        $comMenuRole=new Com_MenuRolerelation();
+        $comMenuRole=new ComMenuRolerelation();
         $comMenuRole->Del("roleId",$id);
         //事务结束
         $transaction->commit();
@@ -213,7 +213,7 @@ class ComroleController extends Controller
     } 
 
     /** 
-     * Finds the com_role model based on its primary key value. 
+     * Finds the ComRole model based on its primary key value. 
      * If the model is not found, a 404 HTTP exception will be thrown. 
      * @param integer $id
      * @return com_role the loaded model 
@@ -221,15 +221,12 @@ class ComroleController extends Controller
      */ 
     protected function findModel($id) 
     { 
-        if (($model = com_role::findOne($id)) !== null) { 
+        if (($model = ComRole::findOne($id)) !== null) { 
             return $model; 
         } else { 
             throw new NotFoundHttpException('The requested page does not exist.'); 
         } 
     } 
-
-
-
 
     //角色授权加载菜单ajax
     protected function getMenuall($id=0)
@@ -237,7 +234,7 @@ class ComroleController extends Controller
         $sql = "SELECT t2.id,t2.menuName AS name,t2.parentMenuId AS pId,(CASE WHEN menuId>=1 THEN 'True' END)AS checked FROM(SELECT * FROM com_menu_rolerelation WHERE roleId=".$id.") AS t1
                 RIGHT JOIN com_menu t2 ON t2.id=t1.menuId";
 
-        $objData=Com_Menu::findBySql($sql)->asArray()->all();
+        $objData=ComMenu::findBySql($sql)->asArray()->all();
 
         return json_encode($objData);
     }

@@ -14,8 +14,12 @@ AppAsset::register($this);
   			<li class="list-group-item">
   				<?= Html::a('角色管理','index.php?r=comrole/index')?>
   			</li>
-  			<li class="list-group-item">测试1</li>
-  			<li class="list-group-item">测试1</li>
+  			<li class="list-group-item">
+  				<?= Html::a('店铺信息','index.php?r=stostoreinfo/index')?>
+  			</li>
+  			<li class="list-group-item">
+          <?= Html::a('申请分店','index.php?r=shopinforeview/index')?>
+        </li>
   			<li class="list-group-item">测试1</li>
 		</ul>
 	</div>
