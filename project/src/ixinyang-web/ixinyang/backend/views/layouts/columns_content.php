@@ -11,7 +11,9 @@ AppAsset::register($this);
  			<li class="list-group-item">主页面
  			<span class="badge">14</span>
  			</li>
-  			<li class="list-group-item">测试1</li>
+  			<li class="list-group-item">
+  				<?= Html::a('角色管理','index.php?r=comrole/index')?>
+  			</li>
   			<li class="list-group-item">测试1</li>
   			<li class="list-group-item">测试1</li>
   			<li class="list-group-item">测试1</li>

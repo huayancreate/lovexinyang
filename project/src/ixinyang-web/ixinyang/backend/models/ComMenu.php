@@ -43,8 +43,6 @@ class ComMenu extends \yii\db\ActiveRecord
             [['menuName'], 'string', 'max' => 50],
             [['isValid'], 'string', 'max' => 1]
         ];
-
-        
     }
 
     /**
@@ -62,5 +60,4 @@ class ComMenu extends \yii\db\ActiveRecord
             'isValid' => '是否有效',
         ];
     }
-
 }
