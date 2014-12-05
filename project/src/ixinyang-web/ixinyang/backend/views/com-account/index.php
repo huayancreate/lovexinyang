@@ -100,11 +100,6 @@ $this->params['breadcrumbs'][] = '账号管理';
     </div>
 </div>
 <?php
-  echo common\hyControl\Map::widget([
-
-]);
-?>
-<?php
 Dialog::begin([
     'id' => 'viewDialog',
     'clientOptions' => ['modal' => true, 'autoOpen' => false],]);

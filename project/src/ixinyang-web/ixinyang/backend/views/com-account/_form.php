@@ -36,8 +36,3 @@ use yii\helpers\ArrayHelper;
     <?php ActiveForm::end(); ?>
 
 </div>
-<?php
-echo common\hyControl\Map::widget([
-
-]);
-?>

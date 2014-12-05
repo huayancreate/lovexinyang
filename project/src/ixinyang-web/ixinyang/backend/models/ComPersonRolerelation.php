@@ -5,24 +5,23 @@ namespace backend\models;
 use Yii;
 
 /**
- * This is the model class for table "com_role".
+ * This is the model class for table "com_person_rolerelation".
  *
  * @property integer $id
- * @property string $creater
  * @property string $updateTime
- * @property integer $roleCode
- * @property string $roleName
+ * @property integer $roleId
+ * @property integer $personId
  * @property string $isValid
- * @property string $updatePerson
+ * @property integer $accountType
  */
-class ComRole extends \yii\db\ActiveRecord
+class ComPersonRolerelation extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'com_role';
+        return 'com_person_rolerelation';
     }
 
     /**
@@ -31,10 +30,8 @@ class ComRole extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['roleName'],'required','message' => '{attribute}不能为空.'],
             [['updateTime'], 'safe'],
-            [['roleCode'], 'integer'],
-            [['creater', 'roleName', 'updatePerson'], 'string', 'max' => 50],
+            [['roleId', 'personId', 'accountType'], 'integer'],
             [['isValid'], 'string', 'max' => 1]
         ];
     }
@@ -46,12 +43,11 @@ class ComRole extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'creater' => '创建人',
             'updateTime' => '更新时间',
-            'roleCode' => '角色编码',
-            'roleName' => '角色',
+            'roleId' => '角色ID',
+            'personId' => '账号ID',
             'isValid' => '是否有效',
-            'updatePerson' => '修改人',
+            'accountType' => '账号类型',
         ];
     }
 }

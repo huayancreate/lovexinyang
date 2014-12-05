@@ -126,7 +126,7 @@ Dialog::begin([
         <label id="longitude" style="display:none"></label>
         <label id="latitude" style="display:none"></label>
         <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
-        <script src="/yii2test/backend/web/assets/map/map.js"></script>
+       
     </div>
 
 <?php
@@ -303,6 +303,7 @@ Dialog::end();
 </script>
 <?php
 $this->registerCssFile(Yii::$app->urlManager->baseUrl.'/css/zTreeStyle.css', []);
+//$this->registerJs(Yii::$app->urlManager->baseUrl.'/js/map.js',\yii\web\View::POS_END);
 $this->registerJs($this->blocks['JS_END'], \yii\web\View::POS_END);
 $this->registerJs($this->blocks['JS_END1'], \yii\web\View::POS_END);
 ?>
