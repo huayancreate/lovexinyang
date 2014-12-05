@@ -21,6 +21,7 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
+        'js/jquery.ztree.all-3.5.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
