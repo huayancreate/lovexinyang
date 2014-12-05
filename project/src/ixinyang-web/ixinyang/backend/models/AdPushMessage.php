@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\models;
+namespace app\models;
 
 use Yii;
 
@@ -51,16 +51,16 @@ class AdPushMessage extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'area' => '地区',
-            'toAge' => '截止年龄',
-            'fromAge' => '起始年龄',
-            'isValid' => '是否有效',
-            'pushIntroduction' => '概述',
-            'pushTime' => '推送时间',
-            'pushDetails' => '详情',
-            'pushSex' => '性别',
-            'messageTopic' => '主题',
-            'membershipGrade' => '会员等级',
+            'area' => 'Area',
+            'toAge' => 'To Age',
+            'fromAge' => 'From Age',
+            'isValid' => 'Is Valid',
+            'pushIntroduction' => 'Push Introduction',
+            'pushTime' => 'Push Time',
+            'pushDetails' => 'Push Details',
+            'pushSex' => 'Push Sex',
+            'messageTopic' => 'Message Topic',
+            'membershipGrade' => 'Membership Grade',
         ];
     }
 }
