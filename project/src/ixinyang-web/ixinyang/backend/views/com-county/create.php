@@ -17,18 +17,19 @@ use yii\helpers\ArrayHelper;
     <?= $form->field($model, 'countyName')->textInput(['maxlength' => 200]) ?>
    
     <?=$form->field($mCity,'cityCenterName')->dropDownList(ArrayHelper::map($mCitys,'id','cityCenterName')) ?>
-
+	
+	<?= $form->field($model, 'isValid')->checkbox() ?>
 <div class="col-lg-offset-5">
 
     <div class="form-group">
-       <!--  <?= Html::submitButton('保存' , ['class' =>'btn btn-success']) ?>
-       <?= Html::button("保存",['id'=>'btnSave','class' =>'btn btn-success']) ?> -->
+      
+       <?= Html::button("保存",['id'=>'btnSave','class' =>'btn btn-success']) ?>
     </div>
 </div>
-<div style="text-align:right;border-top:1px solid #ccc; padding-top:10px;">
+<!-- <div style="text-align:right;border-top:1px solid #ccc; padding-top:10px;">
 	<?= Html::button("保存",['id'=>'btnSave','class' =>'btn btn-success']) ?>
-	<!-- <?= Html::button("取消",['id'=>'btnClose','class' =>'btn btn-success']) ?> -->
-</div>
+	<?= Html::button("取消",['id'=>'btnClose','class' =>'btn btn-success']) ?>
+</div> -->
     <?php ActiveForm::end(); ?>
 
 
@@ -38,7 +39,7 @@ use yii\helpers\ArrayHelper;
 	$("#btnSave").click(function(){
 	        $.ajax({
 	        	type:"POST",
-	        	url:"index.php?r=comcounty/create",
+	        	url:"index.php?r=com-county/create",
 	        	data:$('#createForm').serialize(),
 	        	dataType:'json',
 	        error: function (request) {
@@ -47,9 +48,10 @@ use yii\helpers\ArrayHelper;
 	        success:function(data) {
 	        	if(data.success){
 	        		//当成功后操作。。
+	        		alert('操作成功.');
 	        		$.pjax.reload({container:'#countyGrid'});
 	        	}else{
-	        		alert(data.countyName);
+	        		alert(data.countyName+'\n'+data.cityCenterId);
 	        	}
 	        }
 	    });

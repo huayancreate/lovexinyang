@@ -66,7 +66,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label'=>'商家类型',
                 'value'=>function($model){
                       $comCategoryMaintainModel=ComCategoryMaintain::find()->where(['id'=>$model['storeCategoryId']])->one();
-                      return $comCategoryMaintainModel->categoryName;
+                      if (!empty($comCategoryMaintainModel)) {
+                         return $comCategoryMaintainModel->categoryName;
+                      }
+                      else{
+                            return '';
+                      }
+                      
+                      
                 }
 
             ],

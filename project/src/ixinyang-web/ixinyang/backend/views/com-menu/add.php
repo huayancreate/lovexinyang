@@ -2,37 +2,36 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 ?>
+<div class="com-menu-add">
 
-<div class="com-menu-update">
-
-    <?php $form = ActiveForm::begin(['layout' => 'horizontal','id'=>'updateMenuForm']); ?>
+    <?php $form = ActiveForm::begin(['layout' => 'horizontal','id'=>'addMenuForm']); ?>
 
     <?= $form->field($model, 'menuName')->textInput(['maxlength' => 50]) ?>
 
-    <?= $form->field($model, 'menuUrl')->textArea(['maxlength' => 200]) ?>
+    <?= $form->field($model, 'menuUrl')->textArea(['maxlength' => 200]) ?> 
 
     <?= $form->field($model, 'isValid')->checkbox() ?>
 
+    <input type="hidden" id="parentMenuIdHdn" name="parentMenuIdHdn" value="<?= $model->id ?>"  >
+
+
 <div class="col-lg-7">
     <div class="form-group pull-right">
-        <?= Html::button( '更新', ['class' => 'btn btn-primary','id'=>'btnUpdate','onclick'=>"updateMenuFun($model->id)"]) ?>
+        <?= Html::button( '保存', ['class' => 'btn btn-success','id'=>'btnAdd','onclick'=>"addMenuFun($model->id,$model->isValid)"]) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
 </div>
 
 </div>
-
-
 <script type="text/javascript">
-
-//后台菜单的修改
-function updateMenuFun(id)
+//后台菜单的添加
+function addMenuFun(id,isValid)
 {
     $.ajax({
           type:"POST",
-          url:"index.php?r=com-menu/update&id="+id,
-          data:$('#updateMenuForm').serialize(),      //你的form id
+          url:"index.php?r=com-menu/add&id="+id+"&isValid="+isValid,
+          data:$('#addMenuForm').serialize(),      //你的form id
           dataType:'json',
          error: function (request) {
              alert("Connection error");

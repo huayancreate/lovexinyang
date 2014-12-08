@@ -32,30 +32,59 @@ class ComMenuController extends Controller
      * Lists all ComMenu models.
      * @return mixed
      */
-    public function actionIndex($isValid)
+    public function actionIndex()
     {
+        //初始进入主页时 设置默认值 查询所有 0->无效 1->有效 2->全部
         $model = new ComMenu();
+        $model->isValid=2;
         return $this->render('index', [
-            'model' => $model,'isValid'=>$isValid,
+            'model' => $model,
         ]);
         
     }
 
-    public function actionReload($id,$isValid)
+     /**
+     * Lists all ComMenu models.
+     * @return mixed
+     */
+    public function actionSearch()
+    {
+        $isValid=$_POST["isValid"];
+        $model = new ComMenu();
+        $model->isValid=$isValid;
+        return $this->renderPartial('search', [
+            'model' => $model,
+        ]);
+        
+    }
+
+
+    public function actionAdd($id)
     {
         $model = new ComMenu();
         if ($model->load(Yii::$app->request->post())) {
-          $parentMenuIdHdn=$_POST["parentMenuIdHdn"];
-          $model->parentMenuId=$parentMenuIdHdn;
-          $model->isValid='1';
-          $model->createTime=date("Y-m-d H:i:s");
-          $model->save();
-            return $this->render('index', [
-                'model' => $model,'id'=>$id,'isValid'=>$isValid,
-            ]);
+              if ($model->validate()) {
+                      $parentMenuIdHdn=$_POST["parentMenuIdHdn"];
+                      $model->parentMenuId=$parentMenuIdHdn;
+                      $model->createTime=date("Y-m-d H:i:s");
+                      $model->save();
+
+                      //数据验证成功
+                      $message=$model->getErrors();
+                      $message["success"]=True;
+                      return json_encode($message);
+                }
+                else{
+                       //数据验证失败
+                      $message=$model->getErrors();
+                      $message["success"]=False;
+                      return json_encode($message);
+                }
         }
         else{
-           return $this->renderPartial('reload',['model'=>$model,'id'=>$id]); 
+                $model->isValid='1';
+                $model->id=$id;
+                return $this->renderPartial('add',['model'=>$model]); 
         }
         
     }
@@ -72,15 +101,7 @@ class ComMenuController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new ComMenu model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate($id,$isValid)
-    {
-        
-    }
+   
 
     /**
      * Updates an existing ComMenu model.
@@ -88,21 +109,32 @@ class ComMenuController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id,$isValid)
+    public function actionUpdate($id)
     {
         $model = $this->findModel($id);   
 
         if ($model->load(Yii::$app->request->post()) ) {
+          if ($model->validate()) {
+
              $model->updateTime=date("Y-m-d H:i:s");
              $model->save();
-             $id=null;
-             return $this->render('index', [
-                      'model' => $model,'id'=>@$id,'isValid'=>$isValid,
-                  ]);
+              //数据验证成功
+              $message=$model->getErrors();
+              $message["success"]=True;
+              return json_encode($message);
+           
+          }
+          else{
+                 //数据验证失败
+                  $message=$model->getErrors();
+                  $message["success"]=False;
+                  return json_encode($message);
+          }
         } 
         else {
+             $model->id=$id;
             return $this->renderPartial('update', [
-                'model' => $model,'id'=>@$id,
+                'model' => $model,
             ]);
         }
     }
@@ -127,12 +159,22 @@ class ComMenuController extends Controller
              $model->isValid='0';
              $model->save();  
         
-         $id=null;
+         $model->isValid=$isValid;
          return $this->render('index', [
-                'model' => $model,'id'=>$id,'isValid'=>$isValid,
+                'model' => $model,
             ]);
         
        
+    }
+
+    public function actionActive($id,$isValid)
+    {
+        $model = new ComMenu();
+        ComMenu::updateBySql('com_menu',['isValid'=>1,'updateTime'=>date("Y-m-d H:i:s")], ['id' =>$id]);
+        $model->isValid=$isValid;
+        return $this->render('index', [
+                'model' => $model,
+            ]);
     }
 
     /**

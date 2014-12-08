@@ -18,7 +18,7 @@ use yii\filters\VerbFilter;
 /**
  * ComcountyController implements the CRUD actions for ComCounty model.
  */
-class ComcountyController extends Controller
+class ComCountyController extends Controller
 {
     public function behaviors()
     {
@@ -94,11 +94,9 @@ class ComcountyController extends Controller
                        $cId=(int)$ComCity->cityCenterName;
                        $model->cityCenterId=$cId;
                   }
-                $model->isValid='1';
+                
                 $model->save();
-               
-                //添加成功之后跳转到列表画面  
-               // return  $this->redirect('index.php?r=comcounty/index');
+                
                 $message=$model->getErrors();
                 $message["success"]=True;
 
@@ -113,6 +111,7 @@ class ComcountyController extends Controller
         } 
         else 
         {
+             $model->isValid='1';
              return $this->renderPartial('create', [
                     'model' => $model,
                     'mCity'=>$ComCity,'mCitys'=>$ComCitys,
@@ -130,19 +129,29 @@ class ComcountyController extends Controller
     public function actionUpdate($id)
     {
         $ComCity=new ComCityCenter();
-        $ComCitys= ComCityCenter::find()->all(); 
+        $ComCitys= ComCityCenter::find()->all();
 
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
+            if ($model->validate()) {
+                if($ComCity->load(Yii::$app->request->post())){
+                             $cId=(int)$ComCity->cityCenterName;
+                             $model->cityCenterId=$cId;
+                         }
+                $model->save();
+                $message=$model->getErrors();
+                $message["success"]=True;
 
-            if($ComCity->load(Yii::$app->request->post())){
-                         $cId=(int)$ComCity->cityCenterName;
-                         $model->cityCenterId=$cId;
-                     }
-            $model->save();
-         //修改成功之后跳转到列表画面  
-         return  $this->redirect('index.php?r=comcounty/index');
+                return json_encode($message);
+            }
+            else{
+                 //数据验证失败
+                  $message=$model->getErrors();
+                  $message["success"]=False;
+                 return json_encode($message);
+            }
+         
             
         } else {
             return $this->renderPartial('update', [
@@ -163,7 +172,13 @@ class ComcountyController extends Controller
         ComCounty::updateBySql('com_county',['isValid'=>0],['countyId'=>$id]);
         ComBusinessDistrict::updateBySql('com_business_district',['isValid'=>0],['countyId'=>$id]);
         
-        return  $this->redirect('index.php?r=comcounty/index');
+        return  $this->redirect('index.php?r=com-county/index');
+    }
+
+    public function actionActive($id)
+    {
+        ComCounty::updateBySql('com_county',['isValid'=>1], ['countyId' =>$id]);
+        return $this->render('index');
     }
 
     /**
@@ -193,20 +208,29 @@ class ComcountyController extends Controller
        $ComBusinessDistrict=$this->findBusinessdistrictmodel($businessDistrictId);
 
         if ($ComBusinessDistrict->load(Yii::$app->request->post())) {
+           if ($ComBusinessDistrict->validate()) {
+                if ($model->load(Yii::$app->request->post())) {
+                          $countyId=(int)$model->countyName;
+                          $ComBusinessDistrict->countyId=$countyId;
+                        }
 
-            if ($model->load(Yii::$app->request->post())) {
-                      $countyId=(int)$model->countyName;
-                      $ComBusinessDistrict->countyId=$countyId;
-                    }
+                $ComBusinessDistrict->save();
 
-            $ComBusinessDistrict->save();
-            //修改成功之后跳转到列表画面  
-         return  $this->redirect('index.php?r=comcounty/index');
+                $message=$ComBusinessDistrict->getErrors();
+                $message["success"]=True;
+                return json_encode($message);
+               
+           }
+           else{
+                $message=$ComBusinessDistrict->getErrors();
+                $message["success"]=False;
+                return json_encode($message);
+           }
             
-        } else {
+        } else {//初始进入修改页面
             return $this->renderPartial('businessdistrictupdate', [
                 'model' => $model,'models'=>$models,'ComBusinessDistrict'=>$ComBusinessDistrict,
-                'countyId'=>$ComBusinessDistrict->countyId,
+                
             ]);
         }
     }
@@ -232,7 +256,7 @@ class ComcountyController extends Controller
     { 
         $result=ComBusinessDistrict::updateBySql('com_business_district',['isValid'=>0],['businessDistrictId'=>$businessDistrictId]);
         
-        return  $this->redirect('index.php?r=comcounty/index');
+        return  $this->redirect('index.php?r=com-county/index');
       
 
     }
@@ -280,22 +304,34 @@ class ComcountyController extends Controller
          //商圈的添加部分
          //商圈
          if ($ComBusinessDistrict->load(Yii::$app->request->post())) {
+              if ($ComBusinessDistrict->validate()) {
+                
                   if ($model->load(Yii::$app->request->post())) {
-                    
+                    //获取下拉框的值
                       $countyId=(int)$model->countyName;
                       $ComBusinessDistrict->countyId=$countyId;
                     }
-                   
                     $ComBusinessDistrict->isValid='1';
                     $ComBusinessDistrict->save();
 
-                    return $this->actionIndex();
+                    $message=$ComBusinessDistrict->getErrors();
+                    $message["success"]=True;
+                    return json_encode($message);
+               
+           }
+           else{
+                $message=$ComBusinessDistrict->getErrors();
+                $message["success"]=False;
+                return json_encode($message);
+           }
                     
          }
          else{
-                 return  $this->renderPartial('_businessdistrictform',[
+                $ComBusinessDistrict->countyId=$countyId;
+                $ComBusinessDistrict->isValid='1';
+                 return  $this->renderPartial('businessdistrictcreate',[
                                  'ComBusinessDistrict'=>$ComBusinessDistrict,'model' => $model,'models'=>$models,
-                                 'countyId'=>$countyId,
+                            
                                  ]) ;
             }
      }

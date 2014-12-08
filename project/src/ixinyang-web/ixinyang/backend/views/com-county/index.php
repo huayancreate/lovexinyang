@@ -4,10 +4,11 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\LinkPager;
 use backend\models\ComCityCenter;
-use backend\controllers\ComcountyController;
+use backend\controllers\ComCountyController;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
 use yii\jui\Dialog;
+use yii\web\jqueryAsset;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -26,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn',],
-            [
+           /* [
                 'attribute'=>'countyId',
                 'label'=>'区县id',
                 'value'=>function($data){
@@ -34,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                    return $data['countyId'];
                 },
                // 'visible' => false
-            ],
+            ],*/
 
             'countyName',
             [
@@ -42,7 +43,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label'=>'市区名称',
                 'value'=>function($data){
                   $ComCityCenterModel=ComCityCenter::find()->where(['id'=>$data['cityCenterId']])->one();
-                  return $ComCityCenterModel->cityCenterName;
+                  if (!empty($ComCityCenterModel)) {
+                      return $ComCityCenterModel->cityCenterName;
+                  }
+                  else{
+                      return '';
+                  }
+                  
                 },
             ],
             [
@@ -64,7 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     },
                 'delete'=>function($url,$model){
                               return Html::a('<span class="glyphicon glyphicon-trash"></span>',
-                              Yii::$app->urlManager->createUrl(['comcounty/delete','id' => $model['countyId']]),
+                              Yii::$app->urlManager->createUrl(['com-county/delete','id' => $model['countyId']]),
                                 [
                                  'title' => Yii::t('yii', 'Delete'),
                                 'data-pjax' => '0',
@@ -100,9 +107,12 @@ background-color: #B0E0E6;
 } 
 </style>
 
-<script src="/ixinyang-web/ixinyang/backend/web/assets/47b59c7b/jquery.js"></script>
+
 
 <script type="text/javascript"> 
+<?php
+  $this->beginBlock('JS_END');
+?>
 $(function(){
     $("table").removeClass("table-striped");
 
@@ -115,7 +125,7 @@ $(function(){
                     autoOpen:false,
                     modal: true, 
                     width: 450,
-                    height:250,
+                    height:300,
                     title:"区县添加",
                     show: "blind",             //show:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果
                     hide: "explode",       //hide:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果
@@ -126,16 +136,9 @@ $(function(){
                         overflow: 'auto'
                     },
                 buttons: {
-                  /*"submit": function(){
-                    add(id,isValidDropStr);
-                  },
-                  Cancel: function() {
-                    $("#dialogId").dialog( "close" );
-                  }*/
+                 
                 },
                 close: function () {
-                   // $("#formtest input").val('');
-                   
                     $("#dialogId").dialog("close");
                 },  
               });
@@ -158,7 +161,7 @@ $("table tr:gt(0)").bind("click",function(){
  function dosubmit(id){
      $.ajax({
          type:"post",
-         url:"index.php?r=comcounty/selectinfo&countyId="+id,
+         url:"index.php?r=com-county/selectinfo&countyId="+id,
          success:function(data) {
              $("#businessdistrictDiv").html(data);
          }
@@ -169,7 +172,7 @@ $("table tr:gt(0)").bind("click",function(){
 function getLoadInfo(){
      $.ajax({
          type:"post",
-         url:"index.php?r=comcounty%2Fcreate",
+         url:"index.php?r=com-county%2Fcreate",
          success:function(data) {
             $("#dialogId").html(data);
          }
@@ -180,7 +183,7 @@ function getLoadInfo(){
 function getUpdateInfo(id){
     $.ajax({
          type:"get",
-         url:"index.php?r=comcounty%2Fupdate&id="+id,
+         url:"index.php?r=com-county%2Fupdate&id="+id,
          success:function(data) {
             $("#dialogId").html(data);
          }
@@ -194,7 +197,7 @@ function updateFunction(id){
                     autoOpen:false,
                     modal: true, 
                     width: 450,
-                    height:250,
+                    height:300,
                     title:"区县修改",
                     show: "blind",             //show:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果
                     hide: "explode",       //hide:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果
@@ -205,21 +208,16 @@ function updateFunction(id){
                         overflow: 'auto'
                     },
                 buttons: {
-                  /*"submit": function(){
-                    add(id,isValidDropStr);
-                  },
-                  Cancel: function() {
-                    $("#dialogId").dialog( "close" );
-                  }*/
                 },
                 close: function () {
-                    //$("#formtest input").val('');
-                    
                     $("#dialogId").dialog("close");
                 },  
               });
 }
 
+<?php
+  $this->endBlock();
+?>
 </script>
  <?php 
       Dialog::begin([
@@ -232,4 +230,8 @@ function updateFunction(id){
 
 <?php
     Dialog::end();
+?>
+
+<?php 
+$this->registerJs($this->blocks['JS_END'], \yii\web\View::POS_END);
 ?>

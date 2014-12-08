@@ -69,7 +69,7 @@ use yii\jui\Dialog;
                 <label class="control-label col-sm-3" for="storeCategoryId">商家类型</label>
                 
                 <div class="col-sm-6" style="position: relative">
-                    <input type="text" id="storeCategoryId" value=<?php echo "'". $category->categoryName."'"?> onclick="showMenu()" class="form-control">
+                    <input type="text" id="storeCategoryId" value=<?php echo !empty($category) ?  "'". $category->categoryName."'" : "''"  ?>  onclick="showMenu()" class="form-control">
 
                     <div id="menuContent" class="menuContent"
                          style="display:none; position:absolute;z-index:1;width: 80%;">

@@ -33,9 +33,9 @@ class ComBusinessDistrict extends \yii\db\ActiveRecord
               //去掉前后空格
             [['businessDistrictCode','businessDistrictName'],'trim'],
             //商圈编码、商圈名称不能为空
-            [['businessDistrictCode','businessDistrictName'],'required','message'=>'{attribute}不能为空'],
+            [['businessDistrictName'],'required','message'=>'{attribute}不能为空'],
              //商圈编码、商圈名称是否重复
-            [['businessDistrictCode','businessDistrictName'],'unique','message'=>'{attribute}已经存在'],
+            [['businessDistrictName'],'unique','message'=>'{attribute}已经存在'],
             [['countyId', 'businessDistrictCode'], 'integer'],
             [['businessDistrictName'], 'string', 'max' => 200],
             [['isValid'], 'string', 'max' => 1]

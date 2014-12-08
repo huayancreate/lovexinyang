@@ -30,13 +30,14 @@ class ComCounty extends \yii\db\ActiveRecord
         return [
             [['cityCenterId'], 'integer'],
             [['countyName'], 'string', 'max' => 600],
-            [['isValid'], 'string', 'max' => 3]
+            [['isValid'], 'string', 'max' => 3],
+              //去掉前后空格
+            [['countyName'],'trim'],
               //区县名称不能为空
             [['countyName'],'required','message'=>'区县名称不能为空'],
              //区县名称是否重复
             ['countyName','unique','message'=>'区县名称已经存在'],
-             //去掉前后空格
-            [['countyName'],'trim'],
+           
           
             [['cityCenterId'], 'integer'],
             [['countyName'], 'string', 'max' => 200]

@@ -20,6 +20,7 @@ use yii\jui\Dialog;
     <div class="col-lg-8">
     <?= Html::button('添加', ['class' =>'btn btn-success','onclick'=>"businessdisAdd(".$countyId.")"]) ?>
     <?= GridView::widget([
+        'id'=>'busidessGrid',
         'dataProvider' => $ComBusinessDistrictdataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
@@ -59,7 +60,7 @@ use yii\jui\Dialog;
                     },
                 'delete'=>function($url,$ComBusinessDistrict){
                               return Html::a('<span class="glyphicon glyphicon-trash"></span>',
-                              Yii::$app->urlManager->createUrl(['comcounty/businessdistrictdelete','businessDistrictId' => $ComBusinessDistrict['businessDistrictId']]),
+                              Yii::$app->urlManager->createUrl(['com-county/businessdistrictdelete','businessDistrictId' => $ComBusinessDistrict['businessDistrictId']]),
                                 [
                                  'title' => Yii::t('yii', 'Delete'),
                                 'data-pjax' => '0',
@@ -119,7 +120,7 @@ function businessdisAdd(countyId){
 function getBusinessdisLoadInfo(countyId){
      $.ajax({
          type:"post",
-         url:"index.php?r=comcounty/businessdistrictadd&countyId="+countyId,
+         url:"index.php?r=com-county/businessdistrictadd&countyId="+countyId,
          success:function(data) {
             $("#dialogId").html(data);
          }
@@ -161,7 +162,7 @@ function updateBusdisFun(busdisId){
 function getBusinessdisUpdateInfo(busdisId){
      $.ajax({
          type:"get",
-         url:"index.php?r=comcounty/businessdistrictupdate&businessDistrictId="+busdisId,
+         url:"index.php?r=com-county/businessdistrictupdate&businessDistrictId="+busdisId,
          success:function(data) {
             $("#dialogId").html(data);
          }
