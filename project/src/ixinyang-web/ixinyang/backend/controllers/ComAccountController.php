@@ -13,6 +13,7 @@ use backend\models\ComAccount;
 use backend\models\ComAccountSearch;
 use backend\models\ComRole;
 use backend\models\ComPersonRolerelation;
+use yii\base\Exception;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -56,18 +57,15 @@ class ComAccountController extends Controller
      */
     public function actionView($id)
     {
-        $relation = ComPersonRolerelation::find()->where(['personId' => $id])->one();
-        $mRole = ComRole::find()->where(['id' => $relation->roleId])->one();
-        if ($mRole == null) {
-            $mRole =  new ComRole();
-            $mRole->roleName = '无';
-        } else {
-            if ($mRole->isValid == 0) {
-                $mRole->roleName = '';
-            }
+        $relationArr = ComPersonRolerelation::find()->where(['personId' => $id])->all();
+        $roleName = "";
+        foreach ($relationArr as $relation) {
+            $mRole = ComRole::find()->where(['id' => $relation->roleId])->one();
+            $roleName = $roleName . $mRole->roleName . ',';
         }
+        $roleName = substr($roleName, 0, -1);//截取字符串最后一个‘,’字符
         return $this->renderPartial('view', [
-            'model' => $this->findModel($id), 'role' => $mRole
+            'model' => $this->findModel($id), 'role' => $roleName
         ]);
     }
 
@@ -79,53 +77,21 @@ class ComAccountController extends Controller
     public function actionCreate()
     {
         $model = new ComAccount();
-        $roles = ComRole::findBySql('SELECT * FROM com_role where isValid=1 ')->all();
-        $role = new ComRole();
-        $rolerelation = new ComPersonRolerelation();
-        $model->sex = '男';
-
         $searchModel = new ComAccountSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        $role = new ComRole();
+
         if ($model->load(Yii::$app->request->post())) {
-
-            date_default_timezone_set('PRC');
-            $model->createTime = date("Y-m-d H:i:s");
-            $model->updateTime = date("Y-m-d H:i:s");
-            $model->password = '123456';
-            $model->isFirstLogin = '1';
-            $model->accountStatus = 1;
-
-            $rolerelation->updateTime = date("Y-m-d H:i:s");
-            $rolerelation->isValid = '1';
-            $rolerelation->accountType = 1;
-
             if ($role->load(Yii::$app->request->post())) {
-                $mId = (int)$role->roleName;
-                $rolerelation->roleId = $mId;
+                $roleIdArr = $this->stringInArray($role->roleName);
+                $model->saveUserAccount($roleIdArr);
+                $message = $model->getErrors();
+                return json_encode($message);
             }
 
-            if ($model->save()) {
-                $rolerelation->personId = $model['id'];
-                if ($rolerelation->save()) {
-//                    return $this->redirect(['create',
-//                    'model' => $model,
-//                    'searchModel' => $searchModel,
-//                    'dataProvider' => $dataProvider,
-//                    'roles'=>$roles,
-//                    'role'=>$role,
-//                    ]);
-                }
-            } else {
-                return $this->renderPartial('create', [
-                    'model' => $model,
-                    'searchModel' => $searchModel,
-                    'dataProvider' => $dataProvider,
-                    'roles' => $roles,
-                    'role' => $role,
-                ]);
-            }
         } else {
+            $roles = $model->getAllRole();
             return $this->renderPartial('create', [
                 'model' => $model,
                 'searchModel' => $searchModel,
@@ -146,42 +112,15 @@ class ComAccountController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $roles = ComRole::findBySql('SELECT * FROM com_role where isValid=1 ')->all();
         $role = new ComRole();
-        $roleRelation = ComPersonRolerelation::find()->where(['personId' => $model->id])->one();
-        if ($roleRelation != null) {
-            $myRole = ComRole::find()->where(['id' => $roleRelation->roleId])->one();
-            $roleId = $roleRelation->roleId;
-            if ($myRole != null) {
-                if ($myRole->isValid == 0) {
-                    $roleId = 0;
-                }
-            }
-        }
-        if ($role->load(Yii::$app->request->post())) {
-            $mId = (int)$role->roleName;
-            $roleRelation->roleId = $mId;
-        }
-        if ($role == null) {
-            $role = new ComRole();
-            $role->roleName = "";
-        }
         if ($model->load(Yii::$app->request->post())) {
-            date_default_timezone_set('PRC');
-            $model->updateTime = date("Y-m-d H:i:s");
-            $roleRelation->updateTime = date("Y-m-d H:i:s");
-
-            if ($model->save() && $roleRelation->save()) {
-                //return $this->redirect(['view', 'id' => $model->id]);
-            } else {
-                return $this->renderPartial('update', [
-                    'model' => $model,
-                    'roles' => $roles,
-                    'role' => $role,
-                    'roleId' => $roleId,
-                ]);
+            if ($role->load(Yii::$app->request->post())) {
+                $roleIdArr = $this->stringInArray($role->roleName);
+                $model->updateAccount($roleIdArr);
             }
         } else {
+            $roles = $model->getAllRole();
+            $roleId = $model->getAllRoleId($id);
             return $this->renderPartial('update', [
                 'model' => $model,
                 'roles' => $roles,
@@ -189,6 +128,7 @@ class ComAccountController extends Controller
                 'roleId' => $roleId,
             ]);
         }
+
     }
 
     /**
@@ -199,13 +139,8 @@ class ComAccountController extends Controller
      */
     public function actionDelete($id)
     {
-        $myModel = $this->findModel($id);
-        date_default_timezone_set('PRC');
-        $myModel->updateTime = date("Y-m-d H:i:s");
-        $myModel->accountStatus = 0;
-        if ($myModel->save()) {
-            //return $this->redirect(['create']);
-        }
+        $model = $this->findModel($id);
+        $model->deleteAccount($id);
     }
 
     /**
@@ -222,5 +157,16 @@ class ComAccountController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    /**
+     * 字符串转换数组
+     * @param  [type] $str [字符串 1,2,3,4,5,]
+     * @return [type]      [description]
+     */
+    protected function stringInArray($str)
+    {
+        $str = substr($str, 0, -1);//截取字符串最后一个‘,’字符
+        return explode(",", $str); //将字符转换成数组
     }
 }

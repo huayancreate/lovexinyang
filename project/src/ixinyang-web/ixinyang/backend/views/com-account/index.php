@@ -11,6 +11,8 @@ use yii\widgets\LinkPager;
 use backend\models\ComRole;
 use backend\models\ComPersonRolerelation;
 use yii\jui\Dialog;
+use yii\web\JqueryAsset;
+
 
 $this->title = '录入新工号';
 $this->params['breadcrumbs'][] = '账号管理';
@@ -41,16 +43,16 @@ $this->params['breadcrumbs'][] = '账号管理';
                     'filter' => false,
                     'headerOptions' => ['width' => '120'],
                     'value' => function ($model) {
-                        $personRole = ComPersonRolerelation::find()->where(['personId' => $model['id']])->one();
-                        $myRole = ComRole::find()->where(['id' => $personRole->roleId])->one();
-
-                        if ($myRole != null) {
-                            if ($myRole->isValid == 1) {
-                                return $myRole->roleName;
-                            } else {
-                                return '';
+                        $personRole = ComPersonRolerelation::find()->where(['personId' => $model['id']])->all();
+                        $roleName = "";
+                        foreach($personRole as $role){
+                            $myRole = ComRole::find()->where(['id' => $role->roleId])->one();
+                            if($myRole!=null){
+                                $roleName = $roleName.$myRole->roleName.',';
                             }
                         }
+                        $roleName = substr($roleName, 0, -1);
+                        return $roleName;
                     }
                 ],
 
@@ -129,7 +131,7 @@ Dialog::end();
                 overflow: 'auto'
             },
             close: function () {
-                $.pjax.reload({container: '#w0'});
+                //$.pjax.reload({container: '#w0'});
             },
             buttons: {
                 '保存': function () {
@@ -143,12 +145,8 @@ Dialog::end();
             }
         });
 
-        $.getScript("http://api.map.baidu.com/api?v=1.2");
+        //$.getScript("http://api.map.baidu.com/api?v=1.2");
         $("#viewDialog").load(url);
-//        $.post(url, function (result) {
-//
-//
-//        });
     }
 
     function SaveOrUpdate(url){
@@ -162,7 +160,8 @@ Dialog::end();
                 alert("Connection error");
             },
             success: function (data) {
-                $.pjax.reload({container:'#w0'});
+                alert(data);
+                //$.pjax.reload({container:'#w0'});
             }
         });
     }
@@ -186,3 +185,8 @@ Dialog::end();
     }
 
 </script>
+
+<?php
+$this->registerJsFile(Yii::$app->urlManager->baseUrl.'/js/bootstrap-multiselect.js',['depends' => [JqueryAsset::className()]]);
+$this->registerCssFile(Yii::$app->urlManager->baseUrl.'/css/bootstrap-multiselect.css', []);
+?>

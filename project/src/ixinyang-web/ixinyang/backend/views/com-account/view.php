@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute'=>'角色',
                 'format'=>'raw',   
-                'value' =>$role->roleName,          
+                'value' =>$role,
             ],
             'email:email',
             'address',

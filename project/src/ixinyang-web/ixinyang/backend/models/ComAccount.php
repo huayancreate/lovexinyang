@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\base\Exception;
 
 /**
  * This is the model class for table "com_account".
@@ -35,10 +36,10 @@ class ComAccount extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['userName','email', 'nickname','address','phoneNumber'],'trim'],
-            [['userName','email', 'nickname','address','phoneNumber'],'required','message' => '{attribute}不能为空.'],
-            [['email'],'email','message'=>'邮箱格式错误.'],
-            ['userName','unique','message'=>'账号已被使用.'],
+            [['userName', 'email', 'nickname', 'address', 'phoneNumber'], 'trim'],
+            [['userName', 'email', 'nickname', 'address', 'phoneNumber'], 'required', 'message' => '{attribute}不能为空.'],
+            [['email'], 'email', 'message' => '邮箱格式错误.'],
+            ['userName', 'unique', 'message' => '账号已被使用.'],
 
             [['createTime', 'updateTime'], 'safe'],
             [['accountStatus'], 'integer'],
@@ -62,12 +63,125 @@ class ComAccount extends \yii\db\ActiveRecord
             'phoneNumber' => '电话',
             'updateTime' => '更新时间',
             'password' => '密码',
-            'sex' =>'性别',
+            'sex' => '性别',
             'nickname' => '姓名',
             'userName' => '账号',
             'accountStatus' => '状态',
             'address' => '住址',
-            'isFirstLogin'=>'首次登录',
+            'isFirstLogin' => '首次登录',
         ];
+    }
+
+    //保存用户账号与用户角色关联表
+    public function saveUserAccount($roleIdArr)
+    {
+        //事务开始
+        $transaction = $this->getDb()->beginTransaction();
+        try {
+            //1.保存用户数据
+            $this->saveAccount();
+            //2.保存用户与角色关系表
+            $this->saveRelation($roleIdArr);
+            //3.提交
+            $transaction->commit();
+
+        } catch (Exception  $e) {
+            $transaction->rollBack();
+        }
+
+    }
+
+    //删除用户账号
+    public function deleteAccount($id)
+    {
+        $transaction = $this->getDb()->beginTransaction();
+        try {
+            //1.更新用户状态
+            $this->accountStatus = "0";
+            $this->save();
+            //2.删除用户角色关联表
+            $this->DeleteRelation($id);
+            //3.提交
+            $transaction->commit();
+        } catch (Exception $e) {
+            $transaction->rollBack();
+        }
+
+    }
+
+    //更新用户账号
+    public function updateAccount($roleIdArr)
+    {
+        //事务开始
+        $transaction = $this->getDb()->beginTransaction();
+        try {
+            //1.更新用户表
+            $this->update();
+            //2.删除关联后重新添加关系
+            $relationAttr = ComPersonRolerelation::find()->where(["personId" => $this->id])->all();
+            foreach ($relationAttr as $relation) {
+                $relation->delete();
+            }
+            $this->SaveRelation($roleIdArr);
+
+            $transaction->commit();
+        } catch (Exception $e) {
+            $transaction->rollBack();
+        }
+
+    }
+
+    //保存用户与角色关系
+    public function saveRelation($roleIdArr)
+    {
+        if ($this->id != null) {
+            foreach ($roleIdArr as $roleId) {
+                $roleRelation = new ComPersonRolerelation();
+                $roleRelation->roleId = $roleId;
+                $roleRelation->personId = $this->id;
+                $roleRelation->isValid = "1";
+                $roleRelation->updateTime = date("Y-m-d H:i:s");
+                $roleRelation->accountType = "1";
+                $roleRelation->save();
+            }
+        }
+    }
+
+    //保存用户账号
+    public function saveAccount()
+    {
+        $this->createTime = date("Y-m-d H:i:s");
+        $this->updateTime = date("Y-m-d H:i:s");
+        $this->password = '123456';
+        $this->isFirstLogin = '1';
+        $this->accountStatus = 1;
+        $this->save();
+    }
+
+    //删除用户账号与角色关联
+    public function deleteRelation($id)
+    {
+        $relationArr = ComPersonRolerelation::find()->where(['personId' => $id])->all();
+        foreach ($relationArr as $relation) {
+            $relation->delete();
+        }
+    }
+
+    //获取用户拥有的所有角色Id
+    public function getAllRoleId($id)
+    {
+        $relationArr = ComPersonRolerelation::find()->where(['personId' => $id])->all();
+        $roleId = "";
+        foreach ($relationArr as $relation) {
+            $roleId = $roleId . $relation->roleId . ',';
+        }
+        $roleId = substr($roleId, 0, -1);
+        return $roleId;
+    }
+
+    //获取所有角色
+    public function getAllRole()
+    {
+        return ComRole::find()->where(["isValid" => '1'])->all();
     }
 }
