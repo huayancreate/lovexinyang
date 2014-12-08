@@ -556,6 +556,7 @@ CREATE TABLE `cus_order_details` (
   `totalPrice` float DEFAULT NULL COMMENT '商品总价',
   `rebate` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '折扣',
   `rebatePrice` float DEFAULT NULL COMMENT '折扣价格',
+  `totalNum` int(11) DEFAULT NULL COMMENT '商品数量',
   `sellerId` int(11) DEFAULT NULL COMMENT '商家ID',
   `memberCardNo` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '会员卡卡号',
   PRIMARY KEY (`id`)
@@ -716,13 +717,11 @@ CREATE TABLE `goodspicture` (
 DROP TABLE IF EXISTS `shop_info_review`;
 
 CREATE TABLE `shop_info_review` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `city` VARCHAR(50) COLLATE utf8_bin DEFAULT NULL COMMENT '城市',
+  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'ID', 
   `longitude` DOUBLE DEFAULT NULL COMMENT '地图经度',
   `latitude` DOUBLE DEFAULT NULL COMMENT '地图纬度',
   `shopName` VARCHAR(50) COLLATE utf8_bin DEFAULT NULL COMMENT '店铺名称',
-  `contact` VARCHAR(50) COLLATE utf8_bin DEFAULT NULL COMMENT '联系方式',
-  `regional` VARCHAR(50) COLLATE utf8_bin DEFAULT NULL COMMENT '区域',
+  `contact` VARCHAR(50) COLLATE utf8_bin DEFAULT NULL COMMENT '联系方式', 
   `storeId` INT(11) DEFAULT NULL COMMENT '商家ID',
   `storeAccount` VARCHAR(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商家账号',
   `businessDistrictId` INT(11) DEFAULT NULL COMMENT '商圈id',
@@ -973,6 +972,18 @@ CREATE TABLE `sto_store_info` (
   `countryID` int(11) DEFAULT NULL COMMENT '区县id',  
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='门店';
+
+CREATE TABLE `sto_collection` (
+  `ID` int(12) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `userId` int(12) NOT NULL COMMENT '用户id',
+  `goodsId` int(12) NOT NULL COMMENT '商品ID',
+  `insertTime` datetime DEFAULT NULL COMMENT '收藏时间',
+  `sign` int(2) NOT NULL DEFAULT '0' COMMENT '收藏类型(默认0 - 商品收藏  扩展：1--商家收藏)',
+  `goodsName` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '商品名称',
+  `price` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '金额',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户商品收藏表'
+
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
