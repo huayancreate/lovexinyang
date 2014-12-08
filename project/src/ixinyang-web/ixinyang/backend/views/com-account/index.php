@@ -131,7 +131,7 @@ Dialog::end();
                 overflow: 'auto'
             },
             close: function () {
-                //$.pjax.reload({container: '#w0'});
+                $.pjax.reload({container: '#w0'});
             },
             buttons: {
                 '保存': function () {
@@ -160,8 +160,8 @@ Dialog::end();
                 alert("Connection error");
             },
             success: function (data) {
-                alert(data);
-                //$.pjax.reload({container:'#w0'});
+                //alert(data);
+                $.pjax.reload({container:'#w0'});
             }
         });
     }

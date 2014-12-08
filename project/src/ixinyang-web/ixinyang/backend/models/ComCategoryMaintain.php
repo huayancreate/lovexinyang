@@ -66,4 +66,35 @@ class ComCategoryMaintain extends \yii\db\ActiveRecord
             'sort' => '排序',
         ];
     }
+
+    public function saveCategory()
+    {
+        $this->isValid = '1';
+        $this->operatorId = '1';
+        $this->operatorName = 'admin';
+        $this->updateTime = date("Y-m-d H:i:s");
+        $this->save();
+    }
+
+    public function updateCategory()
+    {
+        $this->saveCategory();
+    }
+
+    public function deleteCategory()
+    {
+        $this->isValid = '0';
+        $this->updateTime = date("Y-m-d H:i:s");
+        $this->save();
+    }
+
+    public function  getCategoryByType($categoryType)
+    {
+        return $this->find()->where(['isValid' => '1', 'categoryType' => $categoryType])->asArray()->all();
+    }
+
+    public function getCategoryByParentId($parentId)
+    {
+        return $this->find()->where(['id' => $parentId])->one();
+    }
 }

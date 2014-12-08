@@ -49,15 +49,14 @@ class ComCategoryMaintainController extends Controller
     public function actionView($id)
     {
         $model = $this->findModel($id);
-        $category = ComCategoryMaintain::find()->where(['id' => $model->parentCategoryId])->one();
-        if($category == null)
-        {
+        $category = $model->getCategoryByParentId($model->parentCategoryId);
+        if ($category == null) {
             $category = new ComCategoryMaintain();
-            $category->categoryName='无';
+            $category->categoryName = '无';
         }
         return $this->renderPartial('view', [
             'model' => $model,
-            'category'=>$category,
+            'category' => $category,
         ]);
     }
 
@@ -70,16 +69,14 @@ class ComCategoryMaintainController extends Controller
     {
         $model = new ComCategoryMaintain();
         $category = new ComCategoryMaintain();
-        $category->categoryName="";
 
-        $model->isValid = '1';
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-           //return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->saveCategory();
         } else {
-            //print_r($categoryModel);
+            //$category = $model->getAllCategory();
             return $this->renderPartial('create', [
                 'model' => $model,
-                'category'=>$category,
+                'category' => $category,
             ]);
         }
     }
@@ -93,24 +90,18 @@ class ComCategoryMaintainController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        date_default_timezone_set('PRC');
-        $tempDate=date("Y-m-d H:i:s");
-        $model->updateTime=$tempDate;
-        $model->isValid='1';
 
-        $category = ComCategoryMaintain::find()->where(['id' => $model->parentCategoryId])->one();
-        if($category == null)
-        {
+        $category = $model->getCategoryByParentId($model->parentCategoryId);
+        if ($category == null) {
             $category = new ComCategoryMaintain();
-            $category->categoryName='';
+            $category->categoryName = '';
         }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            //return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->updateCategory();
         } else {
-            return $this->renderPartial
-            ('update', [
-                'model' => $model, 'category'=>$category,
+            return $this->renderPartial('update', [
+                'model' => $model, 'category' => $category,
             ]);
         }
     }
@@ -124,20 +115,17 @@ class ComCategoryMaintainController extends Controller
     public function actionDelete($id)
     {
         $model = $this->findModel($id);
-        $model->isValid="0";
-        $model->save();
-        //$this->findModel($id)->delete();
-
-       // return $this->redirect(['index']);
+        $model->deleteCategory();
     }
-
 
     public function actionCategory()
     {
-        $category = ComCategoryMaintain::find()->where(['isValid'=>1,'categoryType'=>2])->asArray()->all();
-        return json_encode($category);
-
+        $type = $_GET["type"];
+        $model = new ComCategoryMaintain();
+        //$category = ComCategoryMaintain::find()->where(['isValid' => 1, 'categoryType' => $type])->asArray()->all();
+        return json_encode($model->getCategoryByType($type));
     }
+
     /**
      * Finds the ComCategoryMaintain model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
