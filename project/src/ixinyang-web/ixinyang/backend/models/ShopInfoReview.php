@@ -75,12 +75,12 @@ class ShopInfoReview extends \yii\db\ActiveRecord
             'regional' => '区域',
             'storeId' => '商家ID',
             'storeAccount' => '商家账号',
-            'businessDistrictId' => '商圈id',
+            'businessDistrictId' => '商圈',
             'address' => '详细地址',
             'businessHours' => '营业时间',
             'storeOutline' => '门店概述',
-            'cityId' => '地市ID',
-            'countyId' => '区县ID',
+            'cityId' => '地市',
+            'countyId' => '区县',
             'applyTime' => '申请时间',
             'applyUserId' => '申请人ID',
             'applyUserName' => '申请人姓名',
@@ -93,5 +93,25 @@ class ShopInfoReview extends \yii\db\ActiveRecord
             'auditState' => '审核状态', //1、申请中 2、初审通过 3、初审驳回 4、经理审核通过  5、经理审核驳回
             'Rejection' => '驳回原因',
         ];
+    }
+
+    public function getState($index){
+        switch ($index) {
+            case '1':
+                return "申请中";
+                break;
+            case '2':
+                return "初审通过";
+                break;
+            case '3':
+                return "初审驳回";
+                break;
+            case '4':
+                return "经理审核通过";
+                break;
+            case '5':
+                return "经理审核驳回";
+                break;
+        }
     }
 }

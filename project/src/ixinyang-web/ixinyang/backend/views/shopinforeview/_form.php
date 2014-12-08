@@ -12,17 +12,18 @@ use cliff363825\kindeditor\KindEditorWidget;
 
 <div class="shop-info-review-form">
 
-    <?php $form = ActiveForm::begin(['layout' => 'horizontal',]); ?>
+    <?php $form = ActiveForm::begin(['layout' => 'horizontal','id'=>'shopinforeviewFrom']); ?>
     <!--店铺名称-->
     <?= $form->field($model, 'shopName')->textInput(['maxlength' => 50]) ?>
     <!--联系方式-->
     <?= $form->field($model, 'contact')->textInput(['maxlength' => 50]) ?>
     <!--城市-->   
     <?= $form->field($cityModel, 'cityCenterName')->dropDownList(ArrayHelper::map($cityList, 'id', 'cityCenterName'), ['prompt' => '--城市--']) ?>
+    <input type="hidden" id="cityId" name="ShopInfoReview[cityId]" value=""> 
     <!--区域-->
-    <?= $form->field($countyModel, 'countyName')->dropDownList(ArrayHelper::map($countyList,'countyId','countyName'), ['prompt' => '--区域--']) ?>
+    <?= $form->field($model, 'countyId')->dropDownList(['prompt' => '--区域--']) ?>
     <!--商圈-->
-    <?= $form->field($busidistModel, 'businessDistrictName')->dropDownList(ArrayHelper::map($busidistList,'businessDistrictId','businessDistrictName'), ['prompt' => '--商圈--']) ?>
+    <?= $form->field($model, 'businessDistrictId')->dropDownList(['prompt' => '--商圈--']) ?>
     <!--详细地址-->
     <?= $form->field($model, 'address')->textInput(['maxlength' => 250]) ?>
     <!--营业时间-->
@@ -38,20 +39,69 @@ use cliff363825\kindeditor\KindEditorWidget;
             'langType' => 'zh_CN', 
             'autoHeightMode' => true, 
             'filePostName' => 'fileData', 
-            // 'uploadJson' => Url::to(['upload']), 
+            //'uploadJson' => Url::to(['upload']), 
+            'uploadJson'=>Yii::$app->urlManager->createUrl(['upload']),
             ], 
         ]); 
     ?> 
-    <?= $form->field($model, 'storeOutline')->textarea(['rows' => 6]) ?>
     <!--地图经度-->
     <?= $form->field($model, 'longitude')->textInput() ?>
     <!--地图纬度-->
     <?= $form->field($model, 'latitude')->textInput() ?>
     
-    <div class="form-group">
+    <!-- <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
+    </div> -->
 
     <?php ActiveForm::end(); ?>
 
 </div>
+
+<script type="text/javascript"> 
+$(function(){
+    //通过市筛选区县
+    $("#comcitycenter-citycentername").change(function(){
+        $("#cityId").val($(this).val());
+        getCountry($(this).val());
+    });
+
+    //通过区县筛选区域
+    $("#shopinforeview-countyid").change(function(){
+        getBusiness($(this).val());
+    });
+});
+//获取区域
+function getCountry(cityId) {
+    $.ajax({
+        type: "get",
+        data: {'cityId': cityId},
+        url: "index.php?r=shopinforeview%2Fcounty",
+        dataType: "json",
+        success: function (data) {
+            $("#shopinforeview-countyid").empty();
+            $("#shopinforeview-countyid").append("<option value='0'>-" + "-区域-" + "-</option>");
+            jQuery.each(data, function (idx, item) {
+                $("#shopinforeview-countyid").append("<option value='" + item.countyId + "'>" + item.countyName + "</option>");
+            });
+        }
+    });
+}
+
+    //获取商圈
+function getBusiness(countyId) {
+    $.ajax({
+        type: "get",
+        data: {'countyId': countyId},
+        url: "index.php?r=shopinforeview%2Fbusiness",
+        dataType: "json",
+        success: function (business) {
+            $("#shopinforeview-businessdistrictid").empty();
+            $("#shopinforeview-businessdistrictid").append("<option value='0'>-" + "-商圈-" + "-</option>");
+            jQuery.each(business, function (idx, item) {
+                $("#shopinforeview-businessdistrictid").append("<option value='" + item.businessDistrictId + "'>" + item.businessDistrictName + "</option>");
+            });
+        }
+    });
+}
+    
+</script>

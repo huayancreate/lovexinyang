@@ -12,9 +12,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="shop-info-review-create">
     <?= $this->render('_form', [
-        'model' => $model,'cityModel'=>$cityModel,'cityList'=>$cityList,
-                'countyList'=>$countyList,'countyModel'=>$countyModel,
-                'busidistList'=>$busidistList,'busidistModel'=>$busidistModel,
+        'model' => $model,'cityModel'=>$cityModel,'cityList'=>$cityList
     ]) ?>
 
 </div>
+ 

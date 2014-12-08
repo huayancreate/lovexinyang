@@ -64,26 +64,41 @@ class ShopinforeviewController extends Controller
     {
         $model = new ShopInfoReview();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+
+            $transaction=\Yii::$app->db->beginTransaction(); 
+            try{
+
+                $model->storeAccount="storeAdmin"; //商家账号
+                $model->applyTime=date("Y-m-d H:i:s");//申请时间
+                $model->applyUserId="1";//申请人ID
+                $model->applyUserName="张三";//申请人姓名
+                $model->auditState="1"; //申请状态  1、申请中 2、初审通过 3、初审驳回 4、经理审核通过  5、经理审核驳回
+                
+                $model->save();
+
+                $transaction->commit(); //事务结束
+
+                $message=$model->getErrors();
+                $message["success"]=True;
+
+                return json_encode($message);
+                
+                //return $this->redirect(['view', 'id' => $model->id]);
+
+            } catch (Exception $e) {
+                $transaction->rollBack();
+                throw $e;
+            }
+
         } else {
+            //城市
+            $cityModel=new ComCitycenter();
+            $cityList=ComCitycenter::find()->all();
 
-                //城市
-                $cityModel=new ComCitycenter();
-                $cityList=ComCitycenter::find()->all();
-                //区县
-                $countyModel=new ComCounty();
-                $countyList=ComCounty::find()->all();
-                //商圈
-                $busidistModel=new ComBusinessDistrict();
-                $busidistList=ComBusinessDistrict::find()->all();
-
-
-            return $this->render('create', [
-                'model' => $model,'cityModel'=>$cityModel,'cityList'=>$cityList,
-                'countyList'=>$countyList,'countyModel'=>$countyModel,
-                'busidistList'=>$busidistList,'busidistModel'=>$busidistModel,
+            return $this->renderPartial('create', [
+                'model' => $model,'cityModel'=>$cityModel,'cityList'=>$cityList
             ]);
         }
     }
@@ -150,19 +165,19 @@ class ShopinforeviewController extends Controller
      * @param  [type] $countyId [区县ID]
      * @return [type]           [description]
      */
-    public function getBusinessDistrict($countyId){
-        $business=ComBusinessDistrict::find()->where(['countyId' =>$countryId,'isValid'=>1])->asArray()->all();
+    public function actionBusiness($countyId){
+        $business=ComBusinessDistrict::find()->where(['countyId' =>$countyId,'isValid'=>1])->asArray()->all();
         return json_encode($business) ;
     }
 
     /**
      * [getCounty description]
-     * 根据市区ID 获取县
+     * 根据市区ID 获q区县
      * @param  [type] $cityCenterId [市区ID]
      * @return [type]               [description]
      */
-    public function getCounty($cityCenterId){
-       $countrys=ComCounty::find()->where(['cityCenterId' =>$cityCenterId,'isValid'=>1])->asArray()->all();
+    public function actionCounty($cityId){
+        $countrys=ComCounty::find()->where(['cityCenterId' =>$cityId,'isValid'=>1])->asArray()->all();
         return json_encode($countrys) ;
     }
 }

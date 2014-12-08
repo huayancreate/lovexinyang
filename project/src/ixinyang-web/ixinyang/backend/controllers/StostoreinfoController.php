@@ -9,6 +9,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\models\StoApplyInfo;
 
 /**
  * StostoreinfoController implements the CRUD actions for StoStoreInfo model.
@@ -38,8 +39,14 @@ class StostoreinfoController extends Controller
         ]);
 
         return $this->render('index', [
-            'dataProvider' => $dataProvider,'shoInforeViewData'=>$this->getShopInforeViewData()
+            'dataProvider' => $dataProvider,
+            'shoInforeViewData'=>$this->getShopInforeViewData(),
+            'stoApplyInfoModel'=>$this->getApplyInfo(),
         ]);
+    }
+
+    protected function getApplyInfo($id=1){
+        return StoApplyInfo::findOne($id);
     }
 
     /**

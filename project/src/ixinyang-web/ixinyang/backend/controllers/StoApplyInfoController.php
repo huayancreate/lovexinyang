@@ -167,6 +167,12 @@ class StoApplyInfoController extends Controller
       return json_encode($result);
     }
 
+    public function actionView($id){
+      return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
     /**
      * Finds the StoApplyInfo model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
