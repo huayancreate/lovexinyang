@@ -60,4 +60,33 @@ class ComMenu extends \yii\db\ActiveRecord
             'isValid' => '是否有效',
         ];
     }
+
+    //删除菜单 
+    public function deleteMenu($model,$id)
+    {
+         //事务开始
+        $transaction = $this->getDb()->beginTransaction();
+        try{
+             $model->updateTime=date("Y-m-d H:i:s");
+             $model->isValid='0';
+             $model->save();
+           
+            if ( $model->parentMenuId=='1') {
+                 //把一级菜单下的子菜单都修改为无效
+                ComMenu::updateBySql('com_menu',['isValid'=>0,'updateTime'=>date("Y-m-d H:i:s")], ['parentMenuId' =>$id,'isValid'=>'1']);   
+             }
+             
+             $transaction->commit();
+
+        } catch (Exception $e) {
+            $transaction->rollBack();
+        }
+    }
+    //激活菜单
+    public function activeMenu($id)
+    {
+        ComMenu::updateBySql('com_menu',['isValid'=>1,'updateTime'=>date("Y-m-d H:i:s")], ['id' =>$id]);
+    }
+
+
 }

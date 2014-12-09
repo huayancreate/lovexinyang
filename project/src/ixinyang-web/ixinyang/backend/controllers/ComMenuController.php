@@ -149,29 +149,24 @@ class ComMenuController extends Controller
     {
         //$this->findModel($id)->delete();
          $model = $this->findModel($id);  
-        
-         if (  $model->parentMenuId=='1') {
-            //一级菜单需要批量修改二级菜单 还有其本身
-            $result=ComMenu::updateBySql('com_menu',['isValid'=>0,'updateTime'=>date("Y-m-d H:i:s")], ['parentMenuId' =>$id,'isValid'=>'1']);
-           }
-             //二级菜单的修改  只修改本身
-             $model->updateTime=date("Y-m-d H:i:s");
-             $model->isValid='0';
-             $model->save();  
-        
+         $commenu=new ComMenu();
+         //删除菜单
+         $commenu->deleteMenu($model,$id);
          $model->isValid=$isValid;
+
          return $this->render('index', [
                 'model' => $model,
             ]);
-        
-       
     }
-
+    //激活菜单
     public function actionActive($id,$isValid)
     {
         $model = new ComMenu();
-        ComMenu::updateBySql('com_menu',['isValid'=>1,'updateTime'=>date("Y-m-d H:i:s")], ['id' =>$id]);
+        //激活菜单
+        $model->activeMenu($id);
+        
         $model->isValid=$isValid;
+
         return $this->render('index', [
                 'model' => $model,
             ]);
