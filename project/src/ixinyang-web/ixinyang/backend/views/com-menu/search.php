@@ -11,12 +11,17 @@ use yii\jui\Dialog;
 
 
  
-     <div class="com-menu-search">
-     <?php   
-      @$rootModel=ComMenu::find()->where(['id'=>'1'])->one();
-     ?>
- <?= $rootModel->menuName ?><input type="button" class="btn btn-success" id="add_<?=$rootModel->id ?>" name="add_<?=$rootModel->id ?>" value="添加" onclick="addMenu(<?=$rootModel->id ?>)">
-   
+ <div class="com-menu-search">
+     <div class="line-height">
+         <?php   
+          @$rootModel=ComMenu::find()->where(['id'=>'1'])->one();
+         ?>
+      </div>
+
+       <div class="line-height">
+         <?= $rootModel->menuName ?>
+         <input type="button" class="btn btn-success" id="add_<?=$rootModel->id ?>" name="add_<?=$rootModel->id ?>" value="添加" onclick="addMenu(<?=$rootModel->id ?>)">
+       </div>
 
         <?php
         //查询所有有效的一级菜单  2-->全部  1-->有效   0-->无效
@@ -33,23 +38,25 @@ use yii\jui\Dialog;
         <?php foreach ($firstLevelModels as $firstLevelModel): ?>
 
       <li>
-         
-       <!--  <input type="submit" id="delete_<?=$firstLevelModel->id ?>" name="delete_<?=$firstLevelModel->id ?>" data-confirm="Are you sure you want to delete this item?" data-method="post" value="删除" onclick="deleteFunction(<?=$firstLevelModel->id ?>)">-->
+        <div class="line-height">
          <?php if ($firstLevelModel->isValid==1) {?>
           <?= $firstLevelModel->menuName ?>
-           <input type="button" class="btn btn-success" id="add_<?=$firstLevelModel->id ?>" name="add_<?=$firstLevelModel->id ?>" value="添加" onclick="addMenu(<?=$firstLevelModel->id ?>)"> 
-         
-           <input type="submit" class="btn btn-primary" id="update_<?=$firstLevelModel->id ?>" name="update_<?=$firstLevelModel->id ?>" value="修改" onclick="updateMenu(<?=$firstLevelModel->id ?>)">
-            
-             <?= Html::a('作废', ['delete', 'id' =>$firstLevelModel->id,'isValid'=>$model->isValid], [
-                'class' => 'btn btn-danger',
-                'data' => [
-                    'confirm' => '确定作废该菜单吗?',
-                    'method' => 'post',
-                ],               
-               ]) ?>   
+          <div class="right">
+               <input type="button" class="btn btn-success" id="add_<?=$firstLevelModel->id ?>" name="add_<?=$firstLevelModel->id ?>" value="添加" onclick="addMenu(<?=$firstLevelModel->id ?>)"> 
+             
+               <input type="submit" class="btn btn-primary" id="update_<?=$firstLevelModel->id ?>" name="update_<?=$firstLevelModel->id ?>" value="修改" onclick="updateMenu(<?=$firstLevelModel->id ?>)">
+                
+                 <?= Html::a('作废', ['delete', 'id' =>$firstLevelModel->id,'isValid'=>$model->isValid], [
+                    'class' => 'btn btn-danger',
+                    'data' => [
+                        'confirm' => '确定作废该菜单吗?',
+                        'method' => 'post',
+                    ],               
+                   ]) ?> 
+            </div>  
          <?php }  else { ?>
            <div class="graycss"> <?= $firstLevelModel->menuName ?> 
+           <div class="right">
            <input type="button" class="btn btn-success" id="add_<?=$firstLevelModel->id ?>" name="add_<?=$firstLevelModel->id ?>" value="添加" onclick="addMenu(<?=$firstLevelModel->id ?>)" disabled="true"> 
          
            <input type="submit" class="btn btn-primary" id="update_<?=$firstLevelModel->id ?>" name="update_<?=$firstLevelModel->id ?>" value="修改" onclick="updateMenu(<?=$firstLevelModel->id ?>)" disabled="true">
@@ -70,12 +77,12 @@ use yii\jui\Dialog;
                     'method' => 'post',
                 ],
                ])  ?> 
-
+            </div>
             </div>        
          <?php }   ?>
-         
+   </div>
 
-
+     
            <?php 
              //查询一级菜单下的所有二级菜单
                if ($model->isValid!=2) {
@@ -91,49 +98,57 @@ use yii\jui\Dialog;
 
                   <?php foreach ($secondLevelModels as $secondLevelModel): ?>
             
-                    <ul>
+                    <ul>   
+                         <li>
+                           <div class="line-height">
+                              <?php if ($secondLevelModel->isValid==1) {?>
                              
-                             <!--<input type="button" id="delete_<?=$secondLevelModel->id ?>" name="delete_<?=$secondLevelModel->id ?>" value="删除">-->
-                            <li>
-                            <?php if ($secondLevelModel->isValid==1) {?>
-                             <?= $secondLevelModel->menuName ?>
-                            <input type="button" class="btn btn-primary" id="update_<?=$secondLevelModel->id ?>" name="update_<?=$secondLevelModel->id ?>" value="修改" onclick="updateMenu(<?=$secondLevelModel->id ?>)">
-                                  <?= Html::a('作废', ['delete', 'id' =>$secondLevelModel->id,'isValid'=>$model->isValid], [
-                                       'class' => 'btn btn-danger',
-                                       'data' => [
-                                            'confirm' => '确定作废该菜单吗?',
-                                            'method' => 'post',
-                                       ],
-                                 ]) ?>
-                            <?php }  else { ?>
-                           <div class="graycss"> <?= $secondLevelModel->menuName ?>
-                            <input type="button" class="btn btn-primary" id="update_<?=$secondLevelModel->id ?>" name="update_<?=$secondLevelModel->id ?>" value="修改" onclick="updateMenu(<?=$secondLevelModel->id ?>)" disabled="true">
-                                  <?= Html::a('作废', ['delete', 'id' =>$secondLevelModel->id,'isValid'=>$model->isValid], [
-                                       'class' => 'btn btn-danger',
-                                       'data' => [
-                                            'confirm' => '确定作废该菜单吗?',
-                                            'method' => 'post',
-                                       ],
-                                       'disabled'=>true,
-                                  ]) ?>
-                               <?= Html::a('激活', ['active', 'id' =>$secondLevelModel->id,'isValid'=>$model->isValid], [
-                                  'class' => 'btn btn-danger',
-                                  'data' => [
-                                      'confirm' => '确定激活该菜单吗?',
-                                      'method' => 'post',
-                                   ],
-                                 ])  ?> 
+                               <?= $secondLevelModel->menuName ?>
+                              
+                               <div style="float:right">
+                                  <input type="button" class="btn btn-primary" id="update_<?=$secondLevelModel->id ?>" name="update_<?=$secondLevelModel->id ?>" value="修改" onclick="updateMenu(<?=$secondLevelModel->id ?>)">
+                                        <?= Html::a('作废', ['delete', 'id' =>$secondLevelModel->id,'isValid'=>$model->isValid], [
+                                             'class' => 'btn btn-danger',
+                                             'data' => [
+                                                  'confirm' => '确定作废该菜单吗?',
+                                                  'method' => 'post',
+                                             ],
+                                       ]) ?>
                                </div>
-                            <?php }   ?>
+                             
+                              <?php }  else { ?>
+                              <div class="graycss"> <?= $secondLevelModel->menuName ?>
+                                <div class="right">
+                                    <input type="button" class="btn btn-primary" id="update_<?=$secondLevelModel->id ?>" name="update_<?=$secondLevelModel->id ?>" value="修改" onclick="updateMenu(<?=$secondLevelModel->id ?>)" disabled="true">
+                                          <?= Html::a('作废', ['delete', 'id' =>$secondLevelModel->id,'isValid'=>$model->isValid], [
+                                               'class' => 'btn btn-danger',
+                                               'data' => [
+                                                    'confirm' => '确定作废该菜单吗?',
+                                                    'method' => 'post',
+                                               ],
+                                               'disabled'=>true,
+                                          ]) ?>
+                                    <?= Html::a('激活', ['active', 'id' =>$secondLevelModel->id,'isValid'=>$model->isValid], [
+                                      'class' => 'btn btn-danger',
+                                      'data' => [
+                                          'confirm' => '确定激活该菜单吗?',
+                                          'method' => 'post',
+                                       ],
+                                     ])  ?> 
+                                </div>
+                               </div>
+                              <?php }   ?>
+                          </div>
                         </li>
                     </ul>
                   <?php endforeach; ?>
 
-               <?php endif; ?>     
+            <?php endif; ?>   
         </li>
         <?php endforeach; ?>
       </ul>
         <?php endif; ?>
+      
  </div>
 
 
@@ -142,6 +157,16 @@ use yii\jui\Dialog;
   .graycss{
      color:gray
   }
+  .line-height{
+    line-height:40px;
+  }
+  .left{
+    float:left
+  }
+  .right{
+    float:right
+  }
+
 </style>
 <script type="text/javascript">
 
