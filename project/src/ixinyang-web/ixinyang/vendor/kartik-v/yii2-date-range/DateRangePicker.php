@@ -103,7 +103,7 @@ HTML;
      * @var string locale language to be used for the plugin
      */
     protected $_localeLang = '';
-    
+
     /**
      * @var string the pluginOptions format for the date time
      */
@@ -113,7 +113,7 @@ HTML;
      * @var string the pluginOptions separator
      */
     private $_separator;
-    
+
 
     /**
      * Initializes the widget
@@ -181,17 +181,18 @@ HTML;
     /**
      * Initialize locale settings
      */
-    protected function initLocale() {
+    protected function initLocale()
+    {
         $this->setLanguage('');
         if (empty($this->_langFile)) {
             return;
         }
         $localeSettings = ArrayHelper::getValue($this->pluginOptions, 'locale', []);
         $localeSettings += [
-            'applyLabel' => Yii::t('kvdrp', 'Apply'),
-            'cancelLabel' => Yii::t('kvdrp', 'Cancel'),
-            'fromLabel' => Yii::t('kvdrp', 'From'),
-            'toLabel' => Yii::t('kvdrp', 'To'),
+            'applyLabel' => Yii::t('kvdrp', '确定'),
+            'cancelLabel' => Yii::t('kvdrp', '取消'),
+            'fromLabel' => Yii::t('kvdrp', '从'),
+            'toLabel' => Yii::t('kvdrp', '到'),
             'weekLabel' => Yii::t('kvdrp', 'W'),
             'customRangeLabel' => Yii::t('kvdrp', 'Custom Range'),
             'daysOfWeek' => new JsExpression('moment.weekdaysMin()'),
@@ -200,7 +201,7 @@ HTML;
         ];
         $this->pluginOptions['locale'] = $localeSettings;
     }
-    
+
     /**
      * Parses and returns a JsExpression
      *

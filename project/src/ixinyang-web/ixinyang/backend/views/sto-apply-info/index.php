@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php $form = ActiveForm::begin([
          'action' => ['index'],
          'method' => 'post',
-    ]); 
+    ]);
     ?>
     <div class="col-lg-6">
         <?php
@@ -72,14 +72,14 @@ $this->params['breadcrumbs'][] = $this->title;
                       else{
                             return '';
                       }
-                      
-                      
+
+
                 }
 
             ],
             ['class' => 'yii\grid\ActionColumn','header'=>'操作','headerOptions'=>['width'=>'100'],
                 'buttons'=>[
-                
+
                         'view'=>function($url,$model){
                               return Html::a('明细','javascript:void(0)',['onclick'=>"detailFunction(".$model['applyId'].")"]);
                             },
@@ -87,9 +87,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
                         },
                         'delete'=>function(){
-                            
+
                         },
-                      
+
                  ]
             ],
         ],
@@ -106,7 +106,7 @@ $this->params['breadcrumbs'][] = $this->title;
         $("#dialogId").dialog("open");
             $("#dialogId").dialog({
                     autoOpen:false,
-                    modal: true, 
+                    modal: true,
                     width: 800,
                     height:600,
                     title:"商家申请信息审核明细",
@@ -122,7 +122,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 close: function () {
                     $("#dialogId").dialog("close");
-                },  
+                },
               });
       }
       //弹出dialog 添加对话框
@@ -135,7 +135,7 @@ $this->params['breadcrumbs'][] = $this->title;
                }
              });
       }
-  
+
    <?php $this->endBlock(); ?>
 </script>
 <?php
@@ -144,14 +144,14 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <!---对话框 -->
-<?php 
+<?php
       Dialog::begin([
       'id'=>'dialogId',
       'clientOptions' => [
       'modal' => true,
       'autoOpen' => false,
       ],]);
-  ?>    
+  ?>
 
 <?php
     Dialog::end();

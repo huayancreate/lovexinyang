@@ -41,7 +41,7 @@ class ComGoodsReviewSearch extends ComGoodsReview
      */
     public function search($params)
     {
-        $query = ComGoodsReview::find();
+        $query = ComGoodsReview::find()->where(['reviewStatus' => '0'])->asArray();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

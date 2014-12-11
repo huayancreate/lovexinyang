@@ -25,6 +25,8 @@ class AppAsset extends AssetBundle
         'js/jquery.ztree.all-3.5.js',
         'js/jquery.ztree.core-3.5.min.js',
         'js/jquery.ztree.excheck-3.5.min.js',
+        'js/jquery.iframeDialog.js',
+        'js/map.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

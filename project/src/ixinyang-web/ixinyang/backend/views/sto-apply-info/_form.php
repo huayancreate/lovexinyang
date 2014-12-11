@@ -31,13 +31,13 @@ use yii\web\jqueryAsset;
 
         <div class="row">
             <div class="col-lg-8">
-                <div class="col-xs-4">
+                <div class="col-xs-8">
                     <?= $form->field($model, 'city')->dropDownList(ArrayHelper::map($citys, 'id', 'cityCenterName'), ['prompt' => '--城市--']) ?>
                 </div>
-                <div class="col-xs-4">
+                <div class="col-xs-8">
                     <?= $form->field($model, 'regional')->dropDownList([], ['prompt' => '--区域--']) ?>
                 </div>
-                <div class="col-xs-4">
+                <div class="col-xs-8">
                     <?= $form->field($model, 'businessZone')->dropDownList([], ['prompt' => '--商圈--']) ?>
                 </div>
             </div>
@@ -61,13 +61,11 @@ use yii\web\jqueryAsset;
                 <div class="form-group field-stoapplyinfo-storecategoryid required">
                     <label class="control-label col-sm-3" for="storeCategoryId">商家类型</label>
                     <div class="col-sm-6" style="position: relative">
-                        <input type="text" id="storeCategoryId" class="form-control">
+                        <?=Html::input("text",null,null,['id'=>'storeCategoryId','class'=>'form-control'])?>
                         <div id="menuContent" class="menuContent" style="display:none; position:absolute;z-index:1;width: 80%;">
                             <ul id="treeDemo" class="ztree" style="width:100%;height:300px"></ul>
                         </div>
                         <?= $form->field($model, 'storeCategoryId')->hiddenInput()->label(false) ?>
-<!--                        <div class="help-block help-block-error "></div>-->
-
                     </div>
                 </div>
 
@@ -102,30 +100,13 @@ use yii\web\jqueryAsset;
         </div>
         <?php ActiveForm::end(); ?>
     </div>
-
-
+<label id="longitude" style="display:none"></label>
+<label id="latitude" style="display:none"></label>
 <?php
 Dialog::begin([
     'id' => 'mapDiaLog',
     'clientOptions' => ['modal' => true, 'autoOpen' => false],]);
 ?>
-
-    <div id="divMap">
-        <div id="preview">
-            <div id="float_search_bar">
-                <label>区域：</label>
-                <input type="text" id="keyword"/>
-                <button id="search_button">查找</button>
-                <span>点击地图或标注获取坐标</span>
-            </div>
-            <div id="map_container"></div>
-        </div>
-        <div id="result" style="margin-top: 4px;"></div>
-        <label id="longitude" style="display:none"></label>
-        <label id="latitude" style="display:none"></label>
-        <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
-       
-    </div>
 
 <?php
 Dialog::end();
@@ -135,32 +116,6 @@ Dialog::end();
         <?php
           $this->beginBlock('JS_END');
         ?>
-        $("#map_button").bind("click", function () {
-            $("#mapDiaLog").dialog("open");
-            $("#mapDiaLog").dialog({
-                autoOpen: false,
-                modal: true,
-                width: 530,
-                height: 460,
-                title: "采集坐标",
-                show: "blind",
-                hide: "explode",
-                resizable: true,
-                overlay: {
-                    opacity: 0.5,
-                    background: "black",
-                    overflow: 'auto'
-                }
-            });
-            $("#mapDiaLog").on("dialogbeforeclose", function (event, ui) {
-                $("#loglat").text($("#result").text());
-                $("#stoapplyinfo-longitude").val($("#longitude").text());
-                $("#stoapplyinfo-latitude").val($("#latitude").text());
-            });
-
-        });
-
-
         //级联菜单
         $("#stoapplyinfo-city").change(function () {
             var cityId = $(this).val();
@@ -234,15 +189,8 @@ Dialog::end();
         callback: {
             beforeClick: beforeClick,
             onClick: onClick
-//            onAsyncSuccess: zTreeOnAsyncSuccess
         }
     };
-
-//    function zTreeOnAsyncSuccess(event, treeId, treeNode, msg) {
-//        var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
-//        var node = treeObj.getNodeByParam("id", "4", null);
-//        treeObj.selectNode(node.getParentNode());
-//    }
 
     function beforeClick(treeId, treeNode) {
         var zTree = $.fn.zTree.getZTreeObj("treeDemo");
@@ -293,6 +241,11 @@ Dialog::end();
     }
 
     $(document).ready(function(){
+        <!--地图调用-->
+        var mapUrl = '<?php echo Yii::$app->urlManager->baseUrl.'/map.html'?>';
+        jQuery.showMap('map_button',mapUrl,'loglat');
+        <!--地图调用-->
+
         $.fn.zTree.init($("#treeDemo"), setting);
     });
     <?php
@@ -301,8 +254,6 @@ Dialog::end();
 </script>
 <?php
 $this->registerCssFile(Yii::$app->urlManager->baseUrl.'/css/zTreeStyle.css', []);
-$this->registerCssFile(Yii::$app->urlManager->baseUrl.'/map/map.css', []);
-$this->registerJsFile(Yii::$app->urlManager->baseUrl.'/map/map.js',['depends' => [JqueryAsset::className()]]);
 $this->registerJs($this->blocks['JS_END'], \yii\web\View::POS_END);
 $this->registerJs($this->blocks['JS_END1'], \yii\web\View::POS_END);
 ?>

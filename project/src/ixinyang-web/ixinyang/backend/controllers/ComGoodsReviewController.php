@@ -2,6 +2,8 @@
 
 namespace backend\controllers;
 
+use backend\models\GoodsApplyInfo;
+use backend\models\GoodsApplyInfoSearch;
 use Yii;
 use backend\models\ComGoodsReview;
 use backend\models\ComGoodsReviewSearch;
@@ -32,11 +34,43 @@ class ComGoodsReviewController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ComGoodsReviewSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        if (Yii::$app->request->post()) {
+            $dateRange= $_POST['date_range_3'];
 
+            //时间段为空
+            if (empty($dateRange)) {
+                $startDate=date("Y-m-d".' 00:00:00');
+                $endDate=date("Y-m-d".' 23:59:59');
+            }
+            else{
+                $arr=explode('to', $dateRange);
+                $startDate=$arr[0];
+                $endDate=$arr[1];
+                $flag=true;
+                Yii::$app->session['$flag']=$flag;
+                Yii::$app->session['fromDate']= $startDate;
+                Yii::$app->session['$toDate']=$endDate;
+            }
+        }
+        else{
+            if (isset(Yii::$app->session['fromDate'])&&isset(Yii::$app->session['$toDate'])) {
+                $startDate=Yii::$app->session['fromDate'];
+                $endDate=Yii::$app->session['$toDate'];
+            }
+            else
+            {
+                $startDate=date("Y-m-d".' 00:00:00');
+                $endDate=date("Y-m-d".' 23:59:59');
+            }
+
+        }
+        $model = new ComGoodsReview();
+        $dataProvider = $model->getAllGoodS($startDate, $endDate);
+
+//        $searchModel = new GoodsApplyInfoSearch();
+//        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         return $this->render('index', [
-            'searchModel' => $searchModel,
+            'searchModel' => $model,
             'dataProvider' => $dataProvider,
         ]);
     }
@@ -48,7 +82,19 @@ class ComGoodsReviewController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
+        return $this->renderPartial('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
+    /**
+     * @param $id
+     * @return string
+     * @throws NotFoundHttpException
+     */
+    public function actionVerify($id)
+    {
+        return $this->renderPartial('view', [
             'model' => $this->findModel($id),
         ]);
     }
@@ -81,10 +127,12 @@ class ComGoodsReviewController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->cgrId]);
+        if ($model->load(Yii::$app->request->post())) {
+            $type = $_POST["type"];
+            $model->verifyGoods($id, $type);
+
         } else {
-            return $this->render('update', [
+            return $this->renderPartial('update', [
                 'model' => $model,
             ]);
         }

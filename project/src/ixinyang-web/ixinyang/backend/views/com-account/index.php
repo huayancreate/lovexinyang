@@ -37,24 +37,24 @@ $this->params['breadcrumbs'][] = '账号管理';
                 'nickname',
                 'sex',
                 'phoneNumber',
-                [
-                    'attribute' => 'id',
-                    'label' => '角色',
-                    'filter' => false,
-                    'headerOptions' => ['width' => '120'],
-                    'value' => function ($model) {
-                        $personRole = ComPersonRolerelation::find()->where(['personId' => $model['id']])->all();
-                        $roleName = "";
-                        foreach($personRole as $role){
-                            $myRole = ComRole::find()->where(['id' => $role->roleId])->one();
-                            if($myRole!=null){
-                                $roleName = $roleName.$myRole->roleName.',';
-                            }
-                        }
-                        $roleName = substr($roleName, 0, -1);
-                        return $roleName;
-                    }
-                ],
+//                [
+//                    'attribute' => 'id',
+//                    'label' => '角色',
+//                    'filter' => false,
+//                    'headerOptions' => ['width' => '120'],
+//                    'value' => function ($model) {
+//                        $personRole = ComPersonRolerelation::find()->where(['personId' => $model['id']])->all();
+//                        $roleName = "";
+//                        foreach($personRole as $role){
+//                            $myRole = ComRole::find()->where(['id' => $role->roleId])->one();
+//                            if($myRole!=null){
+//                                $roleName = $roleName.$myRole->roleName.',';
+//                            }
+//                        }
+//                        $roleName = substr($roleName, 0, -1);
+//                        return $roleName;
+//                    }
+//                ],
 
                 'email:email',
                 'address',

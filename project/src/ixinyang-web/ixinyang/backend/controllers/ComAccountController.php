@@ -84,10 +84,12 @@ class ComAccountController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             if ($role->load(Yii::$app->request->post())) {
-                $roleIdArr = $this->stringInArray($role->roleName);
-                $model->saveUserAccount($roleIdArr);
-                $message = $model->getErrors();
-                return json_encode($message);
+                if ($model->validate()) {
+                    $roleIdArr = $this->stringInArray($role->roleName);
+                    $model->saveUserAccount($roleIdArr);
+                    $message = $model->getErrors();
+                    return json_encode($message);
+                }
             }
 
         } else {
@@ -115,8 +117,10 @@ class ComAccountController extends Controller
         $role = new ComRole();
         if ($model->load(Yii::$app->request->post())) {
             if ($role->load(Yii::$app->request->post())) {
-                $roleIdArr = $this->stringInArray($role->roleName);
-                $model->updateAccount($roleIdArr);
+                if ($model->validate()) {
+                    $roleIdArr = $this->stringInArray($role->roleName);
+                    $model->updateAccount($roleIdArr);
+                }
             }
         } else {
             $roles = $model->getAllRole();

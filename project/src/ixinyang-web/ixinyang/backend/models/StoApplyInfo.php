@@ -49,13 +49,26 @@ class StoApplyInfo extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+
+            [['city','storeName','regional', 'businessZone','storePhone','phone','storeCategoryId','address', 'name'],'required','message' => '{attribute}不能为空.'],
+            [['city','storeName', 'otherContact', 'regional', 'businessZone', 'email','storePhone','phone','scopeBusiness','address', 'name'],'trim'],
+            [['email'],'email','message'=>'邮箱格式错误.'],
+
             [['longitude', 'latitude', 'daySales'], 'number'],
-            [['customerServiceId', 'customerManagerId', 'storeApplyNumber', 'applyStatus', 'storeCategoryId'], 'integer'],
+            [['customerServiceId', 'customerManagerId','storeApplyNumber', 'applyStatus', 'storeCategoryId','city','regional', 'businessZone'], 'integer'],
             [['cusServiceReviewTime', 'cusManagerReviewTime', 'applyTime'], 'safe'],
-            [['city', 'customerServiceName', 'customerManagerName', 'storePhone', 'otherContact', 'regional', 'businessZone', 'phone', 'email'], 'string', 'max' => 50],
-            [['scopeBusiness'], 'string', 'max' => 200],
-            [['storeName', 'address', 'name'], 'string', 'max' => 250]
+            [['customerServiceName', 'customerManagerName','otherContact',  'email','storePhone','phone'], 'string', 'max' => 50],
+            [['scopeBusiness'], 'string'],
+            [['address', 'name','storeName'], 'string', 'max' => 250]
         ];
+//        return [
+//            [['longitude', 'latitude', 'daySales'], 'number'],
+//            [['customerServiceId', 'customerManagerId', 'storeApplyNumber', 'applyStatus', 'storeCategoryId'], 'integer'],
+//            [['cusServiceReviewTime', 'cusManagerReviewTime', 'applyTime'], 'safe'],
+//            [['city', 'customerServiceName', 'customerManagerName', 'storePhone', 'otherContact', 'regional', 'businessZone', 'phone', 'email'], 'string', 'max' => 50],
+//            [['scopeBusiness'], 'string', 'max' => 200],
+//            [['storeName', 'address', 'name'], 'string', 'max' => 250]
+//        ];
     }
 
     /**
