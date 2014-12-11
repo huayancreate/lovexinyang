@@ -49,26 +49,15 @@ class StoApplyInfo extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-
-            [['city','storeName','regional', 'businessZone','storePhone','phone','storeCategoryId','address', 'name'],'required','message' => '{attribute}不能为空.'],
-            [['city','storeName', 'otherContact', 'regional', 'businessZone', 'email','storePhone','phone','scopeBusiness','address', 'name'],'trim'],
-            [['email'],'email','message'=>'邮箱格式错误.'],
-
+            //去掉前后空格
+            [['remark'],'trim'],
             [['longitude', 'latitude', 'daySales'], 'number'],
-            [['customerServiceId', 'customerManagerId','storeApplyNumber', 'applyStatus', 'storeCategoryId','city','regional', 'businessZone'], 'integer'],
+            [['customerServiceId', 'customerManagerId', 'storeApplyNumber', 'applyStatus', 'storeCategoryId'], 'integer'],
             [['cusServiceReviewTime', 'cusManagerReviewTime', 'applyTime'], 'safe'],
-            [['customerServiceName', 'customerManagerName','otherContact',  'email','storePhone','phone'], 'string', 'max' => 50],
-            [['scopeBusiness'], 'string'],
-            [['address', 'name','storeName'], 'string', 'max' => 250]
+            [['city', 'customerServiceName', 'customerManagerName', 'storePhone', 'otherContact', 'regional', 'businessZone', 'phone', 'email'], 'string', 'max' => 50],
+            [['scopeBusiness','remark'], 'string', 'max' => 200],
+            [['storeName', 'address', 'name'], 'string', 'max' => 250]
         ];
-//        return [
-//            [['longitude', 'latitude', 'daySales'], 'number'],
-//            [['customerServiceId', 'customerManagerId', 'storeApplyNumber', 'applyStatus', 'storeCategoryId'], 'integer'],
-//            [['cusServiceReviewTime', 'cusManagerReviewTime', 'applyTime'], 'safe'],
-//            [['city', 'customerServiceName', 'customerManagerName', 'storePhone', 'otherContact', 'regional', 'businessZone', 'phone', 'email'], 'string', 'max' => 50],
-//            [['scopeBusiness'], 'string', 'max' => 200],
-//            [['storeName', 'address', 'name'], 'string', 'max' => 250]
-//        ];
     }
 
     /**
@@ -102,6 +91,16 @@ class StoApplyInfo extends \yii\db\ActiveRecord
             'email' => '邮箱',
             'applyStatus' => '审核状态',
             'storeCategoryId' => '商家类型',
+            'remark'=>'驳回备注',
         ];
     }
+
+    
+   /* //根据申请状态和申请时间查询待审核的信息 参数 applyStatus->0 时说明角色是我们平台客服中心查询
+    //applyStatus->1时 说明是我们平台客户经理查询的
+    public function selectByApplyTimeAndApplyStatus($applyStatus,$fromDate,$toDate)
+    {
+        
+       $query=StoApplyInfo::find()->where('applyStatus="'.$applyStatus.'" and applyTime between "'.$fromDate.'" and "'.$toDate.'"')->asArray();
+    }*/
 }

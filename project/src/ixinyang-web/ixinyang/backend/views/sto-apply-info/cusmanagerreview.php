@@ -11,11 +11,11 @@ use yii\jui\Dialog;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="sto-apply-info-form">
+<div class="sto-apply-info-cusmanagerreview">
     <?php 
         $form = ActiveForm::begin([
             'layout'=> 'horizontal',
-                'id'=>'applyinfoForm',
+                'id'=>'cusManagerReviewForm',
             ]); 
     ?>
     <div class="row">
@@ -98,10 +98,28 @@ use yii\jui\Dialog;
 
             <div class="col-lg-offset-5">
                 <div class="form-group">
-                    <?= Html::button('审核通过', ['class' => 'btn btn-success','id'=>'btnCheckPass','onclick'=>"checkPassOrFail(1,".$model->applyId.")"]) ?>
-                    <?= Html::button('审核驳回', ['class' => 'btn btn-primary','id'=>'btnCheckFail','onclick'=>"checkPassOrFail(2,".$model->applyId.")"]) ?>
+                    <?= $form->field($model, 'applyStatus')->hiddenInput()->label(false) ?>
+                    <?= $form->field($model, 'applyId')->hiddenInput()->label(false) ?>
+
+
+                <?= Html::button('审核通过', ['class' => 'btn btn-success','id'=>'btnCheckPass','onclick'=>"checkPass()"]) ?>
+                    <?= Html::button('审核驳回', ['class' => 'btn btn-primary','id'=>'btnCheckFail','onclick'=>"checkFail()"]) ?>
                 </div>
             </div>
+
+            <!-- 驳回备注  点击驳回按钮出现-->
+            <div class="row" id="remarkDiv" style="display:none" >
+             <div class="col-lg-12">
+                <div col-xs-3>
+                 <?= $form->field($model, 'remark')->textArea() ?>
+                </div>
+                <div col-xs-3>
+                  <?= Html::button('确定', ['class' => 'btn btn-success','id'=>'btnSave','onclick'=>"saveRejectRemark(4,".$model->applyId.")"]) ?>
+                </div>
+             </div>
+            </div>
+
+
             <?= $form->field($model, 'longitude')->hiddenInput()->label('') ?>
             <?= $form->field($model, 'latitude')->hiddenInput()->label('') ?>
 
@@ -125,17 +143,57 @@ Dialog::begin([
 Dialog::end();
 ?>
 <script>
-
     $(document).ready(function(){
          //使文本框 下拉框 文本域 
          $('input,select,textarea',$('form[id="applyinfoForm"]')).attr('readonly',true);
     });
-    function checkPassOrFail(applyStatus,applyId){
+
+    //审核通过
+    function checkPass(){
         $.ajax({
             type: "POST",
             data: {'applyStatus': applyStatus,'applyId':applyId},
-            url: "index.php?r=sto-apply-info%2Fupdate",
+           // data:$('#cusManagerReviewForm').serialize(), 
+            url: "index.php?r=sto-apply-info%2Fcheckpass",
             dataType: "json",
+            error: function (request) {
+                alert("Connection error");
+            },
+            success: function (data) {
+                /*if(data==1){
+                    //当成功后操作。。
+                    alert("操作成功.");
+                    $.pjax.reload({container:'#stoapplyinfoGrid'});
+                }else{
+                    alert("操作失败，请重试.");
+                }*/
+                alert(data);
+            }
+        });
+    }
+
+    //审核驳回   审核通过和审核驳回按钮都不可用
+    function checkFail(applyStatus,applyId){
+        $("#remarkDiv").show();
+        $("#stoapplyinfo-remark").attr("readonly",false);
+        $("#btnCheckPass").attr("disabled",true);
+        $("#btnCheckFail").attr("disabled",true);
+       
+    }
+    //保存驳回备注
+    function saveRejectRemark(applyStatus,applyId)
+    {
+        //驳回备注
+        var remark=$("#stoapplyinfo-remark").val();
+
+         $.ajax({
+            type: "POST",
+            data: {'remark':remark,'applyStatus': applyStatus,'applyId':applyId},
+            url: "index.php?r=sto-apply-info%2Fcheckfail",
+            dataType: "json",
+            error: function (request) {
+                alert("Connection error");
+            },
             success: function (data) {
                 if(data==1){
                     //当成功后操作。。
@@ -147,6 +205,5 @@ Dialog::end();
             }
         });
     }
-
 
 </script>

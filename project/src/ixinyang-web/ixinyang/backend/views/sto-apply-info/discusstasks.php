@@ -13,18 +13,18 @@ use yii\web\JqueryAsset;
 /* @var $searchModel backend\models\StoApplyInfoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '商家申请信息审核';
+$this->title = '客户经理中心洽谈任务列表';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="sto-apply-info-index">
-    <h1><?= Html::encode("商家申请信息审核列表") ?></h1>
+<div class="sto-apply-info-discusstasks">
+    <h1><?= Html::encode("客户经理中心洽谈任务列表") ?></h1>
     <hr>
     <?php echo "请选择时间范围："; ?>
     <?php $form = ActiveForm::begin([
-         'action' => ['index'],
+         'action' => ['discusstasks'],
          'method' => 'post',
-    ]);
+    ]); 
     ?>
     <div class="col-lg-6">
         <?php
@@ -72,14 +72,14 @@ $this->params['breadcrumbs'][] = $this->title;
                       else{
                             return '';
                       }
-
-
+                      
+                      
                 }
 
             ],
             ['class' => 'yii\grid\ActionColumn','header'=>'操作','headerOptions'=>['width'=>'100'],
                 'buttons'=>[
-
+                
                         'view'=>function($url,$model){
                               return Html::a('操作','javascript:void(0)',['onclick'=>"detailFunction(".$model['applyId'].")"]);
                             },
@@ -87,9 +87,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
                         },
                         'delete'=>function(){
-
+                            
                         },
-
+                      
                  ]
             ],
         ],
@@ -106,7 +106,7 @@ $this->params['breadcrumbs'][] = $this->title;
         $("#dialogId").dialog("open");
             $("#dialogId").dialog({
                     autoOpen:false,
-                    modal: true,
+                    modal: true, 
                     width: 800,
                     height:600,
                     title:"商家申请信息审核明细",
@@ -122,20 +122,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 close: function () {
                     $("#dialogId").dialog("close");
-                },
+                },  
               });
       }
       //弹出dialog 添加对话框
       function getDetailInfo(applyId){
            $.ajax({
                type:"POST",
-               url:"index.php?r=sto-apply-info%2Fdetail&applyId="+applyId,
+               url:"index.php?r=sto-apply-info%2Fcusmanagerreview&applyId="+applyId,
                success:function(data) {
                   $("#dialogId").html(data);
                }
              });
       }
-
+  
    <?php $this->endBlock(); ?>
 </script>
 <?php
@@ -144,14 +144,14 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <!---对话框 -->
-<?php
+<?php 
       Dialog::begin([
       'id'=>'dialogId',
       'clientOptions' => [
       'modal' => true,
       'autoOpen' => false,
       ],]);
-  ?>
+  ?>    
 
 <?php
     Dialog::end();
@@ -162,10 +162,4 @@ $this->registerCssFile(Yii::$app->urlManager->baseUrl . '/css/zTreeStyle.css', [
 $this->registerCssFile(Yii::$app->urlManager->baseUrl . '/map/map.css', []);
 
 $this->registerJsFile(Yii::$app->urlManager->baseUrl . '/map/map.js',  ['depends' => [JqueryAsset::className()]]);
-//$this->registerJsFile(Yii::$app->urlManager->baseUrl . '/js/jquery.ztree.core-3.5.min.js',  ['depends' => [JqueryAsset::className()]]);
 ?>
-
-
-
-
-
