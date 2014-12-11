@@ -36,9 +36,10 @@ class ShopinforeviewController extends Controller
     {
         $dataProvider = new ActiveDataProvider([
             'query' => ShopInfoReview::find(),
+            'pagination' => ['pagesize' => '4'],
         ]);
 
-        return $this->render('index', [
+        return $this->renderPartial('index', [
             'dataProvider' => $dataProvider,
         ]);
     }
@@ -50,7 +51,7 @@ class ShopinforeviewController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
+        return $this->renderPartial('view', [
             'model' => $this->findModel($id),
         ]);
     }
@@ -114,10 +115,16 @@ class ShopinforeviewController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+                $message=$model->getErrors();
+                $message["success"]=True;
+                return json_encode($message);
         } else {
-            return $this->render('update', [
-                'model' => $model,
+            //城市
+            $cityModel=new ComCitycenter();
+            $cityList=ComCitycenter::find()->all();
+
+            return $this->renderPartial('update', [
+                'model' => $model,'cityModel'=>$cityModel,'cityList'=>$cityList
             ]);
         }
     }
@@ -132,7 +139,9 @@ class ShopinforeviewController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        $message["success"]=True;
+        return json_encode($message);
+        //return $this->redirect(['index']);
     }
 
     /**

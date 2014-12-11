@@ -14,12 +14,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('分店申请','javascript:void(0);', ['id'=>'btnAdd','class' => 'btn btn-success']) ?>
     </p>
-<?php \yii\widgets\Pjax::begin(); ?>
+<?php \yii\widgets\Pjax::begin(['id'=>'gridList']); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             //'id',
             //'city',
             //'longitude',
@@ -61,42 +60,41 @@ $this->params['breadcrumbs'][] = $this->title;
                             [
                                 'title' => Yii::t('yii', '查看'),
                                 'data-pjax' => '0',
-                                'onClick'=>'View("类别查看","index.php?r=com-category-maintain/view&id=",'.$model->id.')'
+                                'onClick'=>'getView("'.$model->shopName.'","shopinforeview/view&id='.$model->id.'")'
                             ]);
                     },
                     'update'=>function($url,$model){
                     return Html::a('<span class="glyphicon glyphicon-pencil"></span>', "javascript:void(0)",
                         [
                             'title' => Yii::t('yii', '修改'),
-                            'data-pjax' => '0',
-                            'onClick'=>'View("类别修改","index.php?r=com-category-maintain/update&id=",'.$model->id.')'
+                            'onClick'=>'getEdit("shopinforeview/update&id='.$model->id.'","shopinforeviewFrom","gridList","修改")'
                         ]);
                     },
                     'delete'=>function($url,$model){
-                    return Html::a('<span class="glyphicon glyphicon-trash"></span>', "javascript:void(0)",
+                    return Html::a('<span class="glyphicon glyphicon-trash"></span>', 'javascript:void(0)',
                         [
                             'title' => Yii::t('yii', '删除'),
-                            'data-pjax' => '0',
-                            'onClick'=>'Delete('.$model->id.')'
+                            'onClick'=>'expurgate("shopinforeview/delete&id='.$model->id.'")'
                         ]);
-                    }
+                    },
                 ]
             ],
         ],
     ]); ?>
 <?php \yii\widgets\Pjax::end(); ?>
 </div>
- <?php 
-      Dialog::begin([
-      'id'=>'dialogId',
-      'clientOptions' => [
+<?php 
+    Dialog::begin([
+        'id'=>'dialogId',
+        'clientOptions' => [
             'modal' => true,
             'autoOpen' => false,
             'width'=>'500',
             'height'=>'550',
             'resizable'=> true,
-      ],]);
-  ?>    
+        ],
+    ]);
+?>    
 
 <?php
     Dialog::end();
@@ -106,53 +104,26 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?php $this->beginBlock('JS_END'); ?>
 
+
+
 $(function(){
     $("#btnAdd").click(function(){
-        getView("shopinforeview/create");
-        $("#dialogId").dialog({
-            title:"分店申请",
-            buttons: {
-                '保存': function () {
-                    postAction("shopinforeview/create");
-                    $(this).dialog('close');
-                },
-                "取消": function () {
-                    $(this).dialog('close');
-                }             
-            },
-            close: function () {
-                $("#dialogId").dialog("close");
-            },  
-        });
-
-        $("#dialogId").dialog("open");
+        var url="shopinforeview/create";
+        JuiDialog.dialog("dialogId","分店申请",url,"shopinforeviewFrom","gridList");
     });
 });
 
-function getView(url){
-    $.ajax({
-        type:"get",
-        url:"index.php?r="+url,
-        success:function(data) {
-            $("#dialogId").html(data);
-        }
-    });
+function getView(title,url){
+    JuiDialog.dialogView("dialogId",title,url);
 }
 
-function postAction(url){
-    $.ajax({
-        cache: true,
-        type: "POST",
-        url:"index.php?r="+url ,
-        data: $('#shopinforeviewFrom').serialize(),
-        async: false,
-        error: function (request) {
-            alert("Connection error");
-        },
-        success: function (data) {
-            $.pjax.reload({container:'#w2'});
-        }
-    });
+function getEdit(url,fromId,gridId,title){
+    JuiDialog.dialog("dialogId",title,url,fromId,gridId);
+}
+function expurgate(url){
+    if(confirm("确定要删除数据吗")){
+        JuiDialog.del(url,"gridList");
+    }
 }
 
 <?php $this->endBlock(); ?>

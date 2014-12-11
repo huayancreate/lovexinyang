@@ -10,18 +10,18 @@ $this->title = '店铺信息';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
-
+<div id="div_applyInfo"></div>
 <?php
     echo yii\bootstrap\Tabs::widget([
       'items' => [
-            [
-                'label'=>'商家信息',
-                'content'=>
-                    '<div style="border:1px solid #ccc;border-top:0px;padding:15px;">'.
-                        $this->render('../sto-apply-info/view',['model'=>$stoApplyInfoModel])
-                    ."</div>",
-                'active' => true,
-            ],
+            // [
+            //     'label'=>'商家信息',
+            //     'content'=>
+            //         '<div style="border:1px solid #ccc;border-top:0px;padding:15px;">'.
+            //             $this->render('../sto-apply-info/view',['model'=>$stoApplyInfoModel])
+            //         ."</div>",
+            //     'active' => true,
+            // ],
             [
                 'label' => '店铺信息查看',
                 'content' =>
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => '店铺信息申请',
                 'content' => 
-                    '<div style="border:1px solid #ccc;border-top:0px;padding:15px;">'.
+                    '<div data-pjax="true" style="border:1px solid #ccc;border-top:0px;padding:15px;">'.
                         $this->render('../shopinforeview/index',['dataProvider'=>$shoInforeViewData]).
                     '</div>',
                 //'headerOptions' => ['style'=>'width:auto'],
@@ -41,3 +41,13 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]);
 ?>
+
+<script type="text/javascript"> 
+<?php $this->beginBlock('JS_END'); ?>
+    $(function(){
+        JuiDialog.getPage("div_applyInfo","sto-apply-info/view&id=1");
+    });
+
+<?php $this->endBlock(); ?>
+</script>
+<?php $this->registerJs($this->blocks['JS_END'], \yii\web\View::POS_END); ?>

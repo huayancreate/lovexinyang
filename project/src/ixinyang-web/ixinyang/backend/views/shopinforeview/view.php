@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use backend\models\ComBusinessDistrict;
+use backend\models\ComCityCenter;
+use backend\models\ComCounty;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\ShopInfoReview */
@@ -26,31 +29,29 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'city',
-            'longitude',
-            'latitude',
             'shopName',
             'contact',
-            'regional',
-            'storeId',
-            'storeAccount',
-            'businessDistrictId',
+            [
+                'label'=>'城市',
+                'value'=>ComCityCenter::findOne($model->cityId)->cityCenterName,
+            ],
+            [
+                'label' => '区县',
+                'value' => ComCounty::findOne($model->countyId)->countyName,
+            ],
+            [
+                'label' => '商圈',
+                'value' => ComBusinessDistrict::findOne($model->businessDistrictId)->businessDistrictName,
+            ],
             'address',
             'businessHours',
+            [
+                'label'=>'审核状态',
+                'value'=>$model->getState($model->auditState),
+            ],
             'storeOutline:ntext',
-            'cityId',
-            'countyId',
-            'applyTime',
-            'applyUserId',
-            'applyUserName',
-            'auditUserId',
-            'auditUserName',
-            'auditTime:datetime',
-            'managerId',
-            'managerName',
-            'managerTime:datetime',
-            'auditState',
+            'longitude',
+            'latitude',
             'Rejection',
         ],
     ]) ?>
