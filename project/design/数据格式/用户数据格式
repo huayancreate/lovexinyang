@@ -1,0 +1,209 @@
+登录:
+actionName:login
+提交json:
+{
+	"username": "value",
+	"password": "value",
+	"type": "value",
+	"mobile": "value"
+}
+username value: 用户名
+password value: 密码
+type value:  用于统计请求来源
+	web:  0
+	mobile:  1
+
+mobile value:  用于统计请求手机来源
+	ios:  0
+	android:  1
+
+返回json:
+{
+	"result": "value",
+	"message": "value"
+}
+result value:  返回结果
+true:登录成功   message传递token值
+false:登录失败  message传递错误信息
+
+注册
+actionName:signin
+提交json:
+{
+	"username": "value",
+	"password": "value",
+	"captcha": "value",
+	"type": "value",
+	"mobile": "value"
+}
+username value: 注册用户名
+password value: 注册密码
+type value:  用于统计请求来源
+	web:  0
+	mobile:  1
+
+mobile value:  用于统计请求手机来源
+	ios:  0
+	android:  1
+
+返回json:
+{
+	"result": "value",
+	"message": "value"
+}
+result value:  返回结果
+true:登录成功   message传递token值
+false:登录失败  message传递错误信息
+
+
+
+用户:
+获取用户基础信息:
+action:user
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "value"
+}
+token: 登录成功后给你返回的message
+username: 登录用户
+opeType: 操作字段 getInfo
+返回json:
+{"success":"true",
+	"content":{
+		[ "username": "xuwei",
+		  "realname": "许玮",
+		  "sex": "男",
+		  XXXXXX
+		],
+	}
+} 不包含支付密码、绑定手机号
+
+变更用户基础信息
+
+密码接口
+登录密码的修改
+支付密码的修改
+绑定手机的修改
+
+收藏
+获取用户收藏信息
+返回json:
+{"success":"true",
+	"content":{
+		[ "type": "商品/商家",
+		  "id": "1231232131"
+		],
+		[ 
+		  "id": "1231232131"
+		],
+		[ "username": "xuwei"
+		],
+	}
+}
+添加收藏
+
+财务接口
+获取用户财务信息
+余额
+
+财务操作充值
+财务操作提现
+
+
+用户会员卡接口
+会员卡列表
+获取会员卡（包含会员卡基础规则说明）
+会员卡消费记录
+生成会员卡（等同于获取会员）
+
+获取用户订单信息   （消费历史记录）
+查询
+删除
+详细信息
+
+订单购买退款接口
+订单生成
+付款
+退款
+
+
+店铺
+获取店铺基础信息
+获取所有店铺信息
+
+商品
+获取所有商品信息
+type : 类别
+    商圈
+
+{"success":"true",
+	"content":{
+		[
+		  "id": "1231232131",
+		  "name"
+		  ""
+		  "imgs": ["http:/asdasdasdj.com/img1.jpg"],["http:/asdasdasdj.com/img2.jpg"],
+		  "已消费人数": 30
+		  "购买须知": 
+		],
+		[
+		  "id": "1231232131",
+		  "name"
+		  ""
+		  "img": "http:/asdasdasdj.com/img.jpg",
+		],
+		[
+		  "id": "1231232131",
+		  "name"
+		  ""
+		  "img": "http:/asdasdasdj.com/img.jpg",
+		],
+	
+	}
+}
+
+广告
+banner
+
+获取相关商品
+
+基础数据接口
+类别
+区域
+
+搜索接口
+
+评价接口
+添加评价 商品->订单
+更改 商品
+
+获取评价
+商家id 总体评价
+商品id 总体评价
+
+
+平台交互接口
+提交平台意见
+获取平台帮助
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
