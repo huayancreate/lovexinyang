@@ -12,6 +12,8 @@ use backend\models\ComCitycenter;
 use backend\models\ComCounty;
 use backend\models\ComBusinessDistrict;
 use backend\models\ComCategoryMaintain;
+use backend\models\StoSellerInfo;
+use backend\models\StoStoreInfo;
 use yii\data\Pagination;
 
 /*
@@ -264,7 +266,8 @@ class StoApplyInfoController extends Controller
     //审核通过
     public function actionCheckpass()
     {
-        /* //获取当前登录人  暂时注释
+      if (Yii::$app->request->post()){
+       //获取当前登录人  暂时注释
        //Yii::$app->session['loginName']
         //申请id
         $applyId=$_POST["applyId"];
@@ -274,41 +277,42 @@ class StoApplyInfoController extends Controller
         $customerManagerId='111111';
         //客户经理名称 暂时写空
         $customerManagerName='张三';
-       
 
-        //事务开始
-        $transaction = $this->getDb()->beginTransaction();
+        //事务开始 
+        $transaction=\Yii::$app->db->beginTransaction();
         try {
-                //1、执行修改   商家申请数据的修改
-               $result=StoApplyInfo::updateBySql('sto_apply_info',['applyStatus'=>$applyStatus,'customerManagerId'=>$customerManagerId,'customerManagerName'=>$customerManagerName,'cusManagerReviewTime'=>date('Y-m-d h:i:s')],['applyId'=>$applyId]);
-               //2、根据申请id查询该商家的申请信息
-               $model = $this->findModel($applyId);
-               $stoSellerInfoModel=new StoSellerInfo();
-               //客户经理id
-               $stoSellerInfoModel->customerManager=$model->customerManagerId;
-               //其他联系方式
-               $stoSellerInfoModel->otherContactWay=$model->otherContact;
-               //商家概述
-               $stoSellerInfoModel->summary=$model->scopeBusiness;
-               //商户名称
-               $stoSellerInfoModel->sellerName=$model->storeName;
-               //是否有效 0->无效 1->有效  初次添加默认有效
-               $stoSellerInfoModel->validity='1';
-               //联系人
-               $stoSellerInfoModel->contacts=$model->name;
-               
+             //1、根据申请id查询该商家的申请信息
+             $model = $this->findModel($applyId);
+            
+             //商家信息保存成功后获取 商家ID
+             $sellerId=$this->sellerInfoModelSave($model);
 
-               //提交
-               $transaction->commit();
+             //门店信息保存成功后获取门店id
+             $storeInfoId=$this->storeInfoModelSave($model,$sellerId);
 
+               //2、执行修改   商家申请数据的修改
+            
+             StoApplyInfo::updateBySql('sto_apply_info',['applyStatus'=>$applyStatus,'customerManagerId'=>$customerManagerId,'customerManagerName'=>$customerManagerName,'cusManagerReviewTime'=>date('Y-m-d h:i:s')],['applyId'=>$applyId]);
+             
+             //print_r($storeInfoId);
+             //商家信息和门店信息都保存成功 True 表示都保存成功
+             $message["success"]=True;
+             //商家ID
+             $message["sellerId"]=$sellerId;
+              //门店id
+             $message["storeInfoId"]=$storeInfoId;
+
+             //提交
+            $transaction->commit();
            } 
         catch (Exception  $e) {
-
             $transaction->rollBack();
-
+            $message["success"]=False;
+            $message["errormsg"]=$e;
         }
        
-        return json_encode($result);*/
+        return json_encode($message);
+      }
     }
 
      //审核驳回 需要填写驳回备注
@@ -331,4 +335,76 @@ class StoApplyInfoController extends Controller
       return json_encode($result);
 
     }
+
+    /**
+    *商家信息的保存
+    */
+    protected function sellerInfoModelSave($applyInfoModel){
+                  //商家信息model
+                  $stoSellerInfoModel=new StoSellerInfo();
+                 //把数据添加到商家信息表中
+                 //客户经理id
+                 $stoSellerInfoModel->customerManager=$applyInfoModel->customerManagerId;
+                 //其他联系方式
+                 $stoSellerInfoModel->otherContactWay=$applyInfoModel->otherContact;
+                 //商家概述
+                 $stoSellerInfoModel->summary=$applyInfoModel->scopeBusiness;
+                 //是否有效 0->无效 1->有效  初次添加默认有效
+                 $stoSellerInfoModel->validity='1';
+                 //联系人
+                 $stoSellerInfoModel->contacts=$applyInfoModel->name;
+                 //手机
+                 $stoSellerInfoModel->phone=$applyInfoModel->phone;
+                 //商家Email、邮箱
+                 $stoSellerInfoModel->email=$applyInfoModel->email;
+
+                 //把商家信息进行保存
+                 $stoSellerInfoModel->save();
+                 //返回商家信息id
+                 return $stoSellerInfoModel->id;
+    }
+   
+    /**
+     * [storeInfoModelSave description]
+     * @param  [type] $applyInfoModel [description]
+     * @param  [type] $sellerId       [description]
+     * @return [type]                 [description]
+     */
+    protected function storeInfoModelSave($applyInfoModel,$sellerId){
+                 //门店 model
+                 $stoStoreInfoModel=new StoStoreInfo();
+                 //把数据添加到门店表中
+                 //创建时间  当前时间
+                 $stoStoreInfoModel->createTime=date('Y-m-d h:i:s');
+                 //店铺地址
+                 $stoStoreInfoModel->storeAddress=$applyInfoModel->address;
+                 //店铺类别
+                 $stoStoreInfoModel->storeType=$applyInfoModel->storeCategoryId;
+                 //门店名称
+                 $stoStoreInfoModel->storeName=$applyInfoModel->storeName;
+                 //联系方式
+                 $stoStoreInfoModel->contactWay=$applyInfoModel->otherContact;
+                 //商家ID
+                 $stoStoreInfoModel->sellerId=$sellerId;
+                 //是否有效  初次添加默认 有效 1
+                 $stoStoreInfoModel->validity='1';
+                 //坐标：经度
+                 $stoStoreInfoModel->longitude=$applyInfoModel->longitude;
+                 //坐标：纬度
+                 $stoStoreInfoModel->latitude=$applyInfoModel->latitude;
+                 //门店概述
+                 $stoStoreInfoModel->storeOutline=$applyInfoModel->scopeBusiness;
+                 //商圈id
+                 $stoStoreInfoModel->businessDistrictId=$applyInfoModel->businessZone;
+                 //城市id
+                 $stoStoreInfoModel->cityId=$applyInfoModel->city;
+                 //区县id
+                 $stoStoreInfoModel->countryID=$applyInfoModel->regional;
+                 //保存门店信息
+                 $stoStoreInfoModel->save();
+                 //返回门店信息id
+                 return $stoStoreInfoModel->id;
+
+    }
+
 }

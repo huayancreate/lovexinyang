@@ -102,7 +102,7 @@ use yii\jui\Dialog;
                     <?= $form->field($model, 'applyId')->hiddenInput()->label(false) ?>
 
 
-                <?= Html::button('审核通过', ['class' => 'btn btn-success','id'=>'btnCheckPass','onclick'=>"checkPass()"]) ?>
+                <?= Html::button('审核通过', ['class' => 'btn btn-success','id'=>'btnCheckPass','onclick'=>"checkPass(3,".$model->applyId.")"]) ?>
                     <?= Html::button('审核驳回', ['class' => 'btn btn-primary','id'=>'btnCheckFail','onclick'=>"checkFail()"]) ?>
                 </div>
             </div>
@@ -145,29 +145,35 @@ Dialog::end();
 <script>
     $(document).ready(function(){
          //使文本框 下拉框 文本域 
-         $('input,select,textarea',$('form[id="applyinfoForm"]')).attr('readonly',true);
+         $('input,select,textarea',$('form[id="cusManagerReviewForm"]')).attr('readonly',true);
+         //下拉框给设置只读却还可以选择  单独给它disabled
+         $('select',$('form[id="cusManagerReviewForm"]')).attr('disabled',true);
     });
 
     //审核通过
-    function checkPass(){
+    function checkPass(applyStatus,applyId){
         $.ajax({
             type: "POST",
             data: {'applyStatus': applyStatus,'applyId':applyId},
-           // data:$('#cusManagerReviewForm').serialize(), 
             url: "index.php?r=sto-apply-info%2Fcheckpass",
             dataType: "json",
             error: function (request) {
                 alert("Connection error");
             },
             success: function (data) {
-                /*if(data==1){
+                if(data.success){
                     //当成功后操作。。
-                    alert("操作成功.");
-                    $.pjax.reload({container:'#stoapplyinfoGrid'});
+                   
+                    //$.pjax.reload({container:'#discusstasksGrid'});
+
+                    //操作成功跳转到商家信息和账号信息以及门店信息录入界面
+                    //商家id   data.sellerId
+                    //门店id   data.storeInfoId
+                     alert("商家id :"+data.sellerId+" 门店id:"+data.storeInfoId);
+
                 }else{
-                    alert("操作失败，请重试.");
-                }*/
-                alert(data);
+                    alert("操作失败原因："+data.errormsg+",请重试.");
+                }
             }
         });
     }
@@ -198,7 +204,7 @@ Dialog::end();
                 if(data==1){
                     //当成功后操作。。
                     alert("操作成功.");
-                    $.pjax.reload({container:'#stoapplyinfoGrid'});
+                    $.pjax.reload({container:'#discusstasksGrid'});
                 }else{
                     alert("操作失败，请重试.");
                 }

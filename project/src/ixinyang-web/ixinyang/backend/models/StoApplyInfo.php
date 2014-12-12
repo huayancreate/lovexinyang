@@ -52,10 +52,11 @@ class StoApplyInfo extends \yii\db\ActiveRecord
             //去掉前后空格
             [['remark'],'trim'],
             [['longitude', 'latitude', 'daySales'], 'number'],
-            [['customerServiceId', 'customerManagerId', 'storeApplyNumber', 'applyStatus', 'storeCategoryId'], 'integer'],
+            [['customerServiceId', 'customerManagerId', 'storeApplyNumber', 'applyStatus', 'storeCategoryId','city', 'regional', 'businessZone'], 'integer'],
             [['cusServiceReviewTime', 'cusManagerReviewTime', 'applyTime'], 'safe'],
-            [['city', 'customerServiceName', 'customerManagerName', 'storePhone', 'otherContact', 'regional', 'businessZone', 'phone', 'email'], 'string', 'max' => 50],
-            [['scopeBusiness','remark'], 'string', 'max' => 200],
+            [['customerServiceName', 'customerManagerName', 'storePhone', 'otherContact', 'phone', 'email'], 'string', 'max' => 50],
+            [['remark'], 'string', 'max' => 200],
+            [['scopeBusiness'], 'string'],
             [['storeName', 'address', 'name'], 'string', 'max' => 250]
         ];
     }

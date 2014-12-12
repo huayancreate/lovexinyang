@@ -39,7 +39,7 @@ class StoSellerInfo extends \yii\db\ActiveRecord
             [['customerManager', 'contractId'], 'integer'],
             [['accountBalance'], 'number'],
             [['otherContactWay', 'contacts', 'email', 'owner'], 'string', 'max' => 50],
-            [['summary'], 'string', 'max' => 200],
+            [['summary'], 'string'],
             [['sellerName'], 'string', 'max' => 150],
             [['validity'], 'string', 'max' => 2],
             [['phone'], 'string', 'max' => 20]

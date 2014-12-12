@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
     <?php \yii\widgets\Pjax::begin(); ?>
     <?= GridView::widget([
-        'id'=>'stoapplyinfoGrid',
+        'id'=>'discusstasksGrid',
         'dataProvider' => $dataProvider,
        // 'filterModel' => $searchModel,
         'columns' => [

@@ -129,6 +129,7 @@ Dialog::end();
     $(document).ready(function(){
          //使文本框 下拉框 文本域 
          $('input,select,textarea',$('form[id="applyinfoForm"]')).attr('readonly',true);
+         $('select',$('form[id="applyinfoForm"]')).attr('disabled',true);
     });
     function checkPassOrFail(applyStatus,applyId){
         $.ajax({
