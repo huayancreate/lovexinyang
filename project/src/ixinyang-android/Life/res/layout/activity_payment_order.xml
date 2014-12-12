@@ -89,7 +89,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="数量："
+                        android:text="@string/totle_num"
                         android:textColor="@color/text_color_gray"
                         android:textSize="@dimen/default_text_size" />
 
@@ -118,7 +118,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="总价："
+                        android:text="@string/totle_price"
                         android:textColor="@color/text_color_gray"
                         android:textSize="@dimen/default_text_size" />
 
@@ -137,38 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10.0dip"
                 android:background="@drawable/set_layout_bg"
-                android:orientation="vertical">
-
-                <RelativeLayout
-                    android:id="@+id/rl_daijinquan"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10.0dip" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="代金券："
-                        android:textColor="@color/text_color_gray"
-                        android:textSize="@dimen/default_text_size" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:drawableRight="@drawable/ic_global_arrow_right_2px"
-                        android:text="使用代金券"
-                        android:textColor="@color/text_color_gray"
-                        android:textSize="@dimen/default_text_size" />
-                </RelativeLayout>
-
-                <ImageView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5.0dip"
-                    android:layout_marginTop="5.0dip"
-                    android:background="@drawable/divider"
-                    android:scaleType="centerCrop" />
+                android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="fill_parent"
@@ -178,7 +147,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="余额："
+                        android:text="@string/balance"
                         android:textColor="@color/text_color_gray"
                         android:textSize="@dimen/default_text_size" />
 
@@ -207,7 +176,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="还需支付："
+                        android:text="@string/also_need_to_pay"
                         android:textColor="@color/text_color_gray"
                         android:textSize="@dimen/default_text_size" />
 
@@ -227,7 +196,7 @@
                 android:layout_marginBottom="5.0dip"
                 android:layout_marginLeft="20.0dip"
                 android:layout_marginTop="5.0dip"
-                android:text="选择支付方式"
+                android:text="@string/pay_method"
                 android:textColor="@color/text_color_gray"
                 android:textSize="@dimen/set_text_size" />
 
@@ -241,48 +210,11 @@
                 <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10.0dip" >
-
-                    <ImageView
-                        android:id="@+id/img_banklist"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="5.0dip"
-                        android:src="@drawable/ic_banklist_enabled" />
-
-                    <TextView
-                        android:id="@+id/tv_bank"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="4.0dip"
-                        android:layout_marginTop="2.0dip"
-                        android:layout_toRightOf="@id/img_banklist"
-                        android:text="银行卡支付"
-                        android:textColor="@color/text_color_gray"
-                        android:textSize="@dimen/default_text_size" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/tv_bank"
-                        android:layout_toRightOf="@id/img_banklist"
-                        android:text="支持储蓄卡信用卡，无需卡通网银"
-                        android:textColor="@color/text_normal"
-                        android:textSize="@dimen/text_12" />
-                </RelativeLayout>
-
-                <ImageView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5.0dip"
-                    android:layout_marginTop="5.0dip"
-                    android:background="@drawable/divider"
-                    android:scaleType="centerCrop" />
-
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10.0dip" >
+                    android:layout_marginBottom="10.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginRight="3.0dip"
+                    android:layout_marginTop="10.0dip"
+                    android:gravity="center_vertical" >
 
                     <ImageView
                         android:id="@+id/img_zhifubao"
@@ -298,7 +230,7 @@
                         android:layout_marginBottom="4.0dip"
                         android:layout_marginTop="2.0dip"
                         android:layout_toRightOf="@id/img_zhifubao"
-                        android:text="支付宝支付"
+                        android:text="@string/alipay_payment"
                         android:textColor="@color/text_color_gray"
                         android:textSize="@dimen/default_text_size" />
 
@@ -307,9 +239,18 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tv_bao"
                         android:layout_toRightOf="@id/img_zhifubao"
-                        android:text="推荐有支付宝账号的用户使用"
+                        android:text="@string/hint_alipay"
                         android:textColor="@color/text_normal"
                         android:textSize="@dimen/text_12" />
+
+                    <CheckBox
+                        android:id="@+id/rb_pay"
+                        style="@style/CustomRadiobuttonTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:clickable="true"
+                        android:checked="true" />
                 </RelativeLayout>
             </LinearLayout>
 

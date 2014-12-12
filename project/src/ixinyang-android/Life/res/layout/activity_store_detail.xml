@@ -86,6 +86,21 @@
                     android:src="@drawable/icon_luncher_big" />
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_blumn"
+                    android:layout_marginLeft="30.0dip"
+                    android:layout_marginTop="-35.0dip"
+                    android:background="#33000000"
+                    android:paddingBottom="3.0dip"
+                    android:paddingLeft="5.0dip"
+                    android:paddingRight="5.0dip"
+                    android:paddingTop="3.0dip"
+                    android:text="共12张"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_12" />
+
+                <TextView
                     android:id="@+id/txt_shop_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

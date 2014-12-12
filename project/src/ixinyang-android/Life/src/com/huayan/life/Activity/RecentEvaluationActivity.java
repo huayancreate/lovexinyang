@@ -1,15 +1,15 @@
 package com.huayan.life.Activity;
 
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
-import com.huayan.life.adapter.EvaluationAdapter;
-import com.huayan.life.common.GetData;
-import com.huayan.life.common.MyOnRefreshListener7;
-
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+
+import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.huayan.life.adapter.EvaluationAdapter;
+import com.huayan.life.common.GetData;
+import com.huayan.life.common.MyOnRefreshListener7;
 
 /**
  * 最近半年评论
@@ -21,6 +21,7 @@ public class RecentEvaluationActivity extends BaseActivity implements OnClickLis
 	private PullToRefreshListView ptrlvHeadLineNews = null;
 	private EvaluationAdapter newAdapter = null;
 
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -30,6 +31,7 @@ public class RecentEvaluationActivity extends BaseActivity implements OnClickLis
 		initPullToRefreshListView(ptrlvHeadLineNews, newAdapter);
 		((ImageButton) findViewById(R.id.ibb_fanhui2)).setOnClickListener(this);
 	}
+
 
 	private void initPullToRefreshListView(PullToRefreshListView rtflv,
 			EvaluationAdapter adapter) {

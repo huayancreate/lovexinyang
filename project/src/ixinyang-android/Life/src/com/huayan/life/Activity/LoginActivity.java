@@ -201,7 +201,7 @@ public class LoginActivity extends BaseActivity implements Callback,
 			jumpToActivity(LoginActivity.this, RegisterActivity.class);
 			break;
 		case R.id.txt_quick_login_page:
-			jumpToActivity(LoginActivity.this, RegisterActivity.class);
+			jumpToActivity(LoginActivity.this, QuickLoginActivity.class);
 			break;
 		case R.id.ib_return:
 			finish();

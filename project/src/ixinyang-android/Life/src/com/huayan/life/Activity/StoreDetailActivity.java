@@ -40,6 +40,7 @@ public class StoreDetailActivity extends BaseActivity implements
 		pingListView = (ListView) findViewById(R.id.lv_evaluation);
 		nearListView = (ListView) findViewById(R.id.lv_near_store);
 		((ImageView) findViewById(R.id.ib_returns)).setOnClickListener(this);
+		((ImageView)findViewById(R.id.img_blumn)).setOnClickListener(this);//商家相册
 		initData();
 		((ImageView) findViewById(R.id.vip)).setOnClickListener(this);
 		((TextView) findViewById(R.id.tv_down)).setOnClickListener(this);
@@ -48,8 +49,7 @@ public class StoreDetailActivity extends BaseActivity implements
 
 	private void initData() {
 		tanGouAdapter = new NearTuanGouAdapter(context, GetData.getNearList(4));
-		evaluationAdapter = new EvaluationAdapter(context,
-				GetData.getEvaluationList(3));
+		evaluationAdapter = new EvaluationAdapter(context,GetData.getEvaluationList(3));
 		pingListView.setAdapter(evaluationAdapter);
 		nearListView.setAdapter(tanGouAdapter);
 		nearListView.setOnItemClickListener(new mListener());
@@ -84,6 +84,10 @@ public class StoreDetailActivity extends BaseActivity implements
 			// 商家评价
 			jumpToActivity(StoreDetailActivity.this,
 					EvaluationStoresActivity.class);
+			break;
+		case R.id.img_blumn:
+			//TODO 商家相册
+			jumpToActivity(StoreDetailActivity.this,StoreAlbumActivity.class);
 			break;
 		default:
 			break;

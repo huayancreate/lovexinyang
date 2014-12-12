@@ -43,6 +43,7 @@
         android:layout_margin="10.0dip"
         android:divider="@drawable/divider"
         android:fadingEdge="none"
+        android:scrollbars="none"
         android:fastScrollEnabled="false"
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/citylist_divider"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/alb_frame"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <include layout="@layout/view_page_header" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/alb_frame"
+        android:scrollbars="none" >
+
+        <com.huayan.life.view.MyGridView
+            android:id="@+id/gv_album"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5.0dip"
+            android:cacheColorHint="@android:color/transparent"
+            android:columnWidth="170.0dip"
+            android:focusable="false"
+            android:gravity="center"
+            android:horizontalSpacing="10dip"
+            android:listSelector="@android:color/transparent"
+            android:numColumns="2"
+            android:scrollbars="vertical"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dip" />
+    </ScrollView>
+
+</RelativeLayout>

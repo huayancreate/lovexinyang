@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -24,7 +25,7 @@ public class TheRecommendedDailyActivity extends BaseActivity {
 
 	private PullToRefreshListView ptrlvHeadLineNews = null;
 	private RecommendAdapter newAdapter = null;
-	TextView goBackTextView;
+	ImageView goBack;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -33,8 +34,8 @@ public class TheRecommendedDailyActivity extends BaseActivity {
 		ptrlvHeadLineNews = (PullToRefreshListView) findViewById(R.id.ptrlvdaily_recommend);
 		newAdapter = new RecommendAdapter(this,GetData.getRecommendList(10));
 		initPullToRefreshListView(ptrlvHeadLineNews, newAdapter);
-		goBackTextView = (TextView) findViewById(R.id.go_back);
-		((TextView) findViewById(R.id.txt_top_title)).setText(getString(R.string.tuijian));	
+		goBack = (ImageView) findViewById(R.id.go_back);
+		((TextView) findViewById(R.id.header_name)).setText(getString(R.string.tuijian));	
 		
 		ptrlvHeadLineNews.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -43,7 +44,7 @@ public class TheRecommendedDailyActivity extends BaseActivity {
 			}
 		});
 		
-		goBackTextView.setOnClickListener(new OnClickListener() {
+		goBack.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				finish();

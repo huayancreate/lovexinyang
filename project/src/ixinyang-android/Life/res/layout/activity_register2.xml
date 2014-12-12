@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/citylist_divider" >
+
+    <FrameLayout
+        android:id="@+id/frame_layout_reg2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <include layout="@layout/view_page_header" />
+        
+         <TextView
+            android:id="@+id/resend_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginRight="10.0dip"
+            android:text="@string/resend_code"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_banner2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/frame_layout_reg2"
+        android:background="@color/white"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/tv_step11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20.0dip"
+            android:layout_marginLeft="5.0dip"
+            android:layout_marginTop="20.0dip"
+            android:drawablePadding="3.0dip"
+            android:drawableRight="@drawable/ic_global_arrow_right_2px"
+            android:paddingBottom="5.0dip"
+            android:paddingTop="5.0dip"
+            android:text="@string/step1"
+            android:textColor="@color/abs__bright_foreground_disabled_holo_dark"
+            android:textSize="@dimen/default_text_size" />
+
+        <TextView
+            android:id="@+id/tv_step12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20.0dip"
+            android:layout_marginTop="20.0dip"
+            android:layout_toRightOf="@id/tv_step11"
+            android:drawablePadding="3.0dip"
+            android:drawableRight="@drawable/ic_global_arrow_right_2px"
+            android:paddingBottom="5.0dip"
+            android:paddingTop="5.0dip"
+            android:text="@string/step2"
+            android:textColor="@color/green"
+            android:textSize="@dimen/default_text_size" />
+        
+         <TextView
+            android:id="@+id/tv_step13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20.0dip"
+            android:layout_marginTop="20.0dip"
+            android:layout_toRightOf="@id/tv_step12"
+            android:paddingBottom="5.0dip"
+            android:paddingTop="5.0dip"
+            android:text="@string/step3"
+            android:textColor="@color/abs__bright_foreground_disabled_holo_dark"
+            android:textSize="@dimen/default_text_size" />
+         
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_banner2"
+        android:layout_marginTop="20.0dp"
+        android:visibility="visible" >
+
+        <!-- 账号 -->
+
+        <LinearLayout
+            android:id="@+id/ll_register2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10.0dip"
+            android:layout_marginLeft="15.0dip"
+            android:layout_marginRight="15.0dip"
+            android:layout_marginTop="5.0dip"
+            android:background="@color/white" >
+
+            <EditText
+                android:id="@+id/et_code"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15.0dip"
+                android:background="@drawable/mei_edit_style"
+                android:hint="@string/hint_code"
+                android:inputType="phone"
+                android:singleLine="true"
+                android:textColorHint="@color/abs__bright_foreground_disabled_holo_dark"
+                android:textSize="@dimen/default_text_size" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/submit_code"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_register2"
+            android:layout_margin="15.0dip"
+            android:background="@drawable/shape_ff32b9aa"
+            android:gravity="center"
+            android:paddingBottom="10.0dp"
+            android:paddingTop="10.0dp"
+            android:text="@string/submit_code"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/group_purchase_title" />
+    </RelativeLayout>
+
+</RelativeLayout>

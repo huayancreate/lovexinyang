@@ -38,7 +38,7 @@
     <string name="membership_detail">会员卡详情</string>
     <string name="my_daijin">我的收藏</string>
     <string name="tuijian">每日推荐</string>
-	<string name="jifen">我的积分</string>
+    <string name="jifen">我的积分</string>
     <string name="yuding">订单管理</string>
     <string name="recommend">首页</string>
     <string name="my_store">商家</string>
@@ -57,10 +57,17 @@
     <string name="share">分享</string>
     <string name="free_reg">免费注册</string>
     <string name="quick_login">无账号快捷登录</string>
-    <string name="register">注 册</string>
+    <string name="register">注册</string>
     <string name="hint_phone">请输入您的手机号</string>
-    <string name="get_code">获得验证码</string>
-    <string name="read_agreement">我已阅读并接受<a href="file:///android_asset/common_FQA/index.html">爱信阳用户协议</a></string>
+    <string name="hint_code">请输入手机获取的短信验证码</string>
+    <string name="hint_pwd">请设置登录密码</string>
+    <string name="hint_message_code">请输入短信验证码</string>
+    <string name="save">保存</string>
+    <string name="valid_login">验证并登录</string>
+    <string name="get_code">获取验证码</string>
+    <string name="submit_code">提交验证码</string>
+    <string name="read_agreement">我已阅读并接受</string>
+    <string name="read_agreement2">爱信阳用户协议</string>
     <string name="film_xuan">全部</string>
     <string name="hotel_order">未付款</string>
     <string name="non_consumption">未消费</string>
@@ -81,6 +88,7 @@
     <string name="the_album">点击查看相册</string>
     <string name="immediate_panic_buying">立即抢购</string>
     <string name="store_detail">商家详情</string>
+    <string name="resend_code">重发验证码</string>
     <string name="query">搜索</string>
     <string name="tishi">输入店家或分类</string>
     <string name="my_account">我的账户</string>
@@ -99,12 +107,10 @@
     <string name="payment_order">支付订单</string>
     <string name="pay_ok">确认支付</string>
     <string name="feedback">意见反馈</string>
-<string name="hint_des">"温馨提示：
-      \u0009当支付不足时，代金券会被优先使用，其次才会使用爱信阳余额；代金券不找零，不兑现，请慎重使用。"
- </string>
- <string name="store_evaluation">商家评价</string>
- <string name="xuzhi">
-  "\u0009有效期：014.8.29 至 2014.11.28（周末、法定节假日通用）
+    <string name="hint_des">"温馨提示：
+      \u0009当支付不足时，代金券会被优先使用，其次才会使用爱信阳余额；代金券不找零，不兑现，请慎重使用。"</string>
+    <string name="store_evaluation">商家评价</string>
+    <string name="xuzhi">  "\u0009有效期：014.8.29 至 2014.11.28（周末、法定节假日通用）
 \u0009使用时间：09:00-21:00
 \u0009预约提醒：电话预约，请至少提前24小时致电商家预约，预约逾期不保留
 \u0009使用规则：每张美团券限制2人入镜，不允许超出人数限制
@@ -119,16 +125,27 @@
 \u0009团购用户不可同时享受商家其他优惠
 \u0009提供免费WiFi
 \u0009美团券密码一旦验证即代表消费成功，不可申请“随时退款”和“过期退款”，请您合理安排验证时间
-\u0009特别提醒：为了保证您的权益，请选择美团网线上支付，用户与美团以外的任何第三方发生的交易行为如出现问题，美团网都不承担责任，谢谢您的理解与支持！"
-     </string>
-     <string  name="recent_evaluation">半年内评价158</string>
-     <string name="notice">通知</string>
-     <string name="notice_clean">清空</string>
-     <string name="order_detail">订单详情</string>
-     <string name="send">发送</string>
-     <string name="feedback_hint">请输入反馈意见</string>
-     <string name="bind_phone">您绑定的手机号码</string>
-     <string name="bind_new_phone">绑定新手机号</string>
-     <string name="totle_price">总价：</string>
-     <string name="totle_num">数量：</string>
+\u0009特别提醒：为了保证您的权益，请选择美团网线上支付，用户与美团以外的任何第三方发生的交易行为如出现问题，美团网都不承担责任，谢谢您的理解与支持！"</string>
+    <string name="recent_evaluation">半年内评价158</string>
+    <string name="notice">通知</string>
+    <string name="notice_clean">清空</string>
+    <string name="order_detail">订单详情</string>
+    <string name="send">发送</string>
+    <string name="feedback_hint">请输入反馈意见</string>
+    <string name="bind_phone">您绑定的手机号码</string>
+    <string name="bind_new_phone">绑定新手机号</string>
+    <string name="totle_price">总价：</string>
+    <string name="totle_num">数量：</string>
+    <string name="balance">余额：</string>
+    <string name="also_need_to_pay">还需支付：</string>
+    <string name="pay_method">支付方式</string>
+    <string name="alipay_payment">支付宝支付</string>
+    <string name="hint_alipay">推荐有支付宝账号的用户使用</string>
+    <string name="step1">1 输入手机号码</string>
+    <string name="step2">2 输入验证码</string>
+    <string name="step3">3 设置密码</string>
+    <string name="desc_shrinkup">收起</string>
+    <string name="desc_spread">显示更多</string>
+    <string  name="sto_album">商家相册</string>
+
 </resources>

@@ -120,5 +120,5 @@ public class GroupPurchaseActivity extends BaseActivity implements
 			break;
 		}
 	}
-
+	
 }
