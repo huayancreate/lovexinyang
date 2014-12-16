@@ -29,7 +29,20 @@ use yii\helpers\ArrayHelper;
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
+
         var value = "";
+        $('#comrole-rolename').multiselect({
+            onChange: function (option, checked, select) {
+                if (checked === true) {
+                    value += option.val() + ",";
+                }
+                else if (checked === false) {
+                    value = value.replace(option.val() + ",", "");
+                }
+                $("#roleId").val(value);
+            }
+        });
+
         var roleId = $("#roleId").val();
         if (roleId != "0") {
             if (roleId.indexOf(",") >= 0) {
@@ -41,15 +54,6 @@ use yii\helpers\ArrayHelper;
                 $('#comrole-rolename').multiselect('select', roleId, true);
             }
         }
-
-        $('#comrole-rolename').multiselect({
-            onChange: function (option, checked, select) {
-                if (checked === true) {
-                    value += $(option).val() + ",";
-                    $("#roleId").val(value);
-                }
-            }
-        });
     });
 </script>
 

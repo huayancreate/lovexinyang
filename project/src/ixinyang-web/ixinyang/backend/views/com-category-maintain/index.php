@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <a class="btn btn-success" href="#" onclick="View('创建类别','index.php?r=com-category-maintain/create','')">创建类别</a>
 
     </p>
-    <?php \yii\widgets\Pjax::begin(); ?>
+    <?php \yii\widgets\Pjax::begin(['id'=>'categoryList']); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -109,7 +109,7 @@ Dialog::end();
                 overflow: 'auto'
             },
             close: function() {
-                $.pjax.reload({container:'#w0'});
+                //$.pjax.reload({container:'#w0'});
             },
             buttons:{
                 '保存': function() {
@@ -141,7 +141,7 @@ Dialog::end();
                 alert("Connection error");
             },
             success: function (data) {
-                $.pjax.reload({container:'#w0'});
+                $.pjax.reload({container:'#categoryList'});
             }
         });
     }
@@ -157,7 +157,7 @@ Dialog::end();
                     alert("Connection error");
                 },
                 success: function (data) {
-                    $.pjax.reload({container: '#w0'});
+                    $.pjax.reload({container: '#categoryList'});
                 }
             });
         }
