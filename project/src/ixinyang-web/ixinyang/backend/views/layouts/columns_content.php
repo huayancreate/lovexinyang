@@ -16,7 +16,7 @@ AppAsset::register($this);
         	['label' => 'Home', 'url' => ['site/index'], 'badge' => '5','items' => [
             	['label' => '角色管理', 'url' => ['comrole/index', 'tag' => 'new']],
             	['label' => '店铺信息', 'url' => ['stostoreinfo/index', 'tag' => 'popular']],
-            	['label' => '申请分店', 'url' => ['shopinforeview/index', 'tag' => 'popular']],
+            	['label' => '商品管理', 'url' => ['sto-goods/index', 'tag' => 'popular']],
             	['label' => 'Most Popular', 'url' => ['product/index', 'tag' => 'popular']],
             	['label' => 'Most Popular', 'url' => ['product/index', 'tag' => 'popular']],
         	]],

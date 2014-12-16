@@ -25,6 +25,11 @@ use Yii;
  */
 class StoGoods extends \yii\db\ActiveRecord
 {
+   /**
+     * @var UploadedFile|Null file attribute
+     */
+    public $file;
+
     /**
      * @inheritdoc
      */
@@ -39,15 +44,16 @@ class StoGoods extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['goodsName'],'required','message' => '{attribute}不能为空.'],
             [['describes'], 'string'],
             [['price'], 'number'],
             [['supplyDateTime', 'createDate'], 'safe'],
             [['goodsGrade', 'goodsWeight', 'goodsState', 'createID'], 'integer'],
             [['goodsName'], 'string', 'max' => 150],
             [['summary'], 'string', 'max' => 200],
-            [['subClass'], 'string', 'max' => 50],
+            [['subClass'], 'string', 'max' => 1],
             [['validity', 'enjoyRebate'], 'string', 'max' => 2],
-            [['createName'], 'string', 'max' => 30]
+            [['createName'], 'string', 'max' => 30],
         ];
     }
 
@@ -58,20 +64,20 @@ class StoGoods extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'goodsName' => 'Goods Name',
-            'summary' => 'Summary',
-            'describes' => 'Describes',
-            'price' => 'Price',
-            'subClass' => 'Sub Class',
-            'validity' => 'Validity',
-            'supplyDateTime' => 'Supply Date Time',
-            'enjoyRebate' => 'Enjoy Rebate',
-            'goodsGrade' => 'Goods Grade',
-            'goodsWeight' => 'Goods Weight',
-            'goodsState' => 'Goods State',
-            'createDate' => 'Create Date',
-            'createID' => 'Create ID',
-            'createName' => 'Create Name',
+            'goodsName' => '名称',
+            'summary' => '概述',
+            'describes' => '描述',
+            'price' => '价格',
+            'subClass' => '类别',
+            'validity' => '是否有效',
+            'supplyDateTime' => '供应时间',
+            'enjoyRebate' => '会员折扣', //是否享受会员折扣
+            'goodsGrade' => '等级',
+            'goodsWeight' => '权重',
+            'goodsState' => '状态',
+            'createDate' => '创建日期',
+            'createID' => '创建人ID',
+            'createName' => '创建人',
         ];
     }
 }

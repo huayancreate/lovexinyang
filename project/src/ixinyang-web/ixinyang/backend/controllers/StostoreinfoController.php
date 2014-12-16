@@ -105,10 +105,31 @@ class StostoreinfoController extends Controller
         $model = $this->findModel($id);
         if ($model->load(Yii::$app->request->post())) {
 
-            $message=shopInfoReviewSave($model); //插入店铺申请表
+            //插入店铺申请表
+            $shopInfo=new ShopInfoReview();
+            $shopInfo->longitude=$model->longitude;  //经度
+            $shopInfo->latitude=$model->latitude;   //纬度
+            $shopInfo->shopName=$model->storeName;  //店铺名称
+            $shopInfo->contact=$model->contactWay;//联系方式
+            $shopInfo->storeId=$model->sellerId; //商家ID
+            $shopInfo->address=$model->storeAddress; //地址
+            $shopInfo->businessHours=$model->businessHours;// 营业时间
+            $shopInfo->businessDistrictId=$model->businessDistrictId; //商圈ID
+            $shopInfo->cityId=$model->cityId;//城市ID
+            $shopInfo->countyId=$model->countryID; //区县ID
+            $shopInfo->storeOutline=$model->storeOutline;//门店概述
+            $shopInfo->applyTime=date("Y-m-d H:i:s"); //申请时间
+            $shopInfo->applyUserId=1; //申请人ID
+            $shopInfo->applyUserName="申请人-张三";
+            $shopInfo->auditState=1;
+
+            $shopInfo->save();
+
+            $message=$shopInfo->getErrors();
+            $message["success"]=True;
+
             return json_encode($message);
 
-            //return $this->redirect(['view', 'id' => $model->id]);
         } else {
             $categoryModel=new ComCategoryMaintain();
             $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
@@ -119,36 +140,7 @@ class StostoreinfoController extends Controller
         }
     }
 
-    /**
-     * [shopInfoReviewSave 店铺申请保存]
-     * @param  [type] $model [description]
-     * @return [type]        [description]
-     */
-    protected function shopInfoReviewSave($model){
-        $shopInfo=new ShopInfoReview();
-        $shopInfo->longitude=$model->longitude;  //经度
-        $shopInfo->latitude=$model->latitude;   //纬度
-        $shopInfo->shopName=$model->storeName;  //店铺名称
-        $shopInfo->contact=$model->contactWay;//联系方式
-        $shopInfo->storeId=$model->sellerId; //商家ID
-        $shopInfo->address=$model->storeAddress; //地址
-        $shopInfo->businessHours=$model->businessHours;// 营业时间
-        $shopInfo->businessDistrictId=$model->businessDistrictId; //商圈ID
-        $shopInfo->cityId=$model->cityId;//城市ID
-        $shopInfo->countyId=$model->countryID; //区县ID
-        $shopInfo->storeOutline=$model->storeOutline;//门店概述
-        $shopInfo->applyTime=date("Y-m-d H:i:s"); //申请时间
-        $shopInfo->applyUserId=1; //申请人ID
-        $shopInfo->applyUserName="申请人-张三";
-        $shopInfo->auditState=1;
-
-        $shopInfo->save();
-
-        $message=$shopInfo->getErrors();
-        $message["success"]=True;
-
-        return $message;
-    }
+ 
 
     /**
      * Deletes an existing StoStoreInfo model.

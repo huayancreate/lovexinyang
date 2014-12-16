@@ -5,9 +5,13 @@ namespace backend\controllers;
 use Yii;
 use backend\models\StoGoods;
 use backend\models\StoGoodsSearch;
+use backend\models\ComCategoryMaintain;
+use backend\models\GoodsPicture;
+use backend\models\FileUpload;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * StoGoodsController implements the CRUD actions for StoGoods model.
@@ -38,6 +42,7 @@ class StoGoodsController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'pagination' => ['pagesize' => '5'],
         ]);
     }
 
@@ -48,7 +53,7 @@ class StoGoodsController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
+        return $this->renderPartial('view', [
             'model' => $this->findModel($id),
         ]);
     }
@@ -62,11 +67,57 @@ class StoGoodsController extends Controller
     {
         $model = new StoGoods();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+
+            $transaction=\Yii::$app->db->beginTransaction(); 
+            try{
+
+                $files = UploadedFile::getInstances($model, 'file');  //获取上传文件
+
+                $model->save();  //商品信息保存
+
+                foreach ($files as $file) {
+
+                   $path=$this->uploads($file); //文件上传
+
+                    $goodsPicture=new GoodsPicture();
+                    $goodsPicture->goodsId=$model->id; //商品信息ID
+                    $goodsPicture->path=$path; //图片路径
+                    $goodsPicture->renewTime=date("Y-m-d H:i:s");
+                    $goodsPicture->uploadPersonnel="admin";
+
+                    $goodsPicture->save();
+                }
+
+                $transaction->commit(); //事务结束
+
+                // $message=$model->getErrors();
+                // $message['success']=true;
+                $searchModel=new StoGoodsSearch();
+                $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+                return $this->render('index', [
+                    'searchModel' => $searchModel,
+                    'dataProvider' => $dataProvider,
+                    'pagination' => ['pagesize' => '5'],
+                ]);
+
+            } catch (Exception $e) {
+                $transaction->rollBack();
+                $message['success']=false;
+            }
+
+            return json_encode($message);
+
         } else {
-            return $this->render('create', [
+            //获取商品类别
+            $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
+
+            $model->subClass=1;
+            return $this->renderAjax('create', [
                 'model' => $model,
+                'categoryModel'=>new ComCategoryMaintain(),
+                'categoryList'=>$categoryList
             ]);
         }
     }
@@ -82,10 +133,18 @@ class StoGoodsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            
+                $message=$model->getErrors();
+                $message['success']=true;
+                return json_encode($message);
+            //return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('update', [
-                'model' => $model,
+            //获取商品类别
+            $categoryModel=new ComCategoryMaintain();
+            $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
+            
+            return $this->renderAjax('update', [
+                'model' => $model,'categoryModel'=>$categoryModel,'categoryList'=>$categoryList
             ]);
         }
     }
@@ -117,5 +176,27 @@ class StoGoodsController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    /**
+     * 文件上传
+     * @param  [type] $files [文件集合]
+     * @return [type]        [description]
+     */
+    protected function uploads($file){
+
+        $filePath = "uploads/goodsPic/";
+        
+        $ext = $file->getExtension(); //获取文件后缀 如: ".jpg"
+        
+        $randName = time() . rand(1000, 9999) . "." . $ext; //生成新文件名称
+
+        if(!file_exists($filePath)){
+            mkdir($filePath,0777,true);
+        }
+
+        $file->saveAs($filePath.$randName); //保存文件
+
+        return $filePath.$randName;
     }
 }

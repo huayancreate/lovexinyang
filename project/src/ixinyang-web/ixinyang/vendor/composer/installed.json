@@ -1137,5 +1137,1308 @@
             "widget",
             "yii2"
         ]
+    },
+    {
+        "name": "3ch3r46/bootui-select2",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://bitbucket.org/3ch3r46/bootui-select2.git",
+            "reference": "f02ae8ba908db0089dd6ce1232733c504d5cfc6f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://bitbucket.org/3ch3r46/bootui-select2/get/f02ae8ba908db0089dd6ce1232733c504d5cfc6f.zip",
+            "reference": "f02ae8ba908db0089dd6ce1232733c504d5cfc6f",
+            "shasum": ""
+        },
+        "time": "2014-05-28 06:24:28",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "bootui\\select2\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Moh Khoirul Anam",
+                "email": "3ch3r46@gmail.com"
+            }
+        ],
+        "description": "Select2 is a jQuery based replacement for select boxes. It supports searching, remote data sets, and infinite scrolling of results.",
+        "keywords": [
+            "dropdownlist",
+            "extension",
+            "listbox",
+            "select",
+            "select2",
+            "yii2"
+        ]
+    },
+    {
+        "name": "3ch3r46/bootui-datepicker",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://bitbucket.org/3ch3r46/bootui-datepicker.git",
+            "reference": "f04fe2dfbed787340fe8b833d022c02e1fa607cb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://bitbucket.org/3ch3r46/bootui-datepicker/get/f04fe2dfbed787340fe8b833d022c02e1fa607cb.zip",
+            "reference": "f04fe2dfbed787340fe8b833d022c02e1fa607cb",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": "*",
+            "yiisoft/yii2-bootstrap": "*"
+        },
+        "time": "2014-05-28 06:58:48",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "bootui\\datepicker\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Moh Khoirul Anam",
+                "email": "3ch3r46@gmail.com"
+            }
+        ],
+        "description": "The Bootstrap Datepicker extension for yii framework",
+        "keywords": [
+            "date",
+            "datepicker",
+            "extension",
+            "yii2"
+        ]
+    },
+    {
+        "name": "twbs/bootstrap",
+        "version": "v3.1.1",
+        "version_normalized": "3.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/twbs/bootstrap.git",
+            "reference": "a365d8689c3f3cee7f1acf86b61270ecca8e106d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/a365d8689c3f3cee7f1acf86b61270ecca8e106d",
+            "reference": "a365d8689c3f3cee7f1acf86b61270ecca8e106d",
+            "shasum": ""
+        },
+        "time": "2014-02-13 17:24:59",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jacob Thornton",
+                "email": "jacobthornton@gmail.com"
+            },
+            {
+                "name": "Mark Otto",
+                "email": "markdotto@gmail.com"
+            }
+        ],
+        "description": "Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.",
+        "homepage": "http://getbootstrap.com",
+        "keywords": [
+            "bootstrap",
+            "css"
+        ]
+    },
+    {
+        "name": "3ch3r46/yii2-bootui",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://bitbucket.org/3ch3r46/yii2-bootui.git",
+            "reference": "5368be3a32ffb0cc90c9c9aeb6925ab36b3b378f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://bitbucket.org/3ch3r46/yii2-bootui/get/5368be3a32ffb0cc90c9c9aeb6925ab36b3b378f.zip",
+            "reference": "5368be3a32ffb0cc90c9c9aeb6925ab36b3b378f",
+            "shasum": ""
+        },
+        "require": {
+            "3ch3r46/bootui-datepicker": "*",
+            "3ch3r46/bootui-select2": "*",
+            "twbs/bootstrap": "3.1.*",
+            "yiisoft/yii2": "*"
+        },
+        "time": "2014-06-27 07:06:44",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "bootui\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Moh Khoirul Anam",
+                "email": "3ch3r46@gmail.com"
+            }
+        ],
+        "description": "The Bootstrap 3 widget for yii 2 framework.",
+        "keywords": [
+            "JS",
+            "bootstrap",
+            "button",
+            "css",
+            "dropdown",
+            "extension",
+            "form",
+            "navbar",
+            "navigation",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-typeahead",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-typeahead.git",
+            "reference": "0f7defe223c9e211a20a745b6a9d7a9f6ae0c7f6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-typeahead/zipball/0f7defe223c9e211a20a745b6a9d7a9f6ae0c7f6",
+            "reference": "0f7defe223c9e211a20a745b6a9d7a9f6ae0c7f6",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-11-09 18:32:25",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\typeahead\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "Enhanced Yii2 wrapper for the Twitter Typeahead plugin (sub repo split from yii2-widgets).",
+        "homepage": "https://github.com/kartik-v/yii2-widget-typeahead",
+        "keywords": [
+            "dropdown",
+            "extension",
+            "form",
+            "jquery",
+            "plugin",
+            "typeahead",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-touchspin",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-touchspin.git",
+            "reference": "fd117e07c5dab1e5308cb8d75431269effb66212"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-touchspin/zipball/fd117e07c5dab1e5308cb8d75431269effb66212",
+            "reference": "fd117e07c5dab1e5308cb8d75431269effb66212",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-12-04 12:53:04",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\touchspin\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "A Yii2 wrapper widget for the Bootstrap Switch plugin to use checkboxes & radios as toggle touchspines (sub repo split from yii2-widgets)",
+        "homepage": "https://github.com/kartik-v/yii2-widget-touchspin",
+        "keywords": [
+            "bootstrap",
+            "extension",
+            "form",
+            "input",
+            "jquery",
+            "plugin",
+            "spinner",
+            "touch",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-timepicker",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-timepicker.git",
+            "reference": "cc044858903fc9ed19eb336e1495d1d313d38ba5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-timepicker/zipball/cc044858903fc9ed19eb336e1495d1d313d38ba5",
+            "reference": "cc044858903fc9ed19eb336e1495d1d313d38ba5",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-11-09 18:30:47",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\time\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "Enhanced Yii2 wrapper for the bootstrap timepicker plugin (sub repo split from yii2-widgets)",
+        "homepage": "https://github.com/kartik-v/yii2-widget-timepicker",
+        "keywords": [
+            "bootstrap",
+            "extension",
+            "form",
+            "jquery",
+            "picker",
+            "plugin",
+            "time",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-switchinput",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-switchinput.git",
+            "reference": "635bc5c8451b394a8bd799063f3620c5d196e30a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-switchinput/zipball/635bc5c8451b394a8bd799063f3620c5d196e30a",
+            "reference": "635bc5c8451b394a8bd799063f3620c5d196e30a",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-12-08 10:58:32",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\switchinput\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "A Yii2 wrapper widget for the Bootstrap Switch plugin to use checkboxes & radios as toggle switchinputes (sub repo split from yii2-widgets)",
+        "homepage": "https://github.com/kartik-v/yii2-widget-switchinput",
+        "keywords": [
+            "bootstrap",
+            "extension",
+            "form",
+            "input",
+            "jquery",
+            "plugin",
+            "switchinput",
+            "toggle",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-spinner",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-spinner.git",
+            "reference": "1e0073be9be94d8269d7ffb7125fd654ee7df57a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-spinner/zipball/1e0073be9be94d8269d7ffb7125fd654ee7df57a",
+            "reference": "1e0073be9be94d8269d7ffb7125fd654ee7df57a",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-11-09 18:28:55",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\spinner\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "A widget to render animated CSS3 loading spinners with VML fallback for IE (sub repo split from yii2-widgets)",
+        "homepage": "https://github.com/kartik-v/yii2-widget-spinner",
+        "keywords": [
+            "CSS3",
+            "extension",
+            "jquery",
+            "loading",
+            "plugin",
+            "spinner",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-sidenav",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-sidenav.git",
+            "reference": "371bb89c3e58e1d346c37b9c1f67c3e42536f8f5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-sidenav/zipball/371bb89c3e58e1d346c37b9c1f67c3e42536f8f5",
+            "reference": "371bb89c3e58e1d346c37b9c1f67c3e42536f8f5",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-11-09 18:27:43",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\sidenav\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "An enhanced side navigation menu styled for bootstrap (sub repo split from yii2-widgets)",
+        "homepage": "https://github.com/kartik-v/yii2-widget-sidenav",
+        "keywords": [
+            "bootstrap",
+            "extension",
+            "jquery",
+            "menu",
+            "navigation",
+            "plugin",
+            "sidenav",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-select2",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-select2.git",
+            "reference": "725bab693ba1d9e366599a9c0b280d7250044ba2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/725bab693ba1d9e366599a9c0b280d7250044ba2",
+            "reference": "725bab693ba1d9e366599a9c0b280d7250044ba2",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-11-09 18:26:51",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\select2\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "Enhanced Yii2 wrapper for the Select2 jQuery plugin (sub repo split from yii2-widgets).",
+        "homepage": "https://github.com/kartik-v/yii2-widget-select2",
+        "keywords": [
+            "dropdown",
+            "extension",
+            "form",
+            "jquery",
+            "plugin",
+            "select2",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/bootstrap-star-rating",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/bootstrap-star-rating.git",
+            "reference": "15831b357e4fde3b631db10195abdfa37f954c00"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/bootstrap-star-rating/zipball/15831b357e4fde3b631db10195abdfa37f954c00",
+            "reference": "15831b357e4fde3b631db10195abdfa37f954c00",
+            "shasum": ""
+        },
+        "time": "2014-11-17 05:15:35",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\plugins\\rating\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "A simple yet powerful JQuery star rating plugin for Bootstrap.",
+        "homepage": "https://github.com/kartik-v/bootstrap-star-rating",
+        "keywords": [
+            "Rating",
+            "bootstrap",
+            "jquery",
+            "star"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-rating",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-rating.git",
+            "reference": "a0385d9412c1977109063d3c9f4ede56f47fd2c1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-rating/zipball/a0385d9412c1977109063d3c9f4ede56f47fd2c1",
+            "reference": "a0385d9412c1977109063d3c9f4ede56f47fd2c1",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/bootstrap-star-rating": "*",
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-11-09 18:25:23",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\rating\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "A Yii2 widget for the simple yet powerful bootstrap-star-rating plugin with fractional rating support (sub repo split from yii2-widgets)",
+        "homepage": "https://github.com/kartik-v/yii2-widget-rating",
+        "keywords": [
+            "Rating",
+            "bootstrap",
+            "extension",
+            "form",
+            "input",
+            "jquery",
+            "plugin",
+            "star",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-rangeinput",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-rangeinput.git",
+            "reference": "c507ccd98b97f6716f80481a2bb51836c2454ab6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-rangeinput/zipball/c507ccd98b97f6716f80481a2bb51836c2454ab6",
+            "reference": "c507ccd98b97f6716f80481a2bb51836c2454ab6",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-11-09 18:24:26",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\range\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "An enhanced Yii 2 widget encapsulating the HTML 5 range input (sub repo split from yii2-widgets)",
+        "homepage": "https://github.com/kartik-v/yii2-widget-rangeinput",
+        "keywords": [
+            "HTML5",
+            "extension",
+            "form",
+            "input",
+            "jquery",
+            "plugin",
+            "range",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-growl",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-growl.git",
+            "reference": "e24b949090ed94c12a20d237de9f6e54532088b1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-growl/zipball/e24b949090ed94c12a20d237de9f6e54532088b1",
+            "reference": "e24b949090ed94c12a20d237de9f6e54532088b1",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-11-10 15:20:07",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\growl\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "A widget to generate growl based notifications using bootstrap-growl plugin (sub repo split from yii2-widgets)",
+        "homepage": "https://github.com/kartik-v/yii2-widget-growl",
+        "keywords": [
+            "alert",
+            "bootstrap",
+            "extension",
+            "growl",
+            "jquery",
+            "notification",
+            "plugin",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/bootstrap-fileinput",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
+            "reference": "4276dd9137e376f9a24b834d886ebd849be9752e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/4276dd9137e376f9a24b834d886ebd849be9752e",
+            "reference": "4276dd9137e376f9a24b834d886ebd849be9752e",
+            "shasum": ""
+        },
+        "time": "2014-12-08 05:12:30",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\plugins\\fileinput\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "An enhanced HTML 5 file input for Bootstrap 3.x with features for file preview for many file types, multiple selection, and more.",
+        "homepage": "https://github.com/kartik-v/bootstrap-fileinput",
+        "keywords": [
+            "bootstrap",
+            "file",
+            "image",
+            "input",
+            "jquery",
+            "multiple",
+            "preview",
+            "upload"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-fileinput",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-fileinput.git",
+            "reference": "3640dc1a4ebce964c2cb96abbab092c166a3f0e3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-fileinput/zipball/3640dc1a4ebce964c2cb96abbab092c166a3f0e3",
+            "reference": "3640dc1a4ebce964c2cb96abbab092c166a3f0e3",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/bootstrap-fileinput": "*",
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-11-09 04:40:36",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\file\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "An enhanced FileInput widget for Bootstrap 3.x with file preview, multiple selection, and more features (sub repo split from yii2-widgets)",
+        "homepage": "https://github.com/kartik-v/yii2-widget-fileinput",
+        "keywords": [
+            "extension",
+            "file",
+            "form",
+            "input",
+            "jquery",
+            "plugin",
+            "upload",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/dependent-dropdown",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/dependent-dropdown.git",
+            "reference": "0da824562b89826490b13f4b6a4a949790817c2e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/dependent-dropdown/zipball/0da824562b89826490b13f4b6a4a949790817c2e",
+            "reference": "0da824562b89826490b13f4b6a4a949790817c2e",
+            "shasum": ""
+        },
+        "time": "2014-12-01 04:26:33",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\plugins\\depdrop\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "A multi level dependent dropdown JQuery plugin that allows nested dependencies.",
+        "homepage": "https://github.com/kartik-v/dependent-dropdown",
+        "keywords": [
+            "dependent",
+            "dropdown",
+            "jquery",
+            "option",
+            "select"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-depdrop",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-depdrop.git",
+            "reference": "6979bcecf3f7872be3e557ce6d1828168415212b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-depdrop/zipball/6979bcecf3f7872be3e557ce6d1828168415212b",
+            "reference": "6979bcecf3f7872be3e557ce6d1828168415212b",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/dependent-dropdown": "*",
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-11-09 18:14:45",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\depdrop\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "Widget that enables setting up dependent dropdowns with nested dependencies (sub repo split from yii2-widgets)",
+        "homepage": "https://github.com/kartik-v/yii2-widget-depdrop",
+        "keywords": [
+            "dependent",
+            "dropdown",
+            "extension",
+            "form",
+            "jquery",
+            "plugin",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-datetimepicker",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-datetimepicker.git",
+            "reference": "da53ee75fcde78e9d3b80307b33ad0157fd0c07c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-datetimepicker/zipball/da53ee75fcde78e9d3b80307b33ad0157fd0c07c",
+            "reference": "da53ee75fcde78e9d3b80307b33ad0157fd0c07c",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-12-04 09:58:45",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\datetime\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "Enhanced Yii2 wrapper for the bootstrap datetimepicker plugin (sub repo split from yii2-widgets)",
+        "homepage": "https://github.com/kartik-v/yii2-widget-datetimepicker",
+        "keywords": [
+            "datetime",
+            "extension",
+            "form",
+            "jquery",
+            "picker",
+            "plugin",
+            "select2",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-datepicker",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-datepicker.git",
+            "reference": "c38f9ac17fe6a9b3e53a08fd0efffb14b1d49ee4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-datepicker/zipball/c38f9ac17fe6a9b3e53a08fd0efffb14b1d49ee4",
+            "reference": "c38f9ac17fe6a9b3e53a08fd0efffb14b1d49ee4",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-12-04 09:58:33",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\date\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "Enhanced Yii2 wrapper for the bootstrap datepicker plugin (sub repo split from yii2-widgets).",
+        "homepage": "https://github.com/kartik-v/yii2-widget-datepicker",
+        "keywords": [
+            "date",
+            "extension",
+            "form",
+            "jquery",
+            "picker",
+            "plugin",
+            "select2",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-colorinput",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-colorinput.git",
+            "reference": "956951b3d6176942658ea1cd9fb850e1056ed4d5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-colorinput/zipball/956951b3d6176942658ea1cd9fb850e1056ed4d5",
+            "reference": "956951b3d6176942658ea1cd9fb850e1056ed4d5",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-11-09 18:53:04",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\color\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "An enhanced Yii 2 widget encapsulating the HTML 5 color input (sub repo split from yii2-widgets)",
+        "homepage": "https://github.com/kartik-v/yii2-widget-colorinput",
+        "keywords": [
+            "HTML5",
+            "color",
+            "extension",
+            "form",
+            "input",
+            "jquery",
+            "plugin",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-alert",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-alert.git",
+            "reference": "5b312eeaf429c2affe6a96217d79f0c761159643"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-alert/zipball/5b312eeaf429c2affe6a96217d79f0c761159643",
+            "reference": "5b312eeaf429c2affe6a96217d79f0c761159643",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-11-19 06:44:12",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\alert\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "A widget to generate alert based notifications using bootstrap-alert plugin (sub repo split from yii2-widgets)",
+        "homepage": "https://github.com/kartik-v/yii2-widget-alert",
+        "keywords": [
+            "alert",
+            "block",
+            "bootstrap",
+            "extension",
+            "flash",
+            "jquery",
+            "notification",
+            "plugin",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-affix",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-affix.git",
+            "reference": "d89c063ae485e8ab14c34b8dee86019911c8b288"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-affix/zipball/d89c063ae485e8ab14c34b8dee86019911c8b288",
+            "reference": "d89c063ae485e8ab14c34b8dee86019911c8b288",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-11-09 18:52:08",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\affix\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "A scrollspy and affixed enhanced navigation to highlight page sections (sub repo split from yii2-widgets)",
+        "homepage": "https://github.com/kartik-v/yii2-widget-affix",
+        "keywords": [
+            "affix",
+            "bootstrap",
+            "extension",
+            "jquery",
+            "navigation",
+            "plugin",
+            "scrollspy",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-activeform",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-activeform.git",
+            "reference": "8cdc00c37ac69a7957b8715fdfd89fec931ec04f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-activeform/zipball/8cdc00c37ac69a7957b8715fdfd89fec931ec04f",
+            "reference": "8cdc00c37ac69a7957b8715fdfd89fec931ec04f",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2014-12-08 11:00:32",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\form\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "Enhanced Yii2 active-form and active-field with full bootstrap styling support (sub repo split from yii2-widgets).",
+        "homepage": "https://github.com/kartik-v/yii2-widget-activeform",
+        "keywords": [
+            "activefield",
+            "activeform",
+            "extension",
+            "field",
+            "form",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widgets",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widgets.git",
+            "reference": "ce3e2835c1f0e04be89bb2bd6b72e2245672e5eb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widgets/zipball/ce3e2835c1f0e04be89bb2bd6b72e2245672e5eb",
+            "reference": "ce3e2835c1f0e04be89bb2bd6b72e2245672e5eb",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*",
+            "kartik-v/yii2-widget-activeform": "*",
+            "kartik-v/yii2-widget-affix": "*",
+            "kartik-v/yii2-widget-alert": "*",
+            "kartik-v/yii2-widget-colorinput": "*",
+            "kartik-v/yii2-widget-datepicker": "*",
+            "kartik-v/yii2-widget-datetimepicker": "*",
+            "kartik-v/yii2-widget-depdrop": "*",
+            "kartik-v/yii2-widget-fileinput": "*",
+            "kartik-v/yii2-widget-growl": "*",
+            "kartik-v/yii2-widget-rangeinput": "*",
+            "kartik-v/yii2-widget-rating": "*",
+            "kartik-v/yii2-widget-select2": "*",
+            "kartik-v/yii2-widget-sidenav": "*",
+            "kartik-v/yii2-widget-spinner": "*",
+            "kartik-v/yii2-widget-switchinput": "*",
+            "kartik-v/yii2-widget-timepicker": "*",
+            "kartik-v/yii2-widget-touchspin": "*",
+            "kartik-v/yii2-widget-typeahead": "*"
+        },
+        "time": "2014-11-10 04:57:44",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\widgets\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD 3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "Collection of useful widgets for Yii Framework 2.0 extending functionalities for Bootstrap",
+        "homepage": "https://github.com/kartik-v/yii2-widgets",
+        "keywords": [
+            "extension",
+            "form",
+            "widget",
+            "yii2"
+        ]
     }
 ]
