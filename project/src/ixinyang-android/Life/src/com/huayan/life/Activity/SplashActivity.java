@@ -5,6 +5,8 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -24,7 +26,11 @@ public class SplashActivity extends Activity {
 	private static final long SPLASH_DELAY_MILLIS = 3000;
 
 	private static final String SHAREDPREFERENCES_NAME = "first_pref";
-
+	// 屏幕宽度
+	public static int screenWidth;
+	// 屏幕高度
+	public static int screenHeight;
+	
 	/**
 	 * Handler:跳转到不同界面
 	 */
@@ -87,6 +93,19 @@ public class SplashActivity extends Activity {
 	private  void initView(){
 		ScreenHelper.scalex=(float)ScreenHelper.getScreenWidth(this)/480;
 		ScreenHelper.scaleY=(float)ScreenHelper.getScreenHeight(this)/800;
+		screenWidth = getWindow().getWindowManager().getDefaultDisplay().getWidth();
+		screenHeight = getWindow().getWindowManager().getDefaultDisplay().getHeight();
 	}
 	
+	/**
+	 * app字体不随系统字体的大小改变而改变
+	 */
+	@Override  
+	public Resources getResources() {  
+	    Resources res = super.getResources();    
+	    Configuration config=new Configuration();    
+	    config.setToDefaults();    
+	    res.updateConfiguration(config,res.getDisplayMetrics() );  
+	    return res;  
+	}  
 }

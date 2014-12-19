@@ -1,5 +1,6 @@
 package com.huayan.life.Activity;
 
+import util.Utility;
 import android.annotation.SuppressLint;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -32,12 +33,11 @@ public class GroupPurchaseActivity extends BaseActivity implements
 	private MyScrollView myScrollView;
 	private LinearLayout mBuyLayout; // 在MyScrollView里面的购买布局
 	private LinearLayout mTopBuyLayout;// 位于顶部的购买布局
-	TextView newPriceView;
-	RelativeLayout rl_albumLayout;
-	TextView tv_buy;
+	TextView newPrice,oldPrice;
 	ListView pingListView, listRecommendvView, listTuanView;
 	EvaluationAdapter evaluationAdapter;
 	GroupPurchaseAdapter  adapter;
+	NearTuanGouAdapter tanGouAdapter ;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -45,33 +45,18 @@ public class GroupPurchaseActivity extends BaseActivity implements
 		setContentView(R.layout.activity_group_purchase);
 
 		myScrollView = (MyScrollView) findViewById(R.id.my_sl);
+		myScrollView.setOnScrollListener(this);		
 		mBuyLayout = (LinearLayout) findViewById(R.id.buy);
 		mTopBuyLayout = (LinearLayout) findViewById(R.id.top_buy_layout);
-		myScrollView.setOnScrollListener(this);
-		rl_albumLayout = (RelativeLayout) findViewById(R.id.rl_album);
-		rl_albumLayout.setOnClickListener(this);
-		((ImageView) findViewById(R.id.fanhui)).setOnClickListener(this);
-		((TextView)findViewById(R.id.txt_moreping)).setOnClickListener(this);
-		
-		LinearLayout rlAdv = (LinearLayout) findViewById(R.id.buy);
-		newPriceView = (TextView) rlAdv.findViewById(R.id.tv_new_price);
-		newPriceView.setText("268元");
-		newPriceView.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG); // 中间横线
-		tv_buy = (TextView) rlAdv.findViewById(R.id.tv_buy);
-		tv_buy.setOnClickListener(this);
 
-		pingListView = (ListView) findViewById(R.id.list_evaluation);
-		evaluationAdapter = new EvaluationAdapter(context,GetData.getEvaluationList(3));
-		pingListView.setAdapter(evaluationAdapter);
-		listRecommendvView = (ListView) findViewById(R.id.list_recommended);
-		listTuanView = (ListView) findViewById(R.id.list_tuangou);
-		NearTuanGouAdapter tanGouAdapter = new NearTuanGouAdapter(context,GetData.getNearList(4));
-		adapter=new GroupPurchaseAdapter(context, GetData.getGroupPurchase(4));
-		listRecommendvView.setAdapter(adapter);
-		listTuanView.setAdapter(tanGouAdapter);
+		newPrice = (TextView)mTopBuyLayout.findViewById(R.id.tv_new_price);
+		newPrice.setText("268元");
+		newPrice.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG); // 中间横线
+		oldPrice=(TextView)mTopBuyLayout.findViewById(R.id.tv_old_price);
+		oldPrice.setText("108");
 
-		listRecommendvView.setOnItemClickListener(new mListener());
-		listTuanView.setOnItemClickListener(new mListener());
+		((TextView)mTopBuyLayout.findViewById(R.id.tv_buy)).setOnClickListener(this);
+		initView();	
 		
 		// 当布局的状态或者控件的可见性发生改变回调的接口
 		findViewById(R.id.parent_layout).getViewTreeObserver()
@@ -83,10 +68,35 @@ public class GroupPurchaseActivity extends BaseActivity implements
 					}
 				});
 	}
-
+	
+	
+	private  void initView(){
+		((RelativeLayout) findViewById(R.id.rl_album)).setOnClickListener(this);
+		((ImageView) findViewById(R.id.fanhui)).setOnClickListener(this);
+		((TextView)findViewById(R.id.txt_moreping)).setOnClickListener(this);
+		pingListView = (ListView) findViewById(R.id.list_evaluation);
+		listRecommendvView = (ListView) findViewById(R.id.list_recommended);
+		listTuanView = (ListView) findViewById(R.id.list_tuangou);
+		
+		evaluationAdapter = new EvaluationAdapter(context,GetData.getEvaluationList(3));
+		pingListView.setAdapter(evaluationAdapter);
+		Utility.setListViewHeightBasedOnChildren(pingListView, 230);
+			
+		adapter=new GroupPurchaseAdapter(context, GetData.getGroupPurchase(4));
+		listRecommendvView.setAdapter(adapter);
+		Utility.setListViewHeightBasedOnChildren(listRecommendvView, 50);
+		
+		tanGouAdapter = new NearTuanGouAdapter(context,GetData.getNearList(4));		
+		listTuanView.setAdapter(tanGouAdapter);
+		Utility.setListViewHeightBasedOnChildren(listTuanView, 30);
+		
+		listRecommendvView.setOnItemClickListener(new mListener());
+		listTuanView.setOnItemClickListener(new mListener());
+		
+	}
+	
 	
 	private final class mListener implements OnItemClickListener {
-
 		/*
 		 * arg1 当前所点击的VIew对象 arg2 当前所点击的条目所绑定的数据在集合中的索引值 arg3 当前界面中的排列值
 		 */
@@ -101,8 +111,8 @@ public class GroupPurchaseActivity extends BaseActivity implements
 		mTopBuyLayout.layout(0, mBuyLayout2ParentTop, mTopBuyLayout.getWidth(),mBuyLayout2ParentTop + mTopBuyLayout.getHeight());
 	}
 
-	@Override
 	
+	@Override	
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.rl_album:

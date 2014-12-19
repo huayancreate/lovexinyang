@@ -101,7 +101,7 @@
                         android:paddingTop="5.0dp"
                         android:text="@string/login_label_signin"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/head_text_size" />
+                        android:textSize="@dimen/text_19" />
                 </RelativeLayout>
             </RelativeLayout>
 
@@ -132,7 +132,7 @@
                         android:paddingTop="15.0dp"
                         android:text="@string/my_vip"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/head_text_size" />
+                        android:textSize="@dimen/text_19" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -168,7 +168,7 @@
                         android:paddingTop="15.0dp"
                         android:text="@string/my_daijin"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/head_text_size" />
+                        android:textSize="@dimen/text_19" />
                 </RelativeLayout>
             </RelativeLayout>
 
@@ -198,7 +198,7 @@
                     android:paddingTop="10.0dp"
                     android:text="@string/tuijian"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/default_text_size" />
+                    android:textSize="@dimen/head_text_size" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -234,7 +234,7 @@
                     android:paddingTop="10.0dp"
                     android:text="@string/yuding"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/default_text_size" />
+                    android:textSize="@dimen/head_text_size" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -271,7 +271,7 @@
                     android:paddingTop="10.0dp"
                     android:text="@string/jifen"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/default_text_size" />
+                    android:textSize="@dimen/head_text_size" />
 
                 <ImageView
                     android:layout_width="wrap_content"

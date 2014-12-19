@@ -30,13 +30,12 @@ public class EvaPicActivity extends BaseActivity {
 		AlbumImage img;
 		for (int i = 1; i < 11; i++) {
 			img = new AlbumImage();
-			img.setTitle("瑞雅时光");
 			if(i%2==1){
-			img.setDes(i+ ".瑞雅时光一次，男士专享spa");
+			img.setTitle(i+ ".瑞雅时光一次，男士专享spa");
 			img.setImgurl(	getResources().getDrawable(R.drawable.advertising_default_1));
 			}else{
-				img.setDes(i+ ".瑞雅时光，舒适尽享");
-				img.setImgurl(	getResources().getDrawable(R.drawable.advertising_default_2));
+				img.setTitle(i+ ".瑞雅时光，舒适尽享");
+				img.setImgurl(	getResources().getDrawable(R.drawable.pic));
 			}
 			list.add(img);
 		}

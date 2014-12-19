@@ -12,5 +12,7 @@
     <dimen name="price_text_size">22.0sp</dimen>
     <dimen name="group_purchase_title">20.0sp</dimen>
     <dimen name="text_12">12.0sp</dimen>
+    <dimen name="text_17">17.0sp</dimen>
+    <dimen name="text_19">19.0sp</dimen>
 
 </resources>

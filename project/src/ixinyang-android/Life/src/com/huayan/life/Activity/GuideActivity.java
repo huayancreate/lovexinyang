@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -12,7 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import  com.huayan.life.adapter.ViewPagerAdapter;
+import com.huayan.life.adapter.ViewPagerAdapter;
 
 /**
  */
@@ -29,7 +31,7 @@ public class GuideActivity extends Activity implements OnPageChangeListener {
 	private int currentIndex;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.guide);
 
@@ -103,4 +105,16 @@ public class GuideActivity extends Activity implements OnPageChangeListener {
 		setCurrentDot(arg0);
 	}
 
+	/**
+	 * app字体不随系统字体的大小改变而改变
+	 */
+	@Override  
+	public Resources getResources() {  
+	    Resources res = super.getResources();    
+	    Configuration config=new Configuration();    
+	    config.setToDefaults();    
+	    res.updateConfiguration(config,res.getDisplayMetrics() );  
+	    return res;  
+	}  
+	
 }

@@ -90,9 +90,10 @@
     <string name="store_detail">商家详情</string>
     <string name="resend_code">重发验证码</string>
     <string name="query">搜索</string>
-    <string name="tishi">输入店家或分类</string>
+    <string name="tishi">输入商家或分类</string>
     <string name="my_account">我的账户</string>
     <string name="modify_user_name">修改用户名</string>
+    <string name="find_pay_pwd">找回支付密码</string>
     <string name="modify_pwd">修改密码</string>
     <string name="save_verification">安全验证</string>
     <string name="pay_pwd">支付密码</string>
@@ -110,7 +111,7 @@
     <string name="hint_des">"温馨提示：
       \u0009当支付不足时，代金券会被优先使用，其次才会使用爱信阳余额；代金券不找零，不兑现，请慎重使用。"</string>
     <string name="store_evaluation">商家评价</string>
-    <string name="xuzhi">  "\u0009有效期：014.8.29 至 2014.11.28（周末、法定节假日通用）
+    <string name="xuzhi">  "\u0009有效期：014.8.29 至 2014.11.28 (周末、法定节假日通用)
 \u0009使用时间：09:00-21:00
 \u0009预约提醒：电话预约，请至少提前24小时致电商家预约，预约逾期不保留
 \u0009使用规则：每张美团券限制2人入镜，不允许超出人数限制
@@ -147,5 +148,37 @@
     <string name="desc_shrinkup">收起</string>
     <string name="desc_spread">显示更多</string>
     <string  name="sto_album">商家相册</string>
-
+    <string name="user_agrment">用户协议</string>
+    <string name="customer_phone">客服电话：400&#8211;660&#8211;5353</string>
+    <string  name="other">其他</string>
+    <string name="cash_clear">清空缓存</string>
+    <string name="saosao">扫一扫</string>
+    <string name="pay_help">支付帮助</string>
+    <string name="check_for_updates">检查更新</string>
+    <string name="phone">手机号</string>
+    <string name="pwd">密码</string>
+    <string name="other_login">使用合作网站账号进行登录</string>
+    <string name="user_card">使用会员卡</string>
+    <string name="spend">消费金额</string>
+    <string name="spend_num">消费次数</string>
+    <string name="card_des">会员卡说明</string>
+    <string name="jifen_result">积分规则</string>
+    <string name="jifen_jilv">积分记录</string>
+    <string name="no_set">未设置</string>
+    <string name="modfiy">修改</string>
+    <string name="login_pwd">登录密码</string>
+    <string name="change_phone">更换</string>
+    <string name="binding_phone">已绑手机号</string>
+    <string name="hint_yanzheng">请输入原来的支付密码验证身份</string>
+	<string name="yanzheng_phone">验证手机号码：</string>
+	<string name="input_yanzheng">请输入验证码：</string>
+	<string name="send_code">发送手机验证码</string>
+	<string name="yanzheng">验证</string>
+	<string name="username">用户名：</string>
+	<string name="pwd_hint_set">以中文或英文字母开头，限4&#8211;16个字符，一个汉字为两个字符</string>
+	<string name="current_pwd">当前密码：</string>
+	<string name="new_pwd">新密码：</string>
+	<string name="confirm_new_pwd">确认新密码：</string>
+	<string name="pwd_set_rule">密码长度至少6个字符，最多32个字符</string>
+	<string name="eva">评价</string>
 </resources>

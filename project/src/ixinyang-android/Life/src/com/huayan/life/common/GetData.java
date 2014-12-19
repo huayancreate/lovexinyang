@@ -76,6 +76,7 @@ public class GetData {
 		HashMap<String, String> hm;
 		for (int i = 0; i < n; i++) {
 			hm = new HashMap<String, String>();
+			hm.put("yishou", i +"");
 			if (i % 2 == 0) {
 				hm.put("path",
 						"http://img.taobaocdn.com/bao/uploaded/i1/15700043372811105/TB2sI9VXVXXXXchXXXXXXXXXXXX_!!15335700-0-rate.jpg");
@@ -89,7 +90,6 @@ public class GetData {
 			hm.put("near", "3.2km");
 			hm.put("price", "98");
 			hm.put("oldPrice", "289Ԫ");
-			hm.put("yishou", "421");
 			ret.add(hm);
 		}
 		return ret;

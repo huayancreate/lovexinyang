@@ -48,7 +48,7 @@
             android:layout_margin="10.0dip"
             android:text="当前等级：VIP1"
             android:textColor="@color/text_color_gray"
-            android:textSize="@dimen/city_16_text" />
+            android:textSize="@dimen/head_text_size" />
 
         <TextView
             android:id="@+id/tv_growth_value"
@@ -58,7 +58,7 @@
             android:layout_toRightOf="@id/tv_grade"
             android:text="成长值：423"
             android:textColor="@color/text_color_gray"
-            android:textSize="@dimen/city_16_text" />
+            android:textSize="@dimen/head_text_size" />
 
         <TextView
             android:id="@+id/tv_money"
@@ -74,7 +74,7 @@
         <ProgressBar
             android:id="@+id/progress_horizontal"
             style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="200dip"
+            android:layout_width="220dip"
             android:layout_height="10.0dip"
             android:layout_below="@id/tv_grade"
             android:layout_marginBottom="5.0dip"
@@ -134,8 +134,8 @@
                 android:layout_toRightOf="@id/img_now"
                 android:paddingTop="4.0dip"
                 android:text="现有积分：0"
-                android:textColor="@color/text_color_gray"
-                android:textSize="@dimen/default_text_size" />
+                android:textColor="@color/black"
+                android:textSize="@dimen/head_text_size" />
 
             <TextView
                 android:id="@+id/tv_now_shuoming"
@@ -147,9 +147,9 @@
                 android:drawablePadding="3.0dip"
                 android:drawableRight="@drawable/ic_global_arrow_right_2px"
                 android:paddingTop="4.0dip"
-                android:text="积分记录"
-                android:textColor="@color/green"
-                android:textSize="@dimen/default_text_size" />
+                android:text="@string/jifen_jilv"
+                android:textColor="@color/text_green"
+                android:textSize="@dimen/head_text_size" />
         </RelativeLayout>
 
         <ImageView
@@ -180,9 +180,9 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/img_biao"
                 android:paddingTop="4.0dip"
-                android:text="积分规则"
-                android:textColor="@color/text_color_gray"
-                android:textSize="@dimen/default_text_size" />
+                android:text="@string/jifen_result"
+                android:textColor="@color/black"
+                android:textSize="@dimen/head_text_size" />
 
             <TextView
                 android:id="@+id/tv_now_set2"
@@ -194,8 +194,8 @@
                 android:drawablePadding="3.0dip"
                 android:drawableRight="@drawable/ic_global_arrow_right_2px"
                 android:paddingTop="4.0dip"
-                android:textColor="@color/green"
-                android:textSize="@dimen/default_text_size" />
+                android:textColor="@color/text_green"
+                android:textSize="@dimen/head_text_size" />
         </RelativeLayout>
 
         <ImageView

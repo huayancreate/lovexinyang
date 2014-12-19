@@ -110,6 +110,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/the_album"
+                            android:textSize="@dimen/default_text_size"
                             android:textColor="@color/white" />
                     </LinearLayout>
                 </RelativeLayout>
@@ -128,7 +129,7 @@
                     android:layout_marginLeft="10.0dip"
                     android:layout_marginTop="10.0dip"
                     android:text="瑞雅时光"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/head_text_size" />
 
                 <TextView
@@ -140,7 +141,7 @@
                     android:layout_marginTop="5.0dip"
                     android:text="瑞雅时光1次，男士专享，舒适尽享"
                     android:textColor="@color/text_color_gray"
-                    android:textSize="@dimen/store_text_size" />
+                    android:textSize="@dimen/default_text_size" />
 
                 <ImageView
                     android:layout_width="fill_parent"
@@ -171,7 +172,7 @@
                             android:gravity="center_vertical"
                             android:text="支持随时退款"
                             android:textColor="@color/viewfinder_mask"
-                            android:textSize="@dimen/text_12" />
+                            android:textSize="@dimen/default_text_size" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -184,7 +185,7 @@
                             android:gravity="center_vertical"
                             android:text="支持过期退款"
                             android:textColor="@color/viewfinder_mask"
-                            android:textSize="@dimen/text_12" />
+                            android:textSize="@dimen/default_text_size" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -218,7 +219,7 @@
                             android:gravity="center_vertical"
                             android:text="已售18923"
                             android:textColor="@color/viewfinder_mask"
-                            android:textSize="@dimen/text_12" />
+                            android:textSize="@dimen/default_text_size" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -231,7 +232,7 @@
                             android:gravity="center_vertical"
                             android:text="1天21小时2分"
                             android:textColor="@color/viewfinder_mask"
-                            android:textSize="@dimen/text_12" />
+                            android:textSize="@dimen/default_text_size" />
                     </RelativeLayout>
                 </RelativeLayout>
 
@@ -265,7 +266,7 @@
                         android:layout_toRightOf="@id/ratingBar"
                         android:text="1.5分"
                         android:textColor="@color/viewfinder_mask"
-                        android:textSize="@dimen/store_text_size" />
+                        android:textSize="@dimen/city_16_text" />
 
                     <TextView
                         android:id="@+id/tv_evaluation"
@@ -276,7 +277,7 @@
                         android:drawableRight="@drawable/ic_deal_arrow_right"
                         android:text="16人评价"
                         android:textColor="@color/viewfinder_mask"
-                        android:textSize="@dimen/store_text_size" />
+                        android:textSize="@dimen/city_16_text" />
                 </RelativeLayout>
 
                 <ImageView
@@ -293,8 +294,8 @@
                     android:layout_marginLeft="10.0dip"
                     android:layout_marginTop="10.0dip"
                     android:text="最新通知"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/default_text_size" />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/head_text_size" />
 
                 <TextView
                     android:id="@+id/txt_Notice_content"
@@ -305,7 +306,7 @@
                     android:layout_marginTop="5.0dip"
                     android:text="【分店暂停接待】有效期内无法接待的用户，您可前往其他分店消费。给您带来不便，深表歉意。"
                     android:textColor="@color/orange_text"
-                    android:textSize="@dimen/store_text_size" />
+                    android:textSize="@dimen/default_text_size" />
 
                 <ImageView
                     android:layout_width="fill_parent"
@@ -321,8 +322,8 @@
                     android:layout_marginLeft="10.0dip"
                     android:layout_marginTop="10.0dip"
                     android:text="商家信息"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/default_text_size" />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/head_text_size" />
 
                 <ImageView
                     android:layout_width="fill_parent"
@@ -354,8 +355,8 @@
                             android:layout_marginLeft="10.0dip"
                             android:layout_marginTop="10.0dip"
                             android:text="瑞雅时光养生馆"
-                            android:textColor="@android:color/black"
-                            android:textSize="@dimen/default_text_size" />
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_17" />
 
                         <TextView
                             android:id="@+id/txt_address_content"
@@ -367,7 +368,7 @@
                             android:layout_marginTop="10.0dip"
                             android:text="蜀山区科学大道103号浙商大厦A座"
                             android:textColor="@color/viewfinder_mask"
-                            android:textSize="@dimen/store_text_size" />
+                            android:textSize="@dimen/city_16_text" />
 
                         <TextView
                             android:id="@+id/txt_Distance"
@@ -380,7 +381,7 @@
                             android:drawableLeft="@drawable/icon_tab_near_noramal"
                             android:text="3.0km"
                             android:textColor="@color/viewfinder_mask"
-                            android:textSize="@dimen/store_text_size" />
+                            android:textSize="@dimen/city_16_text" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -393,7 +394,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="fill_parent"
                             android:layout_marginBottom="10.0dip"
-                            android:layout_marginLeft="30.0dip"
+                            android:layout_marginLeft="3.0dip"
                             android:layout_marginTop="10.0dip"
                             android:src="@drawable/widget_line" />
                     </RelativeLayout>
@@ -421,8 +422,8 @@
                     android:layout_marginLeft="10.0dip"
                     android:layout_marginTop="10.0dip"
                     android:text="购买须知"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/default_text_size" />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/head_text_size" />
 
                 <ImageView
                     android:layout_width="fill_parent"
@@ -441,9 +442,10 @@
                     android:layout_marginLeft="10.0dip"
                     android:layout_marginRight="10.0dip"
                     android:layout_marginTop="5.0dip"
+                    android:lineSpacingMultiplier="1.3"
                     android:text="@string/xuzhi"
                     android:textColor="@color/text_color_gray"
-                    android:textSize="@dimen/set_text_size" />
+                    android:textSize="@dimen/default_text_size" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -451,9 +453,9 @@
                     android:layout_marginBottom="5.0dip"
                     android:layout_marginLeft="10.0dip"
                     android:layout_marginTop="10.0dip"
-                    android:text="评价"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/default_text_size" />
+                    android:text="@string/eva"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/head_text_size" />
 
                 <ImageView
                     android:layout_width="fill_parent"
@@ -468,7 +470,7 @@
                 <ListView
                     android:id="@+id/list_evaluation"
                     android:layout_width="fill_parent"
-                    android:layout_height="350.0dip"
+                    android:layout_height="wrap_content"
                     android:layout_margin="10.0dip"
                     android:divider="@drawable/divider"
                     android:scrollbars="none" >
@@ -487,7 +489,7 @@
                     android:paddingTop="8.0dip"
                     android:text="查看半年内159条评价"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/set_text_size" />
+                    android:textSize="@dimen/head_text_size" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -496,8 +498,8 @@
                     android:layout_marginLeft="10.0dip"
                     android:layout_marginTop="10.0dip"
                     android:text="相关团购推荐"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/default_text_size" />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/head_text_size" />
 
                 <ImageView
                     android:layout_width="fill_parent"
@@ -512,7 +514,7 @@
                 <ListView
                     android:id="@+id/list_recommended"
                     android:layout_width="fill_parent"
-                    android:layout_height="310.0dip"
+                    android:layout_height="wrap_content"
                     android:layout_margin="10.0dip"
                     android:divider="@drawable/divider"
                     android:scrollbars="none" >
@@ -525,8 +527,8 @@
                     android:layout_marginLeft="10.0dip"
                     android:layout_marginTop="10.0dip"
                     android:text="本店其他商品"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/default_text_size" />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/head_text_size" />
 
                 <ImageView
                     android:layout_width="fill_parent"
@@ -541,7 +543,7 @@
                 <ListView
                     android:id="@+id/list_tuangou"
                     android:layout_width="fill_parent"
-                    android:layout_height="550.0dip"
+                    android:layout_height="wrap_content"
                     android:layout_margin="10.0dip"
                     android:divider="@null"
                     android:scrollbars="none" >

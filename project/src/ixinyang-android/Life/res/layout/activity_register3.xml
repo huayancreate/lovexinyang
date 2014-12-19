@@ -61,7 +61,7 @@
             android:paddingBottom="5.0dip"
             android:paddingTop="5.0dip"
             android:text="@string/step3"
-            android:textColor="@color/green"
+            android:textColor="@color/text_green"
             android:textSize="@dimen/default_text_size" />
          
     </RelativeLayout>
@@ -95,7 +95,7 @@
                 android:inputType="phone"
                 android:singleLine="true"
                 android:textColorHint="@color/abs__bright_foreground_disabled_holo_dark"
-                android:textSize="@dimen/default_text_size" />
+                android:textSize="@dimen/text_17" />
         </LinearLayout>
 
         <TextView

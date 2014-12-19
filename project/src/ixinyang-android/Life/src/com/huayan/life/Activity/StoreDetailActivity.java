@@ -1,5 +1,6 @@
 package com.huayan.life.Activity;
 
+import util.Utility;
 import android.annotation.SuppressLint;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -53,8 +54,10 @@ public class StoreDetailActivity extends BaseActivity implements
 		pingListView.setAdapter(evaluationAdapter);
 		nearListView.setAdapter(tanGouAdapter);
 		nearListView.setOnItemClickListener(new mListener());
-	}
-
+		Utility.setListViewHeightBasedOnChildren(nearListView,25);
+		Utility.setListViewHeightBasedOnChildren(pingListView,230);
+	}   
+    
 	private final class mListener implements OnItemClickListener {
 		@SuppressLint("ResourceAsColor")
 		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,

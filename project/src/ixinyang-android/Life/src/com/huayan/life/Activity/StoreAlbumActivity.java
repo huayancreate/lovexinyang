@@ -36,8 +36,8 @@ public class StoreAlbumActivity extends BaseActivity implements OnClickListener 
 		gvAlbum.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,long arg3) {
-				finish();
+			public void onItemClick(AdapterView<?> parent, View view, int arg2,long arg3) {
+				jumpToActivity(StoreAlbumActivity.this, ChildStoreAlbumActivity.class);
 			}
 		});
 	}

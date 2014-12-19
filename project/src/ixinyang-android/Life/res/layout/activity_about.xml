@@ -41,9 +41,8 @@
             android:layout_below="@id/xunmi_logo"
             android:layout_marginLeft="5.0dp"
             android:layout_marginTop="10.0dp"
-            android:text="爱信阳v1.0"
             android:textColor="@color/text_color_gray"
-            android:textSize="@dimen/default_text_size" />
+            android:textSize="@dimen/city_16_text" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -67,9 +66,9 @@
             android:layout_below="@id/img_sline"
             android:drawableRight="@drawable/ic_global_arrow_right_2px"
             android:padding="5.0dp"
-            android:text="用户协议"
+            android:text="@string/user_agrment"
             android:textColor="@color/text_color_gray"
-            android:textSize="@dimen/default_text_size" />
+            android:textSize="@dimen/city_16_text" />
 
         <ImageView
             android:id="@+id/img_sline2"
@@ -86,9 +85,9 @@
             android:layout_below="@id/img_sline2"
             android:drawableRight="@drawable/ic_global_arrow_right_2px"
             android:padding="5.0dp"
-            android:text="客服电话：400-660-5353"
+            android:text="@string/customer_phone"
             android:textColor="@color/text_color_gray"
-            android:textSize="@dimen/default_text_size" />
+            android:textSize="@dimen/city_16_text" />
 
         <ImageView
             android:id="@+id/img_sline3"
@@ -110,7 +109,7 @@
             android:lineSpacingMultiplier="1.5"
             android:text="@string/about_info"
             android:textColor="@color/text_color_gray"
-            android:textSize="@dimen/default_text_size" />
+            android:textSize="@dimen/city_16_text" />
     </RelativeLayout>
 
 </RelativeLayout>

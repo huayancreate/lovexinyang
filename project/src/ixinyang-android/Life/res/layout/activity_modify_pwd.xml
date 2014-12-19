@@ -8,7 +8,6 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="50dip"
-        android:layout_weight="0"
         android:background="@drawable/bg_actionbar"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
@@ -41,9 +40,9 @@
         android:layout_marginLeft="15.0dip"
         android:layout_marginRight="15.0dip"
         android:layout_marginTop="10.0dip"
-        android:text="当前密码："
+        android:text="@string/current_pwd"
         android:textColor="@color/text_color_gray"
-        android:textSize="@dimen/set_text_size" />
+        android:textSize="@dimen/text_17" />
 
     <EditText
         android:id="@+id/modify_current_pwd"
@@ -54,7 +53,8 @@
         android:layout_marginRight="15dip"
         android:layout_marginTop="2.0dip"
         android:background="@drawable/mei_edit_style"
-        android:textColorHint="@color/abs__bright_foreground_disabled_holo_dark" />
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_17" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,9 +62,9 @@
         android:layout_marginLeft="15.0dip"
         android:layout_marginRight="15.0dip"
         android:layout_marginTop="10.0dip"
-        android:text="新密码："
+        android:text="@string/new_pwd"
         android:textColor="@color/text_color_gray"
-        android:textSize="@dimen/set_text_size" />
+        android:textSize="@dimen/text_17" />
 
     <EditText
         android:id="@+id/modify_new_pwd"
@@ -75,7 +75,8 @@
         android:layout_marginRight="15dip"
         android:layout_marginTop="2.0dip"
         android:background="@drawable/mei_edit_style"
-        android:textColorHint="@color/abs__bright_foreground_disabled_holo_dark" />
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_17" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -83,9 +84,9 @@
         android:layout_marginLeft="15.0dip"
         android:layout_marginRight="15.0dip"
         android:layout_marginTop="10.0dip"
-        android:text="确认新密码："
+        android:text="@string/confirm_new_pwd"
         android:textColor="@color/text_color_gray"
-        android:textSize="@dimen/set_text_size" />
+        android:textSize="@dimen/text_17" />
 
     <EditText
         android:id="@+id/queren_new_pwd"
@@ -96,7 +97,8 @@
         android:layout_marginRight="15dip"
         android:layout_marginTop="2.0dip"
         android:background="@drawable/mei_edit_style"
-        android:textColorHint="@color/abs__bright_foreground_disabled_holo_dark" />
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_17" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -104,9 +106,9 @@
         android:layout_marginLeft="16.0dip"
         android:layout_marginRight="15.0dip"
         android:layout_marginTop="10.0dip"
-        android:text="密码长度至少6个字符，最多32个字符"
-        android:textColor="@color/text_color_gray"
-        android:textSize="@dimen/store_text_size" />
+        android:text="@string/pwd_set_rule"
+        android:textColor="@color/viewfinder_mask"
+        android:textSize="@dimen/default_text_size" />
 
     <TextView
         android:id="@+id/txt_confirm_pwd"
@@ -117,7 +119,7 @@
         android:gravity="center"
         android:paddingBottom="10.0dip"
         android:paddingTop="10.0dip"
-        android:text="确定"
+        android:text="@string/confirm"
         android:textColor="@color/white"
         android:textSize="@dimen/group_purchase_title" />
 

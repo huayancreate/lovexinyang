@@ -74,12 +74,11 @@ public class EvaluationAdapter extends BaseAdapter {
 		AlbumImage img;
 		for (int i = 1; i < 7; i++) {
 			img = new AlbumImage();
-			img.setTitle("瑞雅时光");
 			if(i%2==1){
-			img.setDes(i+ ".wzz 上传于 2014-12-11");
+			img.setTitle(i+ ".wzz 上传于 2014-12-11");
 			img.setImgurl(context.getResources().getDrawable(R.drawable.icon_luncher_big));
 			}else{
-				img.setDes(i+ ".wzz 上传于 2014-12-11");
+				img.setTitle(i+ ".wzz 上传于 2014-12-11");
 				img.setImgurl(context.getResources().getDrawable(R.drawable.logo));
 			}
 			imgList.add(img);

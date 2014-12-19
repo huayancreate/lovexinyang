@@ -48,13 +48,13 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="120dip"
-                android:layout_marginRight="70dip"
+                android:layout_marginRight="50dip"
                 android:background="@drawable/widget_line"
                 android:contentDescription="@id/ib_mines" />
 
             <LinearLayout
                 android:id="@+id/ll_findpwd"
-                android:layout_width="70dip"
+                android:layout_width="90dip"
                 android:layout_height="50dip"
                 android:layout_alignParentRight="true"
                 android:layout_toLeftOf="@id/ib_mines"
@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/find_password"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/default_text_size" />
+                    android:textSize="@dimen/head_text_size" />
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
@@ -96,8 +96,9 @@
                 android:layout_marginRight="15dip"
                 android:layout_marginTop="40dip"
                 android:background="@drawable/mei_edit_style"
-                android:hint="手机号"
-                android:textColorHint="@color/abs__bright_foreground_disabled_holo_dark" />
+                android:hint="@string/phone"
+                android:textColorHint="@color/abs__bright_foreground_disabled_holo_dark"
+                android:textSize="@dimen/text_17" />
 
             <EditText
                 android:id="@+id/et_userpwd"
@@ -109,9 +110,10 @@
                 android:layout_marginRight="15dip"
                 android:layout_marginTop="40dip"
                 android:background="@drawable/mei_edit_style"
-                android:hint="密码"
+                android:hint="@string/pwd"
                 android:inputType="textPassword"
-                android:textColorHint="@color/abs__bright_foreground_disabled_holo_dark" />
+                android:textColorHint="@color/abs__bright_foreground_disabled_holo_dark"
+                android:textSize="@dimen/text_17" />
         </LinearLayout>
 
         <LinearLayout
@@ -149,8 +151,8 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:text="@string/free_reg"
-                android:textColor="@color/green"
-                android:textSize="@dimen/default_text_size" />
+                android:textColor="@color/text_green"
+                android:textSize="@dimen/text_17" />
 
             <Button
                 android:id="@+id/txt_quick_login_page"
@@ -159,8 +161,8 @@
                 android:layout_alignParentRight="true"
                 android:background="@null"
                 android:text="@string/quick_login"
-                android:textColor="@color/green"
-                android:textSize="@dimen/default_text_size" />
+                android:textColor="@color/text_green"
+                android:textSize="@dimen/text_17" />
         </RelativeLayout>
     </LinearLayout>
     <!-- 合作登录 -->
@@ -183,9 +185,9 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="5.0dp"
                 android:paddingTop="5.0dp"
-                android:text="使用合作网站账号进行登录"
+                android:text="@string/other_login"
                 android:textColor="@color/text_color_gray"
-                android:textSize="@dimen/default_text_size" />
+                android:textSize="@dimen/city_16_text" />
         </LinearLayout>
 
         <LinearLayout

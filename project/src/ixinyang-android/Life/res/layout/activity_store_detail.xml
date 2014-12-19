@@ -80,10 +80,11 @@
 
                 <ImageView
                     android:id="@+id/img_blumn"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="120dp"
+                    android:layout_height="110dp"
                     android:layout_marginRight="10dp"
-                    android:src="@drawable/icon_luncher_big" />
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/pic" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -98,7 +99,7 @@
                     android:paddingTop="3.0dip"
                     android:text="共12张"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/text_12" />
+                    android:textSize="@dimen/default_text_size" />
 
                 <TextView
                     android:id="@+id/txt_shop_title"
@@ -110,8 +111,8 @@
                     android:layout_toRightOf="@id/img_blumn"
                     android:singleLine="true"
                     android:text="晨色宝贝"
-                    android:textColor="@color/text_color_gray"
-                    android:textSize="16sp" />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_17" />
 
                 <RatingBar
                     android:id="@+id/rtb_store"
@@ -135,7 +136,7 @@
                     android:layout_toRightOf="@id/rtb_store"
                     android:text="1.5分"
                     android:textColor="@color/viewfinder_mask"
-                    android:textSize="@dimen/store_text_size" />
+                    android:textSize="@dimen/default_text_size" />
 
                 <TextView
                     android:id="@+id/tv_pingjia"
@@ -143,11 +144,11 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/txt_shop_title"
                     android:layout_marginBottom="10.0dip"
-                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginLeft="5.0dip"
                     android:layout_toRightOf="@id/tv_fenshu"
-                    android:text="16人评价"
+                    android:text="16评价"
                     android:textColor="@color/viewfinder_mask"
-                    android:textSize="@dimen/store_text_size" />
+                    android:textSize="@dimen/default_text_size" />
 
                 <ImageView
                     android:id="@+id/vip"
@@ -174,7 +175,7 @@
                     android:paddingTop="8.0dip"
                     android:text="会员卡"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/set_text_size" />
+                    android:textSize="@dimen/text_17" />
             </RelativeLayout>
 
             <ImageView
@@ -195,8 +196,8 @@
                 android:drawableRight="@drawable/ic_global_arrow_right_2px"
                 android:gravity="center_vertical"
                 android:text="0551-62108116"
-                android:textColor="@color/viewfinder_mask"
-                android:textSize="@dimen/store_text_size" />
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/text_17" />
 
             <ImageView
                 android:layout_width="fill_parent"
@@ -216,8 +217,8 @@
                 android:drawableRight="@drawable/ic_global_arrow_right_2px"
                 android:gravity="center_vertical"
                 android:text="瑶海区长江东路1137号圣大国际商贸中心708.709室"
-                android:textColor="@color/viewfinder_mask"
-                android:textSize="@dimen/store_text_size" />
+               android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/text_17" />
 
             <ImageView
                 android:layout_width="fill_parent"
@@ -233,8 +234,8 @@
                 android:layout_marginLeft="10.0dip"
                 android:layout_marginTop="10.0dip"
                 android:text="本店所有商品"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/default_text_size" />
+                android:textColor="@color/black"
+                android:textSize="@dimen/head_text_size" />
 
             <ImageView
                 android:layout_width="fill_parent"
@@ -247,7 +248,7 @@
             <ListView
                 android:id="@+id/lv_near_store"
                 android:layout_width="fill_parent"
-                android:layout_height="520.0dip"
+                android:layout_height="wrap_content"
                 android:layout_margin="10.0dip"
                 android:divider="@null"
                 android:scrollbars="none" >
@@ -260,8 +261,8 @@
                 android:layout_marginLeft="10.0dip"
                 android:layout_marginTop="10.0dip"
                 android:text="评价"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/default_text_size" />
+                android:textColor="@color/black"
+                android:textSize="@dimen/head_text_size" />
 
             <ImageView
                 android:layout_width="fill_parent"
@@ -276,7 +277,7 @@
             <ListView
                 android:id="@+id/lv_evaluation"
                 android:layout_width="fill_parent"
-                android:layout_height="350.0dip"
+                android:layout_height="wrap_content"
                 android:layout_margin="10.0dip"
                 android:divider="@drawable/divider"
                 android:scrollbars="none" >
@@ -295,7 +296,7 @@
                 android:paddingTop="8.0dip"
                 android:text="查看半年内426条评价"
                 android:textColor="@color/white"
-                android:textSize="@dimen/set_text_size" />
+                android:textSize="@dimen/text_17" />
         </LinearLayout>
     </ScrollView>
 
