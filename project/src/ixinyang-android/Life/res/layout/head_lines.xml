@@ -11,6 +11,7 @@
         android:fadingEdge="none"
         android:divider="@drawable/divider"
         android:clickable="true"
+        android:scrollbars="none"
         android:fastScrollEnabled="false"
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"

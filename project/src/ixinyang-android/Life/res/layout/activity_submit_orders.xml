@@ -55,15 +55,16 @@
                 android:layout_height="wrap_content"
                 android:text="上岛咖啡2人餐"
                 android:textColor="@color/text_color_gray"
-                android:textSize="@dimen/default_text_size" />
+                android:textSize="@dimen/text_17" />
 
             <TextView
+                android:id="@+id/tv_sub_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:text="98元"
+                android:text="98"
                 android:textColor="@color/text_color_gray"
-                android:textSize="@dimen/default_text_size" />
+                android:textSize="@dimen/text_17" />
         </RelativeLayout>
 
         <ImageView
@@ -91,7 +92,7 @@
                 android:layout_marginTop="8.0dip"
                 android:text="@string/totle_num"
                 android:textColor="@color/text_color_gray"
-                android:textSize="@dimen/default_text_size" />
+                android:textSize="@dimen/text_17" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -103,7 +104,7 @@
                     android:id="@+id/tv_minus_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/ic_zoom_out"
+                    android:background="@drawable/ic_zoom_out_normal"
                     android:gravity="center_vertical" />
 
                 <EditText
@@ -116,10 +117,10 @@
                     android:layout_toRightOf="@id/tv_minus_number"
                     android:background="@drawable/mei_edit_style"
                     android:gravity="center"
-                    android:inputType="numberSigned"
+                    android:inputType="number"
                     android:text="1"
                     android:textColor="@color/text_color_gray"
-                    android:textSize="@dimen/default_text_size" />
+                    android:textSize="@dimen/text_17" />
 
                 <TextView
                     android:id="@+id/tv_add_number"
@@ -153,15 +154,16 @@
                 android:layout_height="wrap_content"
                 android:text="@string/totle_price"
                 android:textColor="@color/text_color_gray"
-                android:textSize="@dimen/default_text_size" />
+                android:textSize="@dimen/text_17" />
 
             <TextView
+                android:id="@+id/tv_sub_total_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:text="98元"
                 android:textColor="@color/red_price"
-                android:textSize="@dimen/default_text_size" />
+                android:textSize="@dimen/text_17" />
         </RelativeLayout>
     </LinearLayout>
 
@@ -173,7 +175,7 @@
         android:layout_marginTop="5.0dip"
         android:text="@string/bind_phone"
         android:textColor="@color/text_color_gray"
-        android:textSize="@dimen/city_16_text" />
+        android:textSize="@dimen/head_text_size" />
 
     <LinearLayout
         android:id="@+id/ll_bangphone"
@@ -196,7 +198,7 @@
                 android:layout_height="wrap_content"
                 android:text="138****7363"
                 android:textColor="@color/text_color_gray"
-                android:textSize="@dimen/default_text_size" />
+                android:textSize="@dimen/text_17" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -205,7 +207,7 @@
                 android:drawableRight="@drawable/ic_global_arrow_right_2px"
                 android:text="@string/bind_new_phone"
                 android:textColor="@color/text_color_gray"
-                android:textSize="@dimen/default_text_size" />
+                android:textSize="@dimen/text_17" />
         </RelativeLayout>
     </LinearLayout>
 

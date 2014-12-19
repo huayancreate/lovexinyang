@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.huayan.life.Activity"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#ffeeeeee"
@@ -12,84 +13,28 @@
         <include layout="@layout/view_page_header" />
     </FrameLayout>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffeeeeee" >
+        android:background="@drawable/nav_bar"
+        android:padding="0dp" >
 
-        <TextView
-            android:id="@+id/tv_Tag1"
-            android:layout_width="wrap_content"
+        <com.huayan.life.view.TitlePageIndicator
+            android:id="@+id/pvr_user_indicator"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingBottom="10.0dp"
-            android:paddingTop="10.0dp"
-            android:text="@string/film_xuan"
-            android:textColor="#ff000000"
-            android:textSize="@dimen/default_text_size" />
-
-        <TextView
-            android:id="@+id/tv_Tag2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingBottom="10.0dp"
-            android:paddingTop="10.0dp"
-            android:text="@string/hotel_order"
-            android:textColor="#ff000000"
-            android:textSize="@dimen/default_text_size" />
-
-        <TextView
-            android:id="@+id/tv_Tag3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingBottom="10.0dp"
-            android:paddingTop="10.0dp"
-            android:text="@string/non_consumption"
-            android:textColor="#ff000000"
-            android:textSize="@dimen/default_text_size" />
-
-        <TextView
-            android:id="@+id/tv_Tag4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingBottom="10.0dp"
-            android:paddingTop="10.0dp"
-            android:text="@string/dai_eva"
-            android:textColor="#ff000000"
-            android:textSize="@dimen/default_text_size" />
-
-        <TextView
-            android:id="@+id/tv_Tag5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingBottom="10.0dp"
-            android:paddingTop="10.0dp"
-            android:text="@string/refund"
-            android:textColor="#ff000000"
-            android:textSize="@dimen/default_text_size" />
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/iv_Cursor"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="matrix"
-        android:src="@drawable/cursor" />
+            android:layout_gravity="center"
+            android:textColor="#969696"
+            android:textSize="@dimen/text_17"
+            app:footerColor="@color/text_green"
+            app:selectedBold="false"
+            app:selectedColor="@color/black" />
+    </FrameLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_ViewPager2"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@color/citylist_divider" >
-    </android.support.v4.view.ViewPager>
+        android:background="@color/citylist_divider" />
 
 </LinearLayout>

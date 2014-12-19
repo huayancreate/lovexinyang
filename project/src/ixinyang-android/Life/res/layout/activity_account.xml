@@ -8,7 +8,6 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="50dip"
-        android:layout_weight="0"
         android:background="@drawable/bg_actionbar"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
@@ -22,7 +21,7 @@
         <ImageButton
             android:id="@+id/imgba_back"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"           
+            android:layout_height="wrap_content"
             android:layout_marginLeft="3dip"
             android:background="@drawable/ic_action_home" />
 
@@ -59,9 +58,9 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/img_pay_pwd"
             android:paddingTop="4.0dip"
-            android:text="支付密码"
-            android:textColor="@color/text_color_gray"
-            android:textSize="@dimen/default_text_size" />
+            android:text="@string/pay_pwd"
+            android:textColor="@color/black"
+            android:textSize="@dimen/head_text_size" />
 
         <TextView
             android:id="@+id/tv_no_set"
@@ -73,9 +72,9 @@
             android:drawablePadding="3.0dip"
             android:drawableRight="@drawable/ic_global_arrow_right_2px"
             android:paddingTop="4.0dip"
-            android:text="未设置"
-            android:textColor="@color/green"
-            android:textSize="@dimen/default_text_size" />
+            android:text="@string/no_set"
+            android:textColor="@color/text_green"
+            android:textSize="@dimen/head_text_size" />
     </RelativeLayout>
 
     <LinearLayout
@@ -107,8 +106,8 @@
                 android:layout_toRightOf="@id/img_zhang"
                 android:paddingTop="4.0dip"
                 android:text="wzz_rj0902"
-                android:textColor="@color/text_color_gray"
-                android:textSize="@dimen/default_text_size" />
+                android:textColor="@color/black"
+                android:textSize="@dimen/head_text_size" />
 
             <TextView
                 android:id="@+id/tv_no_set1"
@@ -120,9 +119,9 @@
                 android:drawablePadding="3.0dip"
                 android:drawableRight="@drawable/ic_global_arrow_right_2px"
                 android:paddingTop="4.0dip"
-                android:text="修改"
-                android:textColor="@color/green"
-                android:textSize="@dimen/default_text_size" />
+                android:text="@string/modfiy"
+                android:textColor="@color/text_green"
+                android:textSize="@dimen/head_text_size" />
         </RelativeLayout>
 
         <ImageView
@@ -153,9 +152,9 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/img_pwd"
                 android:paddingTop="4.0dip"
-                android:text="登录密码"
-                android:textColor="@color/text_color_gray"
-                android:textSize="@dimen/default_text_size" />
+                android:text="@string/login_pwd"
+                android:textColor="@color/black"
+                android:textSize="@dimen/head_text_size" />
 
             <TextView
                 android:id="@+id/tv_no_set2"
@@ -167,9 +166,9 @@
                 android:drawablePadding="3.0dip"
                 android:drawableRight="@drawable/ic_global_arrow_right_2px"
                 android:paddingTop="4.0dip"
-                android:text="修改"
-                android:textColor="@color/green"
-                android:textSize="@dimen/default_text_size" />
+                android:text="@string/modfiy"
+                android:textColor="@color/text_green"
+                android:textSize="@dimen/head_text_size" />
         </RelativeLayout>
 
         <ImageView
@@ -196,13 +195,25 @@
                 android:src="@drawable/user_admin_bind_phone" />
 
             <TextView
+                android:id="@+id/tv_bind_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/img_shouji"
                 android:paddingTop="4.0dip"
-                android:text="已绑手机号138****7363"
-                android:textColor="@color/text_color_gray"
-                android:textSize="@dimen/default_text_size" />
+                android:text="@string/binding_phone"
+                android:textColor="@color/black"
+                android:textSize="@dimen/head_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/tv_bind_phone"
+                android:layout_toRightOf="@id/tv_bind_phone"
+                android:paddingTop="4.0dip"
+                  android:layout_marginLeft="5.0dip"
+                android:text="138****7363"
+                android:textColor="@color/viewfinder_mask"
+                android:textSize="@dimen/set_text_size" />
 
             <TextView
                 android:id="@+id/tv_no_set3"
@@ -214,10 +225,11 @@
                 android:drawablePadding="3.0dip"
                 android:drawableRight="@drawable/ic_global_arrow_right_2px"
                 android:paddingTop="4.0dip"
-                android:text="更换"
-                android:textColor="@color/green"
-                android:textSize="@dimen/default_text_size" />
+                android:text="@string/change_phone"
+                android:textColor="@color/text_green"
+                android:textSize="@dimen/head_text_size" />
         </RelativeLayout>
+
         <ImageView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -229,12 +241,12 @@
         android:id="@+id/txt_exit"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_margin="20.0dip"
         android:background="@drawable/shape_dd4422"
+        android:gravity="center"
         android:paddingBottom="10.0dip"
         android:paddingTop="10.0dip"
-        android:text="退出"
+        android:text="@string/exit"
         android:textColor="@color/white"
         android:textSize="@dimen/group_purchase_title" />
 

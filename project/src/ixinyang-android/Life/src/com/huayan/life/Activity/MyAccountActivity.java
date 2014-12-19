@@ -35,16 +35,16 @@ public class MyAccountActivity extends BaseActivity implements OnClickListener {
 		case R.id.txt_exit:
 			BaseActivity.exit();
 		case R.id.rl_modify_username:
-			jumpToActivity(MyAccountActivity.this, ModifyUserNameActivity.class);
+			jumpToActivity(MyAccountActivity.this, ModifyUserNameActivity.class);//修改用户名
 			break;
 		case R.id.rl_modify_pwd:
-			jumpToActivity(MyAccountActivity.this, ModifyPwdActivity.class);
+			jumpToActivity(MyAccountActivity.this, ModifyPwdActivity.class);//修改密码
 			break;
 		case R.id.rl_save_ver:
 			jumpToActivity(MyAccountActivity.this, SaveVerificationActivity.class);//安全验证
 			break;
 		case R.id.rel_pay_pwd:
-			jumpToActivity(MyAccountActivity.this, PayPwdActivity.class);
+			jumpToActivity(MyAccountActivity.this, PayPwdActivity.class);//修改支付密码
 			break;
 		default:
 			break;

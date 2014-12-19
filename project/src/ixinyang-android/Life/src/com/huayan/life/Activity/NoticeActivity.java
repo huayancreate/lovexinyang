@@ -11,6 +11,11 @@ import com.huayan.life.adapter.NoticeAdapter;
 import com.huayan.life.common.GetData;
 import com.huayan.life.common.MyOnRefreshListener1;
 
+/**
+ * 通知列表
+ * @author wzz
+ *
+ */
 public class NoticeActivity extends BaseActivity implements OnClickListener{
 
 	private PullToRefreshListView ptrlvHeadLineNews = null;

@@ -8,7 +8,6 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="50dip"
-        android:layout_weight="0"
         android:background="@drawable/bg_actionbar"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
@@ -42,9 +41,9 @@
         android:layout_marginRight="5.0dip"
         android:layout_marginTop="10.0dip"
         android:paddingTop="8.0dip"
-        android:text="验证手机号码："
+        android:text="@string/yanzheng_phone"
         android:textColor="@color/text_color_gray"
-        android:textSize="@dimen/default_text_size" />
+        android:textSize="@dimen/text_17" />
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -62,11 +61,11 @@
             android:enabled="false"
             android:paddingBottom="10.0dip"
             android:paddingLeft="8.0dip"
-            android:paddingRight="40.0dip"
+            android:paddingRight="10.0dip"
             android:paddingTop="10.0dip"
             android:text="138****7363"
-            android:textColor="@color/text_normal"
-            android:textSize="@dimen/set_text_size" />
+            android:textColor="@color/viewfinder_mask"
+            android:textSize="@dimen/text_17" />
 
         <TextView
             android:id="@+id/tv_checkcode"
@@ -80,9 +79,9 @@
             android:paddingLeft="15.0dip"
             android:paddingRight="15.0dip"
             android:paddingTop="10.0dip"
-            android:text="发送手机验证码"
+            android:text="@string/send_code"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size" />
+            android:textSize="@dimen/text_17" />
     </RelativeLayout>
 
     <TextView
@@ -92,9 +91,9 @@
         android:layout_marginRight="5.0dip"
         android:layout_marginTop="10.0dip"
         android:paddingTop="8.0dip"
-        android:text="请输入验证码："
+        android:text="@string/input_yanzheng"
         android:textColor="@color/text_color_gray"
-        android:textSize="@dimen/default_text_size" />
+        android:textSize="@dimen/text_17" />
 
     <EditText
         android:id="@+id/ed_code"
@@ -107,20 +106,22 @@
         android:background="@drawable/edittext_style"
         android:paddingBottom="12.0dip"
         android:paddingTop="12.0dip"
-        android:textColor="@color/text_normal"
-        android:textSize="@dimen/set_text_size" />
+        android:inputType="phone"
+        android:singleLine="true"
+        android:maxLength="6"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_17" />
 
     <TextView
         android:id="@+id/txt_save_verification"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ed_code"
         android:layout_margin="20.0dip"
         android:background="@drawable/shape_a6c04c"
         android:gravity="center"
         android:paddingBottom="10.0dip"
         android:paddingTop="10.0dip"
-        android:text="验证"
+        android:text="@string/yanzheng"
         android:textColor="@color/white"
         android:textSize="@dimen/group_purchase_title" />
 

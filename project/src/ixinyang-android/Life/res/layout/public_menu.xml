@@ -21,8 +21,8 @@
             android:clickable="true"
             android:gravity="center"
             android:text="全部分类"
-            android:textColor="#ff000000"
-            android:textSize="16.0sp" />
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_17" />
 
         <View
             android:layout_width="1.0px"
@@ -39,8 +39,8 @@
             android:clickable="true"
             android:gravity="center"
             android:text="附近"
-            android:textColor="#ff000000"
-            android:textSize="16.0sp" />
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_17" />
 
         <View
             android:layout_width="1.0px"
@@ -57,8 +57,8 @@
             android:clickable="true"
             android:gravity="center"
             android:text="智能排序"
-            android:textColor="#ff000000"
-            android:textSize="16.0sp" />
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_17" />
     </LinearLayout>
 
 </LinearLayout>

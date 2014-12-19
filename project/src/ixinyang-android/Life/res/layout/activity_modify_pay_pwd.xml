@@ -41,9 +41,9 @@
         android:layout_marginLeft="15.0dip"
         android:layout_marginRight="15.0dip"
         android:layout_marginTop="12.0dip"
-        android:text="请输入原来的支付密码验证身份"
+        android:text="@string/hint_yanzheng"
         android:textColor="@color/text_color_gray"
-        android:textSize="@dimen/set_text_size" />
+        android:textSize="@dimen/city_16_text" />
 
     <EditText
         android:layout_width="fill_parent"
@@ -56,8 +56,8 @@
         android:paddingBottom="12.0dip"
         android:paddingTop="12.0dip"
         android:inputType="textPassword"
-        android:textColor="@color/text_normal"
-        android:textSize="@dimen/set_text_size" />
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_17" />
 
     <TextView
         android:id="@+id/txt_ok_pwd"
@@ -68,7 +68,7 @@
         android:gravity="center"
         android:paddingBottom="10.0dip"
         android:paddingTop="10.0dip"
-        android:text="确定"
+        android:text="@string/confirm"
         android:textColor="@color/white"
         android:textSize="@dimen/group_purchase_title" />
     

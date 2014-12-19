@@ -22,7 +22,7 @@
             android:singleLine="true"
             android:text="wzz_rj0902"
             android:textColor="@color/black"
-            android:textSize="@dimen/set_text_size" />
+            android:textSize="@dimen/default_text_size" />
 
         <ImageView
             android:id="@+id/img_rank"
@@ -46,7 +46,7 @@
             android:layout_toRightOf="@id/img_rank"
             android:text="2014-08-27"
             android:textColor="@color/viewfinder_mask"
-            android:textSize="@dimen/set_text_size" />
+            android:textSize="@dimen/default_text_size" />
 
         <RatingBar
             android:id="@+id/rtb_rating"
@@ -92,7 +92,7 @@
             android:layout_below="@id/gv_mapping"
             android:layout_marginRight="22.0dip"
             android:layout_marginTop="-38.0dip"
-            android:background="#33000000"
+            android:background="@color/text_bg"
             android:paddingBottom="3.0dip"
             android:paddingLeft="5.0dip"
             android:paddingRight="5.0dip"

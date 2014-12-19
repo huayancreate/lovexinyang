@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,6 +76,7 @@ public class RecommendAdapter extends BaseAdapter {
 		cacheView.tv_near.setText(getItem(position).get("near"));
 		cacheView.tv_price.setText(getItem(position).get("price"));
 		cacheView.tv_oldPrice.setText(getItem(position).get("oldPrice"));
+		Log.d("RECOMMEND = ", getItem(position).get("yishou"));
 		cacheView.tv_fen.setText("已售"+getItem(position).get("yishou"));
 		
 		cacheView.tv_oldPrice.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG ); //中间横线

@@ -15,6 +15,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.LayoutInflater;
@@ -212,5 +213,18 @@ public abstract class BaseActivity extends Activity{
 		Intent intent = new Intent(clsA,clsB);
 		startActivity(intent);
 	}
+	
+	
+	/**
+	 * app字体不随系统字体的大小改变而改变
+	 */
+	@Override  
+	public Resources getResources() {  
+	    Resources res = super.getResources();    
+	    Configuration config=new Configuration();    
+	    config.setToDefaults();    
+	    res.updateConfiguration(config,res.getDisplayMetrics() );  
+	    return res;  
+	}  
 
 }

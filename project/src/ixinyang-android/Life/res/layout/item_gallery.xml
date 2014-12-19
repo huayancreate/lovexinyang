@@ -1,64 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
+    <ImageView
+        android:id="@+id/img_gy_alb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pic" />
 
-        <ImageView
-            android:id="@+id/img_gy_alb"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@drawable/advertising_default_1" />
+    <TextView
+        android:id="@+id/tv_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dip"
+        android:layout_marginTop="20dip"
+        android:background="@drawable/shape_33000000"
+        android:gravity="center"
+        android:paddingBottom="8dip"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:paddingTop="8dip"
+        android:text="12/13"
+        android:textColor="@color/white"
+        android:textSize="@dimen/head_text_size" />
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/img_gy_alb"
-            android:layout_marginTop="-8.0dip"
-            android:background="#33000000"
-            android:orientation="vertical"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp" >
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40.0dip"
+        android:layout_marginLeft="20.0dip"
+        android:text="TextView"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size" />
 
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginLeft="10.0dip"
-                android:text="TextView"
-                android:textColor="@color/white"
-                android:textSize="12.0sp" />
-
-             <TextView
-                android:id="@+id/tv_page"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10.0dip"
-                android:layout_alignBaseline="@id/tv_title"
-                android:text="21/11"
-                android:textColor="@color/white"
-                android:textSize="12.0sp" />
-             
-            <TextView
-                android:id="@+id/tv_des"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_below="@id/tv_title"
-                        android:layout_marginTop="10.0dip"
-                android:layout_marginLeft="10.0dip"
-                android:text="2/11"
-                android:textColor="@color/white"
-                android:textSize="12.0sp" />
-        </RelativeLayout>
-    </RelativeLayout>
-
-</LinearLayout>
+</RelativeLayout>

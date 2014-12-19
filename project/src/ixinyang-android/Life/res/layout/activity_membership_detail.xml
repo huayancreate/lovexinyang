@@ -2,12 +2,11 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/bg_table_subtitle" >
+    android:background="@color/citylist_divider">
     
 <LinearLayout
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/citylist_divider"
+    android:layout_height="wrap_content"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -84,9 +83,9 @@
         android:layout_marginBottom="5.0dip"
         android:layout_marginLeft="10.0dip"
         android:layout_marginTop="10.0dip"
-        android:text="会员卡说明"
+        android:text="@string/card_des"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/city_16_text" />
+        android:textSize="@dimen/text_19" />
 
     <ImageView
         android:layout_width="fill_parent"
@@ -116,18 +115,18 @@
             android:layout_marginRight="10.0dip"
             android:text="当前等级：VIP1"
             android:textColor="@color/text_color_gray"
-            android:textSize="@dimen/city_16_text" />
+            android:textSize="@dimen/head_text_size" />
 
         <TextView
             android:id="@+id/tv_growth_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10.0dip"
-            android:layout_marginLeft="10.0dip"
+            android:layout_marginLeft="15.0dip"
             android:layout_toRightOf="@id/tv_grade"
             android:text="成长值：423"
             android:textColor="@color/text_color_gray"
-            android:textSize="@dimen/city_16_text" />
+            android:textSize="@dimen/head_text_size" />
 
         <TextView
             android:id="@+id/tv_money"
@@ -142,7 +141,7 @@
             android:layout_marginTop="10.0dip"
             android:text="￥105.0"
             android:textColor="@color/orange_text"
-            android:textSize="@dimen/head_text_size" />
+            android:textSize="@dimen/group_purchase_title" />
 
         <TextView
             android:id="@+id/tv_degree"
@@ -157,7 +156,7 @@
             android:layout_toRightOf="@id/tv_money"
             android:text="3次"
             android:textColor="@color/orange_text"
-            android:textSize="@dimen/head_text_size" />
+            android:textSize="@dimen/group_purchase_title" />
         
     <TextView
        		android:id="@+id/tv_danwei"
@@ -167,12 +166,12 @@
             android:layout_below="@id/tv_money"
             android:layout_gravity="center_vertical"
             android:layout_marginBottom="10.0dip"
-            android:layout_marginLeft="20.0dip"
+            android:layout_marginLeft="25.0dip"
             android:layout_marginRight="10.0dip"
             android:layout_marginTop="10.0dip"
-            android:text="消费金额"
+            android:text="@string/spend"
             android:textColor="@color/text_color_gray"
-            android:textSize="@dimen/city_16_text" />
+            android:textSize="@dimen/head_text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -180,13 +179,13 @@
             android:layout_alignLeft="@id/tv_growth_value"
             android:layout_below="@id/tv_degree"
             android:layout_marginBottom="10.0dip"
-            android:layout_marginLeft="20.0dip"
+            android:layout_marginLeft="5.0dip"
             android:layout_marginRight="10.0dip"
             android:layout_marginTop="10.0dip"
             android:layout_toRightOf="@id/tv_danwei"
-            android:text="消费次数"
+            android:text="@string/spend_num"
             android:textColor="@color/text_color_gray"
-            android:textSize="@dimen/city_16_text" />
+            android:textSize="@dimen/head_text_size" />
     </RelativeLayout>
 
       <TextView
@@ -198,7 +197,7 @@
         android:gravity="center"
         android:paddingBottom="10.0dip"
         android:paddingTop="10.0dip"
-        android:text="使用会员卡"
+        android:text="@string/user_card"
         android:textColor="@color/white"
         android:textSize="@dimen/group_purchase_title" />
 </LinearLayout>

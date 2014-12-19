@@ -2,7 +2,7 @@ package com.huayan.life.Activity;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -18,7 +18,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.huayan.life.adapter.AdvAdapter;
@@ -33,6 +32,7 @@ import com.huayan.life.view.AdvViewPager;
  * @author wzz
  *Ê×Ò³
  */
+@SuppressLint("HandlerLeak")
 public class RecommendActivity extends BaseActivity implements OnClickListener {
 
 	public static final int HTTP_REQUEST_SUCCESS = -1;
@@ -124,11 +124,9 @@ public class RecommendActivity extends BaseActivity implements OnClickListener {
 					currentPage = arg0;
 					for (int i = 0; i < advs.size(); i++) {
 						if (i == arg0) {
-							imageViews[i]
-									.setBackgroundResource(R.drawable.banner_dian_focus);
+							imageViews[i].setBackgroundResource(R.drawable.banner_dian_focus);
 						} else {
-							imageViews[i]
-									.setBackgroundResource(R.drawable.banner_dian_blur);
+							imageViews[i].setBackgroundResource(R.drawable.banner_dian_blur);
 						}
 					}
 				}
@@ -151,11 +149,9 @@ public class RecommendActivity extends BaseActivity implements OnClickListener {
 				imageView.setLayoutParams(new LayoutParams(20, 20));
 				imageViews[i] = imageView;
 				if (i == 0) {
-					imageViews[i]
-							.setBackgroundResource(R.drawable.banner_dian_focus);
+					imageViews[i].setBackgroundResource(R.drawable.banner_dian_focus);
 				} else {
-					imageViews[i]
-							.setBackgroundResource(R.drawable.banner_dian_blur);
+					imageViews[i].setBackgroundResource(R.drawable.banner_dian_blur);
 				}
 				vg.addView(imageViews[i]);
 			}

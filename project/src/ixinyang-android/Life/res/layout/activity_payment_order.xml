@@ -62,7 +62,7 @@
                         android:layout_height="wrap_content"
                         android:text="上岛咖啡2人餐"
                         android:textColor="@color/text_color_gray"
-                        android:textSize="@dimen/default_text_size" />
+                        android:textSize="@dimen/text_17" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -70,7 +70,7 @@
                         android:layout_alignParentRight="true"
                         android:text="98元"
                         android:textColor="@color/text_color_gray"
-                        android:textSize="@dimen/default_text_size" />
+                        android:textSize="@dimen/text_17" />
                 </RelativeLayout>
 
                 <ImageView
@@ -91,7 +91,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/totle_num"
                         android:textColor="@color/text_color_gray"
-                        android:textSize="@dimen/default_text_size" />
+                        android:textSize="@dimen/text_17" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -99,7 +99,7 @@
                         android:layout_alignParentRight="true"
                         android:text="1"
                         android:textColor="@color/text_color_gray"
-                        android:textSize="@dimen/default_text_size" />
+                        android:textSize="@dimen/text_17" />
                 </RelativeLayout>
 
                 <ImageView
@@ -120,7 +120,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/totle_price"
                         android:textColor="@color/text_color_gray"
-                        android:textSize="@dimen/default_text_size" />
+                        android:textSize="@dimen/text_17" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -128,7 +128,7 @@
                         android:layout_alignParentRight="true"
                         android:text="98元"
                         android:textColor="@color/text_color_gray"
-                        android:textSize="@dimen/default_text_size" />
+                        android:textSize="@dimen/text_17" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -149,7 +149,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/balance"
                         android:textColor="@color/text_color_gray"
-                        android:textSize="@dimen/default_text_size" />
+                        android:textSize="@dimen/text_17" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -157,7 +157,7 @@
                         android:layout_alignParentRight="true"
                         android:text="0元"
                         android:textColor="@color/text_color_gray"
-                        android:textSize="@dimen/default_text_size" />
+                        android:textSize="@dimen/text_17" />
                 </RelativeLayout>
 
                 <ImageView
@@ -178,7 +178,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/also_need_to_pay"
                         android:textColor="@color/text_color_gray"
-                        android:textSize="@dimen/default_text_size" />
+                        android:textSize="@dimen/text_17" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -186,7 +186,7 @@
                         android:layout_alignParentRight="true"
                         android:text="98元"
                         android:textColor="@color/red_price"
-                        android:textSize="@dimen/default_text_size" />
+                        android:textSize="@dimen/text_17" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -232,7 +232,7 @@
                         android:layout_toRightOf="@id/img_zhifubao"
                         android:text="@string/alipay_payment"
                         android:textColor="@color/text_color_gray"
-                        android:textSize="@dimen/default_text_size" />
+                        android:textSize="@dimen/text_17" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -241,7 +241,7 @@
                         android:layout_toRightOf="@id/img_zhifubao"
                         android:text="@string/hint_alipay"
                         android:textColor="@color/text_normal"
-                        android:textSize="@dimen/text_12" />
+                        android:textSize="@dimen/default_text_size" />
 
                     <CheckBox
                         android:id="@+id/rb_pay"

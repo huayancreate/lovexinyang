@@ -44,25 +44,24 @@ public class AlbumAdapter extends BaseAdapter {
 		if (convertView == null) {
 			convertView = inflater.inflate(R.layout.item_gallery, null);
 			cacheView = new CacheView();
-			cacheView.tv_des = (TextView) convertView.findViewById(R.id.tv_des);
-			cacheView.img_albumView = (ImageView) convertView.findViewById(R.id.img_gy_alb);
-			cacheView.tv_title=(TextView)convertView.findViewById(R.id.tv_title);
-			cacheView.tv_pageNum=(TextView)convertView.findViewById(R.id.tv_page);
+			cacheView.img_albumView = (ImageView) convertView
+					.findViewById(R.id.img_gy_alb);
+			cacheView.tv_title = (TextView) convertView
+					.findViewById(R.id.tv_title);
+			cacheView.tv_pageNum = (TextView) convertView
+					.findViewById(R.id.tv_page);	
 			convertView.setTag(cacheView);
 		} else {
 			cacheView = (CacheView) convertView.getTag();
 		}
-		cacheView.tv_des.setText(list.get(position).getDes());
 		cacheView.img_albumView.setImageDrawable(list.get(position).getImgurl());
 		cacheView.tv_title.setText(list.get(position).getTitle());
-		String pageNum=position+1+"/"+list.size();
-		cacheView.tv_pageNum.setText(pageNum);		
+		String pageNum = position + 1 + "/" + list.size();
+		cacheView.tv_pageNum.setText(pageNum);
 		return convertView;
 	}
 
-	
 	private static class CacheView {
-		TextView tv_des;
 		ImageView img_albumView;
 		TextView tv_title;
 		TextView tv_pageNum;

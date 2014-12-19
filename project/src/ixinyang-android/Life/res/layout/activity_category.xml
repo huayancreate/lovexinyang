@@ -50,7 +50,7 @@
                 android:layout_marginLeft="5dip"
                 android:text="美食"
                 android:textColor="@color/white"
-                android:textSize="@dimen/group_purchase_title" />
+                android:textSize="@dimen/head_text_size" />
         </LinearLayout>
 
         <!-- 头部右边 -->
