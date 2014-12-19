@@ -36,7 +36,7 @@ class ComMenuController extends Controller
     {
         //初始进入主页时 设置默认值 查询所有 0->无效 1->有效 2->全部
         $model = new ComMenu();
-        $model->isValid=2;
+        $model->isValid=1;
         return $this->render('index', [
             'model' => $model,
         ]);

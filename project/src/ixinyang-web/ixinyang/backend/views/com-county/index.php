@@ -18,8 +18,31 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="com-county-index">
 
+<div class="row">
+   <?php $form = ActiveForm::begin([
+         'layout' => 'horizontal',
+         'action' => ['search'],
+         'method' => 'post',
+    ]);
+    ?>
+    <div class="col-lg-6">
+
+        <?= $form->field($model, 'isValid')->dropDownList([
+            '2'=>'全部',
+            '1'=>'有效',
+            '0'=>'无效',
+        ],
+        ['name'=>'isValidDrop','value'=>isset(Yii::$app->session['$isValid']) ? Yii::$app->session['$isValid'] : $model->isValid])
+        ?>
+    </div>
+    <?= Html::submitButton('查询', ['class' =>'btn btn-success','id'=>'btnSelect']) ?>
+    <?php ActiveForm::end(); ?>
+  
+</div>
  <div class="row">
+
     <div class="col-lg-8">
+
      <?= Html::button('添加', ['class' =>'btn btn-success','id'=>'countyAdd']) ?>
      <?php \yii\widgets\Pjax::begin(); ?>
      <?= GridView::widget([
@@ -36,9 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                // 'visible' => false
             ],*/
-
-            'countyName',
-            [
+             [
                 'attribute'=>'cityCenterId',
                 'label'=>'市区名称',
                 'value'=>function($data){
@@ -52,6 +73,8 @@ $this->params['breadcrumbs'][] = $this->title;
                   
                 },
             ],
+            'countyName',
+           
             [
                 'attribute'=>'isValid',
                 'label'=>'是否有效',
@@ -146,8 +169,8 @@ $(function(){
 });
 
 //触发行事件 点击某行区县 区县下对应的商圈加载出来
-$("table tr:gt(0)").bind("click",function(){
-    $("table tr:gt(0)").removeClass("trSelected");
+$("table tbody tr:gt(0)").bind("click",function(){
+    $("table tbody tr:gt(0)").removeClass("trSelected");
     $(this).addClass("trSelected");
     $("#businessdistrictDiv").show();
     

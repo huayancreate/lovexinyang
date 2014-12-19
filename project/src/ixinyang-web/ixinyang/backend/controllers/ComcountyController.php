@@ -44,13 +44,14 @@ class ComCountyController extends Controller
 
         //区县类   区县列表展示
         $model = new ComCounty();
-        //$models=ComCounty::find()->where(['isValid'=>'1'])->all();
+        
         $dataProvider=new ActiveDataProvider([
                 'query'=>$model->find()->where('isValid=1')->asArray(),
                 'pagination' => ['pagesize' => '5'],
 
                 ]);
         
+          $model->isValid=1;
           return $this->render('index', [
                                 'model' => $model,
                                 'mCity'=>$ComCity,'mCitys'=>$ComCitys,'dataProvider'=>$dataProvider,
@@ -58,6 +59,55 @@ class ComCountyController extends Controller
                          ]);
           
     }
+
+    /**
+     * [选择下拉框是否有效查询区县信息  0->无效 1->有效 2->全部]
+     * @return [type] [description]
+     */
+    public function actionSearch()
+    {
+         //区县类   区县列表展示
+        $model = new ComCounty();
+
+        if (Yii::$app->request->post()) {
+           
+            $model->isValid=$_POST["isValidDrop"];
+            //session值
+            Yii::$app->session['$isValid']=$model->isValid;
+        }
+        else{
+            if (isset(Yii::$app->session['$isValid'])){
+                $model->isValid=Yii::$app->session['$isValid'];
+            }else{
+                $model->isValid=1;
+            }
+        }
+         //市区类
+        $ComCity=new ComCityCenter();
+        $ComCitys= ComCityCenter::find()->all(); 
+
+          if ($model->isValid==2) {//全部
+                    $query=$model->find()->asArray();
+                }
+                else{//1 有效 或 0 无效
+                    $query=$model->find()->where('isValid='.$model->isValid)->asArray();
+                }
+
+                $dataProvider=new ActiveDataProvider([
+                        'query'=>$query,
+                        'pagination' => ['pagesize' => '5'],
+
+                        ]);
+                
+                  return $this->render('index', [
+                                        'model' => $model,
+                                        'mCity'=>$ComCity,'mCitys'=>$ComCitys,'dataProvider'=>$dataProvider,
+                                       
+                                 ]);
+        
+          
+    }
+
 
     /**
      * Displays a single ComCounty model.

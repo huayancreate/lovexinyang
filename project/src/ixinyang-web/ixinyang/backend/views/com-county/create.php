@@ -14,9 +14,9 @@ use yii\helpers\ArrayHelper;
 
     <?php $form = ActiveForm::begin(['layout' => 'horizontal','id'=>'createForm']); ?>
 
+	<?=$form->field($mCity,'cityCenterName')->dropDownList(ArrayHelper::map($mCitys,'id','cityCenterName')) ?>
+
     <?= $form->field($model, 'countyName')->textInput(['maxlength' => 200]) ?>
-   
-    <?=$form->field($mCity,'cityCenterName')->dropDownList(ArrayHelper::map($mCitys,'id','cityCenterName')) ?>
 	
 	<?= $form->field($model, 'isValid')->checkbox() ?>
 <div class="col-lg-offset-5">

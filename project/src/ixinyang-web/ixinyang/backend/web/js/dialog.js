@@ -50,9 +50,9 @@ JuiDialog={
                 alert("Connection error");
             },
             success: function (data) {
-                $("#"+divId).empty();
-                $("#"+divId).dialog('close');
-                $.pjax.reload({container:'#'+gridId});
+                 $("#"+divId).empty();
+                 $("#"+divId).dialog('close');
+                 $.pjax.reload({container:'#'+gridId});
             }
         });
     },

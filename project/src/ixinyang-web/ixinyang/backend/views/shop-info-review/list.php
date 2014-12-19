@@ -2,27 +2,25 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use yii\bootstrap\ActiveForm;
-use backend\models\StoApplyInfo;
-use backend\models\ComCategoryMaintain;
-use kartik\daterange\DateRangePicker;
+use backend\models\StoSellerInfo;
 use yii\jui\Dialog;
 use yii\web\JqueryAsset;
+use yii\bootstrap\ActiveForm;
+use kartik\daterange\DateRangePicker;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\StoApplyInfoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '商家申请信息审核';
+$this->title = '店铺信息确认';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<div class="shop-info-review-list">
 
-<div class="sto-apply-info-index">
-    <h1><?= Html::encode("商家申请信息审核列表") ?></h1>
-    <hr>
+    <h1><?= Html::encode($this->title) ?></h1>
+
     <?php echo "请选择时间范围："; ?>
     <?php $form = ActiveForm::begin([
-         'action' => ['index'],
+         'action' => ['list'],
          'method' => 'post',
     ]);
     ?>
@@ -44,50 +42,45 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <?= Html::submitButton('查询', ['class' =>'btn btn-success','id'=>'btnSelect']) ?>
     <?php ActiveForm::end(); ?>
-
-    <hr>
-    <?php echo "最近消费记录：";?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-    <?php \yii\widgets\Pjax::begin(); ?>
+   <hr/>
+   <?php echo "当前任务：";?>
+   <?php \yii\widgets\Pjax::begin(); ?>
     <?= GridView::widget([
-        'id'=>'stoapplyinfoGrid',
+        'id'=>'shopinforeviewlistGrid',
         'dataProvider' => $dataProvider,
-       // 'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            [
+            
+            'shopName',
+             [
+              'attribute'=>'storeId',
+                'label'=>'商家姓名',
+                'value'=>function($model){
+                   $sellerInfoModel=StoSellerInfo::find()->where(['id'=>$model['storeId']])->one();
+                   if (!empty($sellerInfoModel)) {
+                       return $sellerInfoModel->owner;
+                   }
+                   else{
+                       return '';
+                   }
+                   
+                }
+            ],
+             [
               'attribute'=>'applyTime',
                 'label'=>'申请时间',
                 'value'=>function($model){
-                   //return date('Y-m-d',$model['applyTime']);
+                   
                    return date('Y-m-d',strtotime($model['applyTime']));
                 }
             ],
-            'storeName',
-            'name',
-            'phone',
-            'address',
-            [
-                'attribute'=>'countyId',
-                'label'=>'商家类型',
-                'value'=>function($model){
-                      $comCategoryMaintainModel=ComCategoryMaintain::find()->where(['id'=>$model['storeCategoryId']])->one();
-                      if (!empty($comCategoryMaintainModel)) {
-                         return $comCategoryMaintainModel->categoryName;
-                      }
-                      else{
-                            return '';
-                      }
+            'managerName',
 
-
-                }
-
-            ],
             ['class' => 'yii\grid\ActionColumn','header'=>'操作','headerOptions'=>['width'=>'100'],
                 'buttons'=>[
 
                         'view'=>function($url,$model){
-                              return Html::a('操作','javascript:void(0)',['onclick'=>"detailFunction(".$model['applyId'].")"]);
+                              return Html::a('操作','javascript:void(0)',['onClick'=>'getDetailInfo("'.$model['id'].'")']);
                             },
                         'update'=>function(){
 
@@ -100,14 +93,33 @@ $this->params['breadcrumbs'][] = $this->title;
            ],
         ],
     ]); ?>
-     <?php \yii\widgets\Pjax::end(); ?>
-
+   <?php \yii\widgets\Pjax::end(); ?>
 </div>
-<script type="text/javascript">
-   <?php $this->beginBlock('JS_END'); ?>
-      function detailFunction(applyId){
 
-        getDetailInfo(applyId);
+<?php 
+    Dialog::begin([
+        'id'=>'dialogId',
+        'clientOptions' => [
+            'modal' => true,
+            'autoOpen' => false,
+            'width'=>'500',
+            'height'=>'550',
+            'resizable'=> true,
+        ],
+    ]);
+?>    
+
+<?php
+    Dialog::end();
+?>
+
+<script type="text/javascript"> 
+
+<?php $this->beginBlock('JS_END'); ?>
+
+ function getDetailInfo(id){
+
+        getDetailPage(id);
 
         $("#dialogId").dialog("open");
             $("#dialogId").dialog({
@@ -115,7 +127,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     modal: true,
                     width: 800,
                     height:600,
-                    title:"商家申请信息审核明细",
+                    title:"商家信息确认",
                     show: "blind",             //show:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果
                     hide: "explode",       //hide:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果
                     resizable: true,
@@ -131,47 +143,22 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
               });
       }
-      //弹出dialog 添加对话框
-      function getDetailInfo(applyId){
-           $.ajax({
-               type:"POST",
-               url:"index.php?r=sto-apply-info%2Fdetail&applyId="+applyId,
-               success:function(data) {
-                  $("#dialogId").html(data);
-               }
-             });
-      }
+//弹出dialog 添加对话框
+function getDetailPage(id){
+     $.ajax({
+         type:"POST",
+         url:"index.php?r=shop-info-review%2Fdetail&id="+id,
+         success:function(data) {
+            $("#dialogId").html(data);
+         }
+       });
+}
 
-   <?php $this->endBlock(); ?>
+
+function getView(title,url){
+    JuiDialog.dialogView("dialogId",title,url);
+}
+
+<?php $this->endBlock(); ?>
 </script>
-<?php
-  \yii\web\YiiAsset::register($this);
-  $this->registerJs($this->blocks['JS_END'],\yii\web\View::POS_END);
-?>
-
-<!---对话框 -->
-<?php
-      Dialog::begin([
-      'id'=>'dialogId',
-      'clientOptions' => [
-      'modal' => true,
-      'autoOpen' => false,
-      ],]);
-  ?>
-
-<?php
-    Dialog::end();
-?>
-
-<?php
-$this->registerCssFile(Yii::$app->urlManager->baseUrl . '/css/zTreeStyle.css', []);
-$this->registerCssFile(Yii::$app->urlManager->baseUrl . '/map/map.css', []);
-
-$this->registerJsFile(Yii::$app->urlManager->baseUrl . '/map/map.js',  ['depends' => [JqueryAsset::className()]]);
-//$this->registerJsFile(Yii::$app->urlManager->baseUrl . '/js/jquery.ztree.core-3.5.min.js',  ['depends' => [JqueryAsset::className()]]);
-?>
-
-
-
-
-
+<?php $this->registerJs($this->blocks['JS_END'], \yii\web\View::POS_END); ?>

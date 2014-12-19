@@ -51,9 +51,9 @@ class ShopInfoReview extends \yii\db\ActiveRecord
     {
         return [
             [['longitude', 'latitude'], 'number'],
-            [['storeId', 'businessDistrictId', 'cityId', 'countyId', 'applyUserId', 'auditUserId', 'auditTime', 'managerId', 'managerTime', 'auditState'], 'integer'],
+            [['storeId', 'businessDistrictId', 'cityId', 'countyId', 'applyUserId', 'auditUserId', 'managerId', 'auditState','shopId','storeType'], 'integer'],
             [['storeOutline'], 'string'],
-            [['applyTime'], 'safe'],
+            [['applyTime', 'auditTime', 'managerTime'], 'safe'],
             [['city', 'shopName', 'contact', 'regional', 'storeAccount'], 'string', 'max' => 50],
             [['address'], 'string', 'max' => 250],
             [['businessHours', 'applyUserName', 'auditUserName', 'managerName', 'Rejection'], 'string', 'max' => 100]

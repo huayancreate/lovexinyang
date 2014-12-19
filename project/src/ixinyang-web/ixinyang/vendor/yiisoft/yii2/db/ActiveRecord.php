@@ -654,4 +654,14 @@ class ActiveRecord extends BaseActiveRecord
 
         return $command->execute();
     }
+
+     public static function insertBySql($tableName,$attributes, $condition = '', $params = [])
+    {
+        $command = static::getDb()->createCommand();
+        $command->insert($tableName, $attributes, $condition, $params);
+
+        return $command->execute();
+    }
+
+
 }

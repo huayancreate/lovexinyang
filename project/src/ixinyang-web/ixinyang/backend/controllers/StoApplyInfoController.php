@@ -14,6 +14,8 @@ use backend\models\ComBusinessDistrict;
 use backend\models\ComCategoryMaintain;
 use backend\models\StoSellerInfo;
 use backend\models\StoStoreInfo;
+use backend\models\StoLogonAccount;
+use backend\models\ComRole;
 use yii\data\Pagination;
 
 /*
@@ -273,6 +275,10 @@ class StoApplyInfoController extends Controller
         $applyId=$_POST["applyId"];
         //最终审核状态
         $applyStatus=$_POST["applyStatus"];
+        //商家名称
+        $sellerName=$_POST["sellerName"];
+        //法人
+        $owner=$_POST["owner"];
         //客户经理Id  暂时写空
         $customerManagerId='111111';
         //客户经理名称 暂时写空
@@ -285,12 +291,15 @@ class StoApplyInfoController extends Controller
              $model = $this->findModel($applyId);
             
              //商家信息保存成功后获取 商家ID
-             $sellerId=$this->sellerInfoModelSave($model);
+             $sellerId=$this->sellerInfoModelSave($model,$sellerName,$owner);
 
              //门店信息保存成功后获取门店id
              $storeInfoId=$this->storeInfoModelSave($model,$sellerId);
 
-               //2、执行修改   商家申请数据的修改
+             //2、商家账号信息
+             $this->logonAccountModelSave($sellerId,$sellerName,$storeInfoId);
+
+             //3、执行修改   商家申请数据的修改
             
              StoApplyInfo::updateBySql('sto_apply_info',['applyStatus'=>$applyStatus,'customerManagerId'=>$customerManagerId,'customerManagerName'=>$customerManagerName,'cusManagerReviewTime'=>date('Y-m-d h:i:s')],['applyId'=>$applyId]);
              
@@ -339,7 +348,7 @@ class StoApplyInfoController extends Controller
     /**
     *商家信息的保存
     */
-    protected function sellerInfoModelSave($applyInfoModel){
+    protected function sellerInfoModelSave($applyInfoModel,$sellerName,$owner){
                   //商家信息model
                   $stoSellerInfoModel=new StoSellerInfo();
                  //把数据添加到商家信息表中
@@ -357,11 +366,15 @@ class StoApplyInfoController extends Controller
                  $stoSellerInfoModel->phone=$applyInfoModel->phone;
                  //商家Email、邮箱
                  $stoSellerInfoModel->email=$applyInfoModel->email;
+                 //商家名称
+                 $stoSellerInfoModel->sellerName=$sellerName;
+                 //法人
+                 $stoSellerInfoModel->owner=$owner;
 
                  //把商家信息进行保存
                  $stoSellerInfoModel->save();
                  //返回商家信息id
-                 return $stoSellerInfoModel->id;
+                 return $stoSellerInfoModel;
     }
    
     /**
@@ -403,8 +416,43 @@ class StoApplyInfoController extends Controller
                  //保存门店信息
                  $stoStoreInfoModel->save();
                  //返回门店信息id
-                 return $stoStoreInfoModel->id;
+                 return $stoStoreInfoModel;
 
+    }
+
+    protected function logonAccountModelSave($sellerId,$sellerName,$storeInfoId){
+          //商家登录账号  店家账号
+         $this->logonAccountDataCreate($sellerId,$sellerName,$storeInfoId,'店家');;
+       
+          //商家登录账号  财务账号
+         $this->logonAccountDataCreate($sellerId,$sellerName,$storeInfoId,'财务');
+          
+          //商家登录账号  营业员账号
+         $this->logonAccountDataCreate($sellerId,$sellerName,$storeInfoId,'营业员');
+    }
+
+    protected function logonAccountDataCreate($sellerId,$sellerName,$storeInfoId,$roleName){
+
+            $logonAccountModel=new StoLogonAccount();
+           //店铺ID  
+           $logonAccountModel->storeId=$storeInfoId;
+           //角色ID  根据roleName查询id
+           $comRoleMode=ComRole::findBySql('select * from com_role where roleName like %"'.$roleName.'"% ')->one();
+           $logonAccountModel->roleId=$comRoleMode->id;
+           //商家ID
+           $logonAccountModel->sellerId=$sellerId;
+           //商家账号
+           $logonAccountModel->loginName=$sellerName.$roleName;
+           //帐号密码  默认 123456
+           $logonAccountModel->password='123456';
+           //是否有效
+           $logonAccountModel->validity='1';
+           //权限标识：0、对应商家下所有分店 1、分店
+           $logonAccountModel->flag=0;
+           //保存
+           $logonAccountModel->save();
+
+           return $logonAccountModel;
     }
 
 }
