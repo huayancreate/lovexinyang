@@ -46,7 +46,7 @@ class StoBalanceReviewSearch extends StoBalanceReview
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'pagination' => ['pagesize' => '10']
+            'pagination' => ['pagesize' => '5']
         ]);
 
         if (!($this->load($params) && $this->validate())) {

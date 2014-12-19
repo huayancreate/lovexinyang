@@ -11,7 +11,7 @@ use yii\grid\GridView;
 use kartik\daterange\DateRangePicker;
 
 ?>
-<div id="1231">
+<div id="refundList">
 
     <?= GridView::widget([
         'dataProvider' => $refundDataProvider,
@@ -55,7 +55,7 @@ use kartik\daterange\DateRangePicker;
                 alert("Connection error");
             },
             success: function (data) {
-                $("#1231").html(data);
+                $("#refundList").html(data);
             }
 
         });

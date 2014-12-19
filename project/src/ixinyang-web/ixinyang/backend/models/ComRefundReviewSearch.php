@@ -46,6 +46,7 @@ class ComRefundReviewSearch extends ComRefundReview
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => ['pagesize' => '5']
         ]);
 
         if (!($this->load($params) && $this->validate())) {

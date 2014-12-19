@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\ComRefundReview;
-use backend\models\ComRefundReviewSearch;
+use backend\models\CusOrderDetails;
+use backend\models\CusOrderDetailsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ComRefundReviewController implements the CRUD actions for ComRefundReview model.
+ * CusOrderDetailsController implements the CRUD actions for CusOrderDetails model.
  */
-class ComRefundReviewController extends Controller
+class CusOrderDetailsController extends Controller
 {
     public function behaviors()
     {
@@ -27,52 +27,40 @@ class ComRefundReviewController extends Controller
     }
 
     /**
-     * Lists all ComRefundReview models.
+     * Lists all CusOrderDetails models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ComRefundReview();
-        $fromDate = date("Y-m-d");
-        $toDate = date("Y-m-d");
-        $dateRange = $fromDate . " to " . $toDate;
-        if (Yii::$app->request->post()) {
-            $dateRange = $_POST["dateRange"];
-            if (!empty($dateRange)) {
-                $arr = explode("to", $dateRange);
-                $fromDate = $arr[0];
-                $toDate = $arr[1];
-            }
-        }
-        $dataProvider = $searchModel->getRefundReviews($fromDate . ' 00:00:00', $toDate . ' 23:59:59');
+        $searchModel = new CusOrderDetailsSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'dateRange' => $dateRange,
         ]);
     }
 
     /**
-     * Displays a single ComRefundReview model.
+     * Displays a single CusOrderDetails model.
      * @param integer $id
      * @return mixed
      */
     public function actionView($id)
     {
-        return $this->renderAjax('view', [
+        return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
     }
 
     /**
-     * Creates a new ComRefundReview model.
+     * Creates a new CusOrderDetails model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new ComRefundReview();
+        $model = new CusOrderDetails();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -84,7 +72,7 @@ class ComRefundReviewController extends Controller
     }
 
     /**
-     * Updates an existing ComRefundReview model.
+     * Updates an existing CusOrderDetails model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -103,7 +91,7 @@ class ComRefundReviewController extends Controller
     }
 
     /**
-     * Deletes an existing ComRefundReview model.
+     * Deletes an existing CusOrderDetails model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -116,47 +104,18 @@ class ComRefundReviewController extends Controller
     }
 
     /**
-     * Finds the ComRefundReview model based on its primary key value.
+     * Finds the CusOrderDetails model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return ComRefundReview the loaded model
+     * @return CusOrderDetails the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = ComRefundReview::findOne($id)) !== null) {
+        if (($model = CusOrderDetails::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-    }
-
-    public function actionVerify()
-    {
-        if (Yii::$app->request->post()) {
-            $id = $_POST["id"];
-            $model = $this->findModel($id);
-            $status = $_POST["status"];
-            $model->verifyRefundReview($status);
-        }
-
-    }
-
-    /**
-     * 退款订单详情
-     */
-    public function actionDetail()
-    {
-        $model = new ComRefundReview();
-        $id = 1;
-        $order = $model->findOrderById($id);
-        $orderDetail = $model->findOrderDetailByOrderId($id);
-
-        return $this->renderPartial("detail", [
-            'order' => $order,
-            'orderDetail' => $orderDetail,
-            'model' => $this->findModel($id),
-        ]);
-
     }
 }

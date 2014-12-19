@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\base\Exception;
 use yii\data\ActiveDataProvider;
 
 /**
@@ -84,15 +85,88 @@ class ComRefundReview extends \yii\db\ActiveRecord
         ];
     }
 
+
+    /**
+     * @param $fromDate
+     * @param $toDate
+     * @return ActiveDataProvider
+     */
     public function getRefundReviews($fromDate, $toDate)
     {
         $query = $this::find();
         $id = 1;
-        $query->andWhere(['busiId' => $id]);
+        $query->andWhere(['busiId' => $id, 'financeReviewStatus' => '0']);
         $query->andFilterWhere(['BETWEEN', 'applyTime', $fromDate, $toDate]);
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
         return $dataProvider;
     }
+
+
+    /**
+     * 财务退款审核操作
+     * 审核状态： 0：未审核，1：审核通过，2：审核驳回
+     * @param $status
+     * @throws \yii\db\Exception
+     */
+    public function verifyRefundReview($status)
+    {
+        $transaction = $this->getDb()->beginTransaction();
+        try {
+            $this->financeReviewStatus = $status;
+            $this->save();
+            $this->saveRefundReStream();
+
+            $transaction->commit();
+        } catch (Exception $e) {
+            $transaction->rollBack();
+        }
+    }
+
+    /**
+     * 保存退款明细数据
+     */
+    public function saveRefundReStream()
+    {
+        $model = new ComRefundStream();
+        $model->operatorId = 0;
+        $model->operatorAccount = "0";
+        $model->operateTime = date("Y-m-d H:i:s");
+        $model->loadTime = date("Y-m-d H:i:s");
+        $model->loadAlipayName = "0";
+        $model->loadAlipayAccount = "0";
+        $model->refundMoney = $this->refundMoney;
+        $model->refundStreamId = 0;
+        $model->refundTime = date("Y-m-d H:i:s");
+        $model->refundApplyId = $this->id;
+        $model->refundApplyTime = $this->applyTime;
+        $model->verificationCode = "0";
+        $model->userId = 0;
+        $model->userAccount = "0";
+        $model->payAlipayName = "0";
+        $model->payAlipayAccount = "0";
+        $model->alipayStreamNumber = 0;
+        $model->save();
+    }
+
+
+    /**
+     * 根据订单Id获取订单信息
+     * @param $id
+     */
+    public function findOrderById($id)
+    {
+        return CusOrder::findOne($id);
+    }
+
+    /**
+     * 根据订单Id获取订单详情
+     * @param $orderId
+     */
+    public function findOrderDetailByOrderId($orderId)
+    {
+        return CusOrderDetails::find()->where(['orderId' => $orderId])->all();
+    }
+
 }

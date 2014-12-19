@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'timePickerIncrement' => 15,
                 'format' => 'Y-m-d',
                 'separator' => ' to ',
-                'minDate' => $model,
+                //'minDate' => $model,
                 //'singleDatePicker'=>true,
             ]
         ]);
