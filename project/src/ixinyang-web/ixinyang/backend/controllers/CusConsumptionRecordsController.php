@@ -5,12 +5,13 @@ namespace backend\controllers;
 use Yii;
 use backend\models\CusConsumptionRecords;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\models\StoBalanceReview;
 use backend\models\StoBalanceBillDetailed;
 use backend\models\ComCheckoutStream;
+use backend\models\CusConsumptionRecordsSearch;
+use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 
 /**
  * CusConsumptionRecordsController implements the CRUD actions for CusConsumptionRecords model.
@@ -36,14 +37,13 @@ class CusConsumptionRecordsController extends Controller
     public function actionIndex()
     {
 
-       $dataProvider = new ActiveDataProvider([
-        'query' => CusConsumptionRecords::find(),
-        ]);
+        $searchModel = new CusConsumptionRecordsSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->renderPartial('index', [
+        return $this->render('index', [
+            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-       
     }
 
     /**
@@ -69,7 +69,9 @@ class CusConsumptionRecordsController extends Controller
         $model = new CusConsumptionRecords();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
             return $this->redirect(['view', 'id' => $model->id, 'verifierTime' => $model->verifierTime]);
+
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -90,11 +92,7 @@ class CusConsumptionRecordsController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id, 'verifierTime' => $model->verifierTime]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
-        }
+      }
     }
 
     /**
@@ -106,9 +104,9 @@ class CusConsumptionRecordsController extends Controller
      */
     public function actionDelete($id, $verifierTime)
     {
-        $this->findModel($id, $verifierTime)->delete();
+      $this->findModel($id, $verifierTime)->delete();
+      return $this->redirect(['index']);
 
-        return $this->redirect(['index']);
     }
 
     /**
@@ -121,15 +119,11 @@ class CusConsumptionRecordsController extends Controller
      */
     protected function findModel($id, $verifierTime)
     {
-        if (($model = CusConsumptionRecords::findOne(['id' => $id, 'verifierTime' => $verifierTime])) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
+      if (($model = CusConsumptionRecords::findOne(['id' => $id, 'verifierTime' => $verifierTime])) !== null) {
+      }else{
+        throw new NotFoundHttpException('The requested page does not exist.');
+      }
     }
-
-
-
 
     /**
      * 结算审核
@@ -380,5 +374,4 @@ class CusConsumptionRecordsController extends Controller
 
       
     }
-
 }

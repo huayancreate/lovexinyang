@@ -42,11 +42,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php ActiveForm::end(); ?>
    <hr/>
    <?php echo "查询结果：";?>
-   <?php 
-      print_r($dataProvider);
-   ?>
+  
    <?php \yii\widgets\Pjax::begin(); ?>
-
     <?= GridView::widget([
         'id'=>'balancereviewGrid',
         'dataProvider' => $dataProvider,
@@ -58,6 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'balanceStartTime',
             'balanceEndTime',
             'applyMoney',
+           
             ['class' => 'yii\grid\ActionColumn', 'header' => '操作', 'headerOptions' => ['width' => '50'],
                 'buttons' => [
                     'view' => function ($url, $model) {
@@ -65,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             [
                                 'title' => Yii::t('yii', '结款审核'),
                                 //'onClick' => 'View("结款审核","index.php?r=cus-consumption-records/index&id=' . $model['id'] .'&balanceStartTime='.$model['balanceStartTime'].'&balanceEndTime='.$model['balanceEndTime'].'&shopId='.$model['shopId'].'")'
-                                 'onClick' => 'View("'.$model['balanceStartTime'].'","'.$model['balanceEndTime'].'","'.$model['shopId'].'","'.$model['id'].'")'
+                                 'onClick' => 'View("'.$model['balanceStartTime'].'","'.$model['balanceEndTime'].'","'.$model['shopId'].'","'.$model['id'].'")'        
                             ]);
                     },
                     'update' => function () {
@@ -92,10 +90,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'width' => '600px',
             'height' => '500',
             'title' => '审核详情',
-        ],
+        ]
     ]);
     ?>
-   
     <?php
     Dialog::end();
     ?>
@@ -106,43 +103,11 @@ $this->params['breadcrumbs'][] = $this->title;
         $("#dialogId").dialog("open");
         $("#dialogId").dialog({
             title: '结款审核',
-            buttons: [
-                /*{
-                    text: '审核通过',
-                    class: 'btn btn-success',
-                    click: function () {
-                        Verify("1");//审核通过
-                    }
-                },
-                {
-                    text: '审核驳回',
-                    class: 'btn btn-danger',
-                    click: function () {
-                        Verify("0");//审核驳回
-                    }
-                }*/
-            ]
         });
 
        // $("#dialogContent").load(url);
         //JuiDialog.dialog("dialogId",title,url,"shopinforeviewFrom","gridList");
     }
-   /* function Verify(status) {
-        $.ajax({
-            cache: true,
-            type: "POST",
-            url: "index.php?r=sto-balance-review/Verify&id=1",
-            data: $('#accountForm').serialize(),
-            async: false,
-            error: function (request) {
-                alert("Connection error");
-            },
-            success: function (data) {
-                //alert(data);
-                $.pjax.reload({container: '#accountList'});
-            }
-        });
-    }*/
     //  弹出框信息  根据店铺id 结算起始时间 结算结束时间 查询消费流水记录
     function getConsumptionRecord(balanceStartTime,balanceEndTime,shopId,id){
 

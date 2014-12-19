@@ -7,8 +7,9 @@ use yii\helpers\Html;
 
 $this->title = 'Update Cus Consumption Records: ' . ' ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Cus Consumption Records', 'url' => ['index']];
+
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id, 'verifierTime' => $model->verifierTime]];
-$this->params['breadcrumbs'][] = 'Update';
+
 ?>
 <div class="cus-consumption-records-update">
 

@@ -44,8 +44,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'applyMoney')->textInput() ?>
 
+<<<<<<< HEAD
     <?= $form->field($model, 'applyTime')->textInput() ?>
 
+=======
+>>>>>>> origin/dev
     <?= $form->field($model, 'actualBalanceMoney')->textInput() ?>
 
     <?= $form->field($model, 'financeReviewTime')->textInput() ?>

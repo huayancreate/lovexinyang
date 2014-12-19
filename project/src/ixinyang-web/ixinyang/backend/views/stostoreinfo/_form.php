@@ -18,12 +18,12 @@ use yii\helpers\ArrayHelper;
     <?= $form->field($model, 'storeAddress')->textInput(['maxlength' => 150]) ?>
     
     <!--店铺类别-->
-        <?php $categoryModel->categoryName=$model->storeType;  ?>
+    <?php $categoryModel->categoryName=$model->storeType;  ?>
     <?= $form->field($categoryModel, 'categoryName')->dropDownList(
         ArrayHelper::map($categoryList, 'id', 'categoryName'),
         ['prompt' => '--店铺类别--'])->label('店铺类别') ?>
         
-    <input type="hidden" id="storeType" name="StoStoreInfo[storeType]" value=<?= $model->cityId?>> 
+    <input type="hidden" id="storeType" name="StoStoreInfo[storeType]" value=<?= $model->storeType ?>> 
 
     <?= $form->field($model, 'storeName')->textInput(['maxlength' => 150]) ?>
 

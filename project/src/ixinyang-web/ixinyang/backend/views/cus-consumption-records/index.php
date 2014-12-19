@@ -6,25 +6,40 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '截至到结算日期的消费明细';
+$this->title = 'Cus Consumption Records';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cus-consumption-records-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <label>总计：(￥)</label>
+
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
+    <p>
+        <?= Html::a('Create Cus Consumption Records', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'verifierTime',
-            'userAccount',
-            'goodsNumber',
-            'payablePrice',
-            'verifierAccount',
-
+            'id',
+            'orderNo',
+            'orderId',
+            'goodsId',
+            'verfificationCode',
+            // 'goodsNumber',
+            // 'costPrice',
+            // 'payablePrice',
+            // 'rebate',
+            // 'userAccount',
+            // 'memberCardNo',
+            // 'sellerId',
+            // 'sellerAccount',
+            // 'verifierAccount',
+            // 'verifierTime',
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

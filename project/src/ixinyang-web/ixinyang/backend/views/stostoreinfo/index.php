@@ -10,6 +10,7 @@ $this->title = '店铺信息';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
+
 <div id="div_applyInfo"></div>
 <?php
     echo yii\bootstrap\Tabs::widget([

@@ -44,6 +44,7 @@ JuiDialog={
             cache: true,
             type: "POST",
             url:"index.php?r="+url ,
+            dataType: "json", 
             data: $('#'+fromId).serialize(),
             async: false,
             error: function (request) {

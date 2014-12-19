@@ -24,9 +24,6 @@ use Yii;
  * @property integer $applyerId
  * @property string $applyerAccount
  * @property double $applyMoney
- * @property string $applyTime
- * @property double $actualBalanceMoney
- * @property string $financeReviewTime
  */
 class StoBalanceReview extends \yii\db\ActiveRecord
 {

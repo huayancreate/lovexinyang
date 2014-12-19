@@ -93,6 +93,7 @@ class ComAccountController extends Controller
             }
 
         } else {
+            $model->sex = "男";
             $roles = $model->getAllRole();
             return $this->renderPartial('create', [
                 'model' => $model,

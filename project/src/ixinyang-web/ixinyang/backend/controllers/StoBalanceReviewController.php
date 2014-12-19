@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\StoBalanceReview;
 use yii\data\ActiveDataProvider;
+use backend\models\StoBalanceReviewSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -81,7 +82,7 @@ class StoBalanceReviewController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
+        return $this->renderAjax('view', [
             'model' => $this->findModel($id),
         ]);
     }

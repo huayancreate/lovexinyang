@@ -3,7 +3,7 @@
 namespace backend\models;
 
 use Yii;
-
+use yii\data\ActiveDataProvider;
 /**
  * This is the model class for table "cus_consumption_records".
  *
@@ -18,15 +18,6 @@ use Yii;
  * @property string $rebate
  * @property string $userAccount
  * @property string $memberCardNo
- * @property string $memberName
- * @property integer $sellerId
- * @property string $sellerName
- * @property string $sellerAccount
- * @property string $verifierAccount
- * @property string $verifierTime
- * @property integer $shopId
- * @property string $shopName
- * @property string $flag
  */
 class CusConsumptionRecords extends \yii\db\ActiveRecord
 {
@@ -83,5 +74,45 @@ class CusConsumptionRecords extends \yii\db\ActiveRecord
         ];
     }
 
-  
+    public function settleAccount($fromDate, $toDate)
+    {
+        //1.根据时间段去查询当前时间段中商家的所有消费流水(除去线下交易流水)
+        $model = $this->getConsumption($fromDate, $toDate);
+        //2.产生结账审核记录
+        $this->addBalanceReview($fromDate, $toDate, $model->payablePrice);
+
+    }
+
+    public function getConsumption($fromDate, $toDate)
+    {
+        $sql = "select sum(payablePrice*goodsNumber) as payablePrice from cus_consumption_records
+              where sellerId=1 and (verifierTime BETWEEN '$fromDate' and '$toDate')";
+        $model = CusConsumptionRecords::findBySql($sql)->one();
+        return $model;
+    }
+
+    public function addBalanceReview($fromDate, $toDate, $totalMoney)
+    {
+        $model = new StoBalanceReview();
+        $model->financeId = 0;
+        $model->financeAccount = "201412141154";
+        $model->financeReviewStatus = 0;
+        $model->reviewId = 0;
+        $model->reviewAccount = "0";
+        $model->reviewTime = 0;
+        $model->reviewStatus = 0;
+        $model->serviceFee = 0;
+        $model->serviceAgreement = "0";
+        $model->balanceStartTime = $fromDate;
+        $model->balanceEndTime = $toDate;
+        $model->storeId = 0;
+        $model->storeName = "测试数据";
+        $model->applyerId = 0;
+        $model->applyerAccount = "201412141153";
+        $model->applyMoney = $totalMoney;
+        $model->actualBalanceMoney = 0;
+        $model->financeReviewTime = 0;
+
+        $model->save();
+    }
 }
