@@ -13,8 +13,9 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'frontend\models\CusUserAccount',
             'enableAutoLogin' => true,
+            'enableSession' => true,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

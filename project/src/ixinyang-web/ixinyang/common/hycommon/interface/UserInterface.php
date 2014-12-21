@@ -5,7 +5,7 @@
   * @license http://www.huayancreate.com/license/
 */
 
-namespace hy\model;
+namespace hy\tool;
 
 use Yii;
 use yii\base\Widget;

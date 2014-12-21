@@ -51,11 +51,11 @@ class CaptchaAction extends Action
     /**
      * @var integer the width of the generated CAPTCHA image. Defaults to 120.
      */
-    public $width = 120;
+    public $width = 100;
     /**
      * @var integer the height of the generated CAPTCHA image. Defaults to 50.
      */
-    public $height = 50;
+    public $height = 40;
     /**
      * @var integer padding around the text. Defaults to 2.
      */
