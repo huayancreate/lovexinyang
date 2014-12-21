@@ -34,9 +34,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=> isset(Yii::$app->session['$flag']) ? Yii::$app->session['fromDate'].' to '.Yii::$app->session['$toDate'] : date("Y-m-d".' 00:00:00').' to '.date("Y-m-d".' 23:59:59'),
                 'convertFormat'=>true,
                 'pluginOptions'=>[
-                'timePicker'=>true,
-                'timePickerIncrement'=>15,
-                'format'=>'Y-m-d h:i:s',
+                'timePicker'=>false,
+                'format'=>'Y-m-d',
                 'separator'=>' to ',
                 ]
             ]);
