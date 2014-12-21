@@ -48,16 +48,16 @@ class CusOrderDetails extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'orderId' => 'Order ID',
-            'goodsName' => 'Goods Name',
-            'goodsId' => 'Goods ID',
-            'price' => 'Price',
-            'totalPrice' => 'Total Price',
-            'rebate' => 'Rebate',
-            'rebatePrice' => 'Rebate Price',
-            'totalNum' => 'Total Num',
-            'sellerId' => 'Seller ID',
-            'memberCardNo' => 'Member Card No',
+            'orderId' => '订单ID',
+            'goodsName' => '商品名称',
+            'goodsId' => '商品ID',
+            'price' => '商品价格',
+            'totalPrice' => '商品总价',
+            'rebate' => '折扣',
+            'rebatePrice' => '折扣价格',
+            'totalNum' => '商品数量',
+            'sellerId' => '商家ID',
+            'memberCardNo' => '会员卡卡号',
         ];
     }
 }

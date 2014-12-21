@@ -65,7 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => '财务审核状态',
                 'filter' => false,
                 'value' => function ($model) {
-                   return "待审核";
+                    return "待审核";
                 }
             ],
 
@@ -75,7 +75,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a('<span class="glyphicon glyphicon-cog"></span>', 'javascript:void(0)',
                             [
                                 'title' => Yii::t('yii', '退款审核'),
-                                'onClick' => 'View("退款审核","index.php?r=com-refund-review/detail&id=' . $model['orderId'] . '","' . $model['id'] . '")'
+                                'onClick' => 'View("退款审核明细","index.php?r=com-refund-review/detail&id=' . $model['orderId'] . '","' . $model['id'] . '")'
                             ]);
                     },
                     'update' => function () {
@@ -130,6 +130,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     text: "审核驳回",
                     "class": 'btn btn-danger',
                     click: function () {
+                        $("#reasonForm").css("display", "block");
                         Verify("2", id);
                         $(this).dialog('close');
                     }

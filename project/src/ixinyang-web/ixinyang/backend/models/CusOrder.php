@@ -47,14 +47,14 @@ class CusOrder extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'orderNo' => 'Order No',
-            'totalPrice' => 'Total Price',
-            'userAccount' => 'User Account',
-            'userName' => 'User Name',
-            'payTotalPrice' => 'Pay Total Price',
-            'buyTime' => 'Buy Time',
-            'methodsPayment' => 'Methods Payment',
-            'paymentAccount' => 'Payment Account',
+            'orderNo' => '订单编号',
+            'totalPrice' => '订单总价',
+            'userAccount' => '用户账户',
+            'userName' => '用户姓名',
+            'payTotalPrice' => '支付总价',
+            'buyTime' => '购买时间',
+            'methodsPayment' => '支付方式',
+            'paymentAccount' => '支付账户',
         ];
     }
 }

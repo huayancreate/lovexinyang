@@ -166,7 +166,16 @@ class ComRefundReview extends \yii\db\ActiveRecord
      */
     public function findOrderDetailByOrderId($orderId)
     {
-        return CusOrderDetails::find()->where(['orderId' => $orderId])->all();
+        $query = CusOrderDetails::find();
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        $query->andWhere(['orderId'=>$orderId]);
+        return $dataProvider;
+
+        //return CusOrderDetails::find()->where(['orderId' => $orderId])->asArray();
     }
 
 }

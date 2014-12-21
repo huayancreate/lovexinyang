@@ -18,7 +18,6 @@ use yii\widgets\DetailView;
 <?= DetailView::widget([
     'model' => $order,
     'attributes' => [
-        'id',
         'orderNo',
         'totalPrice',
         'userAccount',
@@ -29,3 +28,34 @@ use yii\widgets\DetailView;
         'paymentAccount',
     ],
 ]) ?>
+
+<?= GridView::widget([
+    'dataProvider' => $orderDetail,
+    'columns' => [
+        ['class' => 'yii\grid\SerialColumn'],
+
+        'id',
+        'orderId',
+        'goodsName',
+        'goodsId',
+        'price',
+        // 'totalPrice',
+        // 'rebate',
+        // 'rebatePrice',
+        // 'totalNum',
+        // 'sellerId',
+        // 'memberCardNo',
+
+//        ['class' => 'yii\grid\ActionColumn'],
+    ],
+]); ?>
+<form class="form-horizontal" id="reasonForm" role="form" style="display: none">
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-3 control-label">驳回原因：</label>
+
+        <div class="col-sm-9">
+            <?= Html::textarea("refundReason", '', ['class' => 'form-control', 'placeholder' => '驳回原因']) ?>
+        </div>
+    </div>
+</form>
+

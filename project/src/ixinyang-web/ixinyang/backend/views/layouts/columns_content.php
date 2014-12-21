@@ -28,6 +28,12 @@ AppAsset::register($this);
             	['label' => 'Most Popular', 'url' => ['product/index', 'tag' => 'popular']],
             	['label' => 'Most Popular', 'url' => ['product/index', 'tag' => 'popular']],
         	]],
+			['label' => '财务合同管理', 'url' => '#', 'items' => [
+				['label' => '财务数据', 'url' => ['sto-seller-info/index', 'tag' => 'new']],
+			]],
+			['label' => '审核管理', 'url' => "#", 'items' => [
+				['label' => '退款审核', 'url' => ['com-refund-review/index', 'tag' => 'new']],
+			]],
         	['label' => '登录', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
     		];
         echo Menu::widget([
