@@ -1,10 +1,8 @@
 /*
-SQLyog Job Agent v11.24 (32 bit) Copyright(c) Webyog Inc. All Rights Reserved.
-
-
+SQLyog v10.2 
 MySQL - 5.5.16 : Database - axy
 *********************************************************************
-*/
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -36,7 +34,7 @@ CREATE TABLE `ad_advertisement` (
   `isValid` char(1) COLLATE utf8_bin DEFAULT NULL COMMENT '0 无效、1 有效',
   `photoUrl` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '图片路径',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='广告';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='广告';
 
 /*Table structure for table `ad_push_message` */
 
@@ -63,15 +61,17 @@ DROP TABLE IF EXISTS `ad_recommend_goods`;
 
 CREATE TABLE `ad_recommend_goods` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `creater` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '创建人',
+  `creater` int(11) DEFAULT NULL COMMENT '创建人id',
   `createTime` datetime DEFAULT NULL COMMENT '创建时间',
   `adLocation` int(11) DEFAULT NULL COMMENT '广告位置',
   `endDate` datetime DEFAULT NULL COMMENT '结束时间（有效期）',
   `startDate` datetime DEFAULT NULL COMMENT '开始日期（有效期）',
-  `goodsId` int(11) DEFAULT NULL COMMENT '商品ID',
+  `ad_recommend_goods` int(11) DEFAULT NULL COMMENT '商品或店铺ID',
   `isValid` char(1) COLLATE utf8_bin DEFAULT NULL COMMENT '0 无效、1 有效',
+  `ad_advertisement` char(1) COLLATE utf8_bin DEFAULT NULL COMMENT '1 商品  2 店铺',
+  `order` int(4) DEFAULT NULL COMMENT '顺序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='推荐商品';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='推荐商品';
 
 /*Table structure for table `com_account` */
 
@@ -91,7 +91,7 @@ CREATE TABLE `com_account` (
   `address` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '住址',
   `isFirstLogin` char(4) COLLATE utf8_bin DEFAULT NULL COMMENT '是否是首次登录 1 是 0 否',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='账号';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='账号';
 
 /*Table structure for table `com_blacklist` */
 
@@ -140,7 +140,7 @@ CREATE TABLE `com_category_maintain` (
   `isValid` char(1) COLLATE utf8_bin DEFAULT NULL COMMENT '0 无效、1 有效',
   `sort` int(11) DEFAULT NULL COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='类别维护';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='类别维护';
 
 /*Table structure for table `com_checkout_stream` */
 
@@ -164,7 +164,7 @@ CREATE TABLE `com_checkout_stream` (
   `alipayTransactionStream` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '支付宝交易流水',
   `payTime` datetime DEFAULT NULL COMMENT '支付时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='结款流水';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='结款流水';
 
 /*Table structure for table `com_citycenter` */
 
@@ -225,7 +225,7 @@ CREATE TABLE `com_county` (
   `cityCenterId` int(11) DEFAULT NULL COMMENT '市区id（扩展备用）',
   `isValid` char(3) COLLATE utf8_bin DEFAULT NULL COMMENT '0 无效、1 有效',
   PRIMARY KEY (`countyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 /*Table structure for table `com_evaluation_category` */
 
@@ -251,9 +251,9 @@ CREATE TABLE `com_evaluation_category` (
 DROP TABLE IF EXISTS `com_goods_review`;
 
 CREATE TABLE `com_goods_review` (
-  `storeId` int(11) DEFAULT NULL COMMENT '商家Id',
-  `storeName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商家名称',
-  `storeApplyId` int(11) DEFAULT NULL COMMENT '商家申请Id',
+  `cgrId` int(12) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `goodsId` int(11) DEFAULT NULL COMMENT '商品ID',
+  `goodsName` varchar(300) COLLATE utf8_bin DEFAULT NULL COMMENT '商品名称',
   `applyerId` int(11) DEFAULT NULL COMMENT '申请人Id',
   `applyerAccount` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '申请人账号',
   `applyTime` datetime DEFAULT NULL COMMENT '申请时间',
@@ -261,8 +261,10 @@ CREATE TABLE `com_goods_review` (
   `reviewerName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '审核人员名称',
   `reviewTaskId` int(11) DEFAULT NULL COMMENT '审核任务Id',
   `reviewTime` datetime DEFAULT NULL COMMENT '审核时间',
-  `reviewStatus` int(11) DEFAULT NULL COMMENT '审核状态'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商品信息审核';
+  `reviewStatus` int(11) DEFAULT NULL COMMENT '审核状态 0：待审核 1审核通过 2审核驳回',
+  `remark` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`cgrId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商品信息审核';
 
 /*Table structure for table `com_menu` */
 
@@ -277,7 +279,7 @@ CREATE TABLE `com_menu` (
   `updateTime` datetime DEFAULT NULL COMMENT '更新时间',
   `isValid` char(1) COLLATE utf8_bin DEFAULT NULL COMMENT '0 无效、1 有效',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='菜单';
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='菜单';
 
 /*Table structure for table `com_menu_rolerelation` */
 
@@ -291,7 +293,7 @@ CREATE TABLE `com_menu_rolerelation` (
   `roleId` int(11) DEFAULT NULL COMMENT '角色id',
   `isValid` char(1) COLLATE utf8_bin DEFAULT NULL COMMENT '0 无效、1 有效',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=860 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='菜单角色关系表';
+) ENGINE=InnoDB AUTO_INCREMENT=1053 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='菜单角色关系表';
 
 /*Table structure for table `com_message_box` */
 
@@ -322,7 +324,7 @@ CREATE TABLE `com_person_rolerelation` (
   `isValid` char(1) COLLATE utf8_bin DEFAULT NULL COMMENT '0 无效、1 有效',
   `accountType` int(11) DEFAULT NULL COMMENT '帐号类型  1、系统帐号；2、商家',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='人员角色关系表';
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='人员角色关系表';
 
 /*Table structure for table `com_refund_review` */
 
@@ -333,21 +335,24 @@ CREATE TABLE `com_refund_review` (
   `financeId` int(11) DEFAULT NULL COMMENT '财务人员Id',
   `financeAccount` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '财务人员账号',
   `financeReviewTime` datetime DEFAULT NULL COMMENT '财务审核时间',
-  `financeReviewStatus` int(11) DEFAULT NULL COMMENT '财务审核状态',
+  `financeReviewStatus` int(11) DEFAULT NULL COMMENT '财务审核状态 0 待审核  1 审核通过 2 驳回',
   `reviewId` int(11) DEFAULT NULL COMMENT '初审人员Id',
   `reviewAccount` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '初审人员账号',
   `reviewTime` datetime DEFAULT NULL COMMENT '初审时间',
   `reviewStatus` int(11) DEFAULT NULL COMMENT '初审状态',
   `orderId` int(11) DEFAULT NULL COMMENT '订单Id',
   `orderName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '订单名称',
-  `storeName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商家名称',
-  `storeAccount` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商家账号',
+  `busiName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商家名称',
+  `busiId` int(11) DEFAULT NULL COMMENT '商家ID',
+  `storeName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '店铺名称',
+  `storeId` int(11) DEFAULT NULL COMMENT '店铺ID',
   `applyTime` datetime DEFAULT NULL COMMENT '申请时间',
   `refundMoney` double DEFAULT NULL COMMENT '退款金额',
   `refundReason` varchar(250) COLLATE utf8_bin DEFAULT NULL COMMENT '退款原因',
   `verificationCode` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '验证码',
   `userName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '用户名称',
   `userAccount` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '用户账号',
+  `remark` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='退款审核';
 
@@ -390,7 +395,7 @@ CREATE TABLE `com_role` (
   `isValid` char(1) COLLATE utf8_bin DEFAULT NULL COMMENT '0 无效、1 有效',
   `updatePerson` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '修改人',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='角色表';
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='角色表';
 
 /*Table structure for table `com_route_mapsceneryspot` */
 
@@ -482,17 +487,22 @@ CREATE TABLE `cus_consumption_records` (
   `goodsId` int(11) DEFAULT NULL COMMENT '商品ID',
   `verfificationCode` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '验证码',
   `goodsNumber` int(11) DEFAULT NULL COMMENT '商品数量',
-  `costPrice` float DEFAULT NULL COMMENT '原价',
-  `payablePrice` float DEFAULT NULL COMMENT '应付价格，实付价格',
-  `rebate` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '折扣',
+  `costPrice` double DEFAULT NULL COMMENT '原价',
+  `payablePrice` double DEFAULT NULL COMMENT '应付价格，实付价格',
+  `rebate` double DEFAULT NULL COMMENT '折扣',
   `userAccount` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '用户账户',
   `memberCardNo` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '会员卡卡号',
+  `memberName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '会员等级名称',
   `sellerId` int(11) DEFAULT NULL COMMENT '商家ID',
+  `sellerName` varchar(150) COLLATE utf8_bin DEFAULT NULL COMMENT '商家名称',
   `sellerAccount` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商家账号',
   `verifierAccount` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '验证人账号',
-  `verifierTime` datetime DEFAULT NULL COMMENT '验证时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='消费记录、流水';
+  `verifierTime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '验证时间',
+  `shopId` int(11) DEFAULT NULL COMMENT '店铺ID',
+  `shopName` varchar(150) COLLATE utf8_bin DEFAULT NULL COMMENT '店铺名称',
+  `flag` char(1) COLLATE utf8_bin DEFAULT NULL COMMENT '0 平台消费  1 现金消费',
+  PRIMARY KEY (`id`,`verifierTime`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='消费记录、流水';
 
 /*Table structure for table `cus_electronic_card` */
 
@@ -504,8 +514,9 @@ CREATE TABLE `cus_electronic_card` (
   `memberCardNumber` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '会员卡卡号',
   `sellerName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商家名称',
   `userIndividualCenterId` int(11) DEFAULT NULL COMMENT '用户个人中心ID',
+  `userId` int(11) DEFAULT NULL COMMENT '用户帐号id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户对应会员电子卡';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户对应会员电子卡';
 
 /*Table structure for table `cus_member_up_log` */
 
@@ -560,7 +571,7 @@ CREATE TABLE `cus_order_details` (
   `sellerId` int(11) DEFAULT NULL COMMENT '商家ID',
   `memberCardNo` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '会员卡卡号',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='订单详情';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='订单详情';
 
 /*Table structure for table `cus_payment_records` */
 
@@ -625,9 +636,11 @@ DROP TABLE IF EXISTS `cus_user_account`;
 CREATE TABLE `cus_user_account` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键自增列',
   `validity` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '是否有效  0 无效  1  有效',
-  `userPassWord` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '用户登录密码',
+  `userPassWord` varchar(150) COLLATE utf8_bin DEFAULT NULL COMMENT '用户登录密码',
+  `applyPassword` varchar(150) COLLATE utf8_bin DEFAULT NULL COMMENT '支付密码',
   `userAccount` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '用户登录名',
   `registrationDate` datetime DEFAULT NULL COMMENT '注册日期',
+  `auth_key` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT 'cookie 唯一标识验证',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户账户';
 
@@ -646,7 +659,7 @@ CREATE TABLE `cus_user_individual_center` (
   `interest` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '兴趣',
   `sex` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '性别  0：女  1：男',
   `userName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '用户姓名',
-  `userAccount` float DEFAULT NULL COMMENT '用户账号、账户',
+  `userAccount` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '用户账号、账户',
   `email` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '电子邮箱',
   `spareAmount` float DEFAULT NULL COMMENT '余款',
   `profession` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '职业',
@@ -669,7 +682,7 @@ CREATE TABLE `cus_verification_code` (
   `payablePrice` float DEFAULT NULL COMMENT '应付价格',
   `state` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='验证码明细表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='验证码明细表';
 
 /*Table structure for table `goods_apply_info` */
 
@@ -692,7 +705,7 @@ CREATE TABLE `goods_apply_info` (
   `goodsName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商品名称',
   `goodsValidityDate` datetime DEFAULT NULL COMMENT '商品有效期',
   `goodsId` int(11) DEFAULT NULL COMMENT '商品正式Id',
-  `goodsStatus` int(11) DEFAULT NULL COMMENT '商品状态',
+  `goodsStatus` int(11) DEFAULT NULL COMMENT '商品状态 0 待审核 1 启用  2 废弃',
   `memberDiscount` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '是否享受会员折扣',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商品申请信息';
@@ -710,39 +723,44 @@ CREATE TABLE `goodspicture` (
   `classification` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '类别',
   `uploadPersonnel` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '上传人员',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商品图片信息';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商品图片信息';
 
 /*Table structure for table `shop_info_review` */
 
 DROP TABLE IF EXISTS `shop_info_review`;
 
 CREATE TABLE `shop_info_review` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'ID', 
-  `longitude` DOUBLE DEFAULT NULL COMMENT '地图经度',
-  `latitude` DOUBLE DEFAULT NULL COMMENT '地图纬度',
-  `shopName` VARCHAR(50) COLLATE utf8_bin DEFAULT NULL COMMENT '店铺名称',
-  `contact` VARCHAR(50) COLLATE utf8_bin DEFAULT NULL COMMENT '联系方式', 
-  `storeId` INT(11) DEFAULT NULL COMMENT '商家ID',
-  `storeAccount` VARCHAR(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商家账号',
-  `businessDistrictId` INT(11) DEFAULT NULL COMMENT '商圈id',
-  `address` VARCHAR(250) COLLATE utf8_bin DEFAULT NULL COMMENT '详细地址',
-  `businessHours` VARCHAR(100) COLLATE utf8_bin DEFAULT NULL COMMENT '营业时间',
-  `storeOutline` TEXT COLLATE utf8_bin DEFAULT NULL COMMENT '门店概述', 
-  `cityId` INT(11)   DEFAULT NULL COMMENT '地市ID',
-  `countyId` INT(11)   DEFAULT NULL COMMENT '区县ID',
-  `applyTime` DATETIME DEFAULT NULL COMMENT '申请时间',
-  `applyUserId` INT(11) DEFAULT NULL COMMENT '申请人ID',
-  `applyUserName` VARCHAR(100) COLLATE utf8_bin DEFAULT NULL COMMENT '申请人姓名',
-  `auditUserId` INT(11) DEFAULT NULL COMMENT '初审人ID',
-  `auditUserName` VARCHAR(100) COLLATE utf8_bin DEFAULT NULL COMMENT '初审人姓名',
-  `auditTime` INT(11) DEFAULT NULL COMMENT '初审时间',
-  `managerId` INT(11) DEFAULT NULL COMMENT '客户经理ID',
-  `managerName` VARCHAR(100) COLLATE utf8_bin DEFAULT NULL COMMENT '客户经理姓名',
-  `managerTime` INT(11) DEFAULT NULL COMMENT '客户经理审核时间',
-  `auditState` INT(11) DEFAULT NULL COMMENT '审核状态 1、申请中 2、初审通过 3、初审驳回 4、经理审核通过  5、经理审核驳回',
-  `Rejection` VARCHAR(100) COLLATE utf8_bin DEFAULT NULL COMMENT '驳回原因',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `city` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '城市',
+  `longitude` double DEFAULT NULL COMMENT '地图经度',
+  `latitude` double DEFAULT NULL COMMENT '地图纬度',
+  `shopName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '店铺名称',
+  `contact` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '联系方式',
+  `regional` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '区域',
+  `storeId` int(11) DEFAULT NULL COMMENT '商家ID',
+  `storeAccount` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商家账号',
+  `businessDistrictId` int(11) DEFAULT NULL COMMENT '商圈id',
+  `address` varchar(250) COLLATE utf8_bin DEFAULT NULL COMMENT '详细地址',
+  `businessHours` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '营业时间',
+  `storeOutline` text COLLATE utf8_bin COMMENT '门店概述',
+  `cityId` int(11) DEFAULT NULL COMMENT '地市ID',
+  `countyId` int(11) DEFAULT NULL COMMENT '区县ID',
+  `applyTime` datetime DEFAULT NULL COMMENT '申请时间',
+  `applyUserId` int(11) DEFAULT NULL COMMENT '申请人ID',
+  `applyUserName` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '申请人姓名',
+  `auditUserId` int(11) DEFAULT NULL COMMENT '初审人ID',
+  `auditUserName` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '初审人姓名',
+  `auditTime` datetime DEFAULT NULL COMMENT '初审时间',
+  `managerId` int(11) DEFAULT NULL COMMENT '客户经理ID',
+  `managerName` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '客户经理姓名',
+  `managerTime` datetime DEFAULT NULL COMMENT '客户经理审核时间',
+  `auditState` int(11) DEFAULT NULL COMMENT '审核状态 1、申请中 2、初审通过 3、初审驳回 4、经理审核通过  5、经理审核驳回',
+  `Rejection` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '驳回原因',
+  `shopBalance` float DEFAULT NULL COMMENT '店铺余额',
+  `shopId` int(11) DEFAULT NULL COMMENT '店铺id',
+  `storeType` int(11) DEFAULT NULL COMMENT '店铺类别',
   PRIMARY KEY (`id`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商家信息（门店信息审核）';
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商家信息（门店信息审核）';
 
 /*Table structure for table `sto_apply_info` */
 
@@ -772,29 +790,37 @@ CREATE TABLE `sto_apply_info` (
   `address` varchar(250) COLLATE utf8_bin DEFAULT NULL COMMENT '详细地址',
   `name` varchar(250) COLLATE utf8_bin DEFAULT NULL COMMENT '姓名',
   `email` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '邮箱',
-  `applyStatus` int(11) DEFAULT NULL COMMENT '最终审核状态',
+  `applyStatus` int(11) DEFAULT NULL COMMENT '最终审核状态  0：申请；1：客服处理通过；2：客服处理废弃；3：客户经理洽谈成功；4：客户经理洽谈失败',
   `storeCategoryId` int(11) DEFAULT NULL COMMENT '商家类型[类型维护表外键]',
+  `remark` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '驳回备注',
   PRIMARY KEY (`applyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商家信息';
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商家信息';
 
 /*Table structure for table `sto_balance_bill_detailed` */
 
 DROP TABLE IF EXISTS `sto_balance_bill_detailed`;
 
 CREATE TABLE `sto_balance_bill_detailed` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增长id',
   `balanceApplyId` int(11) DEFAULT NULL COMMENT '结算申请Id',
-  `storeId` int(11) DEFAULT NULL COMMENT '商品Id',
+  `goodsId` int(11) DEFAULT NULL COMMENT '商品Id',
   `goodsNumber` int(11) DEFAULT NULL COMMENT '商品数量',
-  `consumeSaleStream` int(11) DEFAULT NULL COMMENT '消费交易流水',
-  `actualConsumptionMoney` double DEFAULT NULL COMMENT '消费实付金额',
-  `cunsumeOriginalMoney` double DEFAULT NULL COMMENT '消费原金额',
+  `consumeSaleStream` int(11) DEFAULT NULL COMMENT '消费交易流水id',
+  `payablePrice` double DEFAULT NULL COMMENT '消费实付金额',
+  `costPrice` double DEFAULT NULL COMMENT '消费原金额',
   `verificationCode` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '验证码',
   `verificaterAccount` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '验证人账号',
   `verificateTime` datetime DEFAULT NULL COMMENT '验证时间',
   `membershipCardNumber` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '用户会员卡卡号',
   `userAccount` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '用户账号',
-  `userDiscount` double DEFAULT NULL COMMENT '用户折扣'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商家结算账单明细';
+  `userDiscount` double DEFAULT NULL COMMENT '用户折扣',
+  `orderId` int(11) DEFAULT NULL COMMENT '订单id',
+  `shopId` int(11) DEFAULT NULL COMMENT '店铺id',
+  `shopName` varchar(150) COLLATE utf8_bin DEFAULT NULL COMMENT '店铺名称',
+  `sellerId` int(11) DEFAULT NULL COMMENT '商家id',
+  `sellerName` varchar(150) COLLATE utf8_bin DEFAULT NULL COMMENT '商家名称',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商家结算账单明细';
 
 /*Table structure for table `sto_balance_review` */
 
@@ -804,7 +830,7 @@ CREATE TABLE `sto_balance_review` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `financeId` int(11) DEFAULT NULL COMMENT '财务人员Id',
   `financeAccount` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '财务人员账号',
-  `financeReviewStatus` int(11) DEFAULT NULL COMMENT '财务审核状态',
+  `financeReviewStatus` int(11) DEFAULT NULL COMMENT '财务审核状态 0 待审核  1 审核通过 2 驳回',
   `reviewId` int(11) DEFAULT NULL COMMENT '初审人员Id',
   `reviewAccount` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '初审人员账号',
   `reviewTime` datetime DEFAULT NULL COMMENT '初审时间',
@@ -815,13 +841,32 @@ CREATE TABLE `sto_balance_review` (
   `balanceStartTime` datetime DEFAULT NULL COMMENT '结算起始时间',
   `storeId` int(11) DEFAULT NULL COMMENT '商家Id',
   `storeName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商家名称',
+  `shopId` int(11) DEFAULT NULL COMMENT '店铺id',
+  `shopName` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '店铺名称',
   `applyerId` int(11) DEFAULT NULL COMMENT '申请人Id',
   `applyerAccount` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '申请人账号',
   `applyMoney` double DEFAULT NULL COMMENT '申请总金额',
+  `applyTime` datetime DEFAULT NULL COMMENT '申请时间',
   `actualBalanceMoney` double DEFAULT NULL COMMENT '实际结算金额',
   `financeReviewTime` datetime DEFAULT NULL COMMENT '财务审核时间',
+  `remark` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '驳回备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商家结算审核';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商家结算审核';
+
+/*Table structure for table `sto_collection` */
+
+DROP TABLE IF EXISTS `sto_collection`;
+
+CREATE TABLE `sto_collection` (
+  `ID` int(12) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `userId` int(12) NOT NULL COMMENT '用户id',
+  `goodsId` int(12) NOT NULL COMMENT '商品ID',
+  `insertTime` datetime DEFAULT NULL COMMENT '收藏时间',
+  `sign` int(2) NOT NULL DEFAULT '0' COMMENT '收藏类型(默认0 - 商品收藏  扩展：1--商家收藏)',
+  `goodsName` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '商品名称',
+  `price` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '金额',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户商品收藏表';
 
 /*Table structure for table `sto_goods` */
 
@@ -831,20 +876,20 @@ CREATE TABLE `sto_goods` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增列',
   `goodsName` varchar(150) COLLATE utf8_bin DEFAULT NULL COMMENT '商品名称',
   `summary` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '商品概述，简介',
-  `describes` blob COMMENT '商品描述',
+  `describes` longtext COLLATE utf8_bin COMMENT '商品描述',
   `price` float DEFAULT NULL COMMENT '商品价格',
-  `parentClass` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商品大类',
-  `subClass` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商品子类',
-  `sellerId` int(11) DEFAULT NULL COMMENT '对应商家ID',
-  `storeId` int(11) DEFAULT NULL COMMENT '对应店铺门店ID',
+  `subClass` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '商品类别',
   `validity` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '是否有效 0 无效  1 有效',
   `supplyDateTime` datetime DEFAULT NULL COMMENT '供应时间',
-  `inventory` int(11) DEFAULT NULL COMMENT '库存',
   `enjoyRebate` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '是否享受会员折扣',
   `goodsGrade` int(11) DEFAULT NULL COMMENT '商品等级',
   `goodsWeight` int(11) DEFAULT NULL COMMENT '商品权重',
+  `goodsState` int(2) DEFAULT NULL COMMENT '商品状态：0：待审批、1审核通过、2审核驳回',
+  `createDate` datetime DEFAULT NULL COMMENT '创建时间',
+  `createID` int(11) DEFAULT NULL COMMENT '创建人',
+  `createName` varchar(30) COLLATE utf8_bin DEFAULT NULL COMMENT '创建人姓名',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商品信息';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商品信息';
 
 /*Table structure for table `sto_goods_change` */
 
@@ -862,6 +907,21 @@ CREATE TABLE `sto_goods_change` (
   `operationPersonName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '操作人名称',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商品变动日志';
+
+/*Table structure for table `sto_goods_store` */
+
+DROP TABLE IF EXISTS `sto_goods_store`;
+
+CREATE TABLE `sto_goods_store` (
+  `sgsId` int(12) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `goodsId` int(11) NOT NULL COMMENT '商品id',
+  `storeId` int(11) NOT NULL COMMENT '店铺id',
+  `sellerId` int(11) DEFAULT NULL COMMENT '商家id',
+  `inventory` int(11) NOT NULL DEFAULT '0' COMMENT '商品库存',
+  `createDate` datetime DEFAULT NULL COMMENT '创建时间',
+  `crreteUserID` int(11) DEFAULT NULL COMMENT '创建人',
+  PRIMARY KEY (`sgsId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商品对应店铺信息表';
 
 /*Table structure for table `sto_info_review` */
 
@@ -897,16 +957,15 @@ DROP TABLE IF EXISTS `sto_logon_account`;
 CREATE TABLE `sto_logon_account` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '商家账号ID 自增列',
   `storeId` int(11) DEFAULT NULL COMMENT '店铺ID  ',
-  `storeName` varchar(150) COLLATE utf8_bin DEFAULT NULL COMMENT '店铺名称',
   `roleId` int(11) DEFAULT NULL COMMENT '角色ID',
-  `roleName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '角色名称',
   `sellerId` int(11) DEFAULT NULL COMMENT '商家ID',
-  `PASSWORD` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商家密码',
-  `logonName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商家登录账号',
+  `password` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '帐号密码',
+  `loginName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商家登录账号',
   `nickName` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '账号名称、昵称',
   `validity` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '是否有效',
+  `flag` int(2) DEFAULT NULL COMMENT '权限标识：0、对应商家下所有分店 1、分店',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商家账号信息';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商家账号信息';
 
 /*Table structure for table `sto_member_rule` */
 
@@ -928,7 +987,7 @@ CREATE TABLE `sto_member_rule` (
   `validity` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '是否有效',
   `modifyTime` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商家会员规则设置';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商家会员规则设置';
 
 /*Table structure for table `sto_seller_info` */
 
@@ -936,19 +995,19 @@ DROP TABLE IF EXISTS `sto_seller_info`;
 
 CREATE TABLE `sto_seller_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '商家ID',
-  `customerManager` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '对应客户经理',
+  `customerManager` int(11) DEFAULT NULL COMMENT '对应客户经理',
   `contractId` tinyint(4) DEFAULT NULL COMMENT '合同Id',
   `otherContactWay` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '其他联系方式',
-  `summary` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '商家概述',
-  `sellerName` varchar(150) COLLATE utf8_bin DEFAULT NULL COMMENT '商家名称',
-  `sellerdetails` blob COMMENT '商家详情描述',
+  `summary` mediumtext COLLATE utf8_bin COMMENT '商家概述',
+  `sellerName` varchar(150) COLLATE utf8_bin DEFAULT NULL COMMENT '商户名称',
   `validity` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '是否有效',
   `contacts` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '联系人',
   `phone` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '手机',
   `email` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '商家Email、邮箱',
   `accountBalance` float DEFAULT NULL COMMENT '账户余额',
+  `owner` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '法人名称',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商家（商户）信息';
 
 /*Table structure for table `sto_store_info` */
 
@@ -957,33 +1016,22 @@ DROP TABLE IF EXISTS `sto_store_info`;
 CREATE TABLE `sto_store_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '门店ID',
   `createTime` datetime DEFAULT NULL COMMENT '创建时间',
-  `storeAddress` varchar(150) COLLATE utf8_bin DEFAULT NULL COMMENT '店铺地址',
-  `storeType` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '店铺类别',
-  `storeName` varchar(150) COLLATE utf8_bin DEFAULT NULL COMMENT '门店名称',
+  `storeAddress` varchar(250) COLLATE utf8_bin DEFAULT NULL COMMENT '店铺地址',
+  `storeType` int(11) DEFAULT NULL COMMENT '店铺类别',
+  `storeName` varchar(250) COLLATE utf8_bin DEFAULT NULL COMMENT '门店名称',
   `contactWay` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '联系方式',
   `sellerId` int(11) DEFAULT NULL COMMENT '商家ID',
   `validity` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '是否有效',
   `businessHours` varchar(150) COLLATE utf8_bin DEFAULT NULL COMMENT '营业时间  如：早上10：00到晚上22：00',
-  `longitude` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '坐标：经度',
-  `latitude` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '坐标：纬度',
-  `storeOutline` text COLLATE utf8_bin DEFAULT NULL COMMENT '门店概述',  
-  `businessDistrictId` int(11) DEFAULT NULL COMMENT '商圈id',  
-  `cityId` int(11) DEFAULT NULL COMMENT '城市id',  
-  `countryID` int(11) DEFAULT NULL COMMENT '区县id',  
+  `longitude` double DEFAULT NULL COMMENT '坐标：经度',
+  `latitude` double DEFAULT NULL COMMENT '坐标：纬度',
+  `storeOutline` mediumtext COLLATE utf8_bin COMMENT '门店概述',
+  `businessDistrictId` int(11) DEFAULT NULL COMMENT '商圈id',
+  `cityId` int(11) DEFAULT NULL COMMENT '城市id',
+  `countryID` int(11) DEFAULT NULL COMMENT '区县id',
+  `auditState` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '审核状态  1、申请中 2、初审通过 3、初审驳回 4、经理审核通过  5、经理审核驳回',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='门店';
-
-CREATE TABLE `sto_collection` (
-  `ID` int(12) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `userId` int(12) NOT NULL COMMENT '用户id',
-  `goodsId` int(12) NOT NULL COMMENT '商品ID',
-  `insertTime` datetime DEFAULT NULL COMMENT '收藏时间',
-  `sign` int(2) NOT NULL DEFAULT '0' COMMENT '收藏类型(默认0 - 商品收藏  扩展：1--商家收藏)',
-  `goodsName` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '商品名称',
-  `price` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '金额',
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户商品收藏表'
-
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='门店';
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
