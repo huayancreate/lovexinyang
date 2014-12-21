@@ -374,7 +374,7 @@ class StoApplyInfoController extends Controller
                  //把商家信息进行保存
                  $stoSellerInfoModel->save();
                  //返回商家信息id
-                 return $stoSellerInfoModel;
+                 return $stoSellerInfoModel->id;
     }
    
     /**
@@ -416,7 +416,7 @@ class StoApplyInfoController extends Controller
                  //保存门店信息
                  $stoStoreInfoModel->save();
                  //返回门店信息id
-                 return $stoStoreInfoModel;
+                 return $stoStoreInfoModel->id;
 
     }
 
@@ -437,7 +437,7 @@ class StoApplyInfoController extends Controller
            //店铺ID  
            $logonAccountModel->storeId=$storeInfoId;
            //角色ID  根据roleName查询id
-           $comRoleMode=ComRole::findBySql('select * from com_role where roleName like %"'.$roleName.'"% ')->one();
+           $comRoleMode=ComRole::findBySql('select * from com_role where roleName like "%'.$roleName.'%"')->one();
            $logonAccountModel->roleId=$comRoleMode->id;
            //商家ID
            $logonAccountModel->sellerId=$sellerId;
@@ -451,8 +451,6 @@ class StoApplyInfoController extends Controller
            $logonAccountModel->flag=0;
            //保存
            $logonAccountModel->save();
-
-           return $logonAccountModel;
     }
 
 }
