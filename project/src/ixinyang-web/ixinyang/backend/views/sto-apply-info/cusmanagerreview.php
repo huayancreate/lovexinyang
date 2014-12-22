@@ -132,13 +132,8 @@ use backend\models\ComBusinessDistrict;
             success: function (data) {
                 if(data.success){
                     //当成功后操作。。
-                   
-                    //$.pjax.reload({container:'#discusstasksGrid'});
-
-                    //操作成功跳转到商家信息和账号信息以及门店信息录入界面
-                    //商家id   data.sellerId
-                    //门店id   data.storeInfoId
-                     alert("商家id :"+data.sellerId+" 门店id:"+data.storeInfoId);
+                    alert("操作成功");
+                    $.pjax.reload({container:'#discusstasksGrid'});
 
                 }else{
                     alert("操作失败原因："+data.errormsg+",请重试.");
