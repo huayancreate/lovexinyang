@@ -137,7 +137,8 @@ class ComRefundReviewController extends Controller
             $id = $_POST["id"];
             $model = $this->findModel($id);
             $status = $_POST["status"];
-            $model->verifyRefundReview($status);
+            $remark = $_POST["remark"];
+            $model->verifyRefundReview($status, $remark);
         }
 
     }
@@ -148,15 +149,16 @@ class ComRefundReviewController extends Controller
     public function actionDetail()
     {
         $model = new ComRefundReview();
-        $id = 1;
-        $order = $model->findOrderById($id);
-        $orderDetail = $model->findOrderDetailByOrderId($id);
+        if (Yii::$app->request->get()) {
+            $id = $_GET["id"];
+            $order = $model->findOrderById($id);
+            $orderDetail = $model->findOrderDetailByOrderId($id);
 
-        return $this->renderPartial("detail", [
-            'order' => $order,
-            'orderDetail' => $orderDetail,
-            'model' => $this->findModel($id),
-        ]);
-
+            return $this->renderPartial("detail", [
+                'order' => $order,
+                'orderDetail' => $orderDetail,
+                'model' => $this->findModel($id),
+            ]);
+        }
     }
 }

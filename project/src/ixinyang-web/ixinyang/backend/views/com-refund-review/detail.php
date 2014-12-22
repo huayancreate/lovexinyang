@@ -34,12 +34,12 @@ use yii\widgets\DetailView;
     'columns' => [
         ['class' => 'yii\grid\SerialColumn'],
 
-        'id',
+        //'id',
         'orderId',
         'goodsName',
         'goodsId',
         'price',
-        // 'totalPrice',
+        'totalPrice',
         // 'rebate',
         // 'rebatePrice',
         // 'totalNum',
@@ -49,12 +49,11 @@ use yii\widgets\DetailView;
 //        ['class' => 'yii\grid\ActionColumn'],
     ],
 ]); ?>
-<form class="form-horizontal" id="reasonForm" role="form" style="display: none">
+<form class="form-horizontal" id="reasonForm" role="form">
     <div class="form-group">
-        <label for="inputEmail3" class="col-sm-3 control-label">驳回原因：</label>
-
+        <label for="inputEmail3" class="col-sm-3 control-label">审核意见：</label>
         <div class="col-sm-9">
-            <?= Html::textarea("refundReason", '', ['class' => 'form-control', 'placeholder' => '驳回原因']) ?>
+            <?= Html::textarea("remark", '', ['id' => 'remark', 'class' => 'form-control', 'placeholder' => '审核意见']) ?>
         </div>
     </div>
 </form>

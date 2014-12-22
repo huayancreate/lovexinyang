@@ -4,6 +4,7 @@ namespace backend\models;
 
 use Yii;
 use yii\data\ActiveDataProvider;
+
 /**
  * This is the model class for table "cus_consumption_records".
  *
@@ -107,11 +108,15 @@ class CusConsumptionRecords extends \yii\db\ActiveRecord
         $model->balanceEndTime = $toDate;
         $model->storeId = 0;
         $model->storeName = "测试数据";
+        $model->shopId = 0;
+        $model->shopName = "测试数据";
         $model->applyerId = 0;
+        $model->applyTime = date("Y-m-d H:i:s");
         $model->applyerAccount = "201412141153";
         $model->applyMoney = $totalMoney;
         $model->actualBalanceMoney = 0;
         $model->financeReviewTime = 0;
+        $model->remark = "";
 
         $model->save();
     }

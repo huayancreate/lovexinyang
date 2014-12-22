@@ -22,9 +22,9 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => '余额',
                 'content' =>
-                    '<div style="border:1px solid #ccc;border-top:0px;padding:15px;">'.
-                    Html::label('余额：').
-                    Html::label($dataProvider->accountBalance == null ?"无余额":$dataProvider->accountBalance)
+                    '<div style="border:1px solid #ccc;border-top:0px;padding:15px;">' .
+                    Html::label('余额：') .
+                    Html::label($dataProvider->accountBalance == null ? "无余额" : $dataProvider->accountBalance)
                     . "</div>",
                 'active' => true,
             ],
@@ -54,15 +54,12 @@ $this->params['breadcrumbs'][] = $this->title;
                             'separator' => ' to ',
                         ]
                     ]) .
-                    '</div>'.
+                    '</div>' .
                     Html::button('查询', ['class' => 'btn btn-success', 'onclick' => 'Search()']) .
-                    '</div></form>'.
+                    '</div></form>' .
                     $this->render('../sto-seller-info/refundList', ['refundDataProvider' => $refundDataProvider])
             ],
         ],
     ]);
     ?>
 </div>
-<script type="text/javascript">
-
-</script>

@@ -23,18 +23,18 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="form-group">
     <label for="inputEmail3" class="col-sm-3 control-label">请选择时间范围:</label>
 
-    <div id="dateRange" class="col-sm-7">
+    <div class="col-sm-7">
         <?php
         echo DateRangePicker::widget([
+            'id' => 'dateRange',
             'name' => 'dateRange',
+            'value' => '',
             'convertFormat' => true,
             'pluginOptions' => [
-                'timePicker' => false,
-                'timePickerIncrement' => 15,
                 'format' => 'Y-m-d',
                 'separator' => ' to ',
-                //'minDate' => $model,
-                //'singleDatePicker'=>true,
+                'startDate' => $model->balanceEndTime,
+                'minDate' => $model->balanceEndTime,
             ]
         ]);
         ?>

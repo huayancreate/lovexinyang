@@ -130,12 +130,17 @@ $this->params['breadcrumbs'][] = $this->title;
                     text: "审核驳回",
                     "class": 'btn btn-danger',
                     click: function () {
-                        $("#reasonForm").css("display", "block");
-                        Verify("2", id);
-                        $(this).dialog('close');
+                        var remark = $("#remark").val();
+                        if (remark == "") {
+                            alert("请输入审核意见");
+                        } else {
+                            if (confirm("是否确定审核驳回？")) {
+                                Verify("2", id);
+                                $(this).dialog('close');
+                            }
+                        }
                     }
                 }
-
             ]
         });
         $("#dialogContent").load(url);
@@ -146,7 +151,7 @@ $this->params['breadcrumbs'][] = $this->title;
             cache: true,
             type: "POST",
             url: "index.php?r=com-refund-review/verify",
-            data: {id: id, status: status},
+            data: {id: id, status: status, remark: $("#remark").val()},
             async: false,
             error: function (request) {
                 alert("Connection error");

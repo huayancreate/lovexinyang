@@ -5,6 +5,7 @@ namespace backend\controllers;
 use backend\models\ComRefundReview;
 use backend\models\ComRefundReviewSearch;
 use backend\models\CusConsumptionRecords;
+use backend\models\StoBalanceReview;
 use Yii;
 use backend\models\StoSellerInfo;
 use backend\models\StoSellerInfoSearch;
@@ -38,13 +39,21 @@ class StoSellerInfoController extends Controller
         $fromDate = date("Y-m-d" . ' 00:00:00');
         $toDate = date("Y-m-d" . ' 23:59:59');
 
-        $dataProvider = $this->findModel(1);
+        $dataProvider = $this->findModel(1);//参数 商家ID
 
         $refundModel = new ComRefundReviewSearch();
         $refundDataProvider = $refundModel->getRefundReviews($fromDate, $toDate);
 
+        $model = new StoBalanceReview();
+        $data = StoBalanceReview::find()->orderBy('id desc')->one();
+        if ($data == null) {
+            $model->balanceEndTime = date('Y-m-d H:i:s');
+        } else {
+            $endTime = date('Y-m-d H:i:s', strtotime($data->balanceEndTime . "+ 1 day"));
+            $model->balanceEndTime = $endTime;
+        }
         return $this->render('index', [
-            'model' => '2014-12-18',
+            'model' => $model,
             'searchModel' => $refundModel,
             'dataProvider' => $dataProvider,
             'refundDataProvider' => $refundDataProvider,
