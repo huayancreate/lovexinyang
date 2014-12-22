@@ -50,7 +50,7 @@ class StoBalanceReviewController extends Controller
 	               Yii::$app->session['fromDate']= $fromDate;
 	               Yii::$app->session['$toDate']=$toDate;
 	           }
-	        }
+	     }
 	    else{
 	            if (isset(Yii::$app->session['fromDate'])&&isset(Yii::$app->session['$toDate'])) {
 

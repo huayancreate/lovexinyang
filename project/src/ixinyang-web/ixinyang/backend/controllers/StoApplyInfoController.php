@@ -98,8 +98,8 @@ class StoApplyInfoController extends Controller
 
           //时间段为空
           if (empty($dateRange)) {
-               $fromDate=date("Y-m-d".' 00:00:00');
-               $toDate=date("Y-m-d".' 23:59:59');
+               $fromDate=date("Y-m-d");
+               $toDate=date("Y-m-d");
            }
            else{
                $arr=explode('to', $dateRange);
@@ -119,12 +119,12 @@ class StoApplyInfoController extends Controller
             }
             else
             {
-               $fromDate=date("Y-m-d".' 00:00:00');
-               $toDate=date("Y-m-d".' 23:59:59');
+               $fromDate=date("Y-m-d");
+               $toDate=date("Y-m-d");
             }
             
        }
-
+        $toDate=$toDate.' 23:59:59';
         $model=new StoApplyInfo();
         $dataProvider=new ActiveDataProvider([
                 'query'=>StoApplyInfo::find()->where('applyStatus=0 and applyTime between "'.$fromDate.'" and "'.$toDate.'"')->asArray(),
@@ -203,8 +203,8 @@ class StoApplyInfoController extends Controller
 
           //时间段为空
           if (empty($dateRange)) {
-               $fromDate=date("Y-m-d".' 00:00:00');
-               $toDate=date("Y-m-d".' 23:59:59');
+               $fromDate=date("Y-m-d");
+               $toDate=date("Y-m-d");
            }
            else{
                $arr=explode('to', $dateRange);
@@ -224,11 +224,12 @@ class StoApplyInfoController extends Controller
             }
             else
             {
-               $fromDate=date("Y-m-d".' 00:00:00');
-               $toDate=date("Y-m-d".' 23:59:59');
+               $fromDate=date("Y-m-d");
+               $toDate=date("Y-m-d");
             }
             
        }
+       $toDate=$toDate.' 23:59:59';
         //最终审核状态 是1 说明是客服申请成功 等待客户经理审核  
         $applyStatus=1;
         $model=new StoApplyInfo();
