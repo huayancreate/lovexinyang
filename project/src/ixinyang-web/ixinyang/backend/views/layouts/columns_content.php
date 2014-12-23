@@ -22,11 +22,13 @@ AppAsset::register($this);
         	]],
         // 'Products' menu item will be selected as long as the route is 'product/index'
         	['label' => 'Products', 'url' => ['product/index'], 'items' => [
-            	['label' => 'New Arrivals', 'url' => ['product/index', 'tag' => 'new']],
-            	['label' => 'Most Popular', 'url' => ['product/index', 'tag' => 'popular']],
-            	['label' => 'Most Popular', 'url' => ['product/index', 'tag' => 'popular']],
-            	['label' => 'Most Popular', 'url' => ['product/index', 'tag' => 'popular']],
-            	['label' => 'Most Popular', 'url' => ['product/index', 'tag' => 'popular']],
+            	['label' => '菜单管理', 'url' => ['com-menu/index', 'tag' => 'new']],
+            	['label' => '商圈配置', 'url' => ['com-county/index', 'tag' => 'popular']],
+            	['label' => '商家申请审核', 'url' => ['sto-apply-info/index', 'tag' => 'popular']],
+            	['label' => '客户经理中心--洽谈任务页面设计', 'url' => ['sto-apply-info/discusstasks', 'tag' => 'popular']],
+            	['label' => '客户经理中心--门店信息确认', 'url' => ['shop-info-review/list', 'tag' => 'popular']],
+                ['label' => '页头广告设置', 'url' => ['ad-advertisement/index', 'tag' => 'popular']],
+                ['label' => '商家结款审核', 'url' => ['sto-balance-review/index', 'tag' => 'popular']],
         	]],
 			['label' => '财务合同管理', 'url' => '#', 'items' => [
 				['label' => '财务数据', 'url' => ['sto-seller-info/index', 'tag' => 'new']],
