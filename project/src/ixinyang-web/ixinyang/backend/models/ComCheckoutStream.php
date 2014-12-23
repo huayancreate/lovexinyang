@@ -43,7 +43,9 @@ class ComCheckoutStream extends \yii\db\ActiveRecord
             [['operatorId', 'balanceApplyId', 'storeId'], 'integer'],
             [['operatorTime', 'balanceTime', 'payTime'], 'safe'],
             [['balanceMoney'], 'number'],
-            [['operatorAccount', 'depositAlipayName', 'depositAlipayAccount', 'interfaceSerialNumber', 'storeName', 'expenditureAlipayName', 'expenditureAlipayAccount', 'alipayTransactionStream'], 'string', 'max' => 50]
+            [['operatorAccount', 'depositAlipayName', 'depositAlipayAccount', 'interfaceSerialNumber', 'storeName', 'expenditureAlipayName', 'expenditureAlipayAccount', 'alipayTransactionStream'], 'string', 'max' => 50],
+            [['alipayNo'], 'string', 'max' => 40],
+            [['alipayName'], 'string', 'max' => 150]
         ];
     }
 

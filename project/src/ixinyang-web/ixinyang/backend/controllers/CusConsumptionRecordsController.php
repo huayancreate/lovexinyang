@@ -134,6 +134,7 @@ class CusConsumptionRecordsController extends Controller
     {
        
        if (Yii::$app->request->post()) {
+
            //结算起始时间
            $balanceStartTime=$_POST['balanceStartTime'];
            //结算结束时间
@@ -143,10 +144,31 @@ class CusConsumptionRecordsController extends Controller
            //商家结算审核表主键id
            $id=$_POST['id'];
 
-           $dataProvider = new ActiveDataProvider([
+           //session保留值  结算起始时间
+           Yii::$app->session['$balanceStartTime']=$balanceStartTime;
+            //session保留值  结算结束时间
+           Yii::$app->session['$balanceEndTime']=$balanceEndTime;
+            //session保留值  店铺id
+           Yii::$app->session['$shopId']=$shopId;
+             //session保留值  商家结算审核表主键id
+           Yii::$app->session['$id']=$id;
+         
+       }
+       else{
+          //session取值  结算起始时间
+          $balanceStartTime=Yii::$app->session['$balanceStartTime'];
+          //session取值  结算起始时间
+          $balanceEndTime=Yii::$app->session['$balanceEndTime'];
+          //session取值  店铺id
+          $shopId=Yii::$app->session['$shopId'];
+          //session取值  商家结算审核表主键id
+          $id=Yii::$app->session['$id'];
+       }
+
+         $dataProvider = new ActiveDataProvider([
             'query' => CusConsumptionRecords::find()->where('shopId="'.$shopId.'" and flag=0 and verifierTime between "'.$balanceStartTime.'"  and "'.$balanceEndTime.'" ')->asArray(),
-            'pagination' => ['pagesize' => '10'],
-            ]);
+            'pagination' => ['pagesize' => '1'],
+          ]);
 
            //总计
            $consumpRecModel=CusConsumptionRecords::findBySql('SELECT SUM(payablePrice) AS payablePrice FROM cus_consumption_records WHERE shopId=1  AND verifierTime BETWEEN "'.$balanceStartTime.'" AND  "'.$balanceEndTime.'" ')->one();
@@ -164,10 +186,6 @@ class CusConsumptionRecordsController extends Controller
             return $this->renderPartial('closingaudit', [
                 'dataProvider' => $dataProvider,'consumpRecModel'=>$consumpRecModel,'balanceReviewModel'=>$balanceReviewModel
             ]);
-
-       }
-
-
        
     }
 

@@ -4,6 +4,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\bootstrap\ActiveForm;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -11,15 +12,18 @@ use yii\bootstrap\ActiveForm;
 $this->title = '截至到结算日期的消费明细';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="cus-consumption-records-closingaudit">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <label>总计：(￥) <?php echo $consumpRecModel->payablePrice;?></label>
+    <?php Pjax::begin(['id' => 'countries',]) ?>
     <?= GridView::widget([
+        'id'=>'closingauditGrid',
+        'options' => ['data-pjax' => true ],
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'verifierTime',
             'userAccount',
             'goodsNumber',
@@ -41,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]); ?>
-
+    <?php Pjax::end() ?>
 
      <?php 
             $form = ActiveForm::begin([
@@ -73,7 +77,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
 </div>
 
-<script>
+<script type="text/javascript"> 
+
 
     //审核通过
     function checkPass(financeReviewStatus,id,balanceStartTime,balanceEndTime,shopId){
@@ -135,4 +140,14 @@ $this->params['breadcrumbs'][] = $this->title;
     }
 
 
+
+ /*  $("document").ready(function(){ 
+        $("ul li a").on("click", function() {
+            $.pjax.reload({container:"#closingauditGrid"});  //Reload GridView
+        });
+    });*/
+
+
+
 </script>
+
