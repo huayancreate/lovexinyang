@@ -11,6 +11,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\models\StoStoreInfo;
 /**
  * ShopinforeviewController implements the CRUD actions for ShopInfoReview model.
  */
@@ -334,7 +335,6 @@ class ShopinforeviewController extends Controller
              $storeInfoModel= StoStoreInfo::find()->where(['id'=>$shopInfoReviewModel->shopId])->one();
         }
         else{
-
             $storeInfoModel=new StoStoreInfo();
             //创建时间
             $storeInfoModel->createTime=date('Y-m-d H:i:s');
@@ -364,7 +364,11 @@ class ShopinforeviewController extends Controller
         $storeInfoModel->countryID=$shopInfoReviewModel->countyId;
         //商圈id
         $storeInfoModel->businessDistrictId=$shopInfoReviewModel->businessDistrictId;
-       
+        //支付宝名称
+        $storeInfoModel->alipayName=$shopInfoReviewModel->alipayName;
+        //支付宝账号
+        $storeInfoModel->alipayNo=$shopInfoReviewModel->alipayNo;
+
         //审核状态  1、申请中 2、初审通过 3、初审驳回 4、经理审核通过  5、经理审核驳回
         $storeInfoModel->auditState='4';
         //店铺类别
