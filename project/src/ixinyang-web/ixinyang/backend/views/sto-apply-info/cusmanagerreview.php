@@ -57,44 +57,76 @@ use backend\models\ComBusinessDistrict;
                     <?= Html::button('审核驳回', ['class' => 'btn btn-primary','id'=>'btnCheckFail','onclick'=>"checkFail()"]) ?>
                 </div>
             </div>
-            
             <!-- 商家信息补全 点击审核通过出现-->
             <div class="row" id="sellerInfoDiv" style="display:none" >
-                
-                    
-                     <div class="form-group required">
-                        <div class="col-lg-5">
-                            <label class="control-label col-sm-3" >商家名称</label>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">商家信息</h3>
+                  </div>
+                  <div class="panel-body">
+                          <div class="col-lg-6">
+                            <label class="control-label col-sm-4" >商家名称</label>
                             <div class="col-sm-8">
                                <input id="sellerName" class="form-control" type="text" maxlength="150" name="sellerName">
                             </div>
-                        </div>
-                     <div>
-                     <div class="col-lg-5">
-                            <label class="control-label col-sm-3">法人</label>
-                            <div class="col-sm-8">
-                              <input id="owner" class="form-control" type="text" maxlength="50" name="owner">
+                         </div>
+                         <div>
+                             <div class="col-lg-6">
+                                <label class="control-label col-sm-4">法人</label>
+                                <div class="col-sm-8">
+                                  <input id="owner" class="form-control" type="text" maxlength="50" name="owner">
+                                </div>
                             </div>
-                    </div>
-                    
-                      <?= Html::button('确定', ['class' => 'btn btn-success','id'=>'btnSave','onclick'=>"saveSellerInfo(3,".$model->applyId.")"]) ?>
-                   
-                
+                        </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">支付信息</h3>
+                  </div>
+                  <div class="panel-body">
+                        <div class="col-lg-6">
+                            <label class="control-label col-sm-4" >支付宝名称</label>
+                            <div class="col-sm-8">
+                               <input id="alipayName" class="form-control" type="text" maxlength="150" name="alipayName">
+                            </div>
+                         </div>
+                         <div>
+                             <div class="col-lg-6">
+                                <label class="control-label col-sm-4">支付宝账号</label>
+                                <div class="col-sm-8">
+                                  <input id="alipayNo" class="form-control" type="text" maxlength="40" name="alipayNo">
+                                </div>
+                            </div>
+                        </div>
+                  </div>
+                </div>
+                 <div class="col-lg-offset-10">
+                    <div class="form-group">
+                    <?= Html::button('确定', ['class' => 'btn btn-success','id'=>'btnSave','onclick'=>"saveSellerInfo(3,".$model->applyId.")"]) ?>
+                  </div>
+               </div>
             </div>
 
             <!-- 驳回备注  点击驳回按钮出现-->
             <div class="row" id="remarkDiv" style="display:none" >
-             <div class="col-lg-12">
-                <div class="col-xs-7">
-                 <?= $form->field($model, 'remark')->textArea() ?>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">驳回备注</h3>
+                  </div>
+                  <div class="panel-body">
+                       <div class="col-lg-12">
+                        <div class="col-xs-7">
+                         <?= $form->field($model, 'remark')->textArea() ?>
+                        </div>
+                        <?= Html::button('确定', ['class' => 'btn btn-success','onclick'=>"saveRejectRemark(4,".$model->applyId.")"]) ?>  
+                     </div>
+                  </div>
                 </div>
-                
-                  <?= Html::button('确定', ['class' => 'btn btn-success','id'=>'btnSave','onclick'=>"saveRejectRemark(4,".$model->applyId.")"]) ?>
-               
-             </div>
             </div>
-      <?php ActiveForm::end(); ?>
-</div>
+
+         <?php ActiveForm::end(); ?>
+           
 
 <script>
 
@@ -116,14 +148,20 @@ use backend\models\ComBusinessDistrict;
     }
     //保存商家信息
     function saveSellerInfo(applyStatus,applyId){
+     //商家信息
         //商家名称
         var sellerName=$("#sellerName").val();
         //法人
         var owner=$("#owner").val();
+    //支付信息
+       //支付宝名称
+       var alipayName=$("#alipayName").val();
+       //支付宝账号
+       var alipayNo=$("#alipayNo").val();
 
          $.ajax({
             type: "POST",
-            data: {'sellerName':sellerName,'owner':owner,'applyStatus': applyStatus,'applyId':applyId},
+            data: {'sellerName':sellerName,'owner':owner,'alipayName':alipayName,'alipayNo':alipayNo,'applyStatus': applyStatus,'applyId':applyId},
             url: "index.php?r=sto-apply-info%2Fcheckpass",
             dataType: "json",
             error: function (request) {
