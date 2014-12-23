@@ -24,22 +24,6 @@ use kartik\daterange\DateRangePicker;
             'storeName',
             'refundMoney',
             'userName',
-            // 'reviewId',
-            // 'reviewAccount',
-            // 'reviewTime',
-            // 'reviewStatus',
-            // 'orderId',
-            // 'orderName',
-            // 'storeName',
-            // 'storeAccount',
-            // 'applyTime',
-            // 'refundMoney',
-            // 'refundReason',
-            // 'verificationCode',
-            // 'userName',
-            // 'userAccount',
-
-            //['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>

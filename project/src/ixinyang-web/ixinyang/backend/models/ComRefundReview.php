@@ -94,7 +94,7 @@ class ComRefundReview extends \yii\db\ActiveRecord
     public function getRefundReviews($fromDate, $toDate)
     {
         $query = $this::find();
-        $id = 1;
+        $id = 1;//商家Id
         $query->andWhere(['busiId' => $id, 'financeReviewStatus' => '0']);
         $query->andFilterWhere(['BETWEEN', 'applyTime', $fromDate, $toDate]);
         $dataProvider = new ActiveDataProvider([

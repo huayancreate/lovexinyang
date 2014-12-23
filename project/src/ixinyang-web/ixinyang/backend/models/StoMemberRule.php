@@ -53,20 +53,20 @@ class StoMemberRule extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID 自增列',
-            'operatorId' => '操作人ID',
-            'operatorName' => '操作人名称',
-            'createTime' => '创建时间',
-            'memberRating' => '会员等级',
-            'upperLimit' => '会员积分上限',
-            'lowerLimit' => '会员积分下限',
-            'ico' => '会员等级图标',
-            'memberName' => '会员名称',
-            'rebate' => '折扣',
-            'sellerId' => '商家ID',
-            'sellerName' => '商家名称',
-            'validity' => '是否有效',
-            'modifyTime' => '修改时间',
+            'id' => 'ID',
+            'operatorId' => 'Operator ID',
+            'operatorName' => 'Operator Name',
+            'createTime' => 'Create Time',
+            'memberRating' => 'Member Rating',
+            'upperLimit' => 'Upper Limit',
+            'lowerLimit' => 'Lower Limit',
+            'ico' => 'Ico',
+            'memberName' => 'Member Name',
+            'rebate' => 'Rebate',
+            'sellerId' => 'Seller ID',
+            'sellerName' => 'Seller Name',
+            'validity' => 'Validity',
+            'modifyTime' => 'Modify Time',
         ];
     }
 }

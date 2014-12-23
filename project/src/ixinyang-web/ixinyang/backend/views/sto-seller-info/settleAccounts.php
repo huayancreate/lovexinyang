@@ -5,45 +5,38 @@
  * Date: 2014-12-14
  * Time: 10:27
  */
+
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
-use kartik\daterange\DateRangePicker;
+use yii\grid\GridView;
 
-
-$this->title = 'Sto Seller Infos';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-<?php $form = ActiveForm::begin([
-    'id' => 'settleAccount',
-    'action' => ['settle'],
-    'method' => 'post',
-    'layout' => 'horizontal'
-]);
-?>
-<div class="form-group">
-    <label for="inputEmail3" class="col-sm-3 control-label">请选择时间范围:</label>
-
-    <div class="col-sm-7">
-        <?php
-        echo DateRangePicker::widget([
-            'id' => 'dateRange',
-            'name' => 'dateRange',
-            'value' => '',
-            'convertFormat' => true,
-            'pluginOptions' => [
-                'format' => 'Y-m-d',
-                'separator' => ' to ',
-                'startDate' => $model->balanceEndTime,
-                'minDate' => $model->balanceEndTime,
-            ]
-        ]);
-        ?>
+<div id="consumptionList">
+    <label>总计：(￥) <?php echo $comsumptionModel->payablePrice ?></label>
+    <?= GridView::widget([
+        'dataProvider' => $comsumptionProvider,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+            'id',
+            'orderNo',
+            'orderId',
+            'goodsId',
+            'verfificationCode',
+        ],
+    ]); ?>
+    <div style="border: 1px solid #ccc;padding: 10px 0px 0px 15px">
+        <div class="form-group">
+            <label class="control-label" for="inputSuccess4">商家转入帐号名称：</label>
+            <label class="control-label" for="inputSuccess4">2014090115122</label>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="inputSuccess4">商家转入帐号：</label>
+            <label class="control-label" for="inputSuccess4">2014090115122</label>
+        </div>
     </div>
-
-    <?= Html::button('结款', ['class' => 'btn btn-success', 'id' => 'btnSelect', 'onclick' => 'SettleAccounts()']) ?>
+    <div style="margin-top: 15px">
+        <?= Html::button('结款', ['class' => 'btn btn-success ', 'onclick' => 'SettleAccounts()']) ?>
+    </div>
 </div>
-
-<?php ActiveForm::end(); ?>
 <script type="text/javascript">
     $(function () {
         var dateRange = $('input[name="dateRange"]');
@@ -61,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 cache: true,
                 type: "POST",
                 url: "index.php?r=sto-seller-info/settle",
-                data: $('#settleAccount').serialize(),
+                data: $('#comsumptionSearch').serialize(),
                 async: false,
                 error: function (request) {
                     alert("Connection error");
@@ -71,6 +64,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             });
         }
-
+    }
+    function ComsumptionSearch() {
+        $.ajax({
+            cache: true,
+            type: "POST",
+            url: "index.php?r=sto-seller-info/consumption",
+            data: $('#comsumptionSearch').serialize(),
+            async: false,
+            error: function (request) {
+                alert("Connection error");
+            },
+            success: function (data) {
+                $("#consumptionList").html(data);
+            }
+        });
     }
 </script>

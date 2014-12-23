@@ -31,18 +31,34 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => '结款',
                 'content' =>
-                    '<div style="border:1px solid #ccc;border-top:0px;padding:15px;">' .
-                    $this->render('../sto-seller-info/settleAccounts', ['model' => $model])
-                    . "</div>",
+                    '<div style="border:1px solid #ccc;border-top:0px;padding:15px;">
+                    <form id="comsumptionSearch"  class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">请选择时间范围</label>
+                            <div class="col-sm-7">' .
+                    DateRangePicker::widget([
+                        'id' => 'dateRange',
+                        'name' => 'dateRange',
+                        'convertFormat' => true,
+                        'pluginOptions' => [
+                            'format' => 'Y-m-d',
+                            'separator' => ' to ',
+                        ]
+                    ]) .
+                    '</div>' .
+                    Html::button('查询', ['class' => 'btn btn-success', 'id' => 'btnSelect', 'onclick' => 'ComsumptionSearch()']) .
+                    '</div></form>' .
+                    $this->render('../sto-seller-info/settleAccounts', ['comsumptionProvider' => $comsumptionProvider, 'comsumptionModel' => $comsumptionModel])
+                    . '</div>',
             ],
             [
                 'label' => '退款',
                 'content' =>
+                    '<div style="border:1px solid #ccc;border-top:0px;padding:15px;"' .
                     '<form id="refundSearch" class="form-horizontal" action="index.php?r=sto-seller-info/refund" method="post" role="form">
-                    <div id="refundForm" style="border:1px solid #ccc;border-top:0px;padding:15px;">
-                    <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">请选择时间范围:</label>
-                    <div class="col-sm-7">' .
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">请选择时间范围:</label>
+                            <div class="col-sm-7">' .
                     DateRangePicker::widget([
                         'name' => 'dateRangeRefund',
                         'value' => isset(Yii::$app->session['$flag']) ? Yii::$app->session['fromDate'] . ' to ' . Yii::$app->session['$toDate'] : date("Y-m-d") . ' to ' . date("Y-m-d"),
@@ -57,7 +73,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     '</div>' .
                     Html::button('查询', ['class' => 'btn btn-success', 'onclick' => 'Search()']) .
                     '</div></form>' .
-                    $this->render('../sto-seller-info/refundList', ['refundDataProvider' => $refundDataProvider])
+                    $this->render('../sto-seller-info/refundList', ['refundDataProvider' => $refundDataProvider]) .
+                    '</div>'
             ],
         ],
     ]);

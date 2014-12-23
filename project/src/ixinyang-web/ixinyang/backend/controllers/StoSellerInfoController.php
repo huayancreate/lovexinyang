@@ -52,11 +52,15 @@ class StoSellerInfoController extends Controller
             $endTime = date('Y-m-d H:i:s', strtotime($data->balanceEndTime . "+ 1 day"));
             $model->balanceEndTime = $endTime;
         }
+        $consumptionRecords = new CusConsumptionRecords();
+        $comsumptionProvider = $consumptionRecords->getConsumption($fromDate, $toDate);
+        $comsumptionModel = $consumptionRecords->getSumConsumption($fromDate, $toDate);
         return $this->render('index', [
             'model' => $model,
-            'searchModel' => $refundModel,
             'dataProvider' => $dataProvider,
             'refundDataProvider' => $refundDataProvider,
+            'comsumptionProvider' => $comsumptionProvider,
+            'comsumptionModel' => $comsumptionModel,
         ]);
     }
 
@@ -167,4 +171,24 @@ class StoSellerInfoController extends Controller
             ]);
         }
     }
+
+    public function actionConsumption()
+    {
+        if (Yii::$app->request->post()) {
+            $dateRange = $_POST["dateRange"];
+            $arr = explode('to', $dateRange);
+            $fromDate = $arr[0] . ' 00:00:00';
+            $toDate = $arr[1] . ' 23:59:59';
+
+            $consumptionRecords = new CusConsumptionRecords();
+            $comsumptionProvider = $consumptionRecords->getConsumption($fromDate, $toDate);
+
+            $comsumptionModel = $consumptionRecords->getSumConsumption($fromDate, $toDate);
+            return $this->renderPartial('settleAccounts', [
+                'comsumptionProvider' => $comsumptionProvider,
+                'comsumptionModel' => $comsumptionModel,
+            ]);
+        }
+    }
+
 }

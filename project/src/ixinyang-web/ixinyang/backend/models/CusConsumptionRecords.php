@@ -71,25 +71,42 @@ class CusConsumptionRecords extends \yii\db\ActiveRecord
             'verifierTime' => '验证时间',
             'shopId' => '店铺ID',
             'shopName' => '店铺名称',
-            'flag' => '消费类型标识', //0 平台消费  1 现金消费
+            'flag' => '消费类型标识',
         ];
     }
 
     public function settleAccount($fromDate, $toDate)
     {
         //1.根据时间段去查询当前时间段中商家的所有消费流水(除去线下交易流水)
-        $model = $this->getConsumption($fromDate, $toDate);
+        $model = $this->getSumConsumption($fromDate, $toDate);
         //2.产生结账审核记录
         $this->addBalanceReview($fromDate, $toDate, $model->payablePrice);
 
     }
 
-    public function getConsumption($fromDate, $toDate)
+    public function getSumConsumption($fromDate, $toDate)
     {
         $sql = "select sum(payablePrice*goodsNumber) as payablePrice from cus_consumption_records
-              where sellerId=1 and (verifierTime BETWEEN '$fromDate' and '$toDate')";
+              where sellerId=1 and (verifierTime BETWEEN '$fromDate' and '$toDate') and flag='0'";
         $model = CusConsumptionRecords::findBySql($sql)->one();
         return $model;
+    }
+
+    /**
+     * @param $fromDate
+     * @param $toDate
+     * @return ActiveDataProvider
+     */
+    public function getConsumption($fromDate, $toDate)
+    {
+        $query = $this::find();
+        $id = 1;//商家Id
+        $query->andWhere(['sellerId' => $id, 'flag' => '0']);
+        $query->andFilterWhere(['BETWEEN', 'verifierTime', $fromDate, $toDate]);
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+        return $dataProvider;
     }
 
     public function addBalanceReview($fromDate, $toDate, $totalMoney)
