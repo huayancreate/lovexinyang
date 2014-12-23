@@ -1,0 +1,1 @@
+(function(e){e(document).ready(function(){e("ul.dropdown-menu [data-toggle=dropdown]").on("click",function(t){t.preventDefault();t.stopPropagation();e(this).parent().siblings().removeClass("open");e(this).parent().toggleClass("open")})})})(jQuery)

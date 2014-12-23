@@ -39,6 +39,7 @@ return array(
     'kartik\\base\\' => array($vendorDir . '/kartik-v/yii2-krajee-base'),
     'kartik\\alert\\' => array($vendorDir . '/kartik-v/yii2-widget-alert'),
     'kartik\\affix\\' => array($vendorDir . '/kartik-v/yii2-widget-affix'),
+    'hightman\\xunsearch\\' => array($vendorDir . '/hightman/xunsearch/wrapper/yii2-ext'),
     'cliff363825\\kindeditor\\' => array($vendorDir . '/cliff363825/yii2-kindeditor'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
     'bootui\\select2\\' => array($vendorDir . '/3ch3r46/bootui-select2'),

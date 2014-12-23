@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d91604bbdd2e46ae47801e758a792220",
+    "hash": "d759c0ca9bef4583e4f9752eca1f1cb3",
     "packages": [
         {
             "name": "3ch3r46/bootui-datepicker",
@@ -96,12 +96,12 @@
             "source": {
                 "type": "git",
                 "url": "https://bitbucket.org/3ch3r46/yii2-bootui.git",
-                "reference": "5368be3a32ffb0cc90c9c9aeb6925ab36b3b378f"
+                "reference": "7e07934c2719f5d38543cc9d7073399ce2de858b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/3ch3r46/yii2-bootui/get/5368be3a32ffb0cc90c9c9aeb6925ab36b3b378f.zip",
-                "reference": "5368be3a32ffb0cc90c9c9aeb6925ab36b3b378f",
+                "url": "https://bitbucket.org/3ch3r46/yii2-bootui/get/7e07934c2719f5d38543cc9d7073399ce2de858b.zip",
+                "reference": "7e07934c2719f5d38543cc9d7073399ce2de858b",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2014-06-27 07:06:44"
+            "time": "2014-12-16 01:53:15"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -511,6 +511,64 @@
                 "html"
             ],
             "time": "2013-11-30 08:25:19"
+        },
+        {
+            "name": "hightman/xunsearch",
+            "version": "1.4.9-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hightman/xs-sdk-php.git",
+                "reference": "912dc6794c68111481f99e73f1f40a5a603debff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hightman/xs-sdk-php/zipball/912dc6794c68111481f99e73f1f40a5a603debff",
+                "reference": "912dc6794c68111481f99e73f1f40a5a603debff",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "lib-pcre": "*",
+                "php": ">=5.3.0"
+            },
+            "bin": [
+                "util/xs"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "lib/",
+                    "wrapper/yii-ext/"
+                ],
+                "psr-4": {
+                    "hightman\\xunsearch\\": "wrapper/yii2-ext/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "hightman",
+                    "email": "hightman@twomice.net",
+                    "role": "Founder and project leader"
+                }
+            ],
+            "description": "xunsearch php sdk, include yii, yii2 supports",
+            "homepage": "http://www.xunsearch.com/",
+            "keywords": [
+                "search engine",
+                "xunsearch",
+                "yii",
+                "yii2"
+            ],
+            "time": "2014-12-16 14:26:27"
         },
         {
             "name": "kartik-v/bootstrap-fileinput",
@@ -2353,7 +2411,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "hightman/xunsearch": 10
+    },
     "prefer-stable": false,
     "platform": {
         "php": ">=5.4.0"
