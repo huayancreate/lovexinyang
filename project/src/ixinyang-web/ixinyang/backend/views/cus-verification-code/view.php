@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\CusOrderDetails */
+/* @var $model backend\models\CusVerificationCode */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Cus Order Details', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Cus Verification Codes', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="cus-order-details-view">
+<div class="cus-verification-code-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,20 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'orderId',
-            'goodsName',
+            'orderDetailsId',
+            'verificationCode',
             'goodsId',
-            'price',
-            'totalPrice',
-            'rebate',
-            'rebatePrice',
-            'totalNum',
-            'sellerId',
-            'memberCardNo',
-            'shopId',
-            'shopName',
-            'validateCode',
-            'CodeStatus',
+            'orderNo',
+            'number',
+            'costPrice',
+            'payablePrice',
+            'state',
         ],
     ]) ?>
 

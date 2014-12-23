@@ -11,11 +11,9 @@ $this->params['breadcrumbs'][] = ['label' => 'Shop Info Reviews', 'url' => ['ind
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="shop-info-review-create">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <?= $this->render('_form', [
-        'model' => $model,
+        'model' => $model,'cityModel'=>$cityModel,'cityList'=>$cityList
     ]) ?>
 
 </div>
+ 

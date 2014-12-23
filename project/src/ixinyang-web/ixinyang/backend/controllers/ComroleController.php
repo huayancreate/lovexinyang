@@ -40,6 +40,7 @@ class ComroleController extends Controller
     { 
         $dataProvider = new ActiveDataProvider([ 
             'query' => ComRole::find(), 
+            'pagination' => ['pagesize' => '5'],
         ]); 
 
         return $this->render('index', [ 

@@ -17,7 +17,7 @@ use yii\widgets\Pjax;
             <div class="com-role-form">
                 <?php $form = ActiveForm::begin(['layout' => 'horizontal','id'=>'roleForm']); ?>
 
-                <?= $form->field($model, 'roleCode')->textInput() ?>
+               <!--  <?= $form->field($model, 'roleCode')->textInput() ?> -->
 
                 <?= $form->field($model, 'roleName')->textInput(['maxlength' => 50]) ?>
 
@@ -35,12 +35,12 @@ use yii\widgets\Pjax;
     </tr>
 </table>
 
-<div style="border-top:1px solid #ccc;padding-top:10px; text-align:right">
+<!-- <div style="border-top:1px solid #ccc;padding-top:10px; text-align:right">
     <?= Html::button($model->isNewRecord ? '新增' : '修改', 
         ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary',
             'id'=>$model->isNewRecord ? 'btnSave' : 'btnEdit']) ?>
     <?= Html::button('取消',['id'=>'btnClose','class'=>'btn btn-primary']) ?>
-</div>
+</div> -->
 
 <script type="text/javascript">
 
@@ -92,48 +92,9 @@ use yii\widgets\Pjax;
         // treeObj.expandAll(true); 
     }
 
-    //ajax提交
-    function postAjax(url){
-            $.ajax({
-                cache: true,
-                url:url,
-                data:$("#roleForm").serialize(),
-                type :'post',
-                async: false, 
-                dataType:"json",  
-                success : function(data) {
-                    if(data.success){
-                        dialogClose();
-                        $.pjax.reload({container:'#w1'});
-                    }else{
-                        alert(data.roleName+'\n'+data.roleCode);
-                    }
-                },  
-                error : function(data) {  
-                    alert("异常错误,请联系管理员!");  
-                }
-            });
-    }
-
     $(function(){
         //加载树开始
         ztree(<?=$treeData?>);
-
-        $("#btnClose").click(function(){
-            dialogClose();
-        });
-
-        //编辑
-        $("#btnEdit").click(function(){
-            var url="index.php?r=comrole/update&id=<?= $model->isNewRecord?"0":$model->id ?>";
-            postAjax(url);
-        });
-
-        //新增提交
-        $("#btnSave").click(function(){
-            var url="index.php?r=comrole/create";
-            postAjax(url);
-        });
     });
     
 </script>

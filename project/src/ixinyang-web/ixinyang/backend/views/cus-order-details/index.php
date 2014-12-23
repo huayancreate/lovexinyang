@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use backend\models\CusOrderDetails;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\CusOrderDetailsSearch */
@@ -12,33 +13,55 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cus-order-details-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Cus Order Details', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
+        'id'=>'gridList',
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'orderId',
+            ['class' => 'yii\grid\CheckboxColumn'],
+            'validateCode',
             'goodsName',
-            'goodsId',
             'price',
-            // 'totalPrice',
-            // 'rebate',
-            // 'rebatePrice',
-            // 'totalNum',
-            // 'sellerId',
-            // 'memberCardNo',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            'rebate',
+            'rebatePrice',
+            [
+                'attribute' => 'CodeStatus',
+                'label'=>'状态',
+                'format'=>'html',
+                'value'=>
+                    function($model){
+                       return CusOrderDetails::getCodeStatus($model->CodeStatus);
+                    },
+            ],
+            //['class'=>'yii\grid\ActionColumn',]
         ],
     ]); ?>
-
 </div>
+
+<?php
+    $this->registerJs(
+        '$(function(){
+            $("#btnSave").click(function(){
+                var keys = $("#gridList").yiiGridView("getSelectedRows");
+                if(keys==""){
+                    alert("请选择消费项！");
+                    return;
+                }
+                if(confirm("是否确认消费！")){
+                    var url="cus-order-details/consumption";
+                    $.ajax({
+                        cache: true,
+                        type: "POST",
+                        url:"index.php?r="+url,
+                        data:{keys:keys},
+                        success: function (data) {
+                           alert(data);
+                        }
+                    });
+                }
+            });
+           
+        });'
+    )
+?>

@@ -7,7 +7,6 @@ use backend\models\ShopInfoReview;
 use backend\models\ComBusinessDistrict;
 use backend\models\ComCitycenter;
 use backend\models\ComCounty;
-use backend\models\StoStoreInfo;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -15,7 +14,7 @@ use yii\filters\VerbFilter;
 /**
  * ShopinforeviewController implements the CRUD actions for ShopInfoReview model.
  */
-class ShopInfoReviewController extends Controller
+class ShopinforeviewController extends Controller
 {
     public function behaviors()
     {

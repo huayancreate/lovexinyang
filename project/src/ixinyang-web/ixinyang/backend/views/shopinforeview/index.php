@@ -19,30 +19,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            //'id',
-            //'city',
-            //'longitude',
-            //'latitude',
             'shopName',
             'contact',
-            // 'regional',
-            // 'storeId',
-            // 'storeAccount',
-            // 'businessDistrictId',
             'address',
             'businessHours',
-            // 'storeOutline:ntext',
-            // 'cityId',
-            // 'countyId',
-            // 'applyTime',
-            // 'applyUserId',
-            // 'applyUserName',
-            // 'auditUserId',
-            // 'auditUserName',
-            // 'auditTime:datetime',
-            // 'managerId',
-            // 'managerName',
-            // 'managerTime:datetime',
             [
                 'attribute' => 'auditState',
                 'label'=>'状态',
@@ -51,8 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         return $model->getState($model->auditState);
                     },
             ],
-            // 'Rejection',
-
             ['class' => 'yii\grid\ActionColumn',
                 'buttons'=>[
                     'view'=>function($url,$model){

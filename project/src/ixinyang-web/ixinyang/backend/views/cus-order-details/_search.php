@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\CusOrderDetailsSearch */
@@ -13,9 +13,10 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
+        'layout' => 'inline',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <!--<?= $form->field($model, 'id') ?>
 
     <?= $form->field($model, 'orderId') ?>
 
@@ -23,7 +24,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'goodsId') ?>
 
-    <?= $form->field($model, 'price') ?>
+    <?= $form->field($model, 'price') ?>-->
 
     <?php // echo $form->field($model, 'totalPrice') ?>
 
@@ -37,9 +38,17 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'memberCardNo') ?>
 
+    <?php // echo $form->field($model, 'shopId') ?>
+
+    <?php // echo $form->field($model, 'shopName') ?>
+
+    <?php echo "<b>验证码：</b>".$form->field($model, 'validateCode') ?>
+
+    <?php // echo $form->field($model, 'CodeStatus') ?>
+
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('查询', ['class' => 'btn btn-primary']) ?>
+        <?= Html::button('确认消费', ['id'=>'btnSave','class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

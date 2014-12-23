@@ -44,7 +44,7 @@ class StoGoods extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['goodsName'],'required','message' => '{attribute}²»ÄÜÎª¿Õ.'],
+            [['goodsName'],'required','message' => '{attribute}ä¸èƒ½ä¸ºç©º.'],
             [['describes'], 'string'],
             [['price'], 'number'],
             [['supplyDateTime', 'createDate'], 'safe'],
@@ -64,20 +64,20 @@ class StoGoods extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'goodsName' => 'Ãû³Æ',
-            'summary' => '¸ÅÊö',
-            'describes' => 'ÃèÊö',
-            'price' => '¼Û¸ñ',
-            'subClass' => 'Àà±ð',
-            'validity' => 'ÊÇ·ñÓÐÐ§',
-            'supplyDateTime' => '¹©Ó¦Ê±¼ä',
-            'enjoyRebate' => '»áÔ±ÕÛ¿Û', //ÊÇ·ñÏíÊÜ»áÔ±ÕÛ¿Û
-            'goodsGrade' => 'µÈ¼¶',
-            'goodsWeight' => 'È¨ÖØ',
-            'goodsState' => '×´Ì¬',
-            'createDate' => '´´½¨ÈÕÆÚ',
-            'createID' => '´´½¨ÈËID',
-            'createName' => '´´½¨ÈË',
+            'goodsName' => 'åç§°',
+            'summary' => 'æ¦‚è¿°',
+            'describes' => 'æè¿°',
+            'price' => 'ä»·æ ¼',
+            'subClass' => 'ç±»åˆ«',
+            'validity' => 'æ˜¯å¦æœ‰æ•ˆ',
+            'supplyDateTime' => 'ä¾›åº”æ—¶é—´',
+            'enjoyRebate' => 'ä¼šå‘˜æŠ˜æ‰£', //æ˜¯å¦äº«å—ä¼šå‘˜æŠ˜æ‰£
+            'goodsGrade' => 'ç­‰çº§',
+            'goodsWeight' => 'æƒé‡',
+            'goodsState' => 'çŠ¶æ€',
+            'createDate' => 'åˆ›å»ºæ—¥æœŸ',
+            'createID' => 'åˆ›å»ºäººID',
+            'createName' => 'åˆ›å»ºäºº',
         ];
     }
 }

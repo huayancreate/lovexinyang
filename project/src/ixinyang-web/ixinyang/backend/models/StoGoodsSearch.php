@@ -46,6 +46,7 @@ class StoGoodsSearch extends StoGoods
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => ['pagesize' => '5'],
         ]);
 
         if (!($this->load($params) && $this->validate())) {

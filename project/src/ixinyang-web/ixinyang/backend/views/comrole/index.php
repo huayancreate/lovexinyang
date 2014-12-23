@@ -15,31 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
 <p> 
     <?= Html::a('角色新增','javascript:void(0)', ['id'=>'btnAdd','class' => 'btn btn-success']) ?> 
 </p> 
-<div id="divDialog">
-	<?php 
-    	Dialog::begin([
-        		'id'=>'dialogId',
-        		'clientOptions' => [
-        		'modal' => true,
-        		'autoOpen' => false,
-        		'width'=>'600px',
-        		'height'=>'auto',
-        		'title'=>'角色添加',
-			],
-    	]);
-    ?>
-    <div id="dialogContent">
-    	<!--填充弹出框内容-->
-    </div>
-    <?php
-    	Dialog::end();
-    ?>
-</div>
+
 <div>
-	<?php \yii\widgets\Pjax::begin(); ?>
+	<?php \yii\widgets\Pjax::begin(['id'=>'gridList']); ?>
 	<?=GridView::widget([
         'dataProvider' => $dataProvider,
-        'layout'=>'{items}',
         'columns' => [
             "roleName",
             "roleCode",
@@ -71,36 +51,35 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php \yii\widgets\Pjax::end(); ?>
 </div>
 
+<div id="divDialog">
+    <?php 
+        Dialog::begin([
+                'id'=>'div_dialog',
+                'clientOptions' => [
+                'modal' => true,
+                'autoOpen' => false,
+                'width'=>'600',
+                'height'=>'450',
+            ],
+        ]);
+        Dialog::end();
+    ?>
+</div>
+
 <script type="text/javascript">
 <?php $this->beginBlock('JS_END') ?>
 	$(function(){
 		//新增角色
 		$("#btnAdd").click(function(){
-			getRoleAdd("comrole/create");//加载新增页面
-
-	        $("#dialogId").dialog("open");
+            var url="comrole/create";
+            JuiDialog.dialog("div_dialog",'新增角色',url,"roleForm","gridList");   
 		});
 	});
 
 	function getRoleEdit(id){
-		getRoleAdd("comrole/update&id="+id);
-		$("#dialogId").dialog("open");
+        var url="comrole/update&id="+id;
+        JuiDialog.dialog("div_dialog",'修改',url,"roleForm","gridList");   
 	}
-
-	function getRoleAdd(url){
-        $.ajax({   
-            url:"index.php?r="+url,
-            type :'get',
-            dataType :'text',  
-            contentType :'application/x-www-form-urlencoded',  
-            success : function(mydata) {
-                $("#dialogContent").html(mydata);
-            },  
-            error : function() {  
-                alert("异常错误，请联系管理员！");  
-            }
-        });
-    }
 
 <?php $this->endBlock() ?>
 </script>  
