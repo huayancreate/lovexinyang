@@ -5,14 +5,15 @@ namespace backend\controllers;
 use Yii;
 use backend\models\CusOrderDetails;
 use backend\models\CusOrderDetailsSearch;
+use backend\models\CusConsumptionRecords;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CusOrderDetailsController implements the CRUD actions for CusOrderDetails model.
+ * CusorderdetailsController implements the CRUD actions for CusOrderDetails model.
  */
-class CusOrderDetailsController extends Controller
+class CusorderdetailsController extends Controller
 {
     public function behaviors()
     {
@@ -33,7 +34,7 @@ class CusOrderDetailsController extends Controller
     public function actionIndex()
     {
         $searchModel = new CusOrderDetailsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams,1); // search('提交参数',商家ID)
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -104,6 +105,38 @@ class CusOrderDetailsController extends Controller
     }
 
     /**
+     * 确认消费，新增消费记录并增加会员积分
+     * @return [type] [description]
+     */
+    public function actionConsumption(){
+        
+        $transaction=\Yii::$app->db->beginTransaction();
+
+        try{
+            $keys=$_POST["keys"];  //获取订单明细ID
+            foreach ($keys as $key) {
+                $model=$this->findModel($key);  //获取订单明细
+
+                $this->consumptionModel($model)->save(); //新增消费流水
+
+                $model->CodeStatus=2;
+                $model->save(); //修改订单状态
+                //print_r($model);
+            }
+
+            $transaction->commit();
+
+        } catch (Exception $e) {
+
+            $transaction->rollback();
+
+            return "非法操作";
+        }
+        return $this->redirect(['index']);
+    }
+
+
+    /**
      * Finds the CusOrderDetails model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
@@ -117,5 +150,24 @@ class CusOrderDetailsController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    protected function consumptionModel($item){
+        $sumption=new CusConsumptionRecords();
+        $sumption->orderId=$item->orderId;  //订单ID
+        $sumption->goodsId=$item->goodsId;  //商品ID
+        $sumption->verfificationCode=$item->validateCode; //验证码
+        $sumption->goodsNumber=$item->totalNum; //商品数量
+        $sumption->costPrice=$item->price; //商品价格
+        $sumption->payablePrice=$item->rebatePrice; //实付价格
+        $sumption->rebate=$item->rebate; //折扣
+        $sumption->memberCardNo=$item->memberCardNo; //会员卡号
+        $sumption->shopId=$item->shopId; //商家ID
+        $sumption->shopName=$item->shopName; //商家名称
+        $sumption->verifierAccount="verifier-Admin";  //验证人
+        $sumption->verifierTime=date("Y-m-d H:i:s"); //验证时间
+        $sumption->flag="0"; // 0：平台消费 /  1:现金消费
+        
+        return $sumption;
     }
 }

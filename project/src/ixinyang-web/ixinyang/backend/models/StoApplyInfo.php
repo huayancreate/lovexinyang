@@ -57,7 +57,8 @@ class StoApplyInfo extends \yii\db\ActiveRecord
             [['customerServiceName', 'customerManagerName', 'storePhone', 'otherContact', 'phone', 'email'], 'string', 'max' => 50],
             [['remark'], 'string', 'max' => 200],
             [['scopeBusiness'], 'string'],
-            [['storeName', 'address', 'name'], 'string', 'max' => 250]
+            [['storeName', 'address', 'name'], 'string', 'max' => 250],
+            [['businessHours'], 'string', 'max' => 150]
         ];
     }
 

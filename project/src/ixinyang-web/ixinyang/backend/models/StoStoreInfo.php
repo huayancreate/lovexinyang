@@ -42,11 +42,12 @@ class StoStoreInfo extends \yii\db\ActiveRecord
             [['createTime'], 'safe'],
             [['sellerId', 'businessDistrictId', 'cityId', 'countryID','storeType'], 'integer'],
             [['storeOutline'], 'string'],
-            [['businessHours'], 'string', 'max' => 150],
+            [['businessHours','alipayName'], 'string', 'max' => 150],
             [['storeAddress', 'storeName'], 'string', 'max' => 250],
             [['validity'], 'string', 'max' => 2],
             [['contactWay'], 'string', 'max' => 50],
-            [['longitude', 'latitude'], 'number']
+            [['longitude', 'latitude'], 'number'],
+            [['alipayNo'], 'string', 'max' => 40]
         ];
     }
 

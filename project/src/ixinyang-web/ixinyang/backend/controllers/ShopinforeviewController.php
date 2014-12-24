@@ -7,15 +7,15 @@ use backend\models\ShopInfoReview;
 use backend\models\ComBusinessDistrict;
 use backend\models\ComCitycenter;
 use backend\models\ComCounty;
-use backend\models\StoStoreInfo;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\models\StoStoreInfo;
 /**
  * ShopinforeviewController implements the CRUD actions for ShopInfoReview model.
  */
-class ShopInfoReviewController extends Controller
+class ShopinforeviewController extends Controller
 {
     public function behaviors()
     {
@@ -208,8 +208,8 @@ class ShopInfoReviewController extends Controller
 
           //时间段为空
           if (empty($dateRange)) {
-               $fromDate=date("Y-m-d".' 00:00:00');
-               $toDate=date("Y-m-d".' 23:59:59');
+               $fromDate=date("Y-m-d");
+               $toDate=date("Y-m-d");
            }
            else{
                $arr=explode('to', $dateRange);
@@ -229,12 +229,12 @@ class ShopInfoReviewController extends Controller
             }
             else
             {
-               $fromDate=date("Y-m-d".' 00:00:00');
-               $toDate=date("Y-m-d".' 23:59:59');
+               $fromDate=date("Y-m-d");
+               $toDate=date("Y-m-d");
             }
             
        }
-       
+        $toDate=$toDate.' 23:59:59';
         $dataProvider=new ActiveDataProvider([
                 'query'=>ShopInfoReview::find()->where('auditState=1 and applyTime between "'.$fromDate.'" and "'.$toDate.'"')->asArray(),
                 'pagination' => ['pagesize' => '5'],
@@ -335,7 +335,6 @@ class ShopInfoReviewController extends Controller
              $storeInfoModel= StoStoreInfo::find()->where(['id'=>$shopInfoReviewModel->shopId])->one();
         }
         else{
-
             $storeInfoModel=new StoStoreInfo();
             //创建时间
             $storeInfoModel->createTime=date('Y-m-d H:i:s');
@@ -365,7 +364,11 @@ class ShopInfoReviewController extends Controller
         $storeInfoModel->countryID=$shopInfoReviewModel->countyId;
         //商圈id
         $storeInfoModel->businessDistrictId=$shopInfoReviewModel->businessDistrictId;
-       
+        //支付宝名称
+        $storeInfoModel->alipayName=$shopInfoReviewModel->alipayName;
+        //支付宝账号
+        $storeInfoModel->alipayNo=$shopInfoReviewModel->alipayNo;
+
         //审核状态  1、申请中 2、初审通过 3、初审驳回 4、经理审核通过  5、经理审核驳回
         $storeInfoModel->auditState='4';
         //店铺类别

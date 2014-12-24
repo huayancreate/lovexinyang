@@ -19,4 +19,5 @@ return [
             ],
         ],
     ],
+    'timeZone' => 'Asia/Chongqing',
 ];

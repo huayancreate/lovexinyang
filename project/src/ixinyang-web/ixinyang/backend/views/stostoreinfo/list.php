@@ -15,7 +15,6 @@ use backend\models\ComCategoryMaintain;
 <?php \yii\widgets\Pjax::begin(['id'=>'stostoreinfoList']); ?>
 <?= GridView::widget([
     'dataProvider' => $dataProvider,
-    'layout'=>'{items}',
     'columns' => [
         ['class' => 'yii\grid\SerialColumn'],
         'storeName',

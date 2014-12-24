@@ -78,7 +78,7 @@ class StoGoodsController extends Controller
 
                 foreach ($files as $file) {
 
-                   $path=$this->uploads($file); //文件上传
+                    $path=$this->uploads($file); //文件上传
 
                     $goodsPicture=new GoodsPicture();
                     $goodsPicture->goodsId=$model->id; //商品信息ID

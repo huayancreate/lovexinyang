@@ -29,12 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
                  // Date and Time picker with time increment of 15 minutes and without any input group addons.
             echo DateRangePicker::widget([
                 'name'=>'date_range_3',
-                'value'=> isset(Yii::$app->session['$flag']) ? Yii::$app->session['fromDate'].' to '.Yii::$app->session['$toDate'] : date("Y-m-d".' 00:00:00').' to '.date("Y-m-d".' 23:59:59'),
+                'value'=> isset(Yii::$app->session['$flag']) ? Yii::$app->session['fromDate'].' to '.Yii::$app->session['$toDate'] : date("Y-m-d").' to '.date("Y-m-d"),
                 'convertFormat'=>true,
                 'pluginOptions'=>[
-                'timePicker'=>true,
-                'timePickerIncrement'=>15,
-                'format'=>'Y-m-d h:i:s',
+                'timePicker'=>false,
+                'format'=>'Y-m-d',
                 'separator'=>' to ',
                 ]
             ]);

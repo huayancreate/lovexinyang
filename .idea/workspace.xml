@@ -2,17 +2,512 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="850db637-1ee0-47cb-bbd5-a6959b155569" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/hycommon/tool/SendSocketMessage.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/hycommon/tool/SendWorkermanMessage.php" />
-      <change type="DELETED" beforePath="C:\Users\pan\Documents\GitHub\lovexinyang\project\design\爱信阳服务平台架构设计_axy1.1.ldb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/design/爱信阳服务平台架构设计_axy1.1.eap" afterPath="$PROJECT_DIR$/project/design/爱信阳服务平台架构设计_axy1.1.eap" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/SiteController.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/SiteController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/autoload.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/autoload.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/ico/apple-touch-icon-144-precomposed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/blog.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/carousel.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/img/components.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/cover.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/dashboard.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/img/devices.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/ico/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/dist/fonts/glyphicons-halflings-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/dist/fonts/glyphicons-halflings-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/fonts/glyphicons-halflings-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/dist/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/dist/fonts/glyphicons-halflings-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/fonts/glyphicons-halflings-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/skel/img/glyphicons-halflings-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/skel/img/glyphicons-halflings.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/grid.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/jumbotron-narrow.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/jumbotron.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/justified-nav.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/skel/img/logo.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/navbar-fixed.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/navbar-static.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/navbar.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/non-responsive.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/offcanvas.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/img/sass-less.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2-spinner.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2x2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/sign-in.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/starter-template.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/sticky-footer-navbar.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/sticky-footer.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/screenshots/theme.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/.csscomb.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/.csslintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/.editorconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/.gitattributes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/.gitattributes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/.jscs.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/grunt/.jshintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/.jshintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/ActiveField.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/ActiveForm.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/wrapper/yii2-ext/ActiveQuery.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/wrapper/yii2-ext/ActiveRecord.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/Alert.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/asset/Asset.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/asset/AssetLocal.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/BaseAlert.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/Button.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/ButtonDropdown.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/ButtonGroup.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/ButtonLoading.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/CNAME" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/CONTRIBUTING.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/ComMessageBox.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/ComMessageBoxController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/ComMessageBoxSearch.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/wrapper/yii2-ext/Connection.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/ConsumptionController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/asset/CoreAsset.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/asset/CoreCss.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/asset/CoreCssMin.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/asset/CoreJs.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/asset/CoreJsMin.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/asset/CoreMinAsset.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/CusElectronicCard.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/CusUserIndividualCenter.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/CusVerificationCode.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/CusVerificationCodeController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/CusVerificationCodeSearch.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/wrapper/yii2-ext/Database.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/Datepicker.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/DatepickerPlugin.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/wrapper/yii2-ext/DebugAction.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/wrapper/yii2-ext/DebugPanel.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/Dropdown.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/asset/DropdownAsset.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/wrapper/yii-ext/EXunSearch.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/Gruntfile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/Html.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/Indexer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/IniWizzard.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/JSON.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/JSON.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/JSON.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/LICENSE.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/LICENSE.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/LICENSE.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/LinkPager.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/ListGroup.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/Logger.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/MediaList.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/Nav.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/NavBar.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/NavCollapse.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/Progress.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/wrapper/yii2-ext/QueryBuilder.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/Quest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/wrapper/yii-ext/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/test-infra/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/RequiredCheck.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/SearchSkel.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/Select2.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/Select2Asset.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/StoMemberRule.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/asset/Theme.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/asset/ThemeMin.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/Widget.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/lib/XS.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/XSDataSource.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/lib/XSDocument.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/lib/XSFieldScheme.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/lib/XSIndex.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/lib/XSSearch.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/lib/XSServer.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/lib/XSTokenizer.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/XSUtil.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/_config.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/com-message-box/_form.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/consumption/_form.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/cus-verification-code/_form.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/com-message-box/_search.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/cus-verification-code/_search.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/about.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_includes/ads.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/affix.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tests/unit/affix.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/alert.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tests/unit/alert.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/alerts.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/js/application.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/badges.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/js/vendor/blob.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/blog/blog.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.ar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.az.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.bg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.cy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.da.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.el.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.et.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.fa.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.gl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.he.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.hu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.id.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.is.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/bootstrap-datepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.ka.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.kk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.kr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.lt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.lv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.mk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.ms.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.nb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.nl-BE.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.no.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.pt-BR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.pt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.ro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.rs-latin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.rs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.sk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.sl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.sq.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.sv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.sw.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.th.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.tr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.ua.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.vi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.zh-CN.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/js/locales/bootstrap-datepicker.zh-TW.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/skel/css/bootstrap-ie6.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/dist/css/bootstrap-theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/dist/css/bootstrap-theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/dist/css/bootstrap-theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/dist/css/bootstrap-theme.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/dist/css/bootstrap-theme.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/dist/css/bootstrap.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/dist/css/bootstrap.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/skel/css/bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/dist/css/bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/dist/js/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/bootstrap.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/dist/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/dist/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/dist/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/dist/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/breadcrumbs.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/grunt/bs-glyphicons-data-generator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/grunt/bs-lessdoc-parser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/grunt/bs-raw-files-generator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/button-groups.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/button.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tests/unit/button.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/buttons.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/carousel/carousel.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/carousel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tests/unit/carousel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/carousel.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/close.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/code.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/collapse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tests/unit/collapse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/component-animations.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/components.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_data/core-team.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/cover/cover.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/com-message-box/create.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/consumption/create.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/cus-verification-code/create.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/css.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/customize.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/js/customize.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/jade/customizer-nav.jade" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_includes/customizer-variables.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/jade/customizer-variables.jade" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/js/customizer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/dashboard/dashboard.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/css/datepicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/css/datepicker3.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_layouts/default.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/app/demo.ini" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/css/docs.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/css/docs.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/js/docs.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/dist/css/dropdown.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/yii2-bootui/dist/js/dropdown.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/dropdown.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tests/unit/dropdown.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/dropdowns.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/js/vendor/filesaver.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_includes/footer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/forms.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/getting-started.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/dist/fonts/glyphicons-halflings-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/dist/fonts/glyphicons-halflings-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/fonts/glyphicons-halflings-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/glyphicons.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_data/glyphicons.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/grid/grid.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/grid.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_includes/header.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/js/vendor/holder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_layouts/home.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/skel/css/ie.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/js/ie8-responsive-file-warning.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/blog/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/carousel/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/cover/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/dashboard/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/grid/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/jumbotron/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/jumbotron-narrow/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/justified-nav/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/navbar/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/navbar-fixed-top/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/navbar-static-top/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/non-responsive/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/offcanvas/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/signin/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/starter-template/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/sticky-footer/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/sticky-footer-navbar/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/theme/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tests/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/com-message-box/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/consumption/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/cus-verification-code/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-datepicker/dist/css/input-group-addon.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/input-groups.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/javascript.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tests/vendor/jquery.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/js/vendor/jszip.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/jumbotron-narrow/jumbotron-narrow.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/jumbotron/jumbotron.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/jumbotron.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/justified-nav/justified-nav.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/labels.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/js/vendor/less.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/list-group.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/consumption/list.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/media.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/migration.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/mixins.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/modal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tests/unit/modal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/modals.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_includes/nav-about.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_includes/nav-components.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_includes/nav-css.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_includes/nav-customize.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_includes/nav-getting-started.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_includes/nav-javascript.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_includes/nav-main.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_includes/nav-migration.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/navbar-fixed-top/navbar-fixed-top.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/navbar-static-top/navbar-static-top.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/navbar/navbar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/navbar.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/navs.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/non-responsive/non-responsive.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/normalize.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/test-infra/npm-shrinkwrap.canonical.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/offcanvas/offcanvas.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/offcanvas/offcanvas.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/pager.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/pagination.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/panels.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tests/unit/phantom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/popover.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tests/unit/popover.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/popovers.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/print.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/progress-bars.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/css/pygments-manni.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tests/vendor/qunit.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tests/vendor/qunit.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/js/raw-files.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/test-infra/requirements.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/responsive-utilities.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/test-infra/s3_cache.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_data/sass-team.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/test-infra/sauce_browsers.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/scaffolding.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/scrollspy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tests/unit/scrollspy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/skel/search.php.in" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/skel/search.tpl.in" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2-bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_ar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_bg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_da.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_el.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_en.js.template" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_et.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_eu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_fa.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_gl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_he.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_hu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_id.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_is.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_ka.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_ko.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_lt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_lv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_mk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_ms.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_no.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_pt-BR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_pt-PT.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_ro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_rs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_sk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_sv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_th.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_tr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_uk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_vi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_zh-CN.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/3ch3r46/bootui-select2/dist/select2_locale_zh-TW.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_data/showcase.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/grunt/shrinkwrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/signin/signin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/_includes/social-buttons.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/starter-template/starter-template.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/sticky-footer-navbar/sticky-footer-navbar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/sticky-footer/sticky-footer.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/skel/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/skel/suggest.php.in" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tab.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tests/unit/tab.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/tables.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/examples/theme/theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/theme.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/thumbnails.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tooltip.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/tests/unit/tooltip.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/tooltip.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/js/transition.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/type.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/docs/assets/js/vendor/uglify.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/test-infra/uncached-npm-install.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/com-message-box/update.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/consumption/update.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/cus-verification-code/update.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/utilities.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/variables.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/com-message-box/view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/consumption/view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/cus-verification-code/view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/twbs/bootstrap/less/wells.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/bin/xs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/util/xs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/hightman/xunsearch/lib/xs_cmd.inc.php" />
+      <change type="DELETED" beforePath="C:\Users\pan\Documents\GitHub\lovexinyang\project\src\ixinyang-web\ixinyang\common\hycommon\interface\UserInterface.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/ComCheckoutStream.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/ComCheckoutStream.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/ComRefundReview.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/ComRefundReview.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/ComRefundReviewController.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/ComRefundReviewController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/ComroleController.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/ComroleController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/CusConsumptionRecords.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/CusConsumptionRecords.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/CusConsumptionRecordsController.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/CusConsumptionRecordsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/CusOrderDetails.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/CusOrderDetails.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/CusOrderDetailsController.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/CusOrderDetailsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/CusOrderDetailsSearch.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/CusOrderDetailsSearch.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/ShopInfoReview.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/ShopInfoReview.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/ShopinforeviewController.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/ShopinforeviewController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/StoApplyInfo.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/StoApplyInfo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/StoBalanceReviewController.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/StoBalanceReviewController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/StoGoods.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/StoGoods.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/StoGoodsController.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/StoGoodsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/StoGoodsSearch.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/StoGoodsSearch.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/StoSellerInfoController.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/StoSellerInfoController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/StoStoreInfo.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/StoStoreInfo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/StostoreinfoController.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/controllers/StostoreinfoController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/comrole/_form.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/comrole/_form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/cus-order-details/_form.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/cus-order-details/_form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/shop-info-review/_form.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/shop-info-review/_form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/cus-order-details/_search.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/cus-order-details/_search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/autoload.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/autoload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_classmap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_psr4.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_psr4.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_real.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_real.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/cus-consumption-records/closingaudit.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/cus-consumption-records/closingaudit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/layouts/columns_content.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/layouts/columns_content.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.json" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/constant.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/constant.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/index.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/login.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.lock" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/shop-info-review/create.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/shop-info-review/create.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/sto-apply-info/cusmanagerreview.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/sto-apply-info/cusmanagerreview.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/com-refund-review/detail.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/com-refund-review/detail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/sto-apply-info/discusstasks.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/sto-apply-info/discusstasks.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/com-refund-review/index.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/com-refund-review/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/comrole/index.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/comrole/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/cus-order-details/index.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/cus-order-details/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/shop-info-review/index.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/shop-info-review/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/shopinforeview/index.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/shopinforeview/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/sto-apply-info/index.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/sto-apply-info/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/sto-balance-review/index.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/sto-balance-review/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/sto-seller-info/index.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/sto-seller-info/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/stostoreinfo/index.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/stostoreinfo/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/installed.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/shop-info-review/list.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/shop-info-review/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/stostoreinfo/list.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/stostoreinfo/list.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/main-local.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/main-local.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/main.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/sto-seller-info/refundList.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/sto-seller-info/refundList.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/sto-seller-info/settleAccounts.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/sto-seller-info/settleAccounts.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/shop-info-review/update.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/shop-info-review/update.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/cus-order-details/view.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/cus-order-details/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/shop-info-review/view.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/views/shop-info-review/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/design/数据格式/用户数据格式" afterPath="$PROJECT_DIR$/project/design/数据格式/用户数据格式" />
     </list>
     <ignored path="lovexinyang.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,31 +552,57 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="installed.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/installed.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="46550">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClassLoader.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/ClassLoader.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.071429" vertical-offset="114" max-vertical-offset="7239">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="composer.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7378641" vertical-offset="171" max-vertical-offset="950">
-              <caret line="25" column="15" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="15" />
+            <state vertical-scroll-proportion="1.1990291" vertical-offset="0" max-vertical-offset="969">
+              <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="composer.lock" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.lock">
+          <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="46132">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="composer.json.bak" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.json.bak">
+          <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="817">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="4.964286" vertical-offset="139" max-vertical-offset="551">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main-local.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/main-local.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.5" vertical-offset="0" max-vertical-offset="494">
+              <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -110,18 +631,8 @@
       <file leaf-file-name="autoload_psr4.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_psr4.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.178572" vertical-offset="570" max-vertical-offset="1007">
-              <caret line="45" column="61" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://D:/xampp/htdocs/yii2/apps/yii2test/backend/web/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.392857" vertical-offset="0" max-vertical-offset="456">
-              <caret line="5" column="56" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
+            <state vertical-scroll-proportion="-10.178572" vertical-offset="608" max-vertical-offset="1026">
+              <caret line="47" column="2" selection-start-line="47" selection-start-column="2" selection-end-line="47" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -147,7 +658,6 @@
         <option value="$PROJECT_DIR$/project/src/ixinyang-workerman/applications/ixinyang-sender/Event.php" />
         <option value="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/layouts/main.php" />
         <option value="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/login.php" />
-        <option value="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/main-local.php" />
         <option value="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/index.php" />
         <option value="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/SiteController.php" />
         <option value="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/hycommon/tool/SendSocketMessage.php" />
@@ -156,6 +666,7 @@
         <option value="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/autoload.php" />
         <option value="$PROJECT_DIR$/project/src/ixinyang-web/composer.json" />
         <option value="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.json" />
+        <option value="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/main-local.php" />
       </list>
     </option>
   </component>
@@ -446,6 +957,74 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ixinyang-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ixinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hycommon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lovexinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lovexinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ixinyang-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ixinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lovexinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lovexinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -540,7 +1119,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1360" height="728" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -548,7 +1127,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2753846" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2753846" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17420435" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -661,13 +1240,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/main-local.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.75" vertical-offset="0" max-vertical-offset="494">
-          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/yiisoft/yii2/base/ViewEvent.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.0" vertical-offset="144" max-vertical-offset="779">
@@ -749,27 +1321,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.json.bak">
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="817">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.lock">
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.508" vertical-offset="1254" max-vertical-offset="44992">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/packageInfo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
@@ -809,7 +1360,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="46550">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;type&quot;: &quot;zip&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;bootui\\select2\\&quot;: &quot;&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;name&quot;: &quot;Moh Khoirul Anam&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;yiisoft/yii2&quot;: &quot;*&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;bootui\\datepicker\\&quot;: &quot;&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;name&quot;: &quot;Moh Khoirul Anam&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;dev-master&quot;: &quot;3.0.x-dev&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;name&quot;: &quot;Jacob Thornton&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;3ch3r46/bootui-datepicker&quot;: &quot;*&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;bootui\\&quot;: &quot;&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;name&quot;: &quot;Moh Khoirul Anam&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;type&quot;: &quot;git&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;type&quot;: &quot;git&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;type&quot;: &quot;git&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;kartik-v/yii2-krajee-base&quot;: &quot;*&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;type&quot;: &quot;git&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;type&quot;: &quot;zip&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;kartik\\color\\&quot;: &quot;&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;name&quot;: &quot;Kartik Visweswaran&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;type&quot;: &quot;git&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;kartik\\alert\\&quot;: &quot;&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;name&quot;: &quot;Kartik Visweswaran&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;type&quot;: &quot;git&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;kartik\\affix\\&quot;: &quot;&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;type&quot;: &quot;git&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;kartik\\form\\&quot;: &quot;&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;name&quot;: &quot;Kartik Visweswaran&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;type&quot;: &quot;zip&quot;...}" />
+            <marker date="1419392960057" expanded="true" signature="-1:-1" placeholder="{&quot;kartik-v/yii2-krajee-base&quot;: &quot;*&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -839,8 +1436,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_psr4.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.178572" vertical-offset="570" max-vertical-offset="1007">
-          <caret line="45" column="61" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
+        <state vertical-scroll-proportion="-10.178572" vertical-offset="608" max-vertical-offset="1026">
+          <caret line="47" column="2" selection-start-line="47" selection-start-column="2" selection-end-line="47" selection-end-column="2" />
           <folding />
         </state>
       </provider>
@@ -877,10 +1474,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.964286" vertical-offset="139" max-vertical-offset="551">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/main-local.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.5" vertical-offset="0" max-vertical-offset="494">
+          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.lock">
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="46132">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.json.bak">
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="817">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7378641" vertical-offset="171" max-vertical-offset="950">
-          <caret line="25" column="15" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="15" />
+        <state vertical-scroll-proportion="1.1990291" vertical-offset="0" max-vertical-offset="969">
+          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
           <folding />
         </state>
       </provider>

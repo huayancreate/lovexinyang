@@ -4,6 +4,7 @@ namespace backend\models;
 
 use Yii;
 use yii\data\ActiveDataProvider;
+
 /**
  * This is the model class for table "cus_consumption_records".
  *
@@ -77,18 +78,35 @@ class CusConsumptionRecords extends \yii\db\ActiveRecord
     public function settleAccount($fromDate, $toDate)
     {
         //1.根据时间段去查询当前时间段中商家的所有消费流水(除去线下交易流水)
-        $model = $this->getConsumption($fromDate, $toDate);
+        $model = $this->getSumConsumption($fromDate, $toDate);
         //2.产生结账审核记录
         $this->addBalanceReview($fromDate, $toDate, $model->payablePrice);
 
     }
 
-    public function getConsumption($fromDate, $toDate)
+    public function getSumConsumption($fromDate, $toDate)
     {
         $sql = "select sum(payablePrice*goodsNumber) as payablePrice from cus_consumption_records
-              where sellerId=1 and (verifierTime BETWEEN '$fromDate' and '$toDate')";
+              where sellerId=1 and (verifierTime BETWEEN '$fromDate' and '$toDate') and flag='0'";
         $model = CusConsumptionRecords::findBySql($sql)->one();
         return $model;
+    }
+
+    /**
+     * @param $fromDate
+     * @param $toDate
+     * @return ActiveDataProvider
+     */
+    public function getConsumption($fromDate, $toDate)
+    {
+        $query = $this::find();
+        $id = 1;//商家Id
+        $query->andWhere(['sellerId' => $id, 'flag' => '0']);
+        $query->andFilterWhere(['BETWEEN', 'verifierTime', $fromDate, $toDate]);
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+        return $dataProvider;
     }
 
     public function addBalanceReview($fromDate, $toDate, $totalMoney)
@@ -107,11 +125,15 @@ class CusConsumptionRecords extends \yii\db\ActiveRecord
         $model->balanceEndTime = $toDate;
         $model->storeId = 0;
         $model->storeName = "测试数据";
+        $model->shopId = 0;
+        $model->shopName = "测试数据";
         $model->applyerId = 0;
+        $model->applyTime = date("Y-m-d H:i:s");
         $model->applyerAccount = "201412141153";
         $model->applyMoney = $totalMoney;
         $model->actualBalanceMoney = 0;
         $model->financeReviewTime = 0;
+        $model->remark = "";
 
         $model->save();
     }

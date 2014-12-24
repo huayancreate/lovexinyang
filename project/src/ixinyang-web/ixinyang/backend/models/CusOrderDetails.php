@@ -35,9 +35,11 @@ class CusOrderDetails extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['orderId', 'goodsId', 'totalNum', 'sellerId'], 'integer'],
+            [['orderId', 'goodsId', 'totalNum', 'sellerId', 'shopId', 'CodeStatus'], 'integer'],
             [['price', 'totalPrice', 'rebatePrice'], 'number'],
-            [['goodsName', 'rebate', 'memberCardNo'], 'string', 'max' => 50]
+            [['goodsName', 'rebate', 'memberCardNo','validateCodeHash'], 'string', 'max' => 50],
+            [['shopName'], 'string', 'max' => 100],
+            [['validateCode'], 'string', 'max' => 16]
         ];
     }
 
@@ -47,7 +49,7 @@ class CusOrderDetails extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+            'id' => '自增列',
             'orderId' => '订单ID',
             'goodsName' => '商品名称',
             'goodsId' => '商品ID',
@@ -58,6 +60,28 @@ class CusOrderDetails extends \yii\db\ActiveRecord
             'totalNum' => '商品数量',
             'sellerId' => '商家ID',
             'memberCardNo' => '会员卡卡号',
+            'shopId' => '店铺id',
+            'shopName' => '店铺名称',
+            'validateCode' => '验证码',
+            'CodeStatus' => '验证码状态', //： 0 未生成 1 已付款 2 已消费 3已退款
+            'validateCodeHash' => '加密验证码',
         ];
+    }
+
+    public function getCodeStatus($index){
+        switch ($index) {
+            case '0':
+                return "<b style='color:red'>未付款</b>";
+                break;
+            case '1':
+                return "<b style='color:#FF8C00'>未消费</b>";
+                break;
+            case '2':
+                return "<b style='color:#008000'>已消费</b>";
+                break;
+            case '3':
+                return "<b style='color:#A0522D'>已退费</b>";
+                break;
+        }
     }
 }

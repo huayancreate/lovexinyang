@@ -38,6 +38,7 @@ class StostoreinfoController extends Controller
     {
         $dataProvider = new ActiveDataProvider([
             'query' => StoStoreInfo::find(),
+            'pagination' => ['pagesize' => '5'],
         ]);
 
         return $this->render('index', [
@@ -59,7 +60,7 @@ class StostoreinfoController extends Controller
     protected function getShopInforeViewData(){
         $dataProvider = new ActiveDataProvider([
             'query' => ShopInfoReview::find(),
-            'pagination' => ['pagesize' => '4'],
+            'pagination' => ['pagesize' => '5'],
         ]);
         return $dataProvider;
     }

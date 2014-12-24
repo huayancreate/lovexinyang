@@ -39,6 +39,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'totalNum',
             'sellerId',
             'memberCardNo',
+            'shopId',
+            'shopName',
+            'validateCode',
+            'CodeStatus',
         ],
     ]) ?>
 

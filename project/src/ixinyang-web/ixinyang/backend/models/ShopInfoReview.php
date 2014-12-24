@@ -56,7 +56,9 @@ class ShopInfoReview extends \yii\db\ActiveRecord
             [['applyTime', 'auditTime', 'managerTime'], 'safe'],
             [['city', 'shopName', 'contact', 'regional', 'storeAccount'], 'string', 'max' => 50],
             [['address'], 'string', 'max' => 250],
-            [['businessHours', 'applyUserName', 'auditUserName', 'managerName', 'Rejection'], 'string', 'max' => 100]
+            [['businessHours', 'applyUserName', 'auditUserName', 'managerName', 'Rejection'], 'string', 'max' => 100],
+            [['alipayNo'], 'string', 'max' => 40],
+            [['alipayName'], 'string', 'max' => 150]
         ];
     }
 

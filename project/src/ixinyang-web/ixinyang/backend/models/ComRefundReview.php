@@ -94,7 +94,7 @@ class ComRefundReview extends \yii\db\ActiveRecord
     public function getRefundReviews($fromDate, $toDate)
     {
         $query = $this::find();
-        $id = 1;
+        $id = 1;//商家Id
         $query->andWhere(['busiId' => $id, 'financeReviewStatus' => '0']);
         $query->andFilterWhere(['BETWEEN', 'applyTime', $fromDate, $toDate]);
         $dataProvider = new ActiveDataProvider([
@@ -110,11 +110,12 @@ class ComRefundReview extends \yii\db\ActiveRecord
      * @param $status
      * @throws \yii\db\Exception
      */
-    public function verifyRefundReview($status)
+    public function verifyRefundReview($status, $remark)
     {
         $transaction = $this->getDb()->beginTransaction();
         try {
             $this->financeReviewStatus = $status;
+            $this->remark = $remark;
             $this->save();
             $this->saveRefundReStream();
 
@@ -172,7 +173,7 @@ class ComRefundReview extends \yii\db\ActiveRecord
             'query' => $query,
         ]);
 
-        $query->andWhere(['orderId'=>$orderId]);
+        $query->andWhere(['orderId' => $orderId]);
         return $dataProvider;
 
         //return CusOrderDetails::find()->where(['orderId' => $orderId])->asArray();

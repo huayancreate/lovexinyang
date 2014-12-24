@@ -59,7 +59,7 @@ false:登录失败  message传递错误信息
 
 用户:
 获取用户基础信息:
-action:user
+actionName:UserAction
 {
 	"token":  "value",
 	"username": "value",
@@ -71,100 +71,529 @@ opeType: 操作字段 getInfo
 返回json:
 {"success":"true",
 	"content":{
-		[ "username": "xuwei",
+		 "username": "xuwei",
 		  "realname": "许玮",
 		  "sex": "男",
 		  XXXXXX
-		],
 	}
 } 不包含支付密码、绑定手机号
 
 变更用户基础信息
-
-密码接口
-登录密码的修改
-支付密码的修改
-绑定手机的修改
-
-收藏
-获取用户收藏信息
+actionName:UserAction
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "value",
+	"sex": "value"
+	XXXXX
+}
+token: 登录成功后给你返回的message
+username: 登录用户
+opeType: 操作字段 updateInfo
+你要修改的内容
+  "sex": "value"
+  XXXXX
 返回json:
 {"success":"true",
 	"content":{
-		[ "type": "商品/商家",
-		  "id": "1231232131"
-		],
-		[ 
-		  "id": "1231232131"
-		],
-		[ "username": "xuwei"
-		],
+			"result":"true",
+			"message":"更新成功!"
 	}
 }
-添加收藏
-
-财务接口
-获取用户财务信息
-余额
-
-财务操作充值
-财务操作提现
 
 
-用户会员卡接口
-会员卡列表
-获取会员卡（包含会员卡基础规则说明）
-会员卡消费记录
-生成会员卡（等同于获取会员）
+密码接口
+actionName:PasswordAction
+登录密码的修改:loginPassword
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "loginPassword",
+	"oldPassword": "value",
+	"newPassword": "value"
+}
 
-获取用户订单信息   （消费历史记录）
-查询
-删除
-详细信息
+支付密码的设置:setPayPassword
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "setPayPassword",
+	"oldPassword": "value",
+	"newPassword": "value"
+}
 
-订单购买退款接口
-订单生成
-付款
-退款
+支付密码的修改:updatePayPassword
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "updatePayPassword",
+	"oldPassword": "value",
+	"newPassword": "value"
+}
+
+绑定手机:bindPhoneNumber
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "bindPhoneNumber",
+	"phoneNumber": "value"
+}
+
+绑定手机修改:updateBindPhoneNumber
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "updateBindPhoneNumber",
+	"oldPhoneNumber": "value",
+	"newPhoneNumber": "value"
+}
+
+以上返回json:
+{"success":"true",
+	"content":{
+			"result":"true",
+			"message":"更新成功!"
+	}
+}
 
 
-店铺
-获取店铺基础信息
-获取所有店铺信息
 
-商品
-获取所有商品信息
-type : 类别
-    商圈
+
+收藏
+actionName:BookmarkAction
+获取用户收藏信息:getAllInfo
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "getAllInfo",
+}
+返回json:
+{"success":"true",
+	"content":{
+		"recordList":
+		[ {"type": "商品/商家",
+			"id": "1231232131",
+			"name": "value",
+			"time": "value"},
+
+			{
+			"type": "商品/商家",
+			"id": "1231232131",
+			"name": "value",
+			"time": "value"
+			}
+		],
+		"pageCount": "10",
+        "pecordCount":"100"
+	}
+}
+添加收藏:add
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "add",
+	"id": "value",
+	"type": "商品/商家"
+}
 
 {"success":"true",
 	"content":{
-		[
-		  "id": "1231232131",
-		  "name"
-		  ""
-		  "imgs": ["http:/asdasdasdj.com/img1.jpg"],["http:/asdasdasdj.com/img2.jpg"],
-		  "已消费人数": 30
-		  "购买须知": 
-		],
-		[
-		  "id": "1231232131",
-		  "name"
-		  ""
-		  "img": "http:/asdasdasdj.com/img.jpg",
-		],
-		[
-		  "id": "1231232131",
-		  "name"
-		  ""
-		  "img": "http:/asdasdasdj.com/img.jpg",
-		],
-	
+			"result":"true",
+			"message":"添加成功!"
 	}
 }
 
-广告
-banner
+
+财务:FinanceAction
+余额:surplusMoney
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "surplusMoney",
+}
+返回
+{"success":"true",
+	"content":{
+			"result": "true",
+			"money": "60"
+	}
+}
+
+充值:fillMoney
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "fillMoney",
+	"type": "0",     //0支付宝
+	"money": "100"
+}
+返回
+{"success":"true",
+	"content":{
+			"result": "true",
+			"url": "value"
+	}
+}
+url 跳转到支付宝的地址（此处可能是支付宝接口提供的一个地址，需要调查,但应该这样的形式，以后银行也是一样的形式）
+
+提现:extractMoney
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "extractMoney",
+	"type": "0",     //0支付宝
+	"money": "100"
+}
+返回
+{"success":"true",
+	"content":{
+			"result": "true",
+			"message": "提现成功!"
+}
+
+用户会员卡:MemberCardAction
+会员卡列表:getAllCards
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "getAllCards",
+}
+返回json
+{"success":"true",
+	"content":{
+		"recordList":
+		[ 
+			{"id": "1231232131",
+			"name": "value",
+			"time": "value"
+			XXX},
+
+			{"id": "1231232131",
+			"name": "value",
+			"time": "value"
+			XXX}
+		]
+		"pageCount": "10",
+        "pecordCount":"100"
+	}
+}
+
+获取会员卡:getCardInfo
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "getCardInfo",
+	"shopID": "123213",
+}
+返回json
+{"success":"true",
+	"content":{
+			"name": "vallue",
+			"rule": "xxxxxxx",
+			xxxxxx
+	}
+}
+
+会员卡消费记录:getCardConsumerList
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "getCardConsumerList",
+	"cardID": "123213",
+}
+返回json
+{"success":"true",
+	"content":{
+		recordList:
+		[ 
+			{"name": "vallue",
+			xxxxxx},
+
+			{
+			"name": "vallue",
+			xxxxxx
+			},
+
+
+			{
+			"name": "vallue",
+			xxxxxx
+			},
+			
+			{
+			"name": "vallue",
+			xxxxxx
+			},
+			
+		],
+		"pageCount": "10",
+        "pecordCount":"100"
+	}
+}
+
+生成会员卡:createMemberCard
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "getCardConsumerList",
+	"shopid": "123123123",
+}
+{"success":"true",
+	"content":{
+			"result": "true",
+			"cardID": "12312313",
+			"message": "提现成功!"
+	}
+}
+
+
+订单:OrderAction
+订单查询:getList
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "getList",
+	XXX(日期,商店id,等等)
+}
+返回json
+{"success":"true",
+	"content":{
+		recordList:
+		[ 
+			{"id": "vallue",
+			xxxxxx},
+
+			{"id": "vallue",
+			xxxxxx},
+
+			{"id": "vallue",
+			xxxxxx},
+
+			{"id": "vallue",
+			xxxxxx},
+		],
+		"pageCount": "10",
+        "pecordCount":"100"
+
+	}
+}
+
+删除订单:del
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "del",
+	orderID: "value"
+}
+{"success":"true",
+	"content":{
+			"result": "true",
+			"message": "删除成功!"
+	}
+}
+
+订单详情:getDetils
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "getDetils",
+	"orderID": "value"
+}
+返回json
+{"success":"true",
+	"content":{
+		recordList:
+		[ 
+			{"goodsID": "vallue",
+			xxxxxx},
+
+			{"goodsID": "vallue",
+			xxxxxx},
+
+			{"goodsID": "vallue",
+			xxxxxx},
+
+			{"goodsID": "vallue",
+			xxxxxx},
+		],
+		"pageCount": "10",
+        "pecordCount":"100"
+	}
+}
+
+订单交易:OrderTransAction
+订单生成:createOrder
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "getDetils",
+	"goodsInfo" :[{"goodsId": "123123", "number": 2},{"goodsId": "123123", "number": 2},{"goodsId": "123123", "number": 2}]
+}
+返回json
+{"success":"true",
+	"content":{
+			"result": "true",
+			"orderID": "123123",
+			"message": "订单生成成功!"
+	}
+}
+付款:pay
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "pay",
+	"orderID": "123123213"
+}
+{"success":"true",
+	"content":{
+			"result": "true",
+			"url": "value"
+	}
+}
+url 跳转到支付宝的地址（此处可能是支付宝接口提供的一个地址，需要调查,但应该这样的形式，以后银行也是一样的形式）
+
+退款:refund
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "refund",
+	"orderID": "123123213"
+}
+返回json
+{"success":"true",
+	"content":{
+			"result": "true",
+			"message": "退款成功!"
+	}
+}（此处有待商榷）
+
+
+店铺:ShopAction
+获取所有店铺信息:getShopList
+{
+	"opeType": "getShopList",
+	"searchString": "value",
+	"type": "类别",
+	XXXX
+}
+返回json
+{"success":"true",
+	"content":{
+		recordList:
+		[ 
+			{"shopID": "vallue",
+			xxxxxx},
+
+			{"shopID": "vallue",
+			xxxxxx},
+
+			{"shopID": "vallue",
+			xxxxxx},
+
+			{"shopID": "vallue",
+			xxxxxx},
+		],
+		"pageCount": "10",
+        "pecordCount":"100"
+	}
+}
+
+获取店铺基础信息:getShopDetils
+{
+	"opeType": "getShopDetils",
+	"shopID": "123123"
+}
+返回json
+{"success":"true",
+	"content":{
+		"result": "true",
+		xxxxx
+	}
+}
+
+
+商品:GoodsAction
+获取所有商品信息:getGoodsList
+{
+	"opeType": "getGoodsList",
+	"searchString": "value"
+	"type": "类别"
+	XXXX
+}
+返回json
+{"success":"true",
+	"content":{
+		recordList:
+		[ 
+			{"goodsID": "vallue",
+			"imgs": ["http:/asdasdasdj.com/img1.jpg"],["http:/asdasdasdj.com/img2.jpg"],
+		  "已消费人数": 30
+		  "购买须知": "123123",
+		  xxxxxxx
+		  },
+
+			{"goodsID": "vallue",
+			"imgs": ["http:/asdasdasdj.com/img1.jpg"],["http:/asdasdasdj.com/img2.jpg"],
+		  "已消费人数": 30
+		  "购买须知": "123123",
+		  xxxxxxx},
+
+			{"goodsID": "vallue",
+			"imgs": ["http:/asdasdasdj.com/img1.jpg"],["http:/asdasdasdj.com/img2.jpg"],
+		  "已消费人数": 30
+		  "购买须知": "123123",
+		  xxxxxxx},
+
+			{"goodsID": "vallue",
+			"imgs": ["http:/asdasdasdj.com/img1.jpg"],["http:/asdasdasdj.com/img2.jpg"],
+		  "已消费人数": 30
+		  "购买须知": "123123",
+		  xxxxxxx},
+		],
+		"pageCount": "10",
+        "pecordCount":"100"
+	}
+}
+
+广告:AdvAction
+banner:getBannerList
+{
+	"opeType": "getBannerList",
+	"type": "类别"
+	XXXX
+}
+返回json
+{"success":"true",
+	"content":{
+		recordList:
+		[ 
+			{"goodsID": "vallue",
+			"imgs": ["http:/asdasdasdj.com/img1.jpg"],["http:/asdasdasdj.com/img2.jpg"],
+		  "已消费人数": 30
+		  "购买须知": "123123",
+		  xxxxxxx
+		  },
+
+			{"goodsID": "vallue",
+			"imgs": ["http:/asdasdasdj.com/img1.jpg"],["http:/asdasdasdj.com/img2.jpg"],
+		  "已消费人数": 30
+		  "购买须知": "123123",
+		  xxxxxxx},
+
+			{"goodsID": "vallue",
+			"imgs": ["http:/asdasdasdj.com/img1.jpg"],["http:/asdasdasdj.com/img2.jpg"],
+		  "已消费人数": 30
+		  "购买须知": "123123",
+		  xxxxxxx},
+
+			{"goodsID": "vallue",
+			"imgs": ["http:/asdasdasdj.com/img1.jpg"],["http:/asdasdasdj.com/img2.jpg"],
+		  "已消费人数": 30
+		  "购买须知": "123123",
+		  xxxxxxx},
+		]
+	}
+}
 
 获取相关商品
 

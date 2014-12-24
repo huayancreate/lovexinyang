@@ -24,7 +24,8 @@
         "kartik-v/yii2-date-range": "*",
         "kartik-v/yii2-widget-fileinput": "*",
         "kartik-v/yii2-widgets": "*",
-        "wisembly/elephant.io": "~3.0"
+        "wisembly/elephant.io": "~3.0",
+        "hightman/xunsearch": "*@beta"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

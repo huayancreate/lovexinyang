@@ -1139,192 +1139,6 @@
         ]
     },
     {
-        "name": "3ch3r46/bootui-select2",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://bitbucket.org/3ch3r46/bootui-select2.git",
-            "reference": "f02ae8ba908db0089dd6ce1232733c504d5cfc6f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://bitbucket.org/3ch3r46/bootui-select2/get/f02ae8ba908db0089dd6ce1232733c504d5cfc6f.zip",
-            "reference": "f02ae8ba908db0089dd6ce1232733c504d5cfc6f",
-            "shasum": ""
-        },
-        "time": "2014-05-28 06:24:28",
-        "type": "yii2-extension",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "bootui\\select2\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Moh Khoirul Anam",
-                "email": "3ch3r46@gmail.com"
-            }
-        ],
-        "description": "Select2 is a jQuery based replacement for select boxes. It supports searching, remote data sets, and infinite scrolling of results.",
-        "keywords": [
-            "dropdownlist",
-            "extension",
-            "listbox",
-            "select",
-            "select2",
-            "yii2"
-        ]
-    },
-    {
-        "name": "3ch3r46/bootui-datepicker",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://bitbucket.org/3ch3r46/bootui-datepicker.git",
-            "reference": "f04fe2dfbed787340fe8b833d022c02e1fa607cb"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://bitbucket.org/3ch3r46/bootui-datepicker/get/f04fe2dfbed787340fe8b833d022c02e1fa607cb.zip",
-            "reference": "f04fe2dfbed787340fe8b833d022c02e1fa607cb",
-            "shasum": ""
-        },
-        "require": {
-            "yiisoft/yii2": "*",
-            "yiisoft/yii2-bootstrap": "*"
-        },
-        "time": "2014-05-28 06:58:48",
-        "type": "yii2-extension",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "bootui\\datepicker\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Moh Khoirul Anam",
-                "email": "3ch3r46@gmail.com"
-            }
-        ],
-        "description": "The Bootstrap Datepicker extension for yii framework",
-        "keywords": [
-            "date",
-            "datepicker",
-            "extension",
-            "yii2"
-        ]
-    },
-    {
-        "name": "twbs/bootstrap",
-        "version": "v3.1.1",
-        "version_normalized": "3.1.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/twbs/bootstrap.git",
-            "reference": "a365d8689c3f3cee7f1acf86b61270ecca8e106d"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/a365d8689c3f3cee7f1acf86b61270ecca8e106d",
-            "reference": "a365d8689c3f3cee7f1acf86b61270ecca8e106d",
-            "shasum": ""
-        },
-        "time": "2014-02-13 17:24:59",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Jacob Thornton",
-                "email": "jacobthornton@gmail.com"
-            },
-            {
-                "name": "Mark Otto",
-                "email": "markdotto@gmail.com"
-            }
-        ],
-        "description": "Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.",
-        "homepage": "http://getbootstrap.com",
-        "keywords": [
-            "bootstrap",
-            "css"
-        ]
-    },
-    {
-        "name": "3ch3r46/yii2-bootui",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://bitbucket.org/3ch3r46/yii2-bootui.git",
-            "reference": "5368be3a32ffb0cc90c9c9aeb6925ab36b3b378f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://bitbucket.org/3ch3r46/yii2-bootui/get/5368be3a32ffb0cc90c9c9aeb6925ab36b3b378f.zip",
-            "reference": "5368be3a32ffb0cc90c9c9aeb6925ab36b3b378f",
-            "shasum": ""
-        },
-        "require": {
-            "3ch3r46/bootui-datepicker": "*",
-            "3ch3r46/bootui-select2": "*",
-            "twbs/bootstrap": "3.1.*",
-            "yiisoft/yii2": "*"
-        },
-        "time": "2014-06-27 07:06:44",
-        "type": "yii2-extension",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "bootui\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Moh Khoirul Anam",
-                "email": "3ch3r46@gmail.com"
-            }
-        ],
-        "description": "The Bootstrap 3 widget for yii 2 framework.",
-        "keywords": [
-            "JS",
-            "bootstrap",
-            "button",
-            "css",
-            "dropdown",
-            "extension",
-            "form",
-            "navbar",
-            "navigation",
-            "widget",
-            "yii2"
-        ]
-    },
-    {
         "name": "kartik-v/yii2-widget-typeahead",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -2438,6 +2252,252 @@
             "extension",
             "form",
             "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "3ch3r46/bootui-select2",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://bitbucket.org/3ch3r46/bootui-select2.git",
+            "reference": "f02ae8ba908db0089dd6ce1232733c504d5cfc6f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://bitbucket.org/3ch3r46/bootui-select2/get/f02ae8ba908db0089dd6ce1232733c504d5cfc6f.zip",
+            "reference": "f02ae8ba908db0089dd6ce1232733c504d5cfc6f",
+            "shasum": ""
+        },
+        "time": "2014-05-28 06:24:28",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "bootui\\select2\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Moh Khoirul Anam",
+                "email": "3ch3r46@gmail.com"
+            }
+        ],
+        "description": "Select2 is a jQuery based replacement for select boxes. It supports searching, remote data sets, and infinite scrolling of results.",
+        "keywords": [
+            "dropdownlist",
+            "extension",
+            "listbox",
+            "select",
+            "select2",
+            "yii2"
+        ]
+    },
+    {
+        "name": "3ch3r46/bootui-datepicker",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://bitbucket.org/3ch3r46/bootui-datepicker.git",
+            "reference": "f04fe2dfbed787340fe8b833d022c02e1fa607cb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://bitbucket.org/3ch3r46/bootui-datepicker/get/f04fe2dfbed787340fe8b833d022c02e1fa607cb.zip",
+            "reference": "f04fe2dfbed787340fe8b833d022c02e1fa607cb",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": "*",
+            "yiisoft/yii2-bootstrap": "*"
+        },
+        "time": "2014-05-28 06:58:48",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "bootui\\datepicker\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Moh Khoirul Anam",
+                "email": "3ch3r46@gmail.com"
+            }
+        ],
+        "description": "The Bootstrap Datepicker extension for yii framework",
+        "keywords": [
+            "date",
+            "datepicker",
+            "extension",
+            "yii2"
+        ]
+    },
+    {
+        "name": "twbs/bootstrap",
+        "version": "v3.1.1",
+        "version_normalized": "3.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/twbs/bootstrap.git",
+            "reference": "a365d8689c3f3cee7f1acf86b61270ecca8e106d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/a365d8689c3f3cee7f1acf86b61270ecca8e106d",
+            "reference": "a365d8689c3f3cee7f1acf86b61270ecca8e106d",
+            "shasum": ""
+        },
+        "time": "2014-02-13 17:24:59",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jacob Thornton",
+                "email": "jacobthornton@gmail.com"
+            },
+            {
+                "name": "Mark Otto",
+                "email": "markdotto@gmail.com"
+            }
+        ],
+        "description": "Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.",
+        "homepage": "http://getbootstrap.com",
+        "keywords": [
+            "bootstrap",
+            "css"
+        ]
+    },
+    {
+        "name": "3ch3r46/yii2-bootui",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://bitbucket.org/3ch3r46/yii2-bootui.git",
+            "reference": "7e07934c2719f5d38543cc9d7073399ce2de858b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://bitbucket.org/3ch3r46/yii2-bootui/get/7e07934c2719f5d38543cc9d7073399ce2de858b.zip",
+            "reference": "7e07934c2719f5d38543cc9d7073399ce2de858b",
+            "shasum": ""
+        },
+        "require": {
+            "3ch3r46/bootui-datepicker": "*",
+            "3ch3r46/bootui-select2": "*",
+            "twbs/bootstrap": "3.1.*",
+            "yiisoft/yii2": "*"
+        },
+        "time": "2014-12-16 01:53:15",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "bootui\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Moh Khoirul Anam",
+                "email": "3ch3r46@gmail.com"
+            }
+        ],
+        "description": "The Bootstrap 3 widget for yii 2 framework.",
+        "keywords": [
+            "JS",
+            "bootstrap",
+            "button",
+            "css",
+            "dropdown",
+            "extension",
+            "form",
+            "navbar",
+            "navigation",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "hightman/xunsearch",
+        "version": "1.4.9-beta2",
+        "version_normalized": "1.4.9.0-beta2",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/hightman/xs-sdk-php.git",
+            "reference": "912dc6794c68111481f99e73f1f40a5a603debff"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/hightman/xs-sdk-php/zipball/912dc6794c68111481f99e73f1f40a5a603debff",
+            "reference": "912dc6794c68111481f99e73f1f40a5a603debff",
+            "shasum": ""
+        },
+        "require": {
+            "ext-mbstring": "*",
+            "lib-pcre": "*",
+            "php": ">=5.3.0"
+        },
+        "time": "2014-12-16 14:26:27",
+        "bin": [
+            "util/xs"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.4.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "lib/",
+                "wrapper/yii-ext/"
+            ],
+            "psr-4": {
+                "hightman\\xunsearch\\": "wrapper/yii2-ext/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "hightman",
+                "email": "hightman@twomice.net",
+                "role": "Founder and project leader"
+            }
+        ],
+        "description": "xunsearch php sdk, include yii, yii2 supports",
+        "homepage": "http://www.xunsearch.com/",
+        "keywords": [
+            "search engine",
+            "xunsearch",
+            "yii",
             "yii2"
         ]
     }
