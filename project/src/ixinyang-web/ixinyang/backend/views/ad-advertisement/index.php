@@ -85,10 +85,42 @@ $this->params['breadcrumbs'][] = $this->title;*/
   }*/
 
   function addAd(){
-     var url="ad-advertisement/create";
-     JuiDialog.dialog("dialogId","广告添加",url,"advertisementForm","adGridList");
+    //加载广告设置信息
+    getCreateInfo();
+    $("#dialogId").dialog("open");
+    $("#dialogId").dialog({
+                    autoOpen:false,
+                    modal: true,
+                    title:"广告设置",
+                    show: "blind",             //show:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果
+                    hide: "explode",       //hide:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果
+                    resizable: true,
+                    overlay: {
+                        opacity: 0.5,
+                        background: "black",
+                        overflow: 'auto'
+                    },
+                buttons: {
+                 
+                },
+                close: function () {
+                    $("#dialogId").dialog("close");
+                },  
+              });
+
+
   }
 
+//弹出dialog 添加对话框
+function getCreateInfo(){
+     $.ajax({
+         type:"post",
+         url:"index.php?r=ad-advertisement/create",
+         success:function(data) {
+            $("#dialogId").html(data);
+         }
+       });
+}
 
     
 <?php $this->endBlock(); ?>

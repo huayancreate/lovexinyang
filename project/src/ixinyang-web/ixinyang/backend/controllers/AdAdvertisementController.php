@@ -10,12 +10,15 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\data\ActiveDataProvider;
+use yii\web\UploadedFile;
+
 
 /**
  * AdAdvertisementController implements the CRUD actions for Ad model.
  */
 class AdAdvertisementController extends Controller
 {
+
     public function behaviors()
     {
         return [
@@ -72,7 +75,7 @@ class AdAdvertisementController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
+        return $this->renderPartial('view', [
             'model' => $this->findModel($id),
         ]);
     }
@@ -87,6 +90,7 @@ class AdAdvertisementController extends Controller
         $model = new Ad();
 
         if ($model->load(Yii::$app->request->post())) {
+            
         	if ($model->validate()) {
         		 //创建人员ID  先写固定值
         		 $model->createrId=0;
@@ -94,21 +98,19 @@ class AdAdvertisementController extends Controller
         		 $model->createTime=date("Y-m-d H:i:s");
         		 //对应位置  在数据字典中读取
         		 //$model->mapLocation=1;
+                 $file=UploadedFile::getInstance($model,'file'); //获取上传文件
+
+                 $path=$this->uploads($file); //文件上传
+                 $model->photoUrl=$path; //图片路径
+
         		 $model->save();
 
-        		 //数据验证成功
-                  $message=$model->getErrors();
-                  $message["success"]=True;
-
-                  return json_encode($message);
-
+                 return $this->redirect(['index']);
+        		
         	}
         	else{
         		 //数据验证失败
-                  $message=$model->getErrors();
-                  $message["success"]=False;
-                  return json_encode($message);
-
+                 return $this->redirect(['create']);
         	}
         } else {
         	$model->isValid='1';
@@ -129,11 +131,28 @@ class AdAdvertisementController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        if ($model->load(Yii::$app->request->post())) {
+            //flag 0->没有改变  1->图片有变动 
+            $file=UploadedFile::getInstance($model,'file'); //获取上传文件
+            $oldPhotoUrl=$model->photoUrl;
+            //如果重新选择了其他图片  则重新保存图片
+            if (count($file)>0) {
+                 $path=$this->uploads($file); //文件上传
+                 $model->photoUrl=$path; //图片路径
+            }
+             $model->updateTime=date('Y-m-d H:i:s');
+             //保存成功  删除原来的图片
+             if($model->save()){
+                if (count($file)>0) {
+                    //如果重新选择了其他图片  删除原来的图片
+                    $this->delfile($oldPhotoUrl);
+                }
+             }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
+
         } else {
-            return $this->render('update', [
+            return $this->renderAjax('update', [
                 'model' => $model,
             ]);
         }
@@ -171,5 +190,46 @@ class AdAdvertisementController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    /**
+     * 文件上传
+     * @param  [type] $files [文件集合]
+     * @return [type]        [description]
+     */
+    protected function uploads($file){
+        //广告图片路径
+        $filePath = "uploads/adPic/";
+        
+        //$ext = $this->getExtension($file); //获取文件后缀 如: ".jpg"
+        $ext=$file->extension;
+        
+        $randName = time() . rand(1000, 9999) . "." . $ext; //生成新文件名称
+
+        if(!file_exists($filePath)){
+            mkdir($filePath,0777,true);
+        }
+
+        $file->saveAs($filePath.$randName); //保存文件
+
+        return $filePath.$randName;
+    }
+
     
+    /**
+     * [delfile 删除某个图片]
+     * @param  [type] $fullpath [图片路径]
+     * @return [type]           [description]
+     */
+    protected function delfile($fullpath) {
+          if(!is_dir($fullpath)) {
+              unlink($fullpath);//删除目录中的所有文件
+          } else {
+              delfile($fullpath);
+          }
+    }
+    
+
+
+
+
 }
