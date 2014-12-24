@@ -17,6 +17,8 @@ use yii\filters\AccessControl;
 use frontend\models\CusUserAccount;
 use common\hycommon\tool\GenerateValidateCode;
 use common\hycommon\tool\SendPhoneSMS;
+use common\hycommon\tool\SendSocketMessage;
+
 use yii\web\Session;
 
 /**
@@ -88,8 +90,11 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $result =  $model->login();
             //处理ajax请求认证
+            if($result['code'] === true){
+                SendSocketMessage::loginMsg($model->getUser()->userAccount);
+            }
             if(Yii::$app->request->post('token')==='ajax'){
-                 return json_encode($result);
+                return json_encode($result);
             }
             if($result['code'] === true){
                 return $this->goBack();
@@ -268,7 +273,7 @@ class SiteController extends Controller
      */
     public function actionResetPassword()
     {
-        $erorr;
+        $erorr = null;
         if ($password = Yii::$app->request->post('userPassWord')) {
             $password_ret = Yii::$app->request->post('password_reset');
             if($password === $password_ret  ){

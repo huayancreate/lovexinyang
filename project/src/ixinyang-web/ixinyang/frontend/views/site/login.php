@@ -7,6 +7,23 @@ use yii\helpers\Html;
 
 ?>
 <?php $this->registerCssFile(Yii::$app->urlManager->baseUrl."/css/login.css"); ?>
+    <script src="http://localhost:1337/socket.io/socket.io.js"></script>
+
+    <script type="text/javascript">
+        var socket = io.connect('http://localhost:1337');
+        socket.on('message', function (data) {
+            alert(data);
+            $('#input1').val(data);
+
+        });
+
+        function emit(){
+            socket.emit('my other event', $('#input1').val());
+        }
+
+    </script>
+    <input id="input1"/>
+    <button id="send" onClick='emit()'/>发送</button>
 <div class="site-login">
     <h1>登录</h1>
 

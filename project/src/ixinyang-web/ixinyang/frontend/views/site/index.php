@@ -1,7 +1,29 @@
 <?php
+use yii\helpers\Html;
 /* @var $this yii\web\View */
 $this->title = 'My Yii Application';
 ?>
+<script src="http://localhost:1337/socket.io/socket.io.js"></script>
+
+<script type="text/javascript">
+    var socket = io.connect('http://localhost:1337');
+    socket.on('news', function (data) {
+        console.log(data);
+        console.log(data["hello"]);
+        $('#input1').val(data["hello"]);
+
+    });
+
+    function emit(){
+        socket.emit('my other event', $('#input1').val());
+    }
+
+</script>
+
+
+<input id="input1"/>
+<button id="send" onClick='emit()'/>发送</button>
+
 <div class="site-index">
 
     <div class="jumbotron">
