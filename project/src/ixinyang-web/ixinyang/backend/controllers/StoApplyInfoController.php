@@ -98,8 +98,8 @@ class StoApplyInfoController extends Controller
 
           //时间段为空
           if (empty($dateRange)) {
-               $fromDate=date("Y-m-d".' 00:00:00');
-               $toDate=date("Y-m-d".' 23:59:59');
+              $fromDate=date("Y-m-d");
+               $toDate=date("Y-m-d");
            }
            else{
                $arr=explode('to', $dateRange);
@@ -119,12 +119,12 @@ class StoApplyInfoController extends Controller
             }
             else
             {
-               $fromDate=date("Y-m-d".' 00:00:00');
-               $toDate=date("Y-m-d".' 23:59:59');
+               $fromDate=date("Y-m-d");
+               $toDate=date("Y-m-d");
             }
             
        }
-
+        $toDate=$toDate.' 23:59:59';
         $model=new StoApplyInfo();
         $dataProvider=new ActiveDataProvider([
                 'query'=>StoApplyInfo::find()->where('applyStatus=0 and applyTime between "'.$fromDate.'" and "'.$toDate.'"')->asArray(),
@@ -203,8 +203,8 @@ class StoApplyInfoController extends Controller
 
           //时间段为空
           if (empty($dateRange)) {
-               $fromDate=date("Y-m-d".' 00:00:00');
-               $toDate=date("Y-m-d".' 23:59:59');
+                $fromDate=date("Y-m-d");
+               $toDate=date("Y-m-d");
            }
            else{
                $arr=explode('to', $dateRange);
@@ -224,11 +224,12 @@ class StoApplyInfoController extends Controller
             }
             else
             {
-               $fromDate=date("Y-m-d".' 00:00:00');
-               $toDate=date("Y-m-d".' 23:59:59');
+               $fromDate=date("Y-m-d");
+               $toDate=date("Y-m-d");
             }
             
        }
+        $toDate=$toDate.' 23:59:59';
         //最终审核状态 是1 说明是客服申请成功 等待客户经理审核  
         $applyStatus=1;
         $model=new StoApplyInfo();
@@ -269,8 +270,8 @@ class StoApplyInfoController extends Controller
     public function actionCheckpass()
     {
       if (Yii::$app->request->post()){
-       //获取当前登录人  暂时注释
-       //Yii::$app->session['loginName']
+          //获取当前登录人  暂时注释
+        //Yii::$app->session['loginName']
         //申请id
         $applyId=$_POST["applyId"];
         //最终审核状态
@@ -279,49 +280,49 @@ class StoApplyInfoController extends Controller
         $sellerName=$_POST["sellerName"];
         //法人
         $owner=$_POST["owner"];
+        //支付宝名称
+        $alipayName=$_POST["alipayName"];
+        //支付宝账号
+        $alipayNo=$_POST["alipayNo"];
         //客户经理Id  暂时写空
         $customerManagerId='111111';
         //客户经理名称 暂时写空
         $customerManagerName='张三';
-
         //事务开始 
         $transaction=\Yii::$app->db->beginTransaction();
         try {
              //1、根据申请id查询该商家的申请信息
-             $model = $this->findModel($applyId);
-            
+             $model = $this->findModel($applyId);        
              //商家信息保存成功后获取 商家ID
              $sellerId=$this->sellerInfoModelSave($model,$sellerName,$owner);
-
              //门店信息保存成功后获取门店id
-             $storeInfoId=$this->storeInfoModelSave($model,$sellerId);
-
+              $storeInfoId=$this->storeInfoModelSave($model,$sellerId,$alipayName,$alipayNo);
              //2、商家账号信息
-             $this->logonAccountModelSave($sellerId,$sellerName,$storeInfoId);
-
-             //3、执行修改   商家申请数据的修改
-            
-             StoApplyInfo::updateBySql('sto_apply_info',['applyStatus'=>$applyStatus,'customerManagerId'=>$customerManagerId,'customerManagerName'=>$customerManagerName,'cusManagerReviewTime'=>date('Y-m-d h:i:s')],['applyId'=>$applyId]);
-             
-             //print_r($storeInfoId);
-             //商家信息和门店信息都保存成功 True 表示都保存成功
-             $message["success"]=True;
-             //商家ID
-             $message["sellerId"]=$sellerId;
-              //门店id
-             $message["storeInfoId"]=$storeInfoId;
-
-             //提交
-            $transaction->commit();
-           } 
-        catch (Exception  $e) {
+             $result=$this->logonAccountModelSave($sellerId,$sellerName,$storeInfoId);
+             if (!empty( $sellerId) && !empty($storeInfoId) && $result) {
+                   //3、执行修改   商家申请数据的修改
+                   StoApplyInfo::updateBySql('sto_apply_info',['applyStatus'=>$applyStatus,'customerManagerId'=>$customerManagerId,'customerManagerName'=>$customerManagerName,'cusManagerReviewTime'=>date('Y-m-d h:i:s')],['applyId'=>$applyId]);                
+                   //print_r($storeInfoId);
+                   //商家信息和门店信息都保存成功 True 表示都保存成功
+                   $message["success"]=True;
+                   //商家ID
+                   $message["sellerId"]=$sellerId;
+                    //门店id
+                   $message["storeInfoId"]=$storeInfoId;
+                   //提交
+                  $transaction->commit();
+             }
+             else{
+                 $transaction->rollBack();
+                 $message["success"]=False;
+                 $message["errormsg"]='操作失败,可能角色表中没有添加店家、财务、收银员角色';
+             }
+          
+        } catch (Exception $e) {
             $transaction->rollBack();
-            $message["success"]=False;
-            $message["errormsg"]=$e;
-        }
-       
-        return json_encode($message);
-      }
+         }
+          return json_encode($message);
+       }
     }
 
      //审核驳回 需要填写驳回备注
@@ -383,7 +384,7 @@ class StoApplyInfoController extends Controller
      * @param  [type] $sellerId       [description]
      * @return [type]                 [description]
      */
-    protected function storeInfoModelSave($applyInfoModel,$sellerId){
+    protected function storeInfoModelSave($applyInfoModel,$sellerId,$alipayName,$alipayNo){
                  //门店 model
                  $stoStoreInfoModel=new StoStoreInfo();
                  //把数据添加到门店表中
@@ -401,6 +402,8 @@ class StoApplyInfoController extends Controller
                  $stoStoreInfoModel->sellerId=$sellerId;
                  //是否有效  初次添加默认 有效 1
                  $stoStoreInfoModel->validity='1';
+                 //营业时间
+                 $stoStoreInfoModel->businessHours=$applyInfoModel->businessHours;
                  //坐标：经度
                  $stoStoreInfoModel->longitude=$applyInfoModel->longitude;
                  //坐标：纬度
@@ -413,6 +416,12 @@ class StoApplyInfoController extends Controller
                  $stoStoreInfoModel->cityId=$applyInfoModel->city;
                  //区县id
                  $stoStoreInfoModel->countryID=$applyInfoModel->regional;
+                 //审核状态  1、申请中 2、初审通过 3、初审驳回 4、经理审核通过  5、经理审核驳回
+                 $stoStoreInfoModel->auditState='4';
+                 //支付宝名称
+                 $stoStoreInfoModel->alipayName=$alipayName;
+                 //支付宝账号
+                 $stoStoreInfoModel->alipayNo=$alipayNo;
                  //保存门店信息
                  $stoStoreInfoModel->save();
                  //返回门店信息id
@@ -421,14 +430,35 @@ class StoApplyInfoController extends Controller
     }
 
     protected function logonAccountModelSave($sellerId,$sellerName,$storeInfoId){
-          //商家登录账号  店家账号
-         $this->logonAccountDataCreate($sellerId,$sellerName,$storeInfoId,'店家');;
-       
-          //商家登录账号  财务账号
-         $this->logonAccountDataCreate($sellerId,$sellerName,$storeInfoId,'财务');
-          
-          //商家登录账号  营业员账号
-         $this->logonAccountDataCreate($sellerId,$sellerName,$storeInfoId,'营业员');
+           //事务开始 
+        $transaction2=\Yii::$app->db->beginTransaction();
+        try {
+            //商家登录账号  店家账号
+         $result1=$this->logonAccountDataCreate($sellerId,$sellerName,$storeInfoId,'店长');;
+         
+            //商家登录账号  财务账号
+         $result2=$this->logonAccountDataCreate($sellerId,$sellerName,$storeInfoId,'财务');
+            
+            //商家登录账号  营业员账号
+         $result3=$this->logonAccountDataCreate($sellerId,$sellerName,$storeInfoId,'营业员');
+
+           if ($result1&&$result2&&$result3) {
+              //提交
+              $transaction2->commit();
+              return true;
+           }
+           else{
+              $transaction2->rollBack();
+              return false;
+           }
+            
+         } 
+        catch (Exception  $e) {
+
+          $transaction2->rollBack();
+          return false;
+
+        }
     }
 
     protected function logonAccountDataCreate($sellerId,$sellerName,$storeInfoId,$roleName){
@@ -436,21 +466,41 @@ class StoApplyInfoController extends Controller
             $logonAccountModel=new StoLogonAccount();
            //店铺ID  
            $logonAccountModel->storeId=$storeInfoId;
-           //角色ID  根据roleName查询id
-           $comRoleMode=ComRole::findBySql('select * from com_role where roleName like "%'.$roleName.'%"')->one();
-           $logonAccountModel->roleId=$comRoleMode->id;
-           //商家ID
-           $logonAccountModel->sellerId=$sellerId;
-           //商家账号
-           $logonAccountModel->loginName=$sellerName.$roleName;
-           //帐号密码  默认 123456
-           $logonAccountModel->password='123456';
-           //是否有效
-           $logonAccountModel->validity='1';
-           //权限标识：0、对应商家下所有分店 1、分店
-           $logonAccountModel->flag=0;
-           //保存
-           $logonAccountModel->save();
+            //角色ID  根据roleName查询id
+           $comRoleMode=ComRole::findBySql('select * from com_role where isValid=1 and roleName like "%'.$roleName.'%"')->one();
+             //事务开始 
+           $transaction3=\Yii::$app->db->beginTransaction();
+        try {
+            if (!empty($comRoleMode)) {
+               $logonAccountModel->roleId=$comRoleMode->id;
+               //商家ID
+               $logonAccountModel->sellerId=$sellerId;
+               //商家账号
+               $logonAccountModel->loginName=$sellerName.$roleName;
+               //帐号密码  默认 123456
+               $logonAccountModel->password='123456';
+               //是否有效
+               $logonAccountModel->validity='1';
+               //权限标识：0、对应商家下所有分店 1、分店
+               $logonAccountModel->flag=0;
+               //保存
+               $logonAccountModel->save();
+            //提交
+              $transaction3->commit();
+              return true;
+            }
+            else{
+              $transaction3->rollBack();
+              return false;
+            }
+            
+         } 
+        catch (Exception  $e) {
+
+          $transaction3->rollBack();
+          return false;
+
+        }
     }
 
 }

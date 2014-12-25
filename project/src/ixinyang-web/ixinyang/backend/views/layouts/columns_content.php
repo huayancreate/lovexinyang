@@ -25,7 +25,7 @@ AppAsset::register($this);
             	['label' => '菜单管理', 'url' => ['com-menu/index', 'tag' => 'new']],
         	]],
             ['label' => '系统配置', 'url' => ['product/index'], 'items' => [
-                ['label' => '商圈配置', 'url' => ['com-county/index', 'tag' => 'popular']],
+                ['label' => '区县和商圈配置', 'url' => ['com-county/index', 'tag' => 'popular']],
             ]],
             ['label' => '客户经理中心', 'url' => ['product/index'], 'items' => [
                 ['label' => '洽谈任务页面设计', 'url' => ['sto-apply-info/discusstasks', 'tag' => 'popular']],
