@@ -17,15 +17,19 @@ AppAsset::register($this);
             	['label' => '角色管理', 'url' => ['comrole/index', 'tag' => 'new']],
             	['label' => '店铺信息', 'url' => ['stostoreinfo/index', 'tag' => 'popular']],
             	['label' => '商品管理', 'url' => ['sto-goods/index', 'tag' => 'popular']],
-            	['label' => 'Most Popular', 'url' => ['product/index', 'tag' => 'popular']],
-            	['label' => 'Most Popular', 'url' => ['product/index', 'tag' => 'popular']],
+				['label' => '申请合作', 'url' => ['sto-apply-info/create', 'tag' => 'popular']],
+				['label' => '账号管理', 'url' => ['com-account/index', 'tag' => 'popular']],
         	]],
+			['label' => '我的会员', 'url' => ['product/index'], 'items' => [
+				['label' => '会员消息推送', 'url' => ['com-message-box/index', 'tag' => 'new']],
+			]],
         // 'Products' menu item will be selected as long as the route is 'product/index'
         	['label' => '权限管理', 'url' => ['product/index'], 'items' => [
             	['label' => '菜单管理', 'url' => ['com-menu/index', 'tag' => 'new']],
         	]],
             ['label' => '系统配置', 'url' => ['product/index'], 'items' => [
                 ['label' => '区县和商圈配置', 'url' => ['com-county/index', 'tag' => 'popular']],
+				['label' => '类别维护', 'url' => ['com-category-maintain/index', 'tag' => 'popular']],
             ]],
             ['label' => '客户经理中心', 'url' => ['product/index'], 'items' => [
                 ['label' => '洽谈任务页面设计', 'url' => ['sto-apply-info/discusstasks', 'tag' => 'popular']],
@@ -45,6 +49,7 @@ AppAsset::register($this);
 			]],
              ['label' => '广告管理', 'url' => ['product/index'], 'items' => [
                 ['label' => '页头广告设置', 'url' => ['ad-advertisement/index', 'tag' => 'popular']],
+	            ['label' => 'app广告推送', 'url' => ['ad-push-message/index', 'tag' => 'popular']],
 
             ]],
         	['label' => '登录', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
