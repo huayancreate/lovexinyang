@@ -141,4 +141,11 @@ class ComCategoryMaintainController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    public function actionData()
+    {
+        $model = new ComCategoryMaintain();
+        $arr = $model->find()->asArray()->all();
+        return json_encode($arr);
+    }
 }

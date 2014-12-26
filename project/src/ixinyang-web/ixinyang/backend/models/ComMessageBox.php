@@ -51,14 +51,14 @@ class ComMessageBox extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'seeDate' => 'See Date',
-            'sendOutDate' => 'Send Out Date',
-            'recipientsId' => 'Recipients ID',
-            'recipientsName' => 'Recipients Name',
-            'readState' => 'Read State',
-            'summary' => 'Summary',
-            'content' => 'Content',
-            'title' => 'Title',
+            'seeDate' => '查看时间',
+            'sendOutDate' => '发出时间',
+            'recipientsId' => '收件人Id',
+            'recipientsName' => '收件人姓名',
+            'readState' => '读取状态',
+            'summary' => '消息概述',
+            'content' => '消息内容',
+            'title' => '消息主题',
         ];
     }
 

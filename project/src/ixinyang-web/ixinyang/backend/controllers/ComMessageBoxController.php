@@ -32,15 +32,14 @@ class ComMessageBoxController extends Controller
      */
     public function actionIndex()
     {
-        $model = new ComMessageBox();
-        $model->sendMessage();
+//        $model = new ComMessageBox();
+//        $model->sendMessage();
         $searchModel = new ComMessageBoxSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'memberRule' => $model->getStoMemberRule('1'),
         ]);
     }
 
@@ -120,6 +119,13 @@ class ComMessageBoxController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionPushmessage()
+    {
+        $model = new ComMessageBox();
+        $memberRule = $model->getStoMemberRule("1");
+        return $this->render("pushmessage", ["memberRule" => $memberRule]);
     }
 
     public function actionSend()

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace backend\models;
 
 use Yii;
 
@@ -51,16 +51,50 @@ class AdPushMessage extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'area' => 'Area',
-            'toAge' => 'To Age',
-            'fromAge' => 'From Age',
-            'isValid' => 'Is Valid',
-            'pushIntroduction' => 'Push Introduction',
-            'pushTime' => 'Push Time',
-            'pushDetails' => 'Push Details',
-            'pushSex' => 'Push Sex',
-            'messageTopic' => 'Message Topic',
-            'membershipGrade' => 'Membership Grade',
+            'area' => '地区',
+            'toAge' => '从年龄',
+            'fromAge' => '到年龄',
+            'isValid' => '有消息',
+            'pushIntroduction' => '推送简介',
+            'pushTime' => '推送时间',
+            'pushDetails' => '推送内容',
+            'pushSex' => '推送性别',
+            'messageTopic' => '推送主题',
+            'membershipGrade' => '会员等级',
         ];
     }
+
+    /**
+     * app广告推送
+     *
+     */
+    public function sendMessage()
+    {
+        $model = new ComMessageBox();
+        //1.根据条件查询所有符合要求的用户
+        if (Yii::$app->request->post()) {
+            $sex = $_POST['sex'];
+            $memberGrade = "";
+            $fromAge = $_POST['fromAge'];
+            $toAge = $_POST['toAge'];
+            $title = $_POST['title'];
+            $introduction = $_POST['introduction'];
+            $content = $_POST['content'];
+            $users = $model->getUserByCondition($sex, $memberGrade, $fromAge, $toAge);
+            foreach ($users as $user) {
+                //2.保存消息到消息盒子中
+                $this->messageTopic = $title;
+                $this->pushIntroduction = $introduction;
+                $this->pushDetails = $content;
+                $this->membershipGrade = $user->memberGrade;
+                $this->pushSex = $sex;
+                $this->pushTime = date('Y-m-d H:i:s');
+                $this->isValid = "1";
+                $this->fromAge = $fromAge;
+                $this->toAge = $toAge;
+                $this->save();
+            }
+        }
+    }
+
 }
