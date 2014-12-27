@@ -1,0 +1,1008 @@
+基础数据		BaseActionController
+	分类		getType
+	区域		getRegion
+
+getType:
+提交:
+{
+	"opeType": "getType",
+	"type": "value" (0所有类别，1商品类别，2评价类别)
+}
+
+返回:
+{"success":"true",
+	"content":
+	{
+		"recordList":
+		[ 
+			{
+				"ID" : "value",
+				"parentCategoryId" : "value", (父类别)
+				"categoryCode": "value",  (类别编码)
+				"categoryGrade": "value",  (类别等级)
+				"categoryName" : "value",  (类别名称)
+				"categoryType" : "value",  (类别类型)
+			},
+			{
+				"ID" : "value",
+				"parentCategoryId" : "value", (父类别)
+				"categoryCode": "value",  (类别编码)
+				"categoryGrade": "value",  (类别等级)
+				"categoryName" : "value",  (类别名称)
+				"categoryType" : "value",  (类别类型)
+			},
+		],
+	}
+}
+
+getRegion:
+提交:
+{
+	"opeType": "getRegion",
+	"cityID": "value" (可选)
+}
+
+返回:
+{"success":"true",
+	"content":
+	{
+		"recordList":
+		[ 
+			{
+				"city" : 
+				{
+					"ID" : "value",
+					"name" : "value",
+					"counties" : 
+					[
+						{
+							"ID" : "value",
+							"name": "value",
+							"business": 
+							[
+								{
+									"ID": "value",
+									"name": "value"
+								},
+								{
+									"ID": "value",
+									"name": "value"
+								},
+							]
+						},
+						{
+							"ID" : "value",
+							"name": "value",
+							"business": 
+							[
+								{
+									"ID": "value",
+									"name": "value"
+								},
+								{
+									"ID": "value",
+									"name": "value"
+								},
+							]
+						},
+					]
+				}
+			},
+			{
+				"city" : 
+				{
+					"ID" : "value",
+					"name" : "value",
+					"counties" : 
+					[
+						{
+							"ID" : "value",
+							"name": "value",
+							"business": 
+							[
+								{
+									"ID": "value",
+									"name": "value"
+								},
+								{
+									"ID": "value",
+									"name": "value"
+								},
+							]
+						},
+						{
+							"ID" : "value",
+							"name": "value",
+							"business": 
+							[
+								{
+									"ID": "value",
+									"name": "value"
+								},
+								{
+									"ID": "value",
+									"name": "value"
+								},
+							]
+						},
+					]
+				}
+			},
+		],
+	}
+}
+
+
+
+
+
+用户						UserActionController
+	登录					login
+	注册					signin		
+	获取用户基础信息		getInfo
+	变更用户基础信息		updateInfo
+	绑定手机				bindPhoneNumber
+	绑定手机修改			updateBindPhoneNumber
+	短信验证		
+
+login:
+提交:
+{
+	"username": "value",
+	"password": "value",
+	"opeType": "login",
+	"type": "value",（请求来源0web，1mobile）
+	"mobile": "value"（请求来源0ios，1android）
+}
+
+返回:
+{
+	"result": "value",(true/false)
+	"ID": "value",
+	"message": "value" (true:message传递token值, false:message传递错误信息)
+}
+
+signin:
+提交:
+{
+	"username": "value", (注册用户名)
+	"password": "value", (注册密码)
+	"captcha": "value", (注册码 可选)
+	"phoneCaptcha": "value" (手机注册码)
+	"opeType": "signin",
+	"type": "value", (用于统计请求来源 0web, 1mobile)
+	"mobile": "value" (用于统计手机来源 0ios, 1android)
+}
+
+返回json:
+{
+	"result": "value",(true/false)
+	"ID": "value",
+	"message": "value" (true:message传递token值, false:message传递错误信息)
+}
+
+getInfo:
+提交:
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "getInfo"
+}
+
+返回:
+{"success":"true",
+	"content":{
+		 "username": "xuwei",
+		  "realname": "许玮",
+		  "sex": "男",
+	}
+}
+
+updateInfo:
+提交:
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "updateInfo",
+	"sex": "value"
+	XXXXX
+}
+返回json:
+{"success":"true",
+	"content":{
+			"result":"true",
+			"message":"更新成功!"
+	}
+}
+
+
+bindPhoneNumber:
+提交:
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "bindPhoneNumber",
+	"phoneCaptcha": "value", (手机验证码)
+	"phoneNumber": "value"
+}
+返回json:
+{"success":"true",
+	"content":{
+			"result":"true",
+			"message":"绑定成功!"
+	}
+}
+
+updateBindPhoneNumber
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "updateBindPhoneNumber",,
+	"newPhoneNumber": "value"
+	"payPasword": "value" (js md5 加密)
+}
+返回json:
+{"success":"true",
+	"content":{
+			"result":"true",
+			"message":"绑定成功!"
+	}
+}
+
+
+密码						PasswordActionController
+	登录密码修改			updateLoginPassword
+	支付密码设置			setPayPassword		
+	支付密码修改			updatePayPassword
+
+updateLoginPassword:
+提交:
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "loginPassword",
+	"oldPassword": "value",
+	"newPassword": "value",
+	"comfirmPassword": "value"
+}
+返回:
+{"success":"true",
+	"content":{
+			"result":"true",
+			"message":"更新成功!"
+	}
+}
+
+setPayPassword:
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "setPayPassword",
+	"newPassword": "value",
+	"comfirmPassword": "value"
+}
+返回:
+{"success":"true",
+	"content":{
+			"result":"true",
+			"message":"更新成功!"
+	}
+}
+
+updatePayPassword:
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "updatePayPassword",
+	"phoneCaptcha": "value", (手机验证码)
+	"oldPassword": "value",
+	"newPassword": "value",
+	"comfirmPassword": "value"
+}
+返回:
+{"success":"true",
+	"content":{
+			"result":"true",
+			"message":"更新成功!"
+	}
+}
+
+
+收藏					BookmarkActionController	
+	获取收藏列表		getList
+	添加收藏			add
+	删除收藏			del
+
+getList:
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "getList",
+	"type": "value" (1,商品  2,商家)
+}
+返回json:
+{"success":"true",
+	"content":{
+		"recordList":
+		[ 
+			{
+				"type": "value", (1,商品  2,商家)
+				"id": "1231232131",
+				"name": "value",
+				"img": "value",
+				"rating": "value",
+				"saleNum": 30,       （商品）
+				"goodsInfo": "value", （商品）
+				"discountPrice": "value", (商品)
+				"price": "value", (商品)
+				"commentNum": "value",
+				"bussinessType": "value", （商家）
+				"region": "蜀山区", （商家）
+				"location": "经度，纬度"
+			}
+		],
+		"pageCount": "10",
+        "pecordCount":"100"
+	}
+}
+
+add
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "add",
+	"id": "value",
+	"type": "value", (1,商品  2,商家)
+}
+
+{"success":"true",
+	"content":{
+			"result":"true",
+			"message":"添加成功!"
+	}
+}
+
+del
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "del",
+	"id": "value",
+	"type": "value", (1,商品  2,商家)
+}
+
+{"success":"true",
+	"content":{
+			"result":"true",
+			"message":"删除成功!"
+	}
+}
+
+财务				FinanceActionController	
+	余额			surplusMoney
+	充值			fillMoney
+	提现			extractMoney
+
+余额:surplusMoney
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "surplusMoney",
+}
+返回
+{"success":"true",
+	"content":{
+			"result": "true",
+			"money": "60"
+	}
+}
+
+充值:fillMoney
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "fillMoney",
+	"type": "0",     //0支付宝
+	"money": "100"
+}
+返回
+{"success":"true",
+	"content":{
+			"result": "true",
+			"url": "value"
+	}
+}
+url 跳转到支付宝的地址（此处可能是支付宝接口提供的一个地址，需要调查,但应该这样的形式，以后银行也是一样的形式）
+
+提现:extractMoney
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "extractMoney",
+	"type": "0",     //0支付宝
+	"money": "100"
+}
+返回
+{"success":"true",
+	"content":{
+			"result": "true",
+			"message": "提现成功!"
+}
+
+
+会员卡						MemberCardActionController	
+	获取用户持有会员卡			getCardList
+	获取会员卡基础规则信息		getCardInfo
+	获取会员卡消费记录			getCardConsumerList
+	生成会员卡				createMemberCard
+
+getCardList
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "getCardList",
+	"searchString": "value", (填入你要搜索的内容，比如卡号，名称、等级等 可选)
+	"searchType": "value",  (搜索类型，卡号，名称，等级 可选)
+}
+返回json
+{"success":"true",
+	"content":{
+		"recordList":
+		[ 
+			{
+				"id": "1231232131",
+				"shopName": "value",  （店铺名称）
+				"img": "value",    	（会员卡图片）
+				"number": "value",  (会员卡卡号)
+				"level": "value",  (所享有的等级折扣)
+			},
+			{
+				"id": "1231232131",
+				"shopName": "value",  （店铺名称）
+				"img": "value",    	（会员卡图片）
+				"number": "value",  (会员卡卡号)
+				"level": "value",  (所享有的等级折扣)
+			},
+		]
+		"pageCount": "10",
+        "pecordCount":"100"
+	}
+}
+
+getCardInfo
+提交:
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "getCardInfo",
+	"cardID": "123213",
+}
+返回json
+{"success":"true",
+	"content":
+	{
+		"shopName": "value",   （店铺名称）
+		"level": "value",      （当前等级）
+		"number": "value",     （会员卡号）
+		"growthValue": "value", (成长值)
+	}
+}
+
+getCardConsumerList
+提交:
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "getCardConsumerList",
+	"cardID": "123213",
+}
+返回json
+{"success":"true",
+	"content":{
+		recordList:
+		[ 
+			{
+				"branchShopName": "value", (分店店铺名称)
+				"time": "value",  (消费时间)
+				"money": "value"  (消费金额)
+			},
+			{
+				"branchShopName": "value", (分店店铺名称)
+				"time": "value",  (消费时间)
+				"money": "value"  (消费金额)
+			},
+			{
+				"branchShopName": "value", (分店店铺名称)
+				"time": "value",  (消费时间)
+				"money": "value"  (消费金额)
+			},
+		],
+		"pageCount": "10",
+        "pecordCount":"100"
+	}
+}
+
+createMemberCard
+提交:
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "createMemberCard",
+	"shopid": "123123123",
+}
+返回
+{"success":"true",
+	"content":{
+			"result": "true",
+			"cardID": "12312313",
+			"message": "生成成功!"
+	}
+}
+
+
+订单				OrderActionController	
+	查询			getList
+	删除			del
+	详情			getDetils
+
+getList
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "getList",
+	"type": "value"  (0全部 1未付款 2未消费 3待评价 4退款)
+}
+返回json
+{"success":"true",
+	"content":{
+		recordList:
+		[ 
+			{ 
+				"type": "value",   (0全部 1未付款 2未消费 3待评价 4退款中 5已退款 6已评价)
+				"typeName": "value",   (0全部 1未付款 2未消费 3待评价 4退款中 5已退款 6已评价)
+				"id": "value",  (订单ID)
+				"name": "value", (订单名称)
+				"goodsImg": "value",  (商品图片)
+				"price": "value",   ()
+				"num": "value",   ()
+				"commentScore": "value",  (总体评价分数)
+				"isBookmark": "value",  (0未收藏 ， 1已收藏)
+			},
+			{ 
+				"type": "value",   (0全部 1未付款 2未消费 3待评价 4退款中 5已退款 6已评价)
+				"typeName": "value",   (0全部 1未付款 2未消费 3待评价 4退款中 5已退款 6已评价)
+				"id": "value",  (订单ID)
+				"name": "value", (订单名称)
+				"goodsImg": "value",  (商品图片)
+				"price": "value",   ()
+				"num": "value",   ()
+				"commentScore": "value",  (总体评价分数)
+				"isBookmark": "value",  (0未收藏 ， 1已收藏)
+			},
+		],
+		"pageCount": "10",
+        "pecordCount":"100"
+
+	}
+}
+
+del
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "del",
+	orderID: "value"
+}
+{"success":"true",
+	"content":{
+			"result": "true",
+			"message": "删除成功!"
+	}
+}
+
+getDetils
+提交:
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "getDetils",
+	"orderID": "value"
+}
+返回json
+{"success":"true",
+	"content":{
+		"orderID": "value",
+		"orderTime": "value",
+		"orderTel": "value",
+		recordList:
+		[ 
+			{
+				"detilsID": "value",  (订单详情ID)
+				"goodsID": "value",  (商品ID)
+				"goodsNum": "value",  (商品数量)
+				"goodsAllPrice": "value",  (商品总价值)
+				"goodsEndTime": "value",   (商品到期时间)
+				"goodsPassword": "value1,value2,value3",  (购买卷码)
+				"commentScore": "value",   (评价分数)
+			},			
+			{
+				"detilsID": "value",  (订单详情ID)
+				"goodsID": "value",  (商品ID)
+				"goodsNum": "value",  (商品数量)
+				"goodsAllPrice": "value",  (商品总价值)
+				"goodsEndTime": "value",   (商品到期时间)
+				"goodsPassword": "value1,value2,value3",  (购买卷码)
+				"commentScore": "value",   (评价分数)
+			},
+			{
+				"detilsID": "value",  (订单详情ID)
+				"goodsID": "value",  (商品ID)
+				"goodsNum": "value",  (商品数量)
+				"goodsAllPrice": "value",  (商品总价值)
+				"goodsEndTime": "value",   (商品到期时间)
+				"goodsPassword": "value1,value2,value3",  (购买卷码)
+				"commentScore": "value",   (评价分数)
+			},	
+		],
+		"pageCount": "10",
+        "pecordCount":"100"
+	}
+}
+
+订单交易			OrderTransActionController	
+	生成			create
+	付款			pay
+	退款			refund
+
+create:
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "create",
+	"goodsInfo" :[
+					{"shopID": "value", "goodsId": "123123", "number": 2, "allPrice": 123123.3},
+					{"shopID": "value", "goodsId": "123123", "number": 2, "allPrice": 123123.3},
+					{"shopID": "value", "goodsId": "123123", "number": 2, "allPrice": 123123.3},
+				]
+}
+返回json:
+{"success":"true",
+	"content":{
+			"result": "true",
+			"orderID": "123123,123124,123125",
+			"message": "订单生成成功!"
+	}
+}
+
+pay
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "pay",
+	"orderID": "123123213"
+}
+返回json:
+{"success":"true",
+	"content":{
+			"result": "true",
+			"returnUrl": "value"
+	}
+}
+
+refund
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "refund",
+	"orderID": "123123213"
+	"type": "value" (0、返回余额, 1、返回支付宝)
+	"reason": "value"   (0,1,2,3,4,5,6,7类型)
+	"detilsIDList": "value,value,value"
+}
+返回json
+{"success":"true",
+	"content":{
+			"result": "true",
+			"message": "退款成功!"
+	}
+}
+
+
+店铺					ShopAction
+	获取店铺列表:		getList
+	获取店铺详情:		getShopDetils
+
+
+getList:
+{
+	"opeType": "getList",
+	"searchString": "value",
+	"regionID": "区域id",
+	"typeID":  "类别id",
+	"location":  "经度，纬度",
+	"bussinessID": 商圈id
+	"orderBy":  "value" (0,1,2,3,4,5,6)
+}
+返回json
+{"success":"true",
+	"content":{
+		recordList:
+		[ 
+			{
+				"shopID": "value",
+				"shopName": "value",
+				"shopLocation": "value",
+				"shopTel": "value",
+				"consumptionNum": "消费人次"
+				"commentNum": "评价数"
+				"commentScore": "评价总分"
+				"type": "类别"
+				"region": "value",
+				"goodsList": [
+					{
+						"goodsID": value
+						"goodsName": value
+						"goodsSalesNum": value
+						"goodsPrice": value
+					},
+					{
+						"goodsID": value
+						"goodsName": value
+						"goodsSalesNum": value
+						"goodsPrice": value
+					},
+					{
+						"goodsID": value
+						"goodsName": value
+						"goodsSalesNum": value
+						"goodsPrice": value
+					},
+				]
+			},
+			{
+				"shopID": "value",
+				"shopName": "value",
+				"shopLocation": "value",
+				"shopTel": "value",
+				"consumptionNum": "消费人次"
+				"commentNum": "评价数"
+				"commentScore": "评价总分"
+				"type": "类别"
+				"region": "value",
+				"goodsList": [
+					{
+						"goodsID": value
+						"goodsName": value
+						"goodsSalesNum": value
+						"goodsPrice": value
+					},
+					{
+						"goodsID": value
+						"goodsName": value
+						"goodsSalesNum": value
+						"goodsPrice": value
+					},
+					{
+						"goodsID": value
+						"goodsName": value
+						"goodsSalesNum": value
+						"goodsPrice": value
+					},
+				]
+			},
+			{
+				"shopID": "value",
+				"shopName": "value",
+				"shopLocation": "value",
+				"shopTel": "value",
+				"consumptionNum": "消费人次"
+				"commentNum": "评价数"
+				"commentScore": "评价总分"
+				"type": "类别"
+				"region": "value",
+				"goodsList": [
+					{
+						"goodsID": value
+						"goodsName": value
+						"goodsSalesNum": value
+						"goodsPrice": value
+					},
+					{
+						"goodsID": value
+						"goodsName": value
+						"goodsSalesNum": value
+						"goodsPrice": value
+					},
+					{
+						"goodsID": value
+						"goodsName": value
+						"goodsSalesNum": value
+						"goodsPrice": value
+					},
+				]
+			},
+		],
+		"pageCount": "10",
+        "pecordCount":"100"
+	}
+}
+
+getDetils:
+{
+	"opeType": "getDetils",
+	"shopID": "123123"
+}
+返回json
+{"success":"true",
+	"content":{
+		"result": "true",
+		"name": "value",
+		"introduction": 介绍
+		"imgs":  [{path:"http:/asdasdasdj.com/img1.jpg"},{path:"http:/asdasdasdj.com/img2.jpg"}],
+		"commentScore": "value",
+		"commentNum": "评价数"
+		"tel": "value",
+		"location": "value",
+		"goodsList": [
+					{
+						"goodsID": value
+						"goodsName": value
+						"goodsSalesNum": value
+						"goodsPrice": value
+					},
+					{
+						"goodsID": value
+						"goodsName": value
+						"goodsSalesNum": value
+						"goodsPrice": value
+					},
+					{
+						"goodsID": value
+						"goodsName": value
+						"goodsSalesNum": value
+						"goodsPrice": value
+					},
+				] （推荐商品）
+	}
+}
+
+
+商品 					GoodsAction
+	获取所有商品信息 		getList
+	获取详情   			getDetils
+
+getList:
+{
+	"opeType": "getList",
+	"searchString": "value",
+	"regionID": "区域id",
+	"typeID":  "类别id",
+	"location":  "经度，纬度",
+	"bussinessID": 商圈id
+	"orderBy":  "value" (0,1,2,3,4,5,6)
+}
+返回json
+{"success":"true",
+	"content":{
+		recordList:
+		[ 
+			{
+				"goodsID": "value",
+				"imgs": [{path:"http:/asdasdasdj.com/img1.jpg"},{path:"http:/asdasdasdj.com/img2.jpg"}],
+				"name": "value",
+				"des": "描述",
+				"discountPrice": "折扣价",  
+				"price": "原价",
+			  	"salesNum": 已经销售数量
+			},
+			{
+				"goodsID": "value",
+				"imgs": [{path:"http:/asdasdasdj.com/img1.jpg"},{path:"http:/asdasdasdj.com/img2.jpg"}],
+				"name": "value",
+				"des": "描述",
+				"discountPrice": "折扣价",  
+				"price": "原价",
+			  	"salesNum": 已经销售数量
+			},
+			{
+				"goodsID": "value",
+				"imgs": [{path:"http:/asdasdasdj.com/img1.jpg"},{path:"http:/asdasdasdj.com/img2.jpg"}],
+				"name": "value",
+				"des": "描述",
+				"discountPrice": "折扣价",  
+				"price": "原价",
+			  	"salesNum": 已经销售数量
+			},
+		],
+		"pageCount": "10",
+        "pecordCount":"100"
+	}
+}
+
+getDetils:
+{
+	"opeType": "getDetils",
+	"shopID": "123123"
+}
+返回json
+{"success":"true",
+	"content":{
+		"result": "true",
+		"name": "value",
+		"introduction": 介绍
+		"imgs":  [{path:"http:/asdasdasdj.com/img1.jpg"},{path:"http:/asdasdasdj.com/img2.jpg"}],
+		"commentScore": "value",
+		"commentNum": "评价数"
+		"tel": "value",
+		"location": "value",
+		"goodsList": [
+					{
+						"goodsID": value
+						"goodsName": value
+						"goodsSalesNum": value
+						"goodsPrice": value
+					},
+					{
+						"goodsID": value
+						"goodsName": value
+						"goodsSalesNum": value
+						"goodsPrice": value
+					},
+					{
+						"goodsID": value
+						"goodsName": value
+						"goodsSalesNum": value
+						"goodsPrice": value
+					},
+				] （类似商品）
+	}
+}
+
+广告  				AdvAction
+	banner 			getBannerList
+
+getBannerList
+{
+	"opeType": "getBannerList",
+	"type": "类别"   (0,top, 1, 滚动)
+}
+返回json
+{"success":"true",
+	"content":{
+		recordList:
+		[ 
+			{
+				"type" :   (0、纯广告 1、商家 2、商品  )
+				"ID": "vallue",  (商品/商家id)
+				"img": "http://asdasdasdj.com/img1,
+				"path": "http://asdasd.com/123"
+		  	},
+			{
+				"type" :   (0、纯广告 1、商家 2、商品  )
+				"ID": "vallue",  (商品/商家id)
+				"img": "http://asdasdasdj.com/img1,
+				"path": "http://asdasd.com/123"
+		  	},
+		  	{
+				"type" :   (0、纯广告 1、商家 2、商品  )
+				"ID": "vallue",  (商品/商家id)
+				"img": "http://asdasdasdj.com/img1,
+				"path": "http://asdasd.com/123"
+		  	},
+		]
+	}
+}
+
+
+
+评价			CommentActionController	
+	添加		add
+	删除		del
+	获取		getList
+
+
+平台交互接口				PlatformInterfaceActionController	
+	提交平台意见			addOpinion
+	获取平台帮助			getHelp
+
+
