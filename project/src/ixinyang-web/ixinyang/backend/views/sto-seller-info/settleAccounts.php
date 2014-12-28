@@ -60,7 +60,7 @@ use yii\grid\GridView;
                     alert("Connection error");
                 },
                 success: function (data) {
-                    alert(data);
+                    //alert(data);
                 }
             });
         }

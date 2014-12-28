@@ -109,8 +109,10 @@ Dialog::end();
                         text: "保存",
                         "class": 'btn btn-success',
                         click: function () {
-                            SaveOrUpdate(url);
-                            $(this).dialog('close');
+                            if ($("form").valid(this, "error!") == true) {
+                                SaveOrUpdate(url);
+                                $(this).dialog('close');
+                            }
                         }
                     },
                     {
@@ -124,7 +126,6 @@ Dialog::end();
             });
             $("#viewDialog").load(url);
         }
-
         function SaveOrUpdate(url) {
             $.ajax({
                 cache: true,
@@ -136,12 +137,10 @@ Dialog::end();
                     alert("Connection error");
                 },
                 success: function (data) {
-                    //alert(data);
                     $.pjax.reload({container: '#accountList'});
                 }
             });
         }
-
         function Delete(url) {
             if (confirm("确定要删除数据吗")) {
                 $.ajax({
@@ -159,9 +158,7 @@ Dialog::end();
                 });
             }
         }
-
     </script>
-
 <?php
 $this->registerJsFile(Yii::$app->urlManager->baseUrl . '/js/bootstrap-multiselect.js', ['depends' => [JqueryAsset::className()]]);
 $this->registerCssFile(Yii::$app->urlManager->baseUrl . '/css/bootstrap-multiselect.css', []);

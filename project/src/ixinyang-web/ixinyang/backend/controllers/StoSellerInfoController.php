@@ -150,6 +150,11 @@ class StoSellerInfoController extends Controller
             $arr = explode('to', $dateRange);
             $fromDate = $arr[0] . ' 00:00:00';
             $toDate = $arr[1] . ' 23:59:59';
+            if(empty($dateRange)){
+                $fromDate = date("Y-m-d H:i:s");
+                $toDate = date("Y-m-d H:i:s");
+            }
+
             $model = new CusConsumptionRecords();
             $model->settleAccount($fromDate, $toDate);
         }

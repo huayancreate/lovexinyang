@@ -14,7 +14,6 @@ $this->title = '录入新工号';
 $this->params['breadcrumbs'][] = '账号管理';
 ?>
 
-<h4><?= Html::encode($this->title) ?></h4>
 <div class="row">
     <div class="com-account-create">
 

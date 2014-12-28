@@ -10,26 +10,25 @@ use yii\helpers\ArrayHelper;
 ?>
 
 <div class="com-accoun-form">
-    <?php $form = ActiveForm::begin(['layout' => 'horizontal', 'id' => 'accountForm']); ?>
-    <div class="col-lg-5">
-        <?= $form->field($model, 'userName')->textInput(['maxlencontrol-labelgth' => 50, "readonly" => $model->isNewRecord ? false : true]) ?>
-        <?= $form->field($model, 'email')->textInput(['maxlength' => 50]) ?>
+    <?php $form = ActiveForm::begin(['id' => 'accountForm']); ?>
+    <div class="col-lg-6">
+        <?= $form->field($model, 'userName')->textInput(['id' => 'username', 'maxlencontrol-labelgth' => 50, "readonly" => $model->isNewRecord ? false : true, 'check-type' => 'required', 'required-message' => '账号不能为空']) ?>
+        <?= $form->field($model, 'email')->textInput(['id' => 'mail', 'maxlength' => 50, 'check-type' => 'mail required']) ?>
         <?= $form->field($model, 'sex')->inline()->radioList(['男' => '男', '女' => '女']) ?>
         <?php $role->roleName = $roleId ?>
         <?= $form->field($role, 'roleName')->dropDownList(ArrayHelper::map($roles, 'id', 'roleName'), ['multiple' => "multiple"]) ?>
         <?= $form->field($role, 'roleName')->hiddenInput(['id' => 'roleId'])->label(false) ?>
     </div>
-
-    <div class="col-lg-5">
-        <?= $form->field($model, 'nickname')->textInput(['maxlength' => 50]) ?>
-        <?= $form->field($model, 'address')->textInput(['maxlength' => 200]) ?>
-        <?= $form->field($model, 'phoneNumber')->textInput(['maxlength' => 20]) ?>
+    <div class="col-lg-6">
+        <?= $form->field($model, 'nickname')->textInput(['maxlength' => 50, 'check-type' => 'required', 'required-message' => '昵称不能为空']) ?>
+        <?= $form->field($model, 'address')->textInput(['maxlength' => 200, 'check-type' => 'required', 'required-message' => '地址不能为空']) ?>
+        <?= $form->field($model, 'phoneNumber')->textInput(['maxlength' => 20, 'check-type' => 'phone required', 'required-message' => '手机不能为空']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 </div>
+<?= \yii\helpers\Html::errorSummary($model) ?>
 <script type="text/javascript">
     $(document).ready(function () {
-
         var value = "";
         $('#comrole-rolename').multiselect({
             onChange: function (option, checked, select) {
@@ -54,6 +53,20 @@ use yii\helpers\ArrayHelper;
                 $('#comrole-rolename').multiselect('select', roleId, true);
             }
         }
+
+        $(function () {
+            //$("form").validation();
+            $("form").validation(function (obj, params) {
+                    if (obj.id == 'username' && $(obj).attr("readonly") == undefined) {
+                        $.post("index.php?r=com-account/username", {username: $(obj).val()}, function (data) {
+                            params.err = !data.success;
+                            params.msg = data.msg;
+                        }, "json");
+                    }
+                },
+                {reqmark: false}
+            );
+        });
     });
 </script>
 

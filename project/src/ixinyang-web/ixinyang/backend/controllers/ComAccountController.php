@@ -87,8 +87,6 @@ class ComAccountController extends Controller
                 if ($model->validate()) {
                     $roleIdArr = $this->stringInArray($role->roleName);
                     $model->saveUserAccount($roleIdArr);
-                    $message = $model->getErrors();
-                    return json_encode($message);
                 }
             }
 
@@ -173,5 +171,16 @@ class ComAccountController extends Controller
     {
         $str = substr($str, 0, -1);//截取字符串最后一个‘,’字符
         return explode(",", $str); //将字符转换成数组
+    }
+
+    public function actionUsername()
+    {
+        if (Yii::$app->request->post()) {
+            $userName = $_POST["username"];
+            $count = ComAccount::find()->where(['username' => $userName])->count();
+            if ($count != 0) {
+                return '{"msg": "当前账号已存在","err":"error"}';
+            }
+        }
     }
 }

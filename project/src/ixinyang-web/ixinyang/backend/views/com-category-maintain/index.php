@@ -93,12 +93,6 @@ Dialog::end();
     function View(title, url, id) {
         $("#viewDialog").dialog("open");
         $("#viewDialog").dialog({
-            open: function () {
-                $(this).closest(".ui-dialog")
-                    .find(".ui-dialog-titlebar-close")
-                    .addClass(" ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only")
-                    .html("<span class='ui-button-icon-primary ui-icon ui-icon-closethick'></span>");
-            },
             width: 800,
             height: 500,
             title: title,
@@ -111,16 +105,25 @@ Dialog::end();
             close: function () {
                 //$.pjax.reload({container:'#w0'});
             },
-            buttons: {
-                '保存': function () {
-                    SaveOrUpdate(url, id);
-                    $(this).dialog('close');
-
+            buttons: [
+                {
+                    text: "保存",
+                    "class": 'btn btn-success',
+                    click: function () {
+                        if ($("form").valid(this, "error!") == true) {
+                            SaveOrUpdate(url, id);
+                            $(this).dialog('close');
+                        }
+                    }
                 },
-                "取消": function () {
-                    $(this).dialog('close');
+                {
+                    text: "取消",
+                    "class": 'btn btn-danger',
+                    click: function () {
+                        $(this).dialog('close');
+                    }
                 }
-            }
+            ]
         });
 
         if (id != 0) {
@@ -165,9 +168,6 @@ Dialog::end();
     <?php
       $this->endBlock('JS_END');
   ?>
-    $(function(){
-        
-    });
 </script>
 <?php
 $this->registerCssFile(Yii::$app->urlManager->baseUrl . '/css/zTreeStyle.css', []);

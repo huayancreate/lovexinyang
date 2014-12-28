@@ -94,10 +94,6 @@ use yii\web\jqueryAsset;
 
             </div>
         </div>
-
-        <div id="menuContent" class="menuContent" style="display:none; position: absolute;">
-            <ul id="treeDemo" class="ztree" style="margin-top:0; width:180px; height: 300px;"></ul>
-        </div>
         <?php ActiveForm::end(); ?>
     </div>
 <label id="longitude" style="display:none"></label>

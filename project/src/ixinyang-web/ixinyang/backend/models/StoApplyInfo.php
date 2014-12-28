@@ -50,9 +50,9 @@ class StoApplyInfo extends \yii\db\ActiveRecord
     {
         return [
             //去掉前后空格
-            [['remark'],'trim'],
+            [['remark'], 'trim'],
             [['longitude', 'latitude', 'daySales'], 'number'],
-            [['customerServiceId', 'customerManagerId', 'storeApplyNumber', 'applyStatus', 'storeCategoryId','city', 'regional', 'businessZone'], 'integer'],
+            [['customerServiceId', 'customerManagerId', 'storeApplyNumber', 'applyStatus', 'city', 'regional', 'businessZone'], 'integer'],
             [['cusServiceReviewTime', 'cusManagerReviewTime', 'applyTime'], 'safe'],
             [['customerServiceName', 'customerManagerName', 'storePhone', 'otherContact', 'phone', 'email'], 'string', 'max' => 50],
             [['remark'], 'string', 'max' => 200],
@@ -93,16 +93,16 @@ class StoApplyInfo extends \yii\db\ActiveRecord
             'email' => '邮箱',
             'applyStatus' => '审核状态',
             'storeCategoryId' => '商家类型',
-            'remark'=>'驳回备注',
+            'remark' => '驳回备注',
         ];
     }
 
-    
-   /* //根据申请状态和申请时间查询待审核的信息 参数 applyStatus->0 时说明角色是我们平台客服中心查询
-    //applyStatus->1时 说明是我们平台客户经理查询的
-    public function selectByApplyTimeAndApplyStatus($applyStatus,$fromDate,$toDate)
-    {
-        
-       $query=StoApplyInfo::find()->where('applyStatus="'.$applyStatus.'" and applyTime between "'.$fromDate.'" and "'.$toDate.'"')->asArray();
-    }*/
+
+    /* //根据申请状态和申请时间查询待审核的信息 参数 applyStatus->0 时说明角色是我们平台客服中心查询
+     //applyStatus->1时 说明是我们平台客户经理查询的
+     public function selectByApplyTimeAndApplyStatus($applyStatus,$fromDate,$toDate)
+     {
+
+        $query=StoApplyInfo::find()->where('applyStatus="'.$applyStatus.'" and applyTime between "'.$fromDate.'" and "'.$toDate.'"')->asArray();
+     }*/
 }
