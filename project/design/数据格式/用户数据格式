@@ -102,6 +102,24 @@ opeType: 操作字段 updateInfo
 }
 
 
+绑定手机:bindPhoneNumber
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "bindPhoneNumber",
+	"phoneNumber": "value"
+}
+
+绑定手机修改:updateBindPhoneNumber
+{
+	"token":  "value",
+	"username": "value",
+	"opeType": "updateBindPhoneNumber",
+	"oldPhoneNumber": "value",
+	"newPhoneNumber": "value"
+}
+
+
 密码接口
 actionName:PasswordAction
 登录密码的修改:loginPassword
@@ -129,23 +147,6 @@ actionName:PasswordAction
 	"opeType": "updatePayPassword",
 	"oldPassword": "value",
 	"newPassword": "value"
-}
-
-绑定手机:bindPhoneNumber
-{
-	"token":  "value",
-	"username": "value",
-	"opeType": "bindPhoneNumber",
-	"phoneNumber": "value"
-}
-
-绑定手机修改:updateBindPhoneNumber
-{
-	"token":  "value",
-	"username": "value",
-	"opeType": "updateBindPhoneNumber",
-	"oldPhoneNumber": "value",
-	"newPhoneNumber": "value"
 }
 
 以上返回json:
