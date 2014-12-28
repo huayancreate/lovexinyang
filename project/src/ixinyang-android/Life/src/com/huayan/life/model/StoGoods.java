@@ -24,6 +24,7 @@ public class StoGoods implements Serializable {
 	private String enjoyRebate; //是否享受会员折扣
 	private int goodsGrade;//商品等级
 	private int goodsWeight;//商品权重
+	
 	public int getId() {
 		return id;
 	}

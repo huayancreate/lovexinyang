@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.huayan.life.adapter.EvaluationAdapter;
 import com.huayan.life.adapter.GroupPurchaseAdapter;
-import com.huayan.life.adapter.NearTuanGouAdapter;
+import com.huayan.life.adapter.RecommendAdapter;
 import com.huayan.life.common.GetData;
 import com.huayan.life.view.MyScrollView;
 import com.huayan.life.view.MyScrollView.OnScrollListener;
@@ -37,7 +37,7 @@ public class GroupPurchaseActivity extends BaseActivity implements
 	ListView pingListView, listRecommendvView, listTuanView;
 	EvaluationAdapter evaluationAdapter;
 	GroupPurchaseAdapter  adapter;
-	NearTuanGouAdapter tanGouAdapter ;
+	RecommendAdapter tanGouAdapter ;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -86,7 +86,7 @@ public class GroupPurchaseActivity extends BaseActivity implements
 		listRecommendvView.setAdapter(adapter);
 		Utility.setListViewHeightBasedOnChildren(listRecommendvView, 50);
 		
-		tanGouAdapter = new NearTuanGouAdapter(context,GetData.getNearList(4));		
+		tanGouAdapter = new RecommendAdapter(context,GetData.getRecommendList(4));		
 		listTuanView.setAdapter(tanGouAdapter);
 		Utility.setListViewHeightBasedOnChildren(listTuanView, 30);
 		

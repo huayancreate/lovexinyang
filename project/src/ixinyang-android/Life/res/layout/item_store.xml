@@ -28,20 +28,11 @@
             android:layout_marginTop="5.0dip"
             android:layout_toRightOf="@id/img_biao_icon"
             android:singleLine="true"
-            android:text="金仕堡健身会所"
-            android:maxLength="8"
+            android:text="贝斯特韦斯特精品酒店"
+            android:maxLength="10"
             android:ellipsize="end"
             android:textColor="@color/black"
             android:textSize="@dimen/text_17" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/txt_biao_title"
-            android:layout_marginBottom="10.0dip"
-            android:layout_marginLeft="10.0dip"
-            android:layout_toRightOf="@id/txt_biao_title"
-            android:background="@drawable/ic_group" />
 
           <RatingBar
                     android:id="@+id/rtb_item_store"

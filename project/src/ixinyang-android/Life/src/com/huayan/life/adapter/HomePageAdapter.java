@@ -3,6 +3,7 @@ package com.huayan.life.adapter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
@@ -15,6 +16,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.huayan.life.Activity.R;
 import com.huayan.life.view.AdvViewPager;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -27,7 +29,6 @@ public class HomePageAdapter extends BaseAdapter {
 
 	private Context context;
 	private List<HashMap<String, String>> list;
-	// private = null;
 	private ImageLoader imageLoader = null;
 	private DisplayImageOptions options = null;
 	private int currentPage = 0;
@@ -62,15 +63,11 @@ public class HomePageAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		final CacheView cacheView;
 		if (convertView == null) {
-			convertView = LayoutInflater.from(context).inflate(
-					R.layout.item_store_category, null);
+			convertView = LayoutInflater.from(context).inflate(R.layout.item_store_category, null);
 			cacheView = new CacheView();
-			cacheView.tv_type = (TextView) convertView
-					.findViewById(R.id.tv_type);
-			cacheView.adv_type = (AdvViewPager) convertView
-					.findViewById(R.id.adv_type);
-			cacheView.vg_type = (ViewGroup) convertView
-					.findViewById(R.id.vg_type);
+			cacheView.tv_type = (TextView) convertView.findViewById(R.id.tv_type);
+			cacheView.adv_type = (AdvViewPager) convertView.findViewById(R.id.adv_type);
+			cacheView.vg_type = (ViewGroup) convertView.findViewById(R.id.vg_type);			
 			convertView.setTag(cacheView);
 		} else {
 			cacheView = (CacheView) convertView.getTag();
@@ -98,11 +95,9 @@ public class HomePageAdapter extends BaseAdapter {
 			imageView.setLayoutParams(new LayoutParams(20, 20));
 			imageViews[i] = imageView;
 			if (i == 0) {
-				imageViews[i]
-						.setBackgroundResource(R.drawable.banner_dian_focus);
+				imageViews[i].setBackgroundResource(R.drawable.banner_dian_focus);
 			} else {
-				imageViews[i]
-						.setBackgroundResource(R.drawable.banner_dian_blur);
+				imageViews[i].setBackgroundResource(R.drawable.banner_dian_blur);
 			}
 			cacheView.vg_type.addView(imageViews[i]);
 		}
@@ -115,11 +110,9 @@ public class HomePageAdapter extends BaseAdapter {
 				currentPage = arg0;
 				for (int i = 0; i < advs.size(); i++) {
 					if (i == arg0) {
-						imageViews[i]
-								.setBackgroundResource(R.drawable.banner_dian_focus);
+						imageViews[i].setBackgroundResource(R.drawable.banner_dian_focus);
 					} else {
-						imageViews[i]
-								.setBackgroundResource(R.drawable.banner_dian_blur);
+						imageViews[i].setBackgroundResource(R.drawable.banner_dian_blur);
 					}
 				}
 			}
@@ -142,8 +135,8 @@ public class HomePageAdapter extends BaseAdapter {
 				super.handleMessage(msg);
 			}
 		};
+		
 		new Thread(new Runnable() {
-
 			@Override
 			public void run() {
 				while (true) {
@@ -160,7 +153,6 @@ public class HomePageAdapter extends BaseAdapter {
 				}
 			}
 		}).start();
-
 		return convertView;
 	}
 
@@ -170,10 +162,9 @@ public class HomePageAdapter extends BaseAdapter {
 		ViewGroup vg_type;
 	}
 
-	public void addNews(List<HashMap<String, String>> addNews) {
+	public  void addNews(List<HashMap<String, String>> addNews) {
 		for (HashMap<String, String> hm : addNews) {
 			list.add(hm);
-
 		}
 	}
 }

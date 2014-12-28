@@ -83,6 +83,7 @@
         android:divider="@null"
         android:fadingEdge="none"
         android:fastScrollEnabled="false"
+        android:scrollbars="none"
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"
         android:smoothScrollbar="true"

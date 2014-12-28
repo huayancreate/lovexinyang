@@ -12,9 +12,9 @@ import android.widget.TextView;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.huayan.life.adapter.RecommendAdapter;
+import com.huayan.life.adapter.NearTuanGouAdapter;
 import com.huayan.life.common.GetData;
-import com.huayan.life.common.MyOnRefreshListener6;
+import com.huayan.life.common.MyOnRefreshListener9;
 
 /**
  * 每日推荐
@@ -24,7 +24,7 @@ import com.huayan.life.common.MyOnRefreshListener6;
 public class TheRecommendedDailyActivity extends BaseActivity {
 
 	private PullToRefreshListView ptrlvHeadLineNews = null;
-	private RecommendAdapter newAdapter = null;
+	private NearTuanGouAdapter  dailyAdapter = null;
 	ImageView goBack;
 	
 	@Override
@@ -32,8 +32,9 @@ public class TheRecommendedDailyActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_daily_recommend);
 		ptrlvHeadLineNews = (PullToRefreshListView) findViewById(R.id.ptrlvdaily_recommend);
-		newAdapter = new RecommendAdapter(this,GetData.getRecommendList(10));
-		initPullToRefreshListView(ptrlvHeadLineNews, newAdapter);
+		dailyAdapter = new NearTuanGouAdapter(this,GetData.getNearList(10));
+		
+		initPullToRefreshListView(ptrlvHeadLineNews, dailyAdapter);
 		goBack = (ImageView) findViewById(R.id.go_back);
 		((TextView) findViewById(R.id.header_name)).setText(getString(R.string.tuijian));	
 		
@@ -52,10 +53,9 @@ public class TheRecommendedDailyActivity extends BaseActivity {
 		});
 	}
 
-	private void initPullToRefreshListView(PullToRefreshListView rtflv,
-			RecommendAdapter adapter) {
+	private void initPullToRefreshListView(PullToRefreshListView rtflv,NearTuanGouAdapter adapter) {
 		rtflv.setMode(Mode.BOTH);
-		rtflv.setOnRefreshListener(new MyOnRefreshListener6(rtflv,this,newAdapter));
+		rtflv.setOnRefreshListener(new MyOnRefreshListener9(rtflv,this,dailyAdapter));
 		rtflv.setAdapter(adapter);
 		RelativeLayout  buyRelativeLayout = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.tuijian_layout, null);
 		//添加其他模块控件

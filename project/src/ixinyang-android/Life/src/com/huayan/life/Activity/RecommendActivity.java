@@ -2,6 +2,7 @@ package com.huayan.life.Activity;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,6 +19,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.huayan.life.adapter.AdvAdapter;
@@ -76,9 +78,8 @@ public class RecommendActivity extends BaseActivity implements OnClickListener {
 				jumpToActivity(RecommendActivity.this,CategoryActivity.class);
 			}
 		});
-	}
+	}	
 	
-
 	/**
 	 * 初始化PullToRefreshListView<br>
 	 * 初始化在PullToRefreshListView中的ViewPager广告栏

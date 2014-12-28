@@ -16,7 +16,6 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.huayan.life.adapter.EvaluationAdapter;
-import com.huayan.life.adapter.HotAdapter;
 import com.huayan.life.adapter.NearTuanGouAdapter;
 import com.huayan.life.common.GetData;
 
@@ -28,7 +27,6 @@ import com.huayan.life.common.GetData;
 public class StoreDetailActivity extends BaseActivity implements
 		OnClickListener {
 
-	HotAdapter adapter;
 	ListView pingListView, nearListView;
 	PopupWindow popupWindow;
 	NearTuanGouAdapter tanGouAdapter;

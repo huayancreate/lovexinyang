@@ -6,21 +6,23 @@ import android.os.AsyncTask;
 import android.widget.Toast;
 
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.huayan.life.adapter.NewListAdapter;
+import com.huayan.life.adapter.OrderListAdapter;
 
-public class GetNewsTask extends AsyncTask<String, Void, Integer> {
+public class GetOrdersTask extends AsyncTask<String, Void, Integer> {
 	
 	public static final int HTTP_REQUEST_SUCCESS = -1;
 	public static final int HTTP_REQUEST_ERROR = 0;
 	private PullToRefreshListView mPtrlv;
 	private Context mContext;
-	private NewListAdapter newAdapter;
+	private OrderListAdapter newAdapter;
+	private int mIndex;
 	
 	
-	public GetNewsTask(PullToRefreshListView ptrlv,Context context,NewListAdapter adapter) {
+	public GetOrdersTask(PullToRefreshListView ptrlv,Context context,OrderListAdapter adapter,int type) {
 		this.mPtrlv = ptrlv;
 		this.mContext=context;
 		this.newAdapter=adapter;
+		this.mIndex=type;
 	}
 
 	@Override
@@ -41,7 +43,7 @@ public class GetNewsTask extends AsyncTask<String, Void, Integer> {
 		super.onPostExecute(result);
 		switch (result) {
 		case HTTP_REQUEST_SUCCESS:
-			newAdapter.addNews(GetData.getSimulationNews(10));
+			newAdapter.addNews(GetData.getOrders(10,mIndex));
 			newAdapter.notifyDataSetChanged();
 			break;
 		case HTTP_REQUEST_ERROR:

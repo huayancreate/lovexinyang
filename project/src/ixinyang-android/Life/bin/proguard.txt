@@ -4,13 +4,13 @@
 # view res/layout/guide.xml #generated:7
 -keep class android.support.v4.view.ViewPager { <init>(...); }
 
-# view AndroidManifest.xml #generated:270
+# view AndroidManifest.xml #generated:298
 -keep class cn.sharesdk.framework.AuthorizeActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:277
+# view AndroidManifest.xml #generated:305
 -keep class cn.sharesdk.onekeyshare.ShareAllGird { <init>(...); }
 
-# view AndroidManifest.xml #generated:283
+# view AndroidManifest.xml #generated:311
 -keep class cn.sharesdk.onekeyshare.SharePage { <init>(...); }
 
 # view res/layout/activity_category.xml #generated:76
@@ -25,148 +25,166 @@
 # view res/layout/hotel_reservation.xml #generated:6
 -keep class com.handmark.pulltorefresh.library.PullToRefreshListView { <init>(...); }
 
-# view AndroidManifest.xml #generated:79
+# view AndroidManifest.xml #generated:80
 -keep class com.huayan.life.Activity.AboutActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:167
+# view AndroidManifest.xml #generated:170
 -keep class com.huayan.life.Activity.AlbumActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:157
+# view AndroidManifest.xml #generated:225
+-keep class com.huayan.life.Activity.ApplyRefundActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:160
 -keep class com.huayan.life.Activity.CategoryActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:106
+# view AndroidManifest.xml #generated:110
 -keep class com.huayan.life.Activity.ChildStoreAlbumActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:152
+# view AndroidManifest.xml #generated:155
 -keep class com.huayan.life.Activity.CollectionActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:172
+# view AndroidManifest.xml #generated:280
+-keep class com.huayan.life.Activity.ConsumptionOrderDetailsActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:275
+-keep class com.huayan.life.Activity.EvaOrderDetailsActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:180
 -keep class com.huayan.life.Activity.EvaPicActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:242
+# view AndroidManifest.xml #generated:175
+-keep class com.huayan.life.Activity.EvaluationActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:255
 -keep class com.huayan.life.Activity.EvaluationStoresActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:237
+# view AndroidManifest.xml #generated:250
 -keep class com.huayan.life.Activity.FeedbackActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:162
+# view AndroidManifest.xml #generated:165
 -keep class com.huayan.life.Activity.GroupPurchaseActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:49
+# view AndroidManifest.xml #generated:50
 -keep class com.huayan.life.Activity.GuideActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:54
+# view AndroidManifest.xml #generated:55
 -keep class com.huayan.life.Activity.LoginActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:44
+# view AndroidManifest.xml #generated:45
 -keep class com.huayan.life.Activity.MainActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:217
+# view AndroidManifest.xml #generated:230
 -keep class com.huayan.life.Activity.MembershipCardActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:222
+# view AndroidManifest.xml #generated:235
 -keep class com.huayan.life.Activity.MembershipDetailActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:94
+# view AndroidManifest.xml #generated:100
 -keep class com.huayan.life.Activity.MipcaActivityCapture { <init>(...); }
 
-# view AndroidManifest.xml #generated:212
+# view AndroidManifest.xml #generated:220
 -keep class com.huayan.life.Activity.ModifyPayPwdActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:197
+# view AndroidManifest.xml #generated:205
 -keep class com.huayan.life.Activity.ModifyPwdActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:192
+# view AndroidManifest.xml #generated:200
 -keep class com.huayan.life.Activity.ModifyUserNameActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:74
+# view AndroidManifest.xml #generated:75
 -keep class com.huayan.life.Activity.MoreActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:187
+# view AndroidManifest.xml #generated:195
 -keep class com.huayan.life.Activity.MyAccountActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:69
+# view AndroidManifest.xml #generated:70
 -keep class com.huayan.life.Activity.MyActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:262
+# view AndroidManifest.xml #generated:290
 -keep class com.huayan.life.Activity.MyScoreActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:252
+# view AndroidManifest.xml #generated:265
 -keep class com.huayan.life.Activity.NoticeActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:112
+# view AndroidManifest.xml #generated:115
 -keep class com.huayan.life.Activity.NotificationUpdateActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:147
+# view AndroidManifest.xml #generated:150
 -keep class com.huayan.life.Activity.OrderActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:257
+# view AndroidManifest.xml #generated:270
 -keep class com.huayan.life.Activity.OrderDetailsActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:89
+# view AndroidManifest.xml #generated:90
 -keep class com.huayan.life.Activity.PaidHelpActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:207
+# view AndroidManifest.xml #generated:215
 -keep class com.huayan.life.Activity.PayPwdActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:232
+# view AndroidManifest.xml #generated:245
 -keep class com.huayan.life.Activity.PaymentOrderActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:182
+# view AndroidManifest.xml #generated:190
 -keep class com.huayan.life.Activity.QueryActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:137
+# view AndroidManifest.xml #generated:140
 -keep class com.huayan.life.Activity.QuickLoginActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:247
+# view AndroidManifest.xml #generated:260
 -keep class com.huayan.life.Activity.RecentEvaluationActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:59
+# view AndroidManifest.xml #generated:60
 -keep class com.huayan.life.Activity.RecommendActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:132
+# view AndroidManifest.xml #generated:95
+-keep class com.huayan.life.Activity.RefundDetailActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:285
+-keep class com.huayan.life.Activity.RefundOrderDetailsActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:135
 -keep class com.huayan.life.Activity.RegStepThreeActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:127
+# view AndroidManifest.xml #generated:130
 -keep class com.huayan.life.Activity.RegStepTwoActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:122
+# view AndroidManifest.xml #generated:125
 -keep class com.huayan.life.Activity.RegisterActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:202
+# view AndroidManifest.xml #generated:210
 -keep class com.huayan.life.Activity.SaveVerificationActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:117
+# view AndroidManifest.xml #generated:120
 -keep class com.huayan.life.Activity.ShareActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:32
+# view AndroidManifest.xml #generated:33
 -keep class com.huayan.life.Activity.SplashActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:64
+# view AndroidManifest.xml #generated:65
 -keep class com.huayan.life.Activity.StoreActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:100
+# view AndroidManifest.xml #generated:105
 -keep class com.huayan.life.Activity.StoreAlbumActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:177
+# view AndroidManifest.xml #generated:185
 -keep class com.huayan.life.Activity.StoreDetailActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:227
+# view AndroidManifest.xml #generated:240
 -keep class com.huayan.life.Activity.SubmitOrderActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:142
+# view AndroidManifest.xml #generated:145
 -keep class com.huayan.life.Activity.TheRecommendedDailyActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:84
+# view AndroidManifest.xml #generated:85
 -keep class com.huayan.life.Activity.UserAgreementActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:26
+# view AndroidManifest.xml #generated:27
 -keep class com.huayan.life.model.MyApp { <init>(...); }
 
-# view AndroidManifest.xml #generated:268
+# view AndroidManifest.xml #generated:296
 -keep class com.huayan.life.service.DownloadService { <init>(...); }
 
-# view res/layout/item_store_category.xml #generated:38
+# view res/layout/item_store_category.xml #generated:39
 # view res/layout/sliding_advertisement.xml #generated:22
 -keep class com.huayan.life.view.AdvViewPager { <init>(...); }
 

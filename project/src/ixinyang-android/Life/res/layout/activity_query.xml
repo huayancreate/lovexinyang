@@ -3,7 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/citylist_divider"
+    android:background="@color/white"
     android:orientation="vertical" >
 
     <!-- 头部导航 -->
@@ -40,7 +40,7 @@
             android:hint="@string/tishi"
             android:textColor="@color/text_color_gray"
             android:textColorHint="@color/text_normal"
-            android:textSize="@dimen/default_text_size" />
+            android:textSize="@dimen/city_16_text" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -72,10 +72,11 @@
         android:cacheColorHint="@android:color/transparent"
         android:columnWidth="90dip"
         android:gravity="center"
-        android:horizontalSpacing="10dip"
+        android:scrollbars="none"
+        android:horizontalSpacing="10.0dip"
         android:listSelector="@android:color/transparent"
-        android:numColumns="4"
+        android:numColumns="3"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="20dip" />
+        android:verticalSpacing="10.0dip" />
 
 </LinearLayout>
