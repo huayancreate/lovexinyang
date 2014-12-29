@@ -14,7 +14,7 @@ use yii\jui\Dialog;
  <div class="com-menu-search">
      <div class="line-height">
          <?php   
-          @$rootModel=ComMenu::find()->where(['id'=>'1'])->one();
+          @$rootModel=ComMenu::find()->where(['parentMenuId'=>'0'])->one();
          ?>
       </div>
 
@@ -26,11 +26,11 @@ use yii\jui\Dialog;
         <?php
         //查询所有有效的一级菜单  2-->全部  1-->有效   0-->无效
         if ($model->isValid!=2) {
-          @$firstLevelModels=ComMenu::find()->where(['isValid'=>$model->isValid,'parentMenuId'=>'1'])->all();
+          @$firstLevelModels=ComMenu::find()->where(['isValid'=>$model->isValid,'parentMenuId'=>$rootModel->id])->all();
         }
         else
         {
-          @$firstLevelModels=ComMenu::find()->where(['parentMenuId'=>'1'])->all();
+          @$firstLevelModels=ComMenu::find()->where(['parentMenuId'=>$rootModel->id])->all();
         }
         ?>
         <?php if (count($firstLevelModels)>0): ?>
