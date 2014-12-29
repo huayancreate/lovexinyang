@@ -45,8 +45,7 @@ public class OrderActivity extends FragmentActivity implements OnClickListener {
 		mViewPager = (ViewPager) findViewById(R.id.vp_ViewPager2);
 		mViewPager.setOffscreenPageLimit(2);/* 预加载页面 */
 		mIndicator = (PageIndicator) findViewById(R.id.pvr_user_indicator);
-		mIndicator
-				.setOnPageChangeListener(new IndicatorOnPageChangedListener());
+		mIndicator.setOnPageChangeListener(new IndicatorOnPageChangedListener());
 	}
 
 	/* 初始化ViewPager */

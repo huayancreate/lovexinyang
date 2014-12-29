@@ -7,18 +7,20 @@ import android.widget.ListView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.huayan.life.adapter.NewListAdapter;
+import com.huayan.life.adapter.OrderListAdapter;
 
-public class MyOnRefreshListener2 implements OnRefreshListener2<ListView> {
+public class OrderOnRefreshListener2 implements OnRefreshListener2<ListView> {
 
 	private PullToRefreshListView mPtflv;
 	private Context mContext;
-	private NewListAdapter newAdapter;
+	private OrderListAdapter newAdapter;
+	private int  mIndex;
 	
-	public MyOnRefreshListener2(PullToRefreshListView ptflv, Context context,NewListAdapter adapter) {
+	public OrderOnRefreshListener2(PullToRefreshListView ptflv, Context context,OrderListAdapter adapter,int type) {
 		this.mPtflv = ptflv;
 		this.mContext = context;
 		this.newAdapter=adapter;
+		this.mIndex=type;
 	}
 
 	@Override
@@ -30,14 +32,14 @@ public class MyOnRefreshListener2 implements OnRefreshListener2<ListView> {
 						| DateUtils.FORMAT_ABBREV_ALL);
 
 		refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
-		new GetNewsTask(mPtflv, mContext,newAdapter).execute();
+		new GetOrdersTask(mPtflv, mContext,newAdapter,mIndex).execute();
 
 	}
 
 	@Override
 	public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
 		// иою╜╪сть
-		new GetNewsTask(mPtflv, mContext,newAdapter).execute();
+		new GetOrdersTask(mPtflv, mContext,newAdapter,mIndex).execute();
 	}
 
 }

@@ -27,8 +27,8 @@
             android:layout_marginBottom="10.0dip"
             android:layout_marginTop="5.0dip"
             android:layout_toRightOf="@id/img_icon_con"
-            android:ellipsize="end"
-            android:maxLength="7"
+             android:ellipsize="end"
+            android:maxLength="6"
             android:singleLine="true"
             android:text="金仕堡健身会所金仕堡健身会所"
             android:textColor="@color/black"
@@ -43,7 +43,7 @@
             android:layout_marginBottom="10.0dip"
             android:text="1.5km"
             android:textColor="@color/viewfinder_mask"
-            android:textSize="@dimen/set_text_size" />
+            android:textSize="@dimen/default_text_size" />
 
         <TextView
             android:id="@+id/tv_content"

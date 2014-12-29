@@ -76,6 +76,7 @@
         android:layout_marginRight="3.0dip"
         android:fadingEdge="none"
         android:fastScrollEnabled="false"
+        android:scrollbars="none"
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"
         android:smoothScrollbar="true"

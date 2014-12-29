@@ -14,5 +14,6 @@
     <dimen name="text_12">12.0sp</dimen>
     <dimen name="text_17">17.0sp</dimen>
     <dimen name="text_19">19.0sp</dimen>
+    <dimen name="type_width">265.0dip</dimen>
 
 </resources>

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/eva_frame"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <include layout="@layout/view_page_header" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp" >
+
+                <ImageView
+                    android:id="@+id/img_eva"
+                    android:layout_width="120dp"
+                    android:layout_height="110dp"
+                    android:layout_marginRight="10dp"
+                    android:contentDescription="@id/img_eva"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/pic" />
+
+                <TextView
+                    android:id="@+id/txt_eva_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/img_eva"
+                    android:layout_marginBottom="10.0dip"
+                    android:layout_marginTop="10.0dip"
+                    android:layout_toRightOf="@id/img_eva"
+                    android:ellipsize="end"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:text="@string/quick_login"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_17" />
+
+                <TextView
+                    android:id="@+id/tv_eva_des"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/txt_eva_title"
+                    android:layout_below="@id/txt_eva_title"
+                    android:layout_marginBottom="10.0dip"
+                    android:ellipsize="end"
+                    android:lineSpacingMultiplier="1.1"
+                    android:maxLines="3"
+                    android:text="@string/xuzhi"
+                    android:textColor="@color/viewfinder_mask"
+                    android:textSize="@dimen/default_text_size" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10.0dip"
+                android:background="@drawable/divider"
+                android:scaleType="centerCrop" />
+
+            <!-- 总体评分 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:id="@+id/rl_total_ping"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginRight="10.0dip" >
+
+                    <TextView
+                        android:id="@+id/tv_total_eva"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5.0dip"
+                        android:gravity="center"
+                        android:text="@string/total_eva"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/head_text_size" />
+
+                    <RatingBar
+                        android:id="@+id/rtb_total"
+                        style="@style/evaRatingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/tv_total_eva"
+                        android:gravity="center"
+                        android:numStars="5"
+                        android:stepSize="1" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_part_ping"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10.0dip"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/tv_part_eva1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5.0dip"
+                            android:gravity="center"
+                            android:text="@string/total_eva"
+                            android:textColor="@color/text_color_gray"
+                            android:textSize="@dimen/text_17" />
+
+                        <RatingBar
+                            android:id="@+id/rtb_part_eva1"
+                            style="@style/partRatingBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/tv_part_eva1"
+                            android:gravity="center"
+                            android:numStars="5"
+                            android:stepSize="1" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10.0dip"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/tv_part_eva2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5.0dip"
+                            android:gravity="center"
+                            android:text="@string/total_eva"
+                            android:textColor="@color/text_color_gray"
+                            android:textSize="@dimen/text_17" />
+
+                        <RatingBar
+                            android:id="@+id/rtb_part_eva2"
+                            style="@style/partRatingBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/tv_part_eva2"
+                            android:gravity="center"
+                            android:numStars="5"
+                            android:stepSize="1" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10.0dip"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/tv_part_eva3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5.0dip"
+                            android:gravity="center"
+                            android:text="@string/total_eva"
+                            android:textColor="@color/text_color_gray"
+                            android:textSize="@dimen/text_17" />
+
+                        <RatingBar
+                            android:id="@+id/rtb_part_eva3"
+                            style="@style/partRatingBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/tv_part_eva3"
+                            android:gravity="center"
+                            android:numStars="5"
+                            android:stepSize="1" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <!-- 总体评分 -->
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10.0dip"
+                android:background="@drawable/divider"
+                android:scaleType="centerCrop" />
+
+            <EditText
+                android:id="@+id/et_eva_content"
+                android:layout_width="fill_parent"
+                android:layout_height="70.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:background="@null"
+                android:hint="@string/hint_eva"
+                android:textColor="@color/black"
+                android:textColorHint="@color/viewfinder_mask"
+                android:textSize="@dimen/head_text_size" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10.0dip"
+                android:background="@drawable/divider"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10.0dip"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/img_upload_pic1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:contentDescription="@id/img_upload_pic1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_comment_upload_add_camera" />
+
+                <ImageView
+                    android:id="@+id/img_add_pic1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:contentDescription="@id/img_add_pic1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_comment_upload_add" />
+
+                <ImageView
+                    android:id="@+id/img_add_pic2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:contentDescription="@id/img_add_pic2"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_comment_upload_add" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:layout_marginTop="10.0dip"
+                android:background="@drawable/divider"
+                android:scaleType="centerCrop" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10.0dip"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_niming_eva"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5.0dip"
+                    android:gravity="center"
+                    android:text="@string/niming_eva"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/head_text_size" />
+
+                <CheckBox
+                    android:id="@+id/cb_niming"
+                    style="@style/NimingbuttonTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10.0dip"
+                    android:checked="false"
+                    android:clickable="true" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/divider"
+                android:scaleType="centerCrop" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/text_bg" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:paddingBottom="15.0dip"
+                    android:paddingLeft="10.0dip"
+                    android:paddingRight="10.0dip"
+                    android:paddingTop="15.0dip"
+                    android:text="@string/tishi_eva"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/city_16_text" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

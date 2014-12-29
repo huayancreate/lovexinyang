@@ -42,20 +42,21 @@
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/set_layout_bg" >
+                android:background="@color/white" >
 
                 <ImageView
                     android:id="@+id/img_blumn_order"
                     android:layout_width="120dp"
                     android:layout_height="110dp"
+                    android:layout_marginLeft="10.0dip"
                     android:layout_marginRight="10dp"
+                    android:layout_marginTop="10.0dip"
                     android:scaleType="centerCrop"
                     android:src="@drawable/pic" />
 
@@ -78,10 +79,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@id/txt_order_title"
                     android:layout_below="@id/txt_order_title"
-                    android:layout_marginBottom="10.0dip"
-                    android:maxLines="2"
                     android:ellipsize="end"
                     android:lineSpacingMultiplier="1.3"
+                    android:maxLines="2"
                     android:text="个性写真套系，为你打造专属于自己的好气质"
                     android:textColor="@color/viewfinder_mask"
                     android:textSize="@dimen/default_text_size" />
@@ -121,19 +121,30 @@
                     android:text="388元"
                     android:textColor="@color/viewfinder_mask"
                     android:textSize="@dimen/default_text_size" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_order_jiage"
+                    android:layout_marginBottom="10.0dip"
+                    android:background="@drawable/divider"
+                    android:scaleType="centerCrop" />
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp" >
+                android:layout_marginBottom="10.0dip"
+                android:background="@color/white" >
 
                 <TextView
                     android:id="@+id/tv_dd1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5.0dip"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="25.0dip"
                     android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="25.0dp"
                     android:drawableLeft="@drawable/ic_support_refund"
                     android:drawablePadding="3.0dip"
                     android:gravity="center_vertical"
@@ -144,8 +155,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5.0dip"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="25.0dip"
                     android:layout_marginLeft="15.0dip"
+                    android:layout_marginTop="25.0dp"
                     android:layout_toRightOf="@id/tv_dd1"
                     android:drawableLeft="@drawable/ic_support_refund"
                     android:drawablePadding="3.0dip"
@@ -167,129 +180,137 @@
                 android:gravity="center"
                 android:paddingBottom="10.0dip"
                 android:paddingTop="10.0dip"
-                android:text="付款"
+                android:text="@string/payment"
                 android:textColor="@color/white"
                 android:textSize="@dimen/group_purchase_title" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10.0dip"
-                android:layout_marginLeft="10.0dip"
-                android:layout_marginTop="10.0dip"
-                android:text="@string/order_detail"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/head_text_size" />
-
-            <ImageView
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5.0dip"
-                android:layout_marginLeft="10.0dip"
-                android:layout_marginRight="10.0dip"
-                android:layout_marginTop="5.0dip"
-                android:background="@drawable/cursor"
-                android:scaleType="centerCrop" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10.0dip"
-                android:layout_marginLeft="10.0dip"
                 android:layout_marginTop="10.0dip"
-                android:text="订单号：630240027"
-                android:textColor="@color/text_color_gray"
-                android:textSize="@dimen/city_16_text" />
+                android:background="@color/white"
+                android:orientation="vertical" >
 
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5.0dip"
-                android:layout_marginLeft="10.0dip"
-                android:layout_marginRight="10.0dip"
-                android:layout_marginTop="5.0dip"
-                android:background="@drawable/divider"
-                android:scaleType="centerCrop" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="10.0dip"
+                    android:text="@string/order_detail"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/head_text_size" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10.0dip"
-                android:layout_marginLeft="10.0dip"
-                android:layout_marginTop="10.0dip"
-                android:text="下单时间：2014-09-05  11:15"
-                android:textColor="@color/text_color_gray"
-                android:textSize="@dimen/city_16_text" />
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:background="@drawable/cursor"
+                    android:scaleType="centerCrop" />
 
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5.0dip"
-                android:layout_marginLeft="10.0dip"
-                android:layout_marginRight="10.0dip"
-                android:layout_marginTop="5.0dip"
-                android:background="@drawable/divider"
-                android:scaleType="centerCrop" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="10.0dip"
+                    android:text="订单号：630240027"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/city_16_text" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10.0dip"
-                android:layout_marginLeft="10.0dip"
-                android:layout_marginTop="10.0dip"
-                android:text="购买手机号：13855117363"
-                android:textColor="@color/text_color_gray"
-                android:textSize="@dimen/city_16_text" />
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:background="@drawable/divider"
+                    android:scaleType="centerCrop" />
 
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5.0dip"
-                android:layout_marginLeft="10.0dip"
-                android:layout_marginRight="10.0dip"
-                android:layout_marginTop="5.0dip"
-                android:background="@drawable/divider"
-                android:scaleType="centerCrop" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="10.0dip"
+                    android:text="下单时间：2014-09-05  11:15"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/city_16_text" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10.0dip"
-                android:layout_marginLeft="10.0dip"
-                android:layout_marginTop="10.0dip"
-                android:text="数量：1"
-                android:textColor="@color/text_color_gray"
-                android:textSize="@dimen/city_16_text" />
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:background="@drawable/divider"
+                    android:scaleType="centerCrop" />
 
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5.0dip"
-                android:layout_marginLeft="10.0dip"
-                android:layout_marginRight="10.0dip"
-                android:layout_marginTop="5.0dip"
-                android:background="@drawable/divider"
-                android:scaleType="centerCrop" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="10.0dip"
+                    android:text="购买手机号：13855117363"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/city_16_text" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10.0dip"
-                android:layout_marginLeft="10.0dip"
-                android:layout_marginTop="10.0dip"
-                android:text="总价：198元"
-                android:textColor="@color/text_color_gray"
-                android:textSize="@dimen/city_16_text" />
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:background="@drawable/divider"
+                    android:scaleType="centerCrop" />
 
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15.0dip"
-                android:layout_marginLeft="10.0dip"
-                android:layout_marginRight="10.0dip"
-                android:layout_marginTop="5.0dip"
-                android:background="@drawable/divider"
-                android:scaleType="centerCrop" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="10.0dip"
+                    android:text="数量：1"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/city_16_text" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:background="@drawable/divider"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="10.0dip"
+                    android:text="总价：198元"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/city_16_text" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:background="@drawable/divider"
+                    android:scaleType="centerCrop" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

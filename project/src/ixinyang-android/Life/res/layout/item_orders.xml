@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/set_layout_bg" >
+
+        <ImageView
+            android:id="@+id/img_order_icon"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/pic" />
+
+        <TextView
+            android:id="@+id/txt_order_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/img_order_icon"
+            android:layout_marginBottom="10.0dip"
+            android:layout_marginTop="5.0dip"
+            android:layout_toRightOf="@id/img_order_icon"
+            android:singleLine="true"
+            android:text="贝斯特韦斯特精品酒店"
+            android:maxLength="10"
+            android:ellipsize="end"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_17" />
+
+          <TextView
+                    android:id="@+id/tv_order_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/txt_order_title"
+                    android:layout_below="@id/txt_order_title"
+                    android:layout_marginBottom="15.0dip"
+                     android:text="总价：7.5元"
+                    android:textColor="@color/viewfinder_mask"
+                    android:textSize="@dimen/city_16_text" />
+                
+                  <TextView
+                    android:id="@+id/tv_order_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_order_title"
+                    android:layout_marginBottom="15.0dip"
+                    android:layout_marginLeft="15.0dip"
+                    android:layout_toRightOf="@id/tv_order_price"
+                    android:text="数量：1"
+                    android:textColor="@color/viewfinder_mask"
+                    android:textSize="@dimen/city_16_text" />
+
+        <TextView
+            android:id="@+id/tv_order_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_order_price"
+            android:layout_marginBottom="10.0dip"
+            android:layout_alignLeft="@id/tv_order_price"
+            android:text="@string/pending_payment"
+            android:textColor="@color/text_green"
+            android:textSize="@dimen/city_16_text" />
+
+        <TextView
+            android:id="@+id/tv_order_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tv_order_category"
+            android:layout_below="@id/tv_order_price"
+            android:layout_marginBottom="10.0dip"
+           android:layout_alignParentRight="true"
+            android:layout_marginRight="15.0dip"            
+            android:text="@string/payment"
+            android:background="@drawable/shop_edit_pressed"
+            android:paddingTop="6.0dip"
+            android:paddingBottom="6.0dip" 
+            android:paddingLeft="18.0dip"
+             android:paddingRight="18.0dip"
+            android:textColor="@color/orange_text"
+            android:textSize="@dimen/city_16_text" />
+
+    </RelativeLayout>
+
+</LinearLayout>

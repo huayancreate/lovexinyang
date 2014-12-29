@@ -216,6 +216,8 @@
                 android:drawablePadding="5.0dip"
                 android:drawableRight="@drawable/ic_global_arrow_right_2px"
                 android:gravity="center_vertical"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:text="瑶海区长江东路1137号圣大国际商贸中心708.709室"
                android:textColor="@color/text_color_gray"
                 android:textSize="@dimen/text_17" />
@@ -233,7 +235,7 @@
                 android:layout_marginBottom="10.0dip"
                 android:layout_marginLeft="10.0dip"
                 android:layout_marginTop="10.0dip"
-                android:text="本店所有商品"
+                android:text="@string/all_goods"
                 android:textColor="@color/black"
                 android:textSize="@dimen/head_text_size" />
 
@@ -260,7 +262,7 @@
                 android:layout_marginBottom="5.0dip"
                 android:layout_marginLeft="10.0dip"
                 android:layout_marginTop="10.0dip"
-                android:text="评价"
+                android:text="@string/eva"
                 android:textColor="@color/black"
                 android:textSize="@dimen/head_text_size" />
 
