@@ -40,12 +40,11 @@ class ComCheckoutStream extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['operatorId', 'balanceApplyId', 'storeId'], 'integer'],
+            [['operatorId', 'balanceApplyId', 'storeId','shopId'], 'integer'],
             [['operatorTime', 'balanceTime', 'payTime'], 'safe'],
             [['balanceMoney'], 'number'],
             [['operatorAccount', 'depositAlipayName', 'depositAlipayAccount', 'interfaceSerialNumber', 'storeName', 'expenditureAlipayName', 'expenditureAlipayAccount', 'alipayTransactionStream'], 'string', 'max' => 50],
-            [['alipayNo'], 'string', 'max' => 40],
-            [['alipayName'], 'string', 'max' => 150]
+            [['shopName'],'string', 'max' => 200]
         ];
     }
 

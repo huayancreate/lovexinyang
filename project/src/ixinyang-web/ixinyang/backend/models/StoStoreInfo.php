@@ -47,7 +47,8 @@ class StoStoreInfo extends \yii\db\ActiveRecord
             [['validity'], 'string', 'max' => 2],
             [['contactWay'], 'string', 'max' => 50],
             [['longitude', 'latitude'], 'number'],
-            [['alipayNo'], 'string', 'max' => 40]
+            [['alipayNo'], 'string', 'max' => 40],
+            [['accountBalance'], 'number']
         ];
     }
 

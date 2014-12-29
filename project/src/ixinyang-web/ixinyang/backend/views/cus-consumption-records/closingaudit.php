@@ -82,7 +82,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     //审核通过
     function checkPass(financeReviewStatus,id,balanceStartTime,balanceEndTime,shopId){
-        $.ajax({
+        if(confirm("确定审核通过吗？"))
+        {
+           $.ajax({
             type: "POST",
             data: {'financeReviewStatus': financeReviewStatus,'id':id,'balanceStartTime':balanceStartTime,'balanceEndTime':balanceEndTime,'shopId':shopId},
             url: "index.php?r=cus-consumption-records%2Fcheckpass",
@@ -93,23 +95,34 @@ $this->params['breadcrumbs'][] = $this->title;
             success: function (data) {
                 if(data.success){
                     //当成功后操作。。
-                
-                alert("操作成功");
+               
+                alert("操作成功".data.counts);
                 //$.pjax.reload({container:'#balancereviewGrid'});
 
                 }else{
                     alert("操作失败原因："+data.errormsg+",请重试.");
                 }
             }
-        });
+          });
+        }
+        else{
+
+        }
+        
        
     }
 
     //审核驳回   审核通过和审核驳回按钮都不可用
     function checkFail(){
-        $("#remarkDiv").show();
-        $("#btnCheckPass").attr("disabled",true);
-        $("#btnCheckFail").attr("disabled",true);
+        if(confirm("确定审核驳回吗？"))
+        {
+            $("#remarkDiv").show();
+            $("#btnCheckPass").attr("disabled",true);
+            $("#btnCheckFail").attr("disabled",true);
+        }
+        else{
+
+        }
        
     }
   
