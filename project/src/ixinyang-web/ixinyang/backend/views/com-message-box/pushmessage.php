@@ -52,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <label for="inputEmail3" class="col-sm-2 control-label">年龄区间：</label>
 
             <div class="col-sm-4">
-                <select id="disabledSelect" name="fromAge" class="form-control">
+                <select id="fromAge" name="fromAge" class="form-control">
                     <option value="">-无限制-</option>
                     <option value="15">15</option>
                     <option value="20">20</option>
@@ -60,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </select>
             </div>
             <div class="col-sm-4">
-                <select id="disabledSelect" name="toAge" class="form-control">
+                <select id="toAge" name="toAge" class="form-control">
                     <option value="">-无限制-</option>
                     <option value="20">20</option>
                     <option value="25">25</option>
@@ -91,4 +91,25 @@ $this->params['breadcrumbs'][] = $this->title;
             }
         });
     }
+
+    $('#fromAge').change(function () {
+        var fromAge = $(this).val();
+        var toAge = $("#toAge").val();
+        if (toAge != "") {
+            if (fromAge > toAge) {
+                alert("起始年龄不能大于结束年龄");
+                $("#fromAge")[0].selectedIndex = 0;
+            }
+        }
+    });
+    $('#toAge').change(function () {
+        var toAge = $(this).val();
+        var fromAge = $("#fromAge").val();
+        if (fromAge != "") {
+            if (fromAge > toAge) {
+                alert("结束年龄不能小于起始年龄");
+                $("#toAge")[0].selectedIndex = 0;
+            }
+        }
+    });
 </script>

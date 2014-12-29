@@ -12,7 +12,6 @@ use yii\helpers\ArrayHelper;
 
 <div class="com-category-maintain-form">
     <?php $form = ActiveForm::begin(["id" => "categoryForm"]); ?>
-    <?= $form->field($model, 'categoryCode')->textInput(['check-type' => 'required']) ?>
     <?= $form->field($model, 'categoryName')->textInput(['maxlength' => 200, 'check-type' => 'required']) ?>
     <?= $form->field($model, 'categoryType')->dropDownList([
         '1' => '商品类别',
