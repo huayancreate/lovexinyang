@@ -141,12 +141,12 @@
                 if (options.length === 0) {
                     return this.nonSelectedText + ' <b class="caret"></b>';
                 }
-                else if (options.length == $('option', $(select)).length) {
-                    return this.allSelectedText + ' <b class="caret"></b>';
-                }
-                else if (options.length > this.numberDisplayed) {
-                    return options.length + ' ' + this.nSelectedText + ' <b class="caret"></b>';
-                }
+                //else if (options.length == $('option', $(select)).length) {
+                //    return this.allSelectedText + ' <b class="caret"></b>';
+                //}
+                //else if (options.length > this.numberDisplayed) {
+                //    return options.length + ' ' + this.nSelectedText + ' <b class="caret"></b>';
+                //}
                 else {
                     var selected = '';
                     options.each(function() {
@@ -240,20 +240,20 @@
             checkboxName: false,
             includeSelectAllOption: false,
             includeSelectAllIfMoreThan: 0,
-            selectAllText: ' Select all',
+            selectAllText: ' 选择全部',
             selectAllValue: 'multiselect-all',
             selectAllName: false,
             enableFiltering: false,
             enableCaseInsensitiveFiltering: false,
             enableClickableOptGroups: false,
-            filterPlaceholder: 'Search',
+            filterPlaceholder: '查询',
             // possible options: 'text', 'value', 'both'
-            filterBehavior: 'text',
+            filterBehavior: '文本',
             includeFilterClearBtn: true,
             preventInputChangeEvent: false,
-            nonSelectedText: 'None selected',
-            nSelectedText: 'selected',
-            allSelectedText: 'All selected',
+            nonSelectedText: '请选择',
+            nSelectedText: '选中',
+            allSelectedText: '全部选择',
             numberDisplayed: 3,
             disableIfEmpty: false,
             templates: {

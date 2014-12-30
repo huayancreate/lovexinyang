@@ -71,8 +71,8 @@ class AdPushMessage extends \yii\db\ActiveRecord
     public function sendMessage()
     {
         $model = new ComMessageBox();
-        //1.根据条件查询所有符合要求的用户
         if (Yii::$app->request->post()) {
+
             $sex = $_POST['sex'];
             $memberGrade = "";
             $fromAge = $_POST['fromAge'];
@@ -80,19 +80,21 @@ class AdPushMessage extends \yii\db\ActiveRecord
             $title = $_POST['title'];
             $introduction = $_POST['introduction'];
             $content = $_POST['content'];
+            //1.根据条件查询所有符合要求的用户
             $users = $model->getUserByCondition($sex, $memberGrade, $fromAge, $toAge);
             foreach ($users as $user) {
                 //2.保存消息到消息盒子中
-                $this->messageTopic = $title;
-                $this->pushIntroduction = $introduction;
-                $this->pushDetails = $content;
-                $this->membershipGrade = $user->memberGrade;
-                $this->pushSex = $sex;
-                $this->pushTime = date('Y-m-d H:i:s');
-                $this->isValid = "1";
-                $this->fromAge = $fromAge;
-                $this->toAge = $toAge;
-                $this->save();
+                $adPush = new AdPushMessage();
+                $adPush->messageTopic = $title;
+                $adPush->pushIntroduction = $introduction;
+                $adPush->pushDetails = $content;
+                $adPush->membershipGrade = $user->memberGrade;
+                $adPush->pushSex = $sex;
+                $adPush->pushTime = date('Y-m-d H:i:s');
+                $adPush->isValid = "1";
+                $adPush->fromAge = $fromAge;
+                $adPush->toAge = $toAge;
+                $adPush->save();
             }
         }
     }

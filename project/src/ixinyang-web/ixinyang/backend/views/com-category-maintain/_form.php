@@ -23,8 +23,8 @@ use yii\helpers\ArrayHelper;
             <ul id="treeDemo" class="ztree" style="width:100%;height:300px"></ul>
         </div>
     </div>
-
     <?= $form->field($model, 'parentCategoryId')->hiddenInput(['id' => 'hiddenCategoryId'])->label(false) ?>
+    <?= $form->field($model, 'categoryGrade')->hiddenInput(['id' => 'hiddenGrade', 'value' => $model->categoryGrade === null ? '0' : $model->categoryGrade])->label(false) ?>
     <?= $form->field($model, 'sort')->textInput(['check-type' => 'required']) ?>
     <?php ActiveForm::end(); ?>
 
@@ -34,31 +34,16 @@ use yii\helpers\ArrayHelper;
         $("form").validation();
     });
     function beforeClick(treeId, treeNode) {
-        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-        zTree.expandNode(treeNode);
+        //var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+        //zTree.expandNode(treeNode);
     }
 
     function onClick(e, treeId, treeNode) {
-        //alert(1);
-        var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
-            nodes = zTree.getSelectedNodes(),
-            id = "",
-            v = "";
-
-        if (!treeNode.isParent) {
-            nodes.sort(function compare(a, b) {
-                return a.id - b.id;
-            });
-
-            for (var i = 0, l = nodes.length; i < l; i++) {
-                v = nodes[i].categoryName;
-                id = nodes[i].id;
-            }
-            var category = $("#parentCategoryId");
-            category.attr("value", v);
-            $("#hiddenCategoryId").attr("value", id);
-            $("#menuContent").fadeOut("fast");
-        }
+        //alert(treeNode.categoryName + "----" + treeNode.id);
+        $("#parentCategoryId").val(treeNode.categoryName);
+        $("#hiddenCategoryId").val(treeNode.id);
+        getCategoryGrade(treeNode.id);
+        $("#menuContent").fadeOut("fast");
     }
 
     $("#parentCategoryId").bind("click", function () {
@@ -105,6 +90,12 @@ use yii\helpers\ArrayHelper;
             }
         };
         $.fn.zTree.init($("#treeDemo"), setting);
+    }
+
+    function getCategoryGrade(id) {
+        $.post("index.php?r=com-category-maintain/grade", {id: id}, function (data) {
+            $("#hiddenGrade").val(parseInt(data) + 1);
+        });
     }
 </script>
 

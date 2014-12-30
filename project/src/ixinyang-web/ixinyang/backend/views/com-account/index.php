@@ -53,7 +53,7 @@ $this->params['breadcrumbs'][] = '账号管理';
                                 return Html::a('<span class="glyphicon  glyphicon-eye-open"></span>', 'javascript:void(0)',
                                     [
                                         'title' => Yii::t('yii', 'View'),
-                                        'onClick' => 'View("账号查看","index.php?r=com-account/view&id=' . $model['id'] . '")'
+                                        'onClick' => 'Detail("账号查看","com-account/view&id=' . $model['id'] . '")'
                                     ]);
                             },
                             'update' => function ($url, $model) {
@@ -70,7 +70,7 @@ $this->params['breadcrumbs'][] = '账号管理';
                                     [
                                         'title' => Yii::t('yii', 'Delete'),
                                         'data-pjax' => true,
-                                        'onClick' => 'Delete("index.php?r=com-account/delete&id=' . $model['id'] . '")'
+                                        'onClick' => 'Delete("com-account/delete&id=' . $model['id'] . '")'
                                     ]);
                             }
 
@@ -84,7 +84,7 @@ $this->params['breadcrumbs'][] = '账号管理';
 <?php
 Dialog::begin([
     'id' => 'viewDialog',
-    'clientOptions' => ['modal' => true, 'autoOpen' => false],]);
+    'clientOptions' => ['modal' => true, 'autoOpen' => false, 'width' => '800', 'height' => '600'],]);
 ?>
     <div id="view"></div>
 <?php
@@ -92,6 +92,7 @@ Dialog::end();
 ?>
     <script type="text/javascript">
         function View(title, url) {
+            //JuiDialog.dialog('viewDialog', title, url, 'accountForm', 'accountList');
             $("#viewDialog").html("");
             $("#viewDialog").dialog("open");
             $("#viewDialog").dialog({
@@ -141,22 +142,15 @@ Dialog::end();
                 }
             });
         }
+        function Detail(title, url) {
+            JuiDialog.dialogView("viewDialog", title, url);
+        }
         function Delete(url) {
-            if (confirm("确定要删除数据吗")) {
-                $.ajax({
-                    cache: true,
-                    type: "POST",
-                    url: url,
-                    data: $('#accountForm').serialize(),
-                    async: false,
-                    error: function (request) {
-                        alert("Connection error");
-                    },
-                    success: function (data) {
-                        $.pjax.reload({container: '#accountList'});
-                    }
-                });
-            }
+            bootbox.confirm("是否确定删除?", function (result) {
+                if (result) {
+                    JuiDialog.del(url, "accountList");
+                }
+            });
         }
     </script>
 <?php

@@ -16,7 +16,7 @@ use yii\grid\GridView;
         'dataProvider' => $comsumptionProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'id',
+            //'id',
             'orderNo',
             'orderId',
             'goodsId',

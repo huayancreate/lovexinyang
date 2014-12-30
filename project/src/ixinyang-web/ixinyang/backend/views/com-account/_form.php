@@ -20,7 +20,7 @@ use yii\helpers\ArrayHelper;
         <?= $form->field($role, 'roleName')->hiddenInput(['id' => 'roleId'])->label(false) ?>
     </div>
     <div class="col-lg-6">
-        <?= $form->field($model, 'nickname')->textInput(['maxlength' => 50, 'check-type' => 'required', 'required-message' => '昵称不能为空']) ?>
+        <?= $form->field($model, 'nickname')->textInput(['maxlength' => 50, 'check-type' => 'required', 'required-message' => '姓名不能为空']) ?>
         <?= $form->field($model, 'address')->textInput(['maxlength' => 200, 'check-type' => 'required', 'required-message' => '地址不能为空']) ?>
         <?= $form->field($model, 'phoneNumber')->textInput(['maxlength' => 20, 'check-type' => 'phone required', 'required-message' => '手机不能为空']) ?>
     </div>

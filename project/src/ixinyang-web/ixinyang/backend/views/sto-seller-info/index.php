@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'content' =>
                     '<div style="border:1px solid #ccc;border-top:0px;padding:15px;">' .
                     Html::label('余额：') .
-                    Html::label($dataProvider->accountBalance == null ? "无余额" : $dataProvider->accountBalance)
+                    Html::label($dataProvider->accountBalance == null ? "无余额" : $dataProvider->accountBalance . "(元)")
                     . "</div>",
                 'active' => true,
             ],

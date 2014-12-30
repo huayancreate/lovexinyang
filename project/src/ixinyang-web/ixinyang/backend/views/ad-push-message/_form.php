@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
 
 <div class="ad-push-message-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(["id"=>"pushForm"]); ?>
 
     <?= $form->field($model, 'area')->textInput(['maxlength' => 200]) ?>
 

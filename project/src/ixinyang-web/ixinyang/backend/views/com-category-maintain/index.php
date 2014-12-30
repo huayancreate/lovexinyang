@@ -52,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             [
                                 'title' => Yii::t('yii', '查看'),
                                 'data-pjax' => '0',
-                                'onClick' => 'View("类别查看","index.php?r=com-category-maintain/view&id=",' . $model->id . ')'
+                                'onClick' => 'Detail("类别查看","com-category-maintain/view&id=' . $model->id . '")'
                             ]);
                     },
                     'update' => function ($url, $model) {
@@ -81,7 +81,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php
 Dialog::begin([
     'id' => 'viewDialog',
-    'clientOptions' => ['modal' => true, 'autoOpen' => false],]);
+    'clientOptions' => ['modal' => true, 'autoOpen' => false, 'width' => '800', 'height' => '500'],]);
 ?>
 <div id="view"></div>
 <?php
@@ -149,22 +149,8 @@ Dialog::end();
             }
         });
     }
-    function Delete(id) {
-        if (confirm("确定要删除数据吗")) {
-            $.ajax({
-                cache: true,
-                type: "POST",
-                url: "index.php?r=com-category-maintain/delete&id=" + id,
-                data: $('#categoryForm').serialize(),
-                async: false,
-                error: function (request) {
-                    alert("Connection error");
-                },
-                success: function (data) {
-                    $.pjax.reload({container: '#categoryList'});
-                }
-            });
-        }
+    function Detail(title, url) {
+        JuiDialog.dialogView("viewDialog", title, url);
     }
     <?php
       $this->endBlock('JS_END');

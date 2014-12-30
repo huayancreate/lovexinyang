@@ -125,12 +125,17 @@ class ComMessageBoxController extends Controller
     {
         $model = new ComMessageBox();
         $memberRule = $model->getStoMemberRule("1");
-        return $this->render("pushmessage", ["memberRule" => $memberRule]);
+        return $this->renderPartial("pushmessage", ["memberRule" => $memberRule]);
     }
 
     public function actionSend()
     {
         $model = new ComMessageBox();
         $model->sendMessage();
+        if (count($model->getErrors()) > 0) {
+            return $msg = '{"msg":"error"}';
+        } else {
+            return $msg = '{"msg":"success"}';
+        }
     }
 }

@@ -148,4 +148,13 @@ class ComCategoryMaintainController extends Controller
         $arr = $model->find()->asArray()->all();
         return json_encode($arr);
     }
+
+    public function actionGrade()
+    {
+        if (Yii::$app->request->post()) {
+            $id = $_POST["id"];
+            $model = $this->findModel($id);
+            return $model->categoryGrade;
+        }
+    }
 }

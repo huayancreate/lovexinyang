@@ -12,8 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="com-message-box-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>

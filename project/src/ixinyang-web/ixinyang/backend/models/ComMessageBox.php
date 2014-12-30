@@ -75,14 +75,15 @@ class ComMessageBox extends \yii\db\ActiveRecord
             $content = $_POST['content'];
             $users = $this->getUserByCondition($sex, $memberGrade, $fromAge, $toAge);
             foreach ($users as $user) {
+                $model = new ComMessageBox();
                 //2.保存消息到消息盒子中
-                $this->recipientsId = $user->id;
-                $this->recipientsName = $user->userName;
-                $this->readState = '0';
-                $this->sendOutDate = date('Y-m-d H:i:s');
-                $this->title = $title;
-                $this->content = $content;
-                $this->save();
+                $model->recipientsId = $user->id;
+                $model->recipientsName = $user->userName;
+                $model->readState = '0';
+                $model->sendOutDate = date('Y-m-d H:i:s');
+                $model->title = $title;
+                $model->content = $content;
+                $model->save();
             }
         }
     }

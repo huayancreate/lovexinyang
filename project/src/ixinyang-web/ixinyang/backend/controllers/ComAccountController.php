@@ -87,6 +87,7 @@ class ComAccountController extends Controller
                 if ($model->validate()) {
                     $roleIdArr = $this->stringInArray($role->roleName);
                     $model->saveUserAccount($roleIdArr);
+                    return count($model->getErrors()) > 0 ? '{"msg":"error"}' : '{"msg":"success"}';
                 }
             }
 
@@ -119,6 +120,7 @@ class ComAccountController extends Controller
                 if ($model->validate()) {
                     $roleIdArr = $this->stringInArray($role->roleName);
                     $model->updateAccount($roleIdArr);
+                    return count($model->getErrors()) > 0 ? '{"msg":"error"}' : '{"msg":"success"}';
                 }
             }
         } else {
@@ -182,5 +184,11 @@ class ComAccountController extends Controller
                 return '{"msg": "当前账号已存在","err":"error"}';
             }
         }
+        return "";
+    }
+
+    public function actionTest()
+    {
+        return $this->render("test");
     }
 }

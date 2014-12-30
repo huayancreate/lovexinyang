@@ -65,7 +65,7 @@ class AdPushMessageController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('create', [
+            return $this->renderAjax('create', [
                 'model' => $model,
             ]);
         }
@@ -121,12 +121,19 @@ class AdPushMessageController extends Controller
 
     public function actionPushmessage()
     {
-        return $this->render("pushmessage");
+        return $this->renderPartial("pushmessage");
     }
 
     public function actionSend()
     {
+        $msg = "";
         $model = new AdPushMessage();
         $model->sendMessage();
+        if (count($model->getErrors()) > 0) {
+            $msg = '{"msg":"error"}';
+        } else {
+            $msg = '{"msg":"success"}';
+        }
+        return $msg;
     }
 }
