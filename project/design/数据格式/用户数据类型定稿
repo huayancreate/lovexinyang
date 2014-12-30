@@ -6,7 +6,7 @@ getType:
 提交:
 {
 	"opeType": "getType",
-	"type": "value" (0所有类别，1商品类别，2评价类别)
+	"categoryType": "value" (0所有类别，1商品类别，2评价类别)
 }
 
 返回:
@@ -318,6 +318,7 @@ getList:
 	"token":  "value",
 	"username": "value",
 	"opeType": "getList",
+	
 	"type": "value" (1,商品  2,商家)
 }
 返回json:
@@ -649,6 +650,8 @@ getDetils
 	}
 }
 
+/////////////////////////////////////////////////////
+
 订单交易			OrderTransActionController	
 	生成			create
 	付款			pay
@@ -659,7 +662,7 @@ create:
 	"token":  "value",
 	"username": "value",
 	"opeType": "create",
-	"goodsInfo" :[
+	"" :[
 					{"shopID": "value", "goodsId": "123123", "number": 2, "allPrice": 123123.3},
 					{"shopID": "value", "goodsId": "123123", "number": 2, "allPrice": 123123.3},
 					{"shopID": "value", "goodsId": "123123", "number": 2, "allPrice": 123123.3},
@@ -695,7 +698,7 @@ refund
 	"username": "value",
 	"opeType": "refund",
 	"orderID": "123123213"
-	"type": "value" (0、返回余额, 1、返回支付宝)
+	"type": "value" 0、返回余额,( 1、返回支付宝)
 	"reason": "value"   (0,1,2,3,4,5,6,7类型)
 	"detilsIDList": "value,value,value"
 }
@@ -710,8 +713,7 @@ refund
 
 店铺					ShopAction
 	获取店铺列表:		getList
-	获取店铺详情:		getShopDetils
-
+	获取店铺详情:		getDetils
 
 getList:
 {
@@ -730,96 +732,35 @@ getList:
 		[ 
 			{
 				"shopID": "value",
+				"img":"value" 图片
 				"shopName": "value",
-				"shopLocation": "value",
-				"shopTel": "value",
-				"consumptionNum": "消费人次"
-				"commentNum": "评价数"
+				"location": {经纬度},
+				"commentNum": "评价人数"
 				"commentScore": "评价总分"
 				"type": "类别"
 				"region": "value",
-				"goodsList": [
-					{
-						"goodsID": value
-						"goodsName": value
-						"goodsSalesNum": value
-						"goodsPrice": value
-					},
-					{
-						"goodsID": value
-						"goodsName": value
-						"goodsSalesNum": value
-						"goodsPrice": value
-					},
-					{
-						"goodsID": value
-						"goodsName": value
-						"goodsSalesNum": value
-						"goodsPrice": value
-					},
-				]
+				
 			},
 			{
 				"shopID": "value",
+				"img":"value" 图片
 				"shopName": "value",
-				"shopLocation": "value",
-				"shopTel": "value",
-				"consumptionNum": "消费人次"
-				"commentNum": "评价数"
+				"location": {经纬度},
+				"commentNum": "评价人数"
 				"commentScore": "评价总分"
 				"type": "类别"
 				"region": "value",
-				"goodsList": [
-					{
-						"goodsID": value
-						"goodsName": value
-						"goodsSalesNum": value
-						"goodsPrice": value
-					},
-					{
-						"goodsID": value
-						"goodsName": value
-						"goodsSalesNum": value
-						"goodsPrice": value
-					},
-					{
-						"goodsID": value
-						"goodsName": value
-						"goodsSalesNum": value
-						"goodsPrice": value
-					},
-				]
+				
 			},
 			{
 				"shopID": "value",
+				"img":"value" 图片
 				"shopName": "value",
-				"shopLocation": "value",
-				"shopTel": "value",
-				"consumptionNum": "消费人次"
-				"commentNum": "评价数"
+				"location": {经纬度},
+				"commentNum": "评价人数"
 				"commentScore": "评价总分"
 				"type": "类别"
 				"region": "value",
-				"goodsList": [
-					{
-						"goodsID": value
-						"goodsName": value
-						"goodsSalesNum": value
-						"goodsPrice": value
-					},
-					{
-						"goodsID": value
-						"goodsName": value
-						"goodsSalesNum": value
-						"goodsPrice": value
-					},
-					{
-						"goodsID": value
-						"goodsName": value
-						"goodsSalesNum": value
-						"goodsPrice": value
-					},
-				]
 			},
 		],
 		"pageCount": "10",
@@ -835,32 +776,44 @@ getDetils:
 返回json
 {"success":"true",
 	"content":{
-		"result": "true",
 		"name": "value",
-		"introduction": 介绍
-		"imgs":  [{path:"http:/asdasdasdj.com/img1.jpg"},{path:"http:/asdasdasdj.com/img2.jpg"}],
+		"memberRule": 会员等级规则
+		"imgs":  [{imgurl:"http:/asdasdasdj.com/img1.jpg",title:"value"},{imgurl:"http:/asdasdasdj.com/img1.jpg",title:"value"}],
 		"commentScore": "value",
 		"commentNum": "评价数"
 		"tel": "value",
-		"location": "value",
-		"goodsList": [
+		"address": "value",
+		"evaluationNum": "value",（本店铺评价数）
+		"otherGoodsList": [
 					{
-						"goodsID": value
-						"goodsName": value
-						"goodsSalesNum": value
-						"goodsPrice": value
+						"shopID": "value",
+						"img":"value" 图片
+						"shopName": "value",
+						"location": {经纬度},
+						"commentNum": "评价人数"
+						"commentScore": "评价总分"
+						"type": "类别"
+						"region": "value",
 					},
 					{
-						"goodsID": value
-						"goodsName": value
-						"goodsSalesNum": value
-						"goodsPrice": value
+						"shopID": "value",
+						"img":"value" 图片
+						"shopName": "value",
+						"location": {经纬度},
+						"commentNum": "评价人数"
+						"commentScore": "评价总分"
+						"type": "类别"
+						"region": "value",
 					},
 					{
-						"goodsID": value
-						"goodsName": value
-						"goodsSalesNum": value
-						"goodsPrice": value
+						"shopID": "value",
+						"img":"value" 图片
+						"shopName": "value",
+						"location": {经纬度},
+						"commentNum": "评价人数"
+						"commentScore": "评价总分"
+						"type": "类别"
+						"region": "value",
 					},
 				] （推荐商品）
 	}
@@ -888,27 +841,30 @@ getList:
 		[ 
 			{
 				"goodsID": "value",
-				"imgs": [{path:"http:/asdasdasdj.com/img1.jpg"},{path:"http:/asdasdasdj.com/img2.jpg"}],
+				"shopImg" : "value",
 				"name": "value",
 				"des": "描述",
+				"Location": {"longitude" : "value", "latitude" : "value"}
 				"discountPrice": "折扣价",  
 				"price": "原价",
 			  	"salesNum": 已经销售数量
 			},
 			{
 				"goodsID": "value",
-				"imgs": [{path:"http:/asdasdasdj.com/img1.jpg"},{path:"http:/asdasdasdj.com/img2.jpg"}],
+				"shopImg" : "value",
 				"name": "value",
 				"des": "描述",
+				"Location": {"longitude" : "value", "latitude" : "value"}
 				"discountPrice": "折扣价",  
 				"price": "原价",
 			  	"salesNum": 已经销售数量
 			},
 			{
 				"goodsID": "value",
-				"imgs": [{path:"http:/asdasdasdj.com/img1.jpg"},{path:"http:/asdasdasdj.com/img2.jpg"}],
+				"shopImg" : "value",
 				"name": "value",
 				"des": "描述",
+				"Location": {"longitude" : "value", "latitude" : "value"}
 				"discountPrice": "折扣价",  
 				"price": "原价",
 			  	"salesNum": 已经销售数量
@@ -922,37 +878,52 @@ getList:
 getDetils:
 {
 	"opeType": "getDetils",
-	"shopID": "123123"
+	"goodsID": "123123"
 }
 返回json
 {"success":"true",
 	"content":{
-		"result": "true",
 		"name": "value",
 		"introduction": 介绍
-		"imgs":  [{path:"http:/asdasdasdj.com/img1.jpg"},{path:"http:/asdasdasdj.com/img2.jpg"}],
+		"imgs":  [{imgurl:"http:/asdasdasdj.com/img1.jpg",title:"value"},{imgurl:"http:/asdasdasdj.com/img1.jpg",title:"value"}],
 		"commentScore": "value",
 		"commentNum": "评价数"
 		"tel": "value",
 		"location": "value",
+		"address":"value",
+		"discountPrice": "折扣价",  
+		"price": "原价",
+		"buyNotice":"value"(购买须知)
 		"goodsList": [
 					{
-						"goodsID": value
-						"goodsName": value
-						"goodsSalesNum": value
-						"goodsPrice": value
+						"goodsID": "value",
+						"shopImg" : "value",
+						"name": "value",
+						"des": "描述",
+						"Location": {"longitude" : "value", "latitude" : "value"}
+						"discountPrice": "折扣价",  
+						"price": "原价",
+					  	"salesNum": 已经销售数量
 					},
 					{
-						"goodsID": value
-						"goodsName": value
-						"goodsSalesNum": value
-						"goodsPrice": value
+						"goodsID": "value",
+						"shopImg" : "value",
+						"name": "value",
+						"des": "描述",
+						"Location": {"longitude" : "value", "latitude" : "value"}
+						"discountPrice": "折扣价",  
+						"price": "原价",
+					  	"salesNum": 已经销售数量
 					},
 					{
-						"goodsID": value
-						"goodsName": value
-						"goodsSalesNum": value
-						"goodsPrice": value
+						"goodsID": "value",
+						"shopImg" : "value",
+						"name": "value",
+						"des": "描述",
+						"Location": {"longitude" : "value", "latitude" : "value"}
+						"discountPrice": "折扣价",  
+						"price": "原价",
+					  	"salesNum": 已经销售数量
 					},
 				] （类似商品）
 	}
