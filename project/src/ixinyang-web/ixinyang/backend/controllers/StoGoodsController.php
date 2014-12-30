@@ -12,6 +12,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use backend\models\StoGoodsStore;
 
 /**
  * StoGoodsController implements the CRUD actions for StoGoods model.
@@ -75,6 +76,8 @@ class StoGoodsController extends Controller
                 $files = UploadedFile::getInstances($model, 'file');  //获取上传文件
 
                 $model->save();  //商品信息保存
+
+                $this->stoGoodsStoreModelSave($model->id);//商品对应店铺信息表保存
 
                 foreach ($files as $file) {
 
@@ -198,5 +201,29 @@ class StoGoodsController extends Controller
         $file->saveAs($filePath.$randName); //保存文件
 
         return $filePath.$randName;
+    }
+
+    /**
+     * [stoGoodsStoreModelSave 商品对应店铺信息表信息添加]
+     * @param  [type] $goodsId [商品id]
+     * @return [type]          [description]
+     */
+    protected function stoGoodsStoreModelSave($goodsId){
+        $stoGoodsStoreModel=new StoGoodsStore();
+        //商品id
+        $stoGoodsStoreModel->goodsId=$goodsId;
+        //店铺id    从session读取   暂时写默认值
+        $stoGoodsStoreModel->storeId=1;
+        //商家id    从session读取   暂时写默认值
+        $stoGoodsStoreModel->sellerId=1;
+        //商品库存  先写默认值 之后会处理
+        $stoGoodsStoreModel->inventory=1000;
+        //创建时间  当前时间
+        $stoGoodsStoreModel->createDate=date("Y-m-d H:i:s");
+        //创建人    从session读取
+        $stoGoodsStoreModel->crreteUserID='111';
+        //保存
+        $stoGoodsStoreModel->save();
+
     }
 }

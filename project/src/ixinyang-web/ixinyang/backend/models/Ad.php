@@ -45,14 +45,15 @@ class Ad extends \yii\db\ActiveRecord
         return [
             // [['photoUrl'], 'file', 'extensions' => 'gif, jpg',],
              //去掉前后空格
-            [['photoUrl','mapLink','mapOrder','adName'],'trim'],
+            [['mapLink','mapOrder','adName'],'trim'],
             //必填
             [['mapLink','mapOrder', 'startDate', 'endDate'],'required','message'=>'{attribute}不能为空'],
-            [['photoUrl','mapLink','mapOrder'],'unique','message'=>'{attribute}已经存在'],
+            [['mapLink','mapOrder'],'unique','message'=>'{attribute}已经存在'],
             [['createrId', 'mapOrder', 'mapLocation'], 'integer'],
             [['createTime', 'updateTime', 'endDate', 'startDate'], 'safe'],
             [['mapLink', 'adName', 'photoUrl'], 'string', 'max' => 200],
-            [['isValid'], 'string', 'max' => 1]
+            [['isValid'], 'string', 'max' => 1],
+            [['mapLink'],'url','message'=>'请输入正确的链接地址']
         ];
     }
 

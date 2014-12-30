@@ -120,10 +120,43 @@ $this->params['breadcrumbs'][] = $this->title;*/
 
 <?php $this->beginBlock('JS_END2'); ?>
 
- function addRecGoods(){
-     var url="ad-recommend-goods/create";
-     JuiDialog.dialog("dialogId","商品推荐添加",url,"recommendGoodsForm","recomGoodGridList");
+   function addRecGoods(){
+    //加载广告设置信息
+    getCreateGoodsInfo();
+    $("#dialogId").dialog("open");
+    $("#dialogId").dialog({
+                    autoOpen:false,
+                    modal: true,
+                    title:"商品推荐添加",
+                    show: "blind",             //show:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果
+                    hide: "explode",       //hide:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果
+                    resizable: true,
+                    overlay: {
+                        opacity: 0.5,
+                        background: "black",
+                        overflow: 'auto'
+                    },
+                buttons: {
+                 
+                },
+                close: function () {
+                    $("#dialogId").dialog("close");
+                },  
+              });
+
+
   }
+
+//弹出dialog 添加对话框
+function getCreateGoodsInfo(){
+     $.ajax({
+         type:"post",
+         url:"index.php?r=ad-recommend-goods/create",
+         success:function(data) {
+            $("#dialogId").html(data);
+         }
+       });
+}
     
 <?php $this->endBlock(); ?>
 </script>

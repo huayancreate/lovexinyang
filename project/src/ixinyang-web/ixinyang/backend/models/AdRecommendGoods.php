@@ -35,8 +35,9 @@ class AdRecommendGoods extends \yii\db\ActiveRecord
     {
         return [
             [['createTime', 'endDate', 'startDate'], 'safe'],
-            [['creater','adLocation', 'ad_recommend_goods', 'order'], 'integer'],
-            [['isValid', 'ad_advertisement'], 'string', 'max' => 1]
+            [['creater','adLocation', 'order'], 'integer'],
+            [['isValid', 'ad_advertisement'], 'string', 'max' => 1],
+            [['ad_advertisement','ad_recommend_goods', 'startDate', 'endDate','order'],'required','message'=>'{attribute}不能为空'],
         ];
     }
 

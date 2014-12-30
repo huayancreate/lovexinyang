@@ -60,19 +60,21 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </div>
             
-          
-
-            <!-- 驳回备注  点击驳回按钮出现-->
-            <div class="row" id="remarkDiv" style="display:none" >
-             <div class="col-lg-12">
-                <div class="col-xs-7">
-                 <?= $form->field($balanceReviewModel, 'remark')->textArea() ?>
-                </div>
+        <!-- 驳回备注  点击驳回按钮出现-->
+        <div class="row" id="remarkDiv" style="display:none" >
+          <div class="panel panel-default">
+              <div class="panel-heading">审核驳回备注</div>
+              <div class="panel-body">
+                <div class="col-lg-12">
+                    <div class="col-xs-7">
+                     <?= $form->field($balanceReviewModel, 'remark')->textArea() ?>
+                    </div>
                 
                   <?= Html::button('确定', ['class' => 'btn btn-success','id'=>'btnSave','onclick'=>"saveRejectRemark(2,".$balanceReviewModel->id.")"]) ?>
-               
-             </div>
-            </div>
+                </div>
+              </div>
+          </div>
+        </div>
       <?php ActiveForm::end(); ?>
 
 </div>
@@ -129,27 +131,34 @@ $this->params['breadcrumbs'][] = $this->title;
     //保存驳回备注
     function saveRejectRemark(financeReviewStatus,id)
     {
-        //驳回备注
-        var remark=$("#stobalancereview-remark").val();
+        if(confirm("确定审核驳回吗？"))
+        {
+            //驳回备注
+            var remark=$("#stobalancereview-remark").val();
 
-         $.ajax({
-            type: "POST",
-            data: {'remark':remark,'financeReviewStatus': financeReviewStatus,'id':id},
-            url: "index.php?r=cus-consumption-records%2Fcheckfail",
-            dataType: "json",
-            error: function (request) {
-                alert("Connection error");
-            },
-            success: function (data) {
-                if(data==1){
-                    //当成功后操作。。
-                    alert("操作成功.");
-                    $.pjax.reload({container:'#balancereviewGrid'});
-                }else{
-                    alert("操作失败，请重试.");
+             $.ajax({
+                type: "POST",
+                data: {'remark':remark,'financeReviewStatus': financeReviewStatus,'id':id},
+                url: "index.php?r=cus-consumption-records%2Fcheckfail",
+                dataType: "json",
+                error: function (request) {
+                    alert("Connection error");
+                },
+                success: function (data) {
+                    if(data==1){
+                        //当成功后操作。。
+                        alert("操作成功.");
+                        $.pjax.reload({container:'#balancereviewGrid'});
+                    }else{
+                        alert("操作失败，请重试.");
+                    }
                 }
-            }
-        });
+            });
+          }
+        else{
+
+        }
+       
     }
 
 

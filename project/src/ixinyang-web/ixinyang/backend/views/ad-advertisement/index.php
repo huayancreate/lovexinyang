@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;*/
         'clientOptions' => [
             'modal' => true,
             'autoOpen' => false,
-            'width'=>'600',
+            'width'=>'800',
             'height'=>'600',
             'resizable'=> true,
         ],

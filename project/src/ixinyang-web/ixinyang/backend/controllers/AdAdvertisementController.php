@@ -110,13 +110,13 @@ class AdAdvertisementController extends Controller
         	}
         	else{
         		 //数据验证失败
-                 return $this->redirect(['create']);
+                 return $this->renderAjax(['create']);
         	}
         } else {
         	$model->isValid='1';
         	$model->startDate=date("Y-m-d");
         	$model->endDate=date("Y-m-d");
-            return $this->renderPartial('create', [
+            return $this->renderAjax('create', [
                 'model' => $model,
             ]);
         }
