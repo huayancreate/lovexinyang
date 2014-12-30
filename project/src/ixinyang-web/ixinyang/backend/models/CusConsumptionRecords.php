@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\base\Exception;
 use yii\data\ActiveDataProvider;
 
 /**
@@ -81,13 +82,12 @@ class CusConsumptionRecords extends \yii\db\ActiveRecord
         $model = $this->getSumConsumption($fromDate, $toDate);
         //2.产生结账审核记录
         $this->addBalanceReview($fromDate, $toDate, $model->payablePrice);
-
     }
 
     public function getSumConsumption($fromDate, $toDate)
     {
         $sql = "select sum(payablePrice*goodsNumber) as payablePrice from cus_consumption_records
-              where sellerId=1 and (verifierTime BETWEEN '$fromDate' and '$toDate') and flag='0'";
+              where shopId=1 and (verifierTime BETWEEN '$fromDate' and '$toDate') and flag='0'";
         $model = CusConsumptionRecords::findBySql($sql)->one();
         return $model;
     }
@@ -101,7 +101,7 @@ class CusConsumptionRecords extends \yii\db\ActiveRecord
     {
         $query = $this::find();
         $id = 1;//商家Id
-        $query->andWhere(['sellerId' => $id, 'flag' => '0']);
+        $query->andWhere(['shopId' => $id, 'flag' => '0']);
         $query->andFilterWhere(['BETWEEN', 'verifierTime', $fromDate, $toDate]);
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -137,4 +137,5 @@ class CusConsumptionRecords extends \yii\db\ActiveRecord
 
         $model->save();
     }
+
 }

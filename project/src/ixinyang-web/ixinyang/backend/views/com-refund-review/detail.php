@@ -21,7 +21,7 @@ use yii\widgets\DetailView;
         'orderNo',
         'totalPrice',
         'userAccount',
-        'userName',
+        'userId',
         'payTotalPrice',
         'buyTime',
         'methodsPayment',

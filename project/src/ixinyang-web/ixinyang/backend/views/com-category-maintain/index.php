@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'categoryName',
-            'categoryCode',
+            //'categoryCode',
             [
                 'attribute' => 'categoryType',
                 'label' => '类别类型',
@@ -64,12 +64,13 @@ $this->params['breadcrumbs'][] = $this->title;
                             ]);
                     },
                     'delete' => function ($url, $model) {
-                        return Html::a('<span class="glyphicon glyphicon-trash"></span>', "javascript:void(0)",
-                            [
-                                'title' => Yii::t('yii', '删除'),
-                                'data-pjax' => '0',
-                                'onClick' => 'Delete(' . $model->id . ')'
-                            ]);
+                        return "";
+//                        return Html::a('<span class="glyphicon glyphicon-trash"></span>', "javascript:void(0)",
+//                            [
+//                                'title' => Yii::t('yii', '删除'),
+//                                'data-pjax' => '0',
+//                                'onClick' => 'Delete(' . $model->id . ')'
+//                            ]);
                     }
                 ]
             ],

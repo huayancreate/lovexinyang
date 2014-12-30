@@ -94,8 +94,8 @@ class ComRefundReview extends \yii\db\ActiveRecord
     public function getRefundReviews($fromDate, $toDate)
     {
         $query = $this::find();
-        $id = 1;//商家Id
-        $query->andWhere(['busiId' => $id, 'financeReviewStatus' => '0']);
+        $id = 1;//店铺Id
+        $query->andWhere(['storeId' => $id, 'financeReviewStatus' => '0']);
         $query->andFilterWhere(['BETWEEN', 'applyTime', $fromDate, $toDate]);
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -118,7 +118,10 @@ class ComRefundReview extends \yii\db\ActiveRecord
             $this->remark = $remark;
             $this->save();
             $this->saveRefundReStream();
-
+            if ($status == 1) {
+                //更新用户账户余额
+                $this->updateUserSpareAmount();
+            }
             $transaction->commit();
         } catch (Exception $e) {
             $transaction->rollBack();
@@ -175,8 +178,22 @@ class ComRefundReview extends \yii\db\ActiveRecord
 
         $query->andWhere(['orderId' => $orderId]);
         return $dataProvider;
-
-        //return CusOrderDetails::find()->where(['orderId' => $orderId])->asArray();
     }
 
+    public function updateUserSpareAmount()
+    {
+        $payment = $this->getPaymentRecordByOrderId($this->orderId);
+        $user = CusUserIndividualCenter::findOne($payment->userId);
+        $user->spareAmount += $payment->remainingSum;
+        $user->save();
+    }
+
+    /**
+     * 根据订单Id获取支付流水
+     * @param $orderId
+     */
+    public function getPaymentRecordByOrderId($orderId)
+    {
+        return CusPaymentRecords::findOne($orderId);
+    }
 }

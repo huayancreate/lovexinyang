@@ -24,7 +24,14 @@ use backend\models\ComCategoryMaintain;
             'label'=>'店铺类别',
             'value'=>
                 function($model){
-                    return ComCategoryMaintain::findOne($model->storeType)->categoryName;
+                    $categoryModel=ComCategoryMaintain::findOne($model->storeType);
+                    if (!empty($categoryModel)) {
+                        return $categoryModel->categoryName;
+                    }
+                    else{
+                        return '';
+                    }
+                    
             },
         ],
         'contactWay',

@@ -12,6 +12,10 @@ use backend\models\ComCheckoutStream;
 use backend\models\CusConsumptionRecordsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use backend\models\StoSellerInfo;
+use backend\models\StoStoreInfo;
+
+
 
 /**
  * CusConsumptionRecordsController implements the CRUD actions for CusConsumptionRecords model.
@@ -167,7 +171,7 @@ class CusConsumptionRecordsController extends Controller
 
          $dataProvider = new ActiveDataProvider([
             'query' => CusConsumptionRecords::find()->where('shopId="'.$shopId.'" and flag=0 and verifierTime between "'.$balanceStartTime.'"  and "'.$balanceEndTime.'" ')->asArray(),
-            'pagination' => ['pagesize' => '1'],
+            'pagination' => ['pagesize' => '10'],
           ]);
 
            //总计
@@ -205,55 +209,59 @@ class CusConsumptionRecordsController extends Controller
           $balanceEndTime=$_POST['balanceEndTime'];
           //店铺id
           $shopId=$_POST['shopId'];
-       
-          //财务人员Id
+          //财务人员Id   从session读取
           $financeId='111111';
-          //财务人员账号
+          //财务人员账号 从session读取
           $financeAccount='张三';
-
         //事务开始 
         $transaction=\Yii::$app->db->beginTransaction();
         try {
               //转账成功
               if ($this->transferResult()) {
-                    //1、根据店铺id  验证时间 flag为0(在平台消费)
-                   $query = CusConsumptionRecords::find()->where('shopId="'.$shopId.'" and flag=0 and verifierTime between "'.$balanceStartTime.'"  and "'.$balanceEndTime.'" ')->all();
-                  
-                   //2、则把【cus_consumption_records】消费记录、流水表 中的数据复制到【sto_balance_bill_detailed】商家结算账单明细中 
-                   $balanceBillDetailModel= $this->balanceBillDetailedModelSave($query,$id);
+                    //结款流水信息保存
+                   $checkoutStreamModel=$this->checkoutstreamSave($id);
 
-                  if (!empty($balanceBillDetailModel)) {
-                        //实际结算金额  根据申请id查询
-                       $checkoutStreamModel=ComCheckoutStream::find()->where(['balanceApplyId'=>$id])->one();
-                       if (!empty($checkoutStreamModel)) {
-                         $actualBalanceMoney=$checkoutStreamModel->balanceMoney;
+                   //1、根据店铺id  验证时间 flag为0(在平台消费)
+                   $query = CusConsumptionRecords::find()->where('shopId="'.$shopId.'" and flag=0 and verifierTime between "'.$balanceStartTime.'"  and "'.$balanceEndTime.'" ')->all();
+                   
+                   //2、则把【cus_consumption_records】消费记录、流水表 中的数据复制到【sto_balance_bill_detailed】商家结算账单明细中 
+                   $balanceBillDetailCount=$this->balanceBillDetailedModelSave($query,$id);
+
+                  if ($checkoutStreamModel->save() && $balanceBillDetailCount==count($query)) {
+                       //店铺余额的修改   传店铺id和结款的金额
+                       $storeBalanceResult=$this->storeInfoAccBalanceModify($shopId,$checkoutStreamModel->balanceMoney);
+                       //商家余额的修改   传商家id和结款的金额
+                       $sellBalanceResult=$this->sellerInfoAccBalanceModify($checkoutStreamModel->storeId,$checkoutStreamModel->balanceMoney);
+                       if ($storeBalanceResult->save()&&$sellBalanceResult->save()) {
+                             //3、执行修改   商家结算审核数据的修改
+                           StoBalanceReview::updateBySql('sto_balance_review',['financeReviewStatus'=>$financeReviewStatus,'financeId'=>$financeId,'financeAccount'=>$financeAccount,'financeReviewTime'=>date('Y-m-d h:i:s'),'actualBalanceMoney'=>$checkoutStreamModel->balanceMoney],['id'=>$id]);
+                           
+                           // 转账成功 并且消费记录、流水表保存成功 True 表示都保存成功
+                           $message["success"]=True;
+                           //提交
+                           $transaction->commit();
                        }
                        else{
-                          $actualBalanceMoney=0;
+                           $message["success"]=False;
+                            $transaction->rollBack();
                        }
-
-                       //3、执行修改   商家结算审核数据的修改
-                       StoBalanceReview::updateBySql('sto_balance_review',['financeReviewStatus'=>$financeReviewStatus,'financeId'=>$financeId,'financeAccount'=>$financeAccount,'financeReviewTime'=>date('Y-m-d h:i:s'),'actualBalanceMoney'=>$actualBalanceMoney],['id'=>$id]);
                        
-                       // 转账成功 并且消费记录、流水表保存成功 True 表示都保存成功
-                       $message["success"]=True;
                   }
                   else{
                       $message["success"]=False;
-                      $message["errormsg"]='转账成功，消费记录、流水表 中的数据复制到商家结算账单明细表失败，请联系平台管理员';
+                      $message["errormsg"]='转账成功，结款流水表插入信息失败或消费记录、流水表 中的数据复制到商家结算账单明细表失败，请联系平台管理员';
                   }
-                   //提交
-                  $transaction->commit();
+                  
               }
              else{//转账失败
               
                    $message["success"]=False;
                    $message["errormsg"]='转账失败';
              }
-           
-           } 
+        } 
         catch (Exception  $e) {
             $transaction->rollBack();
+
             $message["success"]=False;
             $message["errormsg"]=$e;
         }
@@ -286,110 +294,137 @@ class CusConsumptionRecordsController extends Controller
     //预留发起转账接口
     protected function transferResult()
     {
-        //结款流水信息保存
-        $this->checkoutstreamSave();
         return true;
     }
 
     /**
-     * [checkoutstreamSave 结款流水信息保存]
-     * @return [type] [description]
+     *checkoutstreamSave 结款流水信息保存  
+     * @param  [type] $id [结款申请id]
+     * @return [type]     [结款流水model]
      */
-    protected function checkoutstreamSave(){
-
-      $checkoutStreamModel=new ComCheckoutStream();
-      //操作人Id
-      $checkoutStreamModel->operatorId='111';
-       //操作人账号
-      $checkoutStreamModel->operatorAccount='张三';
-       //操作时间
-      $checkoutStreamModel->operatorTime=date('Y-m-d H:i:s');
-       //存入支付宝名称
-      $checkoutStreamModel->depositAlipayName='张三';
-      //存入支付宝账号
-      $checkoutStreamModel->depositAlipayAccount='123@qq.com';
-       //接口流水编号
-      $checkoutStreamModel->interfaceSerialNumber='12345678';
-       //结款金额
-      $checkoutStreamModel->balanceMoney=0;
-       //结款申请Id
-      $checkoutStreamModel->balanceApplyId='111';
-       //结款时间
-      $checkoutStreamModel->balanceTime=date('Y-m-d H:i:s');
-      //商家Id
-      $checkoutStreamModel->storeId='111';
-       //商家名称
-      $checkoutStreamModel->storeName='111';
-       //支出支付宝名称
-      $checkoutStreamModel->expenditureAlipayName='111';
-       //支出支付宝账号
-      $checkoutStreamModel->expenditureAlipayAccount='111';
-       //支付宝交易流水
-      $checkoutStreamModel->alipayTransactionStream='111';
-       //支付时间
-      $checkoutStreamModel->payTime=date('Y-m-d H:i:s');
-      //保存
-      $checkoutStreamModel->save();
-
+    protected function checkoutstreamSave($id)
+    {
+        //根据商家结算审核id查询该申请记录
+        $balanceReviewModel=StoBalanceReview::findOne($id);
+        $checkoutStreamModel=new ComCheckoutStream();
+        //操作人Id  从session读取
+        $checkoutStreamModel->operatorId='111';
+        //操作人账号 从session读取
+        $checkoutStreamModel->operatorAccount='张三';
+        //操作时间
+        $checkoutStreamModel->operatorTime=date('Y-m-d H:i:s');
+        //存入支付宝名称  从【sto_balance_review】商家结算审核读取
+        $checkoutStreamModel->depositAlipayName=$balanceReviewModel->alipayName;
+        //存入支付宝账号  从【sto_balance_review】商家结算审核读取
+        $checkoutStreamModel->depositAlipayAccount=$balanceReviewModel->alipayNo;
+        //接口流水编号    接口返回
+        $checkoutStreamModel->interfaceSerialNumber='12345678';
+        //结款金额        从【sto_balance_review】商家结算审核读取
+        $checkoutStreamModel->balanceMoney=$balanceReviewModel->applyMoney;
+        //结款申请Id      从【sto_balance_review】商家结算审核读取
+        $checkoutStreamModel->balanceApplyId=$balanceReviewModel->id;
+        //结款时间        和支付时间相同
+        $checkoutStreamModel->balanceTime=date('Y-m-d H:i:s');
+        //商家Id           从【sto_balance_review】商家结算审核读取
+        $checkoutStreamModel->storeId=$balanceReviewModel->storeId;
+        //商家名称         从【sto_balance_review】商家结算审核读取
+        $checkoutStreamModel->storeName=$balanceReviewModel->storeName;
+        //支出支付宝名称  从配置文件读取
+        $checkoutStreamModel->expenditureAlipayName='111';
+        //支出支付宝账号  从配置文件读取
+        $checkoutStreamModel->expenditureAlipayAccount='111';
+        //支付宝交易流水  接口返回
+        $checkoutStreamModel->alipayTransactionStream='111';
+        //支付时间        接口返回
+        $checkoutStreamModel->payTime=date('Y-m-d H:i:s');
+        //店铺id   从【sto_balance_review】商家结算审核读取
+        $checkoutStreamModel->shopId=$balanceReviewModel->shopId;
+        //店铺名称 从【sto_balance_review】商家结算审核读取
+        $checkoutStreamModel->shopName=$balanceReviewModel->shopName;
+        return $checkoutStreamModel;
     }
 
-    /**
+      /**
      * [balanceBillDetailedModelSave 则把【cus_consumption_records】消费记录、流水表 中的数据复制到【sto_balance_bill_detailed】商家结算账单明细中 ]
      * @return [type] [description]
      */
     protected function balanceBillDetailedModelSave($consumpRecQuery,$id)
     {
+      
+      //作为标识 插入数据库是否都成功
+      $flag=0;
+      foreach ($consumpRecQuery as $consumpRecModel)
+      {
         //商家结算账单明细
         $model=new StoBalanceBillDetailed();
-       //事务开始 
-        $transaction=\Yii::$app->db->beginTransaction();
-        try {
-              foreach ($consumpRecQuery as $consumpRecModel) {
-              //结算申请Id
-              $model->balanceApplyId=$id;
-              //商品Id
-              $model->goodsId=$consumpRecModel->goodsId;
-              //商品数量
-              $model->goodsNumber=$consumpRecModel->goodsNumber;
-              //消费交易流水id
-              $model->consumeSaleStream=$consumpRecModel->id;
-              //消费实付金额
-              $model->payablePrice=$consumpRecModel->payablePrice;
-              //消费原金额
-              $model->costPrice=$consumpRecModel->costPrice;
-              //验证码
-              $model->verificationCode=$consumpRecModel->verfificationCode;
-              //验证人账号
-              $model->verificaterAccount=$consumpRecModel->verifierAccount;
-              //验证时间
-              $model->verificateTime=$consumpRecModel->verifierTime;
-              //用户会员卡卡号
-              $model->membershipCardNumber=$consumpRecModel->memberCardNo;
-              //用户账号
-              $model->userAccount=$consumpRecModel->userAccount;
-              //用户折扣
-              $model->userDiscount=$consumpRecModel->rebate;
-              //订单id
-              $model->orderId=$consumpRecModel->orderId;
-              //店铺id
-              $model->shopId=$consumpRecModel->shopId;
-              //店铺名称
-              $model->shopName=$consumpRecModel->shopName;
-              //商家id
-              $model->sellerId=$consumpRecModel->sellerId;
-              //商家名称
-              $model->sellerName=$consumpRecModel->sellerName;
-              $model->save();
-           }
-             //提交
-              $transaction->commit();
-          
-        } catch (Exception $e) {
-           $transaction->rollBack();
-          
+        //结算申请Id
+        $model->balanceApplyId=$id;
+        //商品Id
+        $model->goodsId=$consumpRecModel->goodsId;
+        //商品数量
+        $model->goodsNumber=$consumpRecModel->goodsNumber;
+        //消费交易流水id
+        $model->consumeSaleStream=$consumpRecModel->id;
+        //消费实付金额
+        $model->payablePrice=$consumpRecModel->payablePrice;
+        //消费原金额
+        $model->costPrice=$consumpRecModel->costPrice;
+        //验证码
+        $model->verificationCode=$consumpRecModel->verfificationCode;
+        //验证人账号
+        $model->verificaterAccount=$consumpRecModel->verifierAccount;
+        //验证时间
+        $model->verificateTime=$consumpRecModel->verifierTime;
+        //用户会员卡卡号
+        $model->membershipCardNumber=$consumpRecModel->memberCardNo;
+        //用户账号
+        $model->userAccount=$consumpRecModel->userAccount;
+        //用户折扣
+        $model->userDiscount=$consumpRecModel->rebate;
+        //订单id
+        $model->orderId=$consumpRecModel->orderId;
+        //店铺id
+        $model->shopId=$consumpRecModel->shopId;
+        //店铺名称
+        $model->shopName=$consumpRecModel->shopName;
+        //商家id
+        $model->sellerId=$consumpRecModel->sellerId;
+        //商家名称
+        $model->sellerName=$consumpRecModel->sellerName;
+        if($model->save())
+        {
+          $flag=$flag+1;
         }
-        return $model;
-
-      
+      }
+        return $flag;
     }
+
+    /**
+     * [sellerInfoAccBalanceModify 商家余额的修改]
+     * @param  [type] $id [商家id]
+     * @return [type]     [返回bool  修改成功返回true  不成功返回false]
+     */
+    protected function sellerInfoAccBalanceModify($id,$accountBalance)
+    {
+       //根据商家id查询该商家的记录
+       $sellerInfoModel=StoSellerInfo::findOne($id);
+       //计算出余额  原来的商家余额减去这次结款的金额
+       $sellerInfoModel->accountBalance=$sellerInfoModel->accountBalance-$accountBalance;
+       return $sellerInfoModel;
+    }
+    /**
+     * [storeInfoAccBalanceModify 店铺余额的而修改]
+     * @param  [type] $id [店铺id]
+     * @return [type]     [返回bool  修改成功返回true  不成功返回false]
+     */
+    protected function storeInfoAccBalanceModify($id,$accountBalance)
+    {
+       //根据店铺id查询该店铺的记录
+       $storeInfoModel=StoStoreInfo::findOne($id);
+       //计算出余额  原来的店铺余额减去这次结款的金额
+       $storeInfoModel->accountBalance=$storeInfoModel->accountBalance-$accountBalance;
+       return $storeInfoModel;
+    }
+
+
 }

@@ -50,6 +50,7 @@ class StoApplyInfo extends \yii\db\ActiveRecord
     {
         return [
             //去掉前后空格
+            [['city', 'storeName', 'regional', 'businessZone', 'storePhone', 'phone', 'address', 'name'], 'required', 'message' => '{attribute}不能为空.'],
             [['remark'], 'trim'],
             [['longitude', 'latitude', 'daySales'], 'number'],
             [['customerServiceId', 'customerManagerId', 'storeApplyNumber', 'applyStatus', 'city', 'regional', 'businessZone'], 'integer'],
