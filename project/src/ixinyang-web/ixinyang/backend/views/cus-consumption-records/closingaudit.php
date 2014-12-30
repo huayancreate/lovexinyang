@@ -96,8 +96,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 if(data.success){
                     //当成功后操作。。
                
-                alert("操作成功".data.counts);
-                //$.pjax.reload({container:'#balancereviewGrid'});
+                alert("操作成功");
+                $.pjax.reload({container:'#balancereviewGrid'});
 
                 }else{
                     alert("操作失败原因："+data.errormsg+",请重试.");

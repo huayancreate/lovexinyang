@@ -350,12 +350,13 @@ class CusConsumptionRecordsController extends Controller
      */
     protected function balanceBillDetailedModelSave($consumpRecQuery,$id)
     {
-      //商家结算账单明细
-      $model=new StoBalanceBillDetailed();
+      
       //作为标识 插入数据库是否都成功
       $flag=0;
       foreach ($consumpRecQuery as $consumpRecModel)
       {
+        //商家结算账单明细
+        $model=new StoBalanceBillDetailed();
         //结算申请Id
         $model->balanceApplyId=$id;
         //商品Id
