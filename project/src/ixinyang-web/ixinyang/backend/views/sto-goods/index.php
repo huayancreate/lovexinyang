@@ -54,7 +54,7 @@ $this->assetBundles['cliff363825\kindeditor\KindEditorWidget'] = new yii\web\Ass
             // 'createDate',
             // 'createID',
             // 'createName',
-            ['class' => 'yii\grid\ActionColumn',
+            ['class' => 'yii\grid\ActionColumn','header'=>'操作','headerOptions'=>['width'=>'100'],
                 'template' => '{update} {delete} ',
                 'buttons'=>[
                     // 'view'=>function($url,$model){

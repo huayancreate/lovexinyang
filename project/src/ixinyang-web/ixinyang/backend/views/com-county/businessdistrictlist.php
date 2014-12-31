@@ -18,7 +18,7 @@ use yii\jui\Dialog;
 </div>  -->
 <div clss="row">
     <div class="col-lg-8">
-    <?= Html::button('添加', ['class' =>'btn btn-success','onclick'=>"businessdisAdd(".$countyId.")"]) ?>
+    <?= Html::button('商圈添加', ['class' =>'btn btn-success','onclick'=>"businessdisAdd(".$countyId.")"]) ?>
     <?= GridView::widget([
         'id'=>'busidessGrid',
         'dataProvider' => $ComBusinessDistrictdataProvider,
@@ -33,7 +33,6 @@ use yii\jui\Dialog;
                 }
 
             ],
-            'businessDistrictCode',
             'businessDistrictName',
             [
                 'attribute'=>'isValid',

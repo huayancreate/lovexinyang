@@ -6,6 +6,7 @@ use yii\bootstrap\ActiveForm;
 use backend\models\ComBusinessDistrict;
 use backend\models\ComCityCenter;
 use backend\models\ComCounty;
+use backend\models\ComCategoryMaintain;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\ShopInfoReview */
@@ -17,7 +18,14 @@ use backend\models\ComCounty;
         'model' => $model,
         'attributes' => [
             'shopName',
+            [
+                'label'=>'店铺类别',
+                $categoryModel=ComCategoryMaintain::findOne($model->storeType),
+                'value'=>!empty($categoryModel) ? $categoryModel->categoryName : '',
+            ],
             'contact',
+            'alipayNo',
+            'alipayName',
             [
                 'label'=>'城市',
                 'value'=>ComCityCenter::findOne($model->cityId)->cityCenterName,
@@ -51,20 +59,23 @@ use backend\models\ComCounty;
                     <?= Html::button('审核驳回', ['class' => 'btn btn-primary','id'=>'btnCheckFail','onclick'=>"checkFail()"]) ?>
                 </div>
             </div>
-            
-          
 
-            <!-- 驳回备注  点击驳回按钮出现-->
-            <div class="row" id="remarkDiv" style="display:none" >
-             <div class="col-lg-12">
-                <div class="col-xs-7">
-                 <?= $form->field($model, 'Rejection')->textArea() ?>
+          <!-- 驳回备注  点击驳回按钮出现-->
+        <div class="row" id="remarkDiv" style="display:none" >  
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">驳回备注</h3>
+              </div>
+              <div class="panel-body">
+                <div class="col-lg-12">
+                    <div class="col-xs-7">
+                     <?= $form->field($model, 'Rejection')->textArea() ?>
+                    </div>
+                      <?= Html::button('确定', ['class' => 'btn btn-success','id'=>'btnSave','onclick'=>"saveRejectRemark(5,".$model->id.")"]) ?>
                 </div>
-                
-                  <?= Html::button('确定', ['class' => 'btn btn-success','id'=>'btnSave','onclick'=>"saveRejectRemark(5,".$model->id.")"]) ?>
-               
-             </div>
-            </div>
+              </div>
+          </div>
+        </div>
       <?php ActiveForm::end(); ?>
 
 </div>
@@ -73,62 +84,68 @@ use backend\models\ComCounty;
 
     //审核通过
     function checkPass(auditState,id){
-        $.ajax({
-            type: "POST",
-            data: {'auditState': auditState,'id':id},
-            url: "index.php?r=shop-info-review%2Fcheckpass",
-            dataType: "json",
-            error: function (request) {
-                alert("Connection error");
-            },
-            success: function (data) {
-                if(data.success){
-                    //当成功后操作。。
-                alert("操作成功");
-                $.pjax.reload({container:'#shopinforeviewlistGrid'});
-                    
-                     
+      if(confirm("确定审核通过吗？")){
+            $.ajax({
+                type: "POST",
+                data: {'auditState': auditState,'id':id},
+                url: "index.php?r=shop-info-review%2Fcheckpass",
+                dataType: "json",
+                error: function (request) {
+                    alert("Connection error");
+                },
+                success: function (data) {
+                    if(data.success){
+                        //当成功后操作。。
+                    alert("操作成功");
+                    $.pjax.reload({container:'#shopinforeviewlistGrid'});
+                        
+                         
 
-                }else{
-                    alert("操作失败原因："+data.errormsg+",请重试.");
+                    }else{
+                        alert("操作失败原因："+data.errormsg+",请重试.");
+                    }
                 }
-            }
-        });
+            });
+       }
        
     }
 
     //审核驳回   审核通过和审核驳回按钮都不可用
     function checkFail(){
-        $("#remarkDiv").show();
-        $("#btnCheckPass").attr("disabled",true);
-        $("#btnCheckFail").attr("disabled",true);
-       
+
+         if(confirm("确定审核驳回吗？")){
+            $("#remarkDiv").show();
+            $("#btnCheckPass").attr("disabled",true);
+            $("#btnCheckFail").attr("disabled",true);
+         }
     }
   
     //保存驳回备注
     function saveRejectRemark(auditState,id)
     {
-        //驳回备注
-        var rejection=$("#shopinforeview-rejection").val();
+         if(confirm("确定审核驳回吗？")){
+            //驳回备注
+            var rejection=$("#shopinforeview-rejection").val();
 
-         $.ajax({
-            type: "POST",
-            data: {'rejection':rejection,'auditState': auditState,'id':id},
-            url: "index.php?r=shop-info-review%2Fcheckfail",
-            dataType: "json",
-            error: function (request) {
-                alert("Connection error");
-            },
-            success: function (data) {
-                if(data==1){
-                    //当成功后操作。。
-                    alert("操作成功.");
-                    $.pjax.reload({container:'#shopinforeviewlistGrid'});
-                }else{
-                    alert("操作失败，请重试.");
+             $.ajax({
+                type: "POST",
+                data: {'rejection':rejection,'auditState': auditState,'id':id},
+                url: "index.php?r=shop-info-review%2Fcheckfail",
+                dataType: "json",
+                error: function (request) {
+                    alert("Connection error");
+                },
+                success: function (data) {
+                    if(data==1){
+                        //当成功后操作。。
+                        alert("操作成功.");
+                        $.pjax.reload({container:'#shopinforeviewlistGrid'});
+                    }else{
+                        alert("操作失败，请重试.");
+                    }
                 }
-            }
-        });
+            });
+         }
     }
 
 

@@ -112,8 +112,8 @@ $this->params['breadcrumbs'][] = $this->title;
             $("#dialogId").dialog({
                     autoOpen:false,
                     modal: true,
-                    width: 800,
-                    height:600,
+                    width: 1000,
+                    height:800,
                     title:"商家申请信息审核明细",
                     show: "blind",             //show:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果
                     hide: "explode",       //hide:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果

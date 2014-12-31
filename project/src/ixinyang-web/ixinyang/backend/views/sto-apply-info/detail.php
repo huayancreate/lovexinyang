@@ -51,21 +51,23 @@ use backend\models\ComBusinessDistrict;
 <script>
 
     function checkPassOrFail(applyStatus,applyId){
-        $.ajax({
-            type: "POST",
-            data: {'applyStatus': applyStatus,'applyId':applyId},
-            url: "index.php?r=sto-apply-info%2Fupdate",
-            dataType: "json",
-            success: function (data) {
-                if(data==1){
-                    //当成功后操作。。
-                    alert("操作成功.");
-                    $.pjax.reload({container:'#stoapplyinfoGrid'});
-                }else{
-                    alert("操作失败，请重试.");
-                }
-            }
-        });
+         if(confirm("确定操作吗？")){
+                $.ajax({
+                    type: "POST",
+                    data: {'applyStatus': applyStatus,'applyId':applyId},
+                    url: "index.php?r=sto-apply-info%2Fupdate",
+                    dataType: "json",
+                    success: function (data) {
+                        if(data==1){
+                            //当成功后操作。。
+                            alert("操作成功.");
+                            $.pjax.reload({container:'#stoapplyinfoGrid'});
+                        }else{
+                            alert("操作失败，请重试.");
+                        }
+                    }
+                });
+        }
     }
 
 

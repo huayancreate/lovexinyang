@@ -161,15 +161,5 @@ $this->params['breadcrumbs'][] = $this->title;
        
     }
 
-
-
- /*  $("document").ready(function(){ 
-        $("ul li a").on("click", function() {
-            $.pjax.reload({container:"#closingauditGrid"});  //Reload GridView
-        });
-    });*/
-
-
-
 </script>
 

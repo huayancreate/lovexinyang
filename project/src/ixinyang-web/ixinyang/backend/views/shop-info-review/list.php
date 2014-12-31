@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
          'method' => 'post',
     ]);
     ?>
-    <div class="col-lg-6">
+    <div class="col-lg-5">
         <?php
                  // Date and Time picker with time increment of 15 minutes and without any input group addons.
             echo DateRangePicker::widget([
@@ -73,7 +73,6 @@ $this->params['breadcrumbs'][] = $this->title;
                    return date('Y-m-d',strtotime($model['applyTime']));
                 }
             ],
-            'managerName',
 
             ['class' => 'yii\grid\ActionColumn','header'=>'操作','headerOptions'=>['width'=>'100'],
                 'buttons'=>[
@@ -126,7 +125,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     modal: true,
                     width: 800,
                     height:600,
-                    title:"商家信息确认",
+                    title:"店铺信息确认",
                     show: "blind",             //show:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果
                     hide: "explode",       //hide:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果
                     resizable: true,

@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="col-lg-8">
 
-     <?= Html::button('添加', ['class' =>'btn btn-success','id'=>'countyAdd']) ?>
+     <?= Html::button('区县添加', ['class' =>'btn btn-success','id'=>'countyAdd']) ?>
      <?php \yii\widgets\Pjax::begin(); ?>
      <?= GridView::widget([
         'id'=>'countyGrid',

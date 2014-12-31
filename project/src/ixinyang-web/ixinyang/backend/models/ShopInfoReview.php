@@ -94,6 +94,9 @@ class ShopInfoReview extends \yii\db\ActiveRecord
             'managerTime' => '客户经理审核时间',
             'auditState' => '审核状态', //1、申请中 2、初审通过 3、初审驳回 4、经理审核通过  5、经理审核驳回
             'Rejection' => '驳回原因',
+            'storeType'=>'店铺类别',
+            'alipayNo'=>'支付宝帐号',
+            'alipayName'=>'支付宝名称',
         ];
     }
 
