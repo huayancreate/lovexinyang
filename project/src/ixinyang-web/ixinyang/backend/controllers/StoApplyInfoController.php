@@ -298,7 +298,7 @@ class StoApplyInfoController extends Controller
              //门店信息保存成功后获取门店id
               $storeInfoId=$this->storeInfoModelSave($model,$sellerId,$alipayName,$alipayNo);
              //2、商家账号信息
-             $result=$this->logonAccountModelSave($sellerId,$sellerName,$storeInfoId);
+             $result=$this->logonAccountModelSave($sellerId,$model->storeName,$storeInfoId);
              if (!empty( $sellerId) && !empty($storeInfoId) && $result) {
                    //3、执行修改   商家申请数据的修改
                    StoApplyInfo::updateBySql('sto_apply_info',['applyStatus'=>$applyStatus,'customerManagerId'=>$customerManagerId,'customerManagerName'=>$customerManagerName,'cusManagerReviewTime'=>date('Y-m-d h:i:s')],['applyId'=>$applyId]);                
@@ -429,18 +429,18 @@ class StoApplyInfoController extends Controller
 
     }
 
-    protected function logonAccountModelSave($sellerId,$sellerName,$storeInfoId){
+    protected function logonAccountModelSave($sellerId,$storeName,$storeInfoId){
            //事务开始 
         $transaction2=\Yii::$app->db->beginTransaction();
         try {
             //商家登录账号  店家账号
-         $result1=$this->logonAccountDataCreate($sellerId,$sellerName,$storeInfoId,'店长');;
+         $result1=$this->logonAccountDataCreate($sellerId,$storeName,$storeInfoId,'店长');;
          
             //商家登录账号  财务账号
-         $result2=$this->logonAccountDataCreate($sellerId,$sellerName,$storeInfoId,'财务');
+         $result2=$this->logonAccountDataCreate($sellerId,$storeName,$storeInfoId,'财务');
             
             //商家登录账号  营业员账号
-         $result3=$this->logonAccountDataCreate($sellerId,$sellerName,$storeInfoId,'营业员');
+         $result3=$this->logonAccountDataCreate($sellerId,$storeName,$storeInfoId,'营业员');
 
            if ($result1&&$result2&&$result3) {
               //提交
@@ -461,13 +461,13 @@ class StoApplyInfoController extends Controller
         }
     }
 
-    protected function logonAccountDataCreate($sellerId,$sellerName,$storeInfoId,$roleName){
+    protected function logonAccountDataCreate($sellerId,$storeName,$storeInfoId,$roleName){
 
             $logonAccountModel=new StoLogonAccount();
            //店铺ID  
            $logonAccountModel->storeId=$storeInfoId;
             //角色ID  根据roleName查询id
-           $comRoleMode=ComRole::findBySql('select * from com_role where isValid=1 and roleName like "%'.$roleName.'%"')->one();
+           $comRoleMode=ComRole::findBySql('select * from com_role where isValid=1 and roleName="'.$roleName.'"')->one();
              //事务开始 
            $transaction3=\Yii::$app->db->beginTransaction();
         try {
@@ -475,8 +475,8 @@ class StoApplyInfoController extends Controller
                $logonAccountModel->roleId=$comRoleMode->id;
                //商家ID
                $logonAccountModel->sellerId=$sellerId;
-               //商家账号
-               $logonAccountModel->loginName=$sellerName.$roleName;
+               //商家账号  店铺名称+角色名
+               $logonAccountModel->loginName=$storeName.$roleName;
                //帐号密码  默认 123456
                $logonAccountModel->password='123456';
                //是否有效

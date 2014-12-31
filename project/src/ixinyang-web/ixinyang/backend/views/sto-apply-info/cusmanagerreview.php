@@ -38,7 +38,6 @@ use backend\models\ComBusinessDistrict;
                  'value'=> !empty($category) ? $category->categoryName : '',
             ],
             'scopeBusiness',
-           
         ],
     ]) ?>
         <?php 
@@ -128,83 +127,97 @@ use backend\models\ComBusinessDistrict;
          <?php ActiveForm::end(); ?>
            
 
-<script>
+<script type="text/javascript">
 
     //审核通过
     function checkPass(){
-        $("#sellerInfoDiv").show();
-        $("#btnCheckPass").attr("disabled",true);
-        $("#btnCheckFail").attr("disabled",true);
+       if(confirm("确定审核通过吗？")){
+            $("#sellerInfoDiv").show();
+            $("#btnCheckPass").attr("disabled",true);
+            $("#btnCheckFail").attr("disabled",true);
+        }
        
     }
 
     //审核驳回   审核通过和审核驳回按钮都不可用
     function checkFail(applyStatus,applyId){
-        $("#remarkDiv").show();
-        $("#stoapplyinfo-remark").attr("readonly",false);
-        $("#btnCheckPass").attr("disabled",true);
-        $("#btnCheckFail").attr("disabled",true);
+       if(confirm("确定审核驳回吗？")){
+          $("#remarkDiv").show();
+          $("#stoapplyinfo-remark").attr("readonly",false);
+          $("#btnCheckPass").attr("disabled",true);
+          $("#btnCheckFail").attr("disabled",true);
+      }
        
     }
     //保存商家信息
     function saveSellerInfo(applyStatus,applyId){
-     //商家信息
-        //商家名称
-        var sellerName=$("#sellerName").val();
-        //法人
-        var owner=$("#owner").val();
-    //支付信息
-       //支付宝名称
-       var alipayName=$("#alipayName").val();
-       //支付宝账号
-       var alipayNo=$("#alipayNo").val();
-
-         $.ajax({
-            type: "POST",
-            data: {'sellerName':sellerName,'owner':owner,'alipayName':alipayName,'alipayNo':alipayNo,'applyStatus': applyStatus,'applyId':applyId},
-            url: "index.php?r=sto-apply-info%2Fcheckpass",
-            dataType: "json",
-            error: function (request) {
-                alert("Connection error");
-            },
-            success: function (data) {
-                if(data.success){
-                    //当成功后操作。。
-                    alert("操作成功");
-                    $.pjax.reload({container:'#discusstasksGrid'});
-
-                }else{
-                    alert("操作失败原因："+data.errormsg+",请重试.");
-                }
+       if(confirm("确定审核通过吗？")){
+         //商家信息
+            //商家名称
+            var sellerName=$("#sellerName").val();
+            //法人
+            var owner=$("#owner").val();
+        //支付信息
+           //支付宝名称
+           var alipayName=$("#alipayName").val();
+           //支付宝账号
+           var alipayNo=$("#alipayNo").val();
+           //以上四个信息 任何一个为空都不给提交弹出提示框
+            if(sellerName=="" || owner=="" || alipayName=="" || alipayNo==""){
+              
+              alert("商家信息和支付信息都是必填的,请填完整哦");
+              return false;
             }
-        });
+            else{
 
+                 $.ajax({
+                  type: "POST",
+                  data: {'sellerName':sellerName,'owner':owner,'alipayName':alipayName,'alipayNo':alipayNo,'applyStatus': applyStatus,'applyId':applyId},
+                  url: "index.php?r=sto-apply-info%2Fcheckpass",
+                  dataType: "json",
+                  error: function (request) {
+                      alert("Connection error");
+                  },
+                  success: function (data) {
+                      if(data.success){
+                          //当成功后操作。。
+                          alert("操作成功");
+                          $.pjax.reload({container:'#discusstasksGrid'});
 
+                      }else{
+                          alert("操作失败原因："+data.errormsg+",请重试.");
+                      }
+                  }
+                });
+           }
+       }
     }
     //保存驳回备注
     function saveRejectRemark(applyStatus,applyId)
     {
-        //驳回备注
-        var remark=$("#stoapplyinfo-remark").val();
+      if(confirm("确定审核驳回吗？")){
+            //驳回备注
+            var remark=$("#stoapplyinfo-remark").val();
 
-         $.ajax({
-            type: "POST",
-            data: {'remark':remark,'applyStatus': applyStatus,'applyId':applyId},
-            url: "index.php?r=sto-apply-info%2Fcheckfail",
-            dataType: "json",
-            error: function (request) {
-                alert("Connection error");
-            },
-            success: function (data) {
-                if(data==1){
-                    //当成功后操作。。
-                    alert("操作成功.");
-                    $.pjax.reload({container:'#discusstasksGrid'});
-                }else{
-                    alert("操作失败，请重试.");
+             $.ajax({
+                type: "POST",
+                data: {'remark':remark,'applyStatus': applyStatus,'applyId':applyId},
+                url: "index.php?r=sto-apply-info%2Fcheckfail",
+                dataType: "json",
+                error: function (request) {
+                    alert("Connection error");
+                },
+                success: function (data) {
+                    if(data==1){
+                        //当成功后操作。。
+                        alert("操作成功.");
+                        $.pjax.reload({container:'#discusstasksGrid'});
+                    }else{
+                        alert("操作失败，请重试.");
+                    }
                 }
-            }
-        });
+            });
+           }
     }
 
 
