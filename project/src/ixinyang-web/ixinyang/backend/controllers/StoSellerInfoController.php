@@ -150,7 +150,7 @@ class StoSellerInfoController extends Controller
             $arr = explode('to', $dateRange);
             $fromDate = $arr[0] . ' 00:00:00';
             $toDate = $arr[1] . ' 23:59:59';
-            if(empty($dateRange)){
+            if (empty($dateRange)) {
                 $fromDate = date("Y-m-d H:i:s");
                 $toDate = date("Y-m-d H:i:s");
             }
@@ -166,8 +166,12 @@ class StoSellerInfoController extends Controller
         if (Yii::$app->request->post()) {
             $dateRange = $_POST['dateRangeRefund'];
             $arr = explode("to", $dateRange);
-            $fromDate = $arr[0] . ' 00:00:00';
-            $toDate = $arr[1] . ' 23:59:59';
+            $fromDate = date("Y-m-d H:i:s");
+            $toDate = date("Y-m-d H:i:s");
+            if (!empty($dateRange)) {
+                $fromDate = $arr[0] . ' 00:00:00';
+                $toDate = $arr[1] . ' 23:59:59';
+            }
 
             $refundModel = new ComRefundReviewSearch();
             $refundDataProvider = $refundModel->getRefundReviews($fromDate, $toDate);
@@ -182,8 +186,12 @@ class StoSellerInfoController extends Controller
         if (Yii::$app->request->post()) {
             $dateRange = $_POST["dateRange"];
             $arr = explode('to', $dateRange);
-            $fromDate = $arr[0] . ' 00:00:00';
-            $toDate = $arr[1] . ' 23:59:59';
+            $fromDate = date("Y-m-d H:i:s");
+            $toDate = date("Y-m-d H:i:s");
+            if (!empty($dateRange)) {
+                $fromDate = $arr[0] . ' 00:00:00';
+                $toDate = $arr[1] . ' 23:59:59';
+            }
 
             $consumptionRecords = new CusConsumptionRecords();
             $comsumptionProvider = $consumptionRecords->getConsumption($fromDate, $toDate);

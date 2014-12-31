@@ -3,19 +3,23 @@ JuiDialog = {
         JuiDialog.getPage(divId, url);
         $("#" + divId).dialog({
             title: title,
-            buttons: {
-                '保存': function () {
-                    JuiDialog.save(url, fromId, divId, gridId);
+            buttons: [
+                {
+                    text: "保存",
+                    "class": 'btn btn-success',
+                    click: function () {
+                        JuiDialog.save(url, fromId, divId, gridId);
+                    }
                 },
-                "取消": function () {
-                    $("#" + divId).empty();
-                    $(this).dialog('close');
+                {
+                    text: "取消",
+                    "class": 'btn btn-danger',
+                    click: function () {
+                        $("#" + divId).empty();
+                        $(this).dialog('close');
+                    }
                 }
-            },
-            close: function () {
-                $("#" + divId).empty();
-                $("#" + divId).dialog("close");
-            }
+            ]
         });
         JuiDialog.show(divId);
     },

@@ -73,23 +73,22 @@ $this->params['breadcrumbs'][] = '账号管理';
                                         'onClick' => 'Delete("com-account/delete&id=' . $model['id'] . '")'
                                     ]);
                             }
-
                         ]
                     ],
                 ],
             ]); ?>
             <?php \yii\widgets\Pjax::end(); ?>
         </div>
+        <?php
+        Dialog::begin([
+            'id' => 'viewDialog',
+            'clientOptions' => ['modal' => true, 'autoOpen' => false, 'width' => '800', 'height' => '600'],]);
+        ?>
+        <div id="view"></div>
+        <?php
+        Dialog::end();
+        ?>
     </div>
-<?php
-Dialog::begin([
-    'id' => 'viewDialog',
-    'clientOptions' => ['modal' => true, 'autoOpen' => false, 'width' => '800', 'height' => '600'],]);
-?>
-    <div id="view"></div>
-<?php
-Dialog::end();
-?>
     <script type="text/javascript">
         function View(title, url) {
             //JuiDialog.dialog('viewDialog', title, url, 'accountForm', 'accountList');

@@ -4,46 +4,53 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>采集坐标 </title>
     <!--[if IE 6]>
-    <script type="text/javascript" src="http://dev.baidu.com/wiki/static/map/tuan/js/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script type="text/javascript"
+            src="http://dev.baidu.com/wiki/static/map/tuan/js/DD_belatedPNG_0.0.8a-min.js"></script>
     <script>DD_belatedPNG.fix("#float_search_bar");</script>
     <![endif]-->
     <style>
-        #preview{
+        #preview {
             border: 1px solid #bfd2e1;
             width: 490px;
             height: 368px;
-            font-family: Arial, Helvetica, sans-serif,"宋体";
+            font-family: Arial, Helvetica, sans-serif, "宋体";
         }
-        #map_container{
+
+        #map_container {
             height: 368px;
         }
-        #float_search_bar{
+
+        #float_search_bar {
             z-index: 2012;
             position: absolute;
             width: 480px;
             height: 31px;
-            background: url("http://dev.baidu.com/wiki/static/map/tuan/images/search_bar.png") repeat-x;
+            background: url("http://api.map.baidu.com/lbsapi/tuan/images/search_bar.png") repeat-x;
             background-position: 0 -21px;
             padding: 3px 0 0 10px;
         }
-        #float_search_bar label, #float_search_bar span{
+
+        #float_search_bar label, #float_search_bar span {
             color: #0787cb;
             font-size: 14px;
         }
-        #float_search_bar input{
+
+        #float_search_bar input {
             width: 180px;
             height: 16px;
             margin-top: 1px;
         }
-        #float_search_bar input:focus{
+
+        #float_search_bar input:focus {
             outline: none;
         }
-        #float_search_bar button{
+
+        #float_search_bar button {
             border: 0;
             color: white;
             width: 77px;
             height: 20px;
-            background: url("http://dev.baidu.com/wiki/static/map/tuan/images/search_bar.png") no-repeat;
+            background: url("http://api.map.baidu.com/lbsapi/tuan/images/search_bar.png") no-repeat;
             background-position: 0 0;
             margin-right: 5px;
             cursor: pointer;
@@ -55,7 +62,7 @@
 <div id="preview">
     <div id="float_search_bar">
         <label>区域：</label>
-        <input type="text" id="keyword" />
+        <input type="text" id="keyword"/>
         <button id="search_button">查找</button>
         <span>点击地图或标注获取坐标</span>
     </div>
@@ -65,12 +72,12 @@
 
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
 <script type="text/javascript">
-    function getUrlParas(){
+    function getUrlParas() {
         var hash = location.hash,
                 para = {},
                 tParas = hash.substr(1).split("&");
-        for(var p in tParas){
-            if(tParas.hasOwnProperty(p)){
+        for (var p in tParas) {
+            if (tParas.hasOwnProperty(p)) {
                 var obj = tParas[p].split("=");
                 para[obj[0]] = obj[1];
             }
@@ -78,8 +85,8 @@
         return para;
     }
     var para = getUrlParas(),
-            center = para.address?decodeURIComponent(para.address) : "百度大厦",
-            city = para.city?decodeURIComponent(para.city) : "北京市";
+            center = para.address ? decodeURIComponent(para.address) : "桑夏精英时代广场",
+            city = para.city ? decodeURIComponent(para.city) : "合肥市";
 
     document.getElementById("keyword").value = center;
 
@@ -94,33 +101,33 @@
     marker.enableDragging();
     map.addOverlay(marker);
 
-    map.addEventListener("click", function(e){
-        if(!(e.overlay)){
+    map.addEventListener("click", function (e) {
+        if (!(e.overlay)) {
             map.clearOverlays();
             marker.show();
             marker.setPosition(e.point);
             setResult(e.point.lng, e.point.lat);
         }
     });
-    marker.addEventListener("dragend", function(e){
+    marker.addEventListener("dragend", function (e) {
         setResult(e.point.lng, e.point.lat);
     });
 
     var local = new BMap.LocalSearch(map, {
-        renderOptions:{map: map},
+        renderOptions: {map: map},
         pageCapacity: 1
     });
-    local.setSearchCompleteCallback(function(results){
-        if(local.getStatus() !== BMAP_STATUS_SUCCESS){
+    local.setSearchCompleteCallback(function (results) {
+        if (local.getStatus() !== BMAP_STATUS_SUCCESS) {
             alert("无结果");
         } else {
             marker.hide();
         }
     });
-    local.setMarkersSetCallback(function(pois){
-        for(var i=pois.length; i--; ){
+    local.setMarkersSetCallback(function (pois) {
+        for (var i = pois.length; i--;) {
             var marker = pois[i].marker;
-            marker.addEventListener("click", function(e){
+            marker.addEventListener("click", function (e) {
                 marker_trick = true;
                 var pos = this.getPosition();
                 setResult(pos.lng, pos.lat);
@@ -128,21 +135,21 @@
         }
     });
 
-    window.onload = function(){
+    window.onload = function () {
         local.search(center);
-        document.getElementById("search_button").onclick = function(){
+        document.getElementById("search_button").onclick = function () {
             local.search(document.getElementById("keyword").value);
         };
-        document.getElementById("keyword").onkeyup = function(e){
+        document.getElementById("keyword").onkeyup = function (e) {
             var me = this;
             e = e || window.event;
             var keycode = e.keyCode;
-            if(keycode === 13){
+            if (keycode === 13) {
                 local.search(document.getElementById("keyword").value);
             }
         };
     };
-    function a(){
+    function a() {
         document.getElementById("float_search_bar").style.display = "none";
     }
 
@@ -152,7 +159,7 @@
      * lng: 标注的经度
      * lat: 标注的纬度
      */
-    function setResult(lng, lat){
+    function setResult(lng, lat) {
         document.getElementById("result").innerHTML = lng + ", " + lat;
     }
 </script>

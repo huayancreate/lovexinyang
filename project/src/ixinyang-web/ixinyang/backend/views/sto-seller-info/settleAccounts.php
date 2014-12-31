@@ -34,7 +34,7 @@ use yii\grid\GridView;
         </div>
     </div>
     <div style="margin-top: 15px">
-        <?= Html::button('结款', ['class' => 'btn btn-success ', 'onclick' => 'SettleAccounts()']) ?>
+        <?= Html::button('结款', ['id' => 'settAccounts', 'class' => 'btn btn-success ', 'onclick' => 'SettleAccounts()']) ?>
     </div>
 </div>
 <script type="text/javascript">
@@ -42,6 +42,7 @@ use yii\grid\GridView;
         var dateRange = $('input[name="dateRange"]');
         dateRange.attr("readonly", "readonly");
         dateRange.attr("placeholder", "请选择日期范围");
+        $("#settAccounts").attr("disabled", "disabled");
     });
     function SettleAccounts() {
         var dateRange = $('input[name="dateRange"]');
@@ -76,7 +77,10 @@ use yii\grid\GridView;
                 alert("Connection error");
             },
             success: function (data) {
-                $("#consumptionList").html(data);
+                if (data != "") {
+                    $("#settAccounts").removeAttr("disabled");
+                    $("#consumptionList").html(data);
+                }
             }
         });
     }
