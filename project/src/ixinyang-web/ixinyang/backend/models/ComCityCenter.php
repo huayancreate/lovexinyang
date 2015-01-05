@@ -40,4 +40,22 @@ class ComCityCenter extends \yii\db\ActiveRecord
             'cityCenterName' => '市区名称',
         ];
     }
+
+
+    /**
+     * 获取所有的城市
+     */
+    public function getAllCity()
+    {
+        return ComCityCenter::find()->all();
+    }
+
+    /**
+     * 根据城市Id获取城市下面的所有区县
+     * @param $cityId
+     */
+    public function getCountyByCityId($cityId)
+    {
+        return ComCounty::find()->where(['cityCenterId' => $cityId, 'isValid' => '1'])->asArray()->all();
+    }
 }

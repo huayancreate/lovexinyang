@@ -47,9 +47,9 @@ class StoSellerInfoController extends Controller
         $model = new StoBalanceReview();
         $data = StoBalanceReview::find()->orderBy('id desc')->one();
         if ($data == null) {
-            $model->balanceEndTime = date('Y-m-d H:i:s');
+            $model->balanceEndTime = date('Y-m-d');
         } else {
-            $endTime = date('Y-m-d H:i:s', strtotime($data->balanceEndTime . "+ 1 day"));
+            $endTime = date('Y-m-d', strtotime($data->balanceEndTime . "+ 1 day"));
             $model->balanceEndTime = $endTime;
         }
         $consumptionRecords = new CusConsumptionRecords();
@@ -157,8 +157,12 @@ class StoSellerInfoController extends Controller
 
             $model = new CusConsumptionRecords();
             $model->settleAccount($fromDate, $toDate);
+            if (count($model->getErrors()) <= 0) {
+                return '{"msg":"success"}';
+            } else {
+                return '{"msg":"error"}';
+            }
         }
-        return "";
     }
 
     public function actionRefund()

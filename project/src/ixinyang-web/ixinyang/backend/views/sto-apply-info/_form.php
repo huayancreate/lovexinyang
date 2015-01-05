@@ -11,7 +11,7 @@ use yii\web\jqueryAsset;
 /* @var $model backend\models\StoApplyInfo */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-<div style="margin-left: -160px">
+<div>
     <?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => 250]) ?>

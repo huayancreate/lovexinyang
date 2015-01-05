@@ -36,15 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="form-group">
                             <label class="col-sm-3 control-label">请选择时间范围</label>
                             <div class="col-sm-7">' .
-                    DateRangePicker::widget([
-                        'id' => 'dateRange',
-                        'name' => 'dateRange',
-                        'convertFormat' => true,
-                        'pluginOptions' => [
-                            'format' => 'Y-m-d',
-                            'separator' => ' to ',
-                        ]
-                    ]) .
+                    Html::input("text", "dateRange", null, ['class' => 'form-control']) .
                     '</div>' .
                     Html::button('查询', ['class' => 'btn btn-success', 'id' => 'btnSelect', 'onclick' => 'ComsumptionSearch()']) .
                     '</div></form>' .
@@ -80,3 +72,22 @@ $this->params['breadcrumbs'][] = $this->title;
     ]);
     ?>
 </div>
+<script type="text/javascript">
+    $(function () {
+        $('input[name="dateRange"]').daterangepicker();
+        $('input[name="dateRange"]').on('show.daterangepicker', function (ev, picker) {
+
+            picker.setOptions({
+                format: "YYYY-MM-DD",
+//                maxDate: "2014-01-31",
+                minDate: '<?php echo $model->balanceEndTime?>',
+                startDate: '<?php echo $model->balanceEndTime?>',
+                separator: " to "
+            });
+
+        });
+        var dateRange = $('input[name="dateRange"]');
+        dateRange.attr("placeholder", "请选择日期范围");
+        $("#settAccounts").attr("disabled", "disabled");
+    });
+</script>
