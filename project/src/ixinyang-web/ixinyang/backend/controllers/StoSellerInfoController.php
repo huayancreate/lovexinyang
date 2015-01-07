@@ -157,11 +157,7 @@ class StoSellerInfoController extends Controller
 
             $model = new CusConsumptionRecords();
             $model->settleAccount($fromDate, $toDate);
-            if (count($model->getErrors()) <= 0) {
-                return '{"msg":"success"}';
-            } else {
-                return '{"msg":"error"}';
-            }
+            return count($model->getErrors()) > 0 ? '{"msg":"error"}' : '{"msg":"success"}';
         }
     }
 

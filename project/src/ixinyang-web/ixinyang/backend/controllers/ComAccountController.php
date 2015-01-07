@@ -186,9 +186,4 @@ class ComAccountController extends Controller
         }
         return "";
     }
-
-    public function actionTest()
-    {
-        return $this->render("test");
-    }
 }

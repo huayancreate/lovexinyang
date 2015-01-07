@@ -107,5 +107,33 @@ JuiDialog = {
             ]
         });
         JuiDialog.show(divId);
+    },
+
+    showDialogWithValid: function (divId, title, pageUrl, submitUrl, fromId, gridId) {
+        JuiDialog.getPage(divId, pageUrl);
+        $("#" + divId).dialog({
+            title: title,
+            buttons: [
+                {
+                    text: "保存",
+                    "class": 'btn btn-success',
+                    click: function () {
+                        if ($("form").valid(this, "error!") == true) {
+                            JuiDialog.save(submitUrl, fromId, divId, gridId);
+                        }
+                    }
+                },
+                {
+                    text: "取消",
+                    "class": 'btn btn-danger',
+                    click: function () {
+                        $("#" + divId).empty();
+                        $(this).dialog('close');
+                    }
+                }
+            ]
+        });
+        JuiDialog.show(divId);
     }
+
 };

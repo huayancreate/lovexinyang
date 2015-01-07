@@ -27,8 +27,6 @@ class AppAsset extends AssetBundle
         'js/map.js',
         'js/dialog.js',
         'js/bootstrap3-validation.js',
-        'js/bootbox.js',
-
     ];
     public $depends = [
         'yii\web\YiiAsset',

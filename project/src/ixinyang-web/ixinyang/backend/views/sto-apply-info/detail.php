@@ -17,13 +17,13 @@ use backend\models\ComBusinessDistrict;
             'otherContact',
             'storeName',
             [
-                'label'=>'城市',
-                'value'=>ComCityCenter::findOne($model->city)->cityCenterName,
+                'label' => '城市',
+                'value' => ComCityCenter::findOne($model->city)->cityCenterName,
             ],
 
             [
-                'label'=>'区域',
-                'value'=>ComCounty::findOne($model->regional)->countyName,
+                'label' => '区域',
+                'value' => ComCounty::findOne($model->regional)->countyName,
             ],
             [
                 'label' => '商圈',
@@ -33,40 +33,41 @@ use backend\models\ComBusinessDistrict;
             'storePhone',
             'daySales',
             [
-                 'label'=>'商家类型',
-                 'value'=> !empty($category) ? $category->categoryName : '',
+                'label' => '商家类型',
+                'value' => !empty($category) ? $category->categoryName : '',
             ],
+
             'scopeBusiness',
-           
         ],
+        'template' => '<tr><th width="20%">{label}</th><td width="80%">{value}</td></tr>',
     ]) ?>
-            <div class="col-lg-offset-8">
-                <div class="form-group">
-                    <?= Html::button('审核通过', ['class' => 'btn btn-success','id'=>'btnCheckPass','onclick'=>"checkPassOrFail(1,".$model->applyId.")"]) ?>
-                    <?= Html::button('审核驳回', ['class' => 'btn btn-primary','id'=>'btnCheckFail','onclick'=>"checkPassOrFail(2,".$model->applyId.")"]) ?>
-                </div>
-            </div>
+    <div class="col-lg-offset-8">
+        <div class="form-group">
+            <?= Html::button('审核通过', ['class' => 'btn btn-success', 'id' => 'btnCheckPass', 'onclick' => "checkPassOrFail(1," . $model->applyId . ")"]) ?>
+            <?= Html::button('审核驳回', ['class' => 'btn btn-primary', 'id' => 'btnCheckFail', 'onclick' => "checkPassOrFail(2," . $model->applyId . ")"]) ?>
+        </div>
+    </div>
 </div>
 
 <script>
 
-    function checkPassOrFail(applyStatus,applyId){
-         if(confirm("确定操作吗？")){
-                $.ajax({
-                    type: "POST",
-                    data: {'applyStatus': applyStatus,'applyId':applyId},
-                    url: "index.php?r=sto-apply-info%2Fupdate",
-                    dataType: "json",
-                    success: function (data) {
-                        if(data==1){
-                            //当成功后操作。。
-                            alert("操作成功.");
-                            $.pjax.reload({container:'#stoapplyinfoGrid'});
-                        }else{
-                            alert("操作失败，请重试.");
-                        }
+    function checkPassOrFail(applyStatus, applyId) {
+        if (confirm("确定操作吗？")) {
+            $.ajax({
+                type: "POST",
+                data: {'applyStatus': applyStatus, 'applyId': applyId},
+                url: "index.php?r=sto-apply-info%2Fupdate",
+                dataType: "json",
+                success: function (data) {
+                    if (data == 1) {
+                        //当成功后操作。。
+                        alert("操作成功.");
+                        $.pjax.reload({container: '#stoapplyinfoGrid'});
+                    } else {
+                        alert("操作失败，请重试.");
                     }
-                });
+                }
+            });
         }
     }
 

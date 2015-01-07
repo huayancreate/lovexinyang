@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'email',
         ],
+        'template' => '<tr><th width="20%">{label}</th><td width="80%">{value}</td></tr>',
     ]) ?>
 
 </div>

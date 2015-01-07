@@ -2,7 +2,7 @@
  * Created by liuweiisme on 2014-12-09.
  */
 // plugin definitio
-jQuery.showMap = function (id, mapUrl, valueId) {
+jQuery.showMap = function (id, mapUrl, longitude, latitude) {
     $('#' + id).iframeDialog({
         id: 'mapFrame',
         url: mapUrl,
@@ -15,7 +15,8 @@ jQuery.showMap = function (id, mapUrl, valueId) {
         height: 520,
         close: function (event, ui) {
             var result = $("#iframeDialogMap").contents().find("#result").html();
-            $("#" + valueId).html(result);
+            $("#" + longitude).val(result.split(",")[0]);
+            $("#" + latitude).val(result.split(",")[1]);
         }
     });
 };

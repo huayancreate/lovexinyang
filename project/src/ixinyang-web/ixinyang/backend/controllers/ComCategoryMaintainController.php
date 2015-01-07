@@ -72,6 +72,7 @@ class ComCategoryMaintainController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $model->saveCategory();
+            return count($model->getErrors()) > 0 ? '{"msg":"error"}' : '{"msg":"success"}';
         } else {
             //$category = $model->getAllCategory();
             return $this->renderPartial('create', [
@@ -99,6 +100,7 @@ class ComCategoryMaintainController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $model->updateCategory();
+            return count($model->getErrors()) > 0 ? '{"msg":"error"}' : '{"msg":"success"}';
         } else {
             return $this->renderPartial('update', [
                 'model' => $model, 'category' => $category,
