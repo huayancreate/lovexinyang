@@ -1,0 +1,227 @@
+@charset "utf-8";
+
+/* banner*/
+.banner{ width:100%; min-width:1366px; height:390px; overflow:hidden}
+
+/* hotel */
+.hotel{ margin-top:10px;width:1090px}
+#hotel_title{ background:url(../images/content_title_bg01.png) no-repeat; height:60px; line-height:80px; text-align:right; width:1090px; display:block}
+#hotel_title a{ color:#1186cb}
+#hotel_title a:hover{ color:#f81502}
+.hotel_content{ background:#fff; margin-top:20px; padding:25px; padding:12px\9}
+.hotel_list{ outline:1px solid #d5d3d3; outline-offset:12px; padding:12px\9}
+.hotel_list li.left_first{ width:507px; float:left; height:330px; overflow:hidden; padding:0 12px 12px 0; border-right:1px solid #d5d3d3; border-bottom:1px solid #d5d3d3}
+.hotel_list li.right_first{ width:507px; float:right; height:330px; overflow:hidden; padding:0 0 12px 12px; border-right:none; border-bottom:1px solid #d5d3d3}
+.hotel_list li.left{ width:507px; float:left; height:330px;  overflow:hidden;padding:12px 12px 12px 0; border-right:1px solid #d5d3d3; border-bottom:1px solid #d5d3d3}
+.hotel_list li.right{ width:507px; float:right; height:330px;  overflow:hidden; padding:12px 0 12px 12px; border-right:none; border-bottom:1px solid #d5d3d3}
+.hotel_list li.left_last{ width:507px; float:left; height:330px;  overflow:hidden; padding:12px 12px 12px 0; border-right:1px solid #d5d3d3; border-bottom:none}
+.hotel_list li.right_last{ width:507px; float:right; height:330px;  overflow:hidden; padding:12px 0 12px 12px; border-right:none; border-bottom:none}
+.hotel_list_textleft{ float:left;width:302px; height:60px} 
+.hotel_list_textright{ float:right;width:197px; height:60px; line-height:60px;padding-right:8px; text-align:right} 
+.hotel_name{ font-size:16px; font-weight:bold; width:302px; height:31px; line-height:35px; text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.hotel_descrip{ font-size:14px; color:#999; width:302px;height:20px; line-height:20px; padding-left:8px; text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.hotel_newprice{ font-size:24px; font-weight:bold; color:#df0011; margin-right:15px}
+.hotel_oldprice{ font-size:12px; color:#929191; text-decoration:line-through}
+.hotel_list li.left_first,.hotel_list li.left_last,.hotel_list li.left,.hotel_list li.right_first,.hotel_list li.right_last,.hotel_list li.right
+{
+transition:transform 0.3s linear,box-shadow 0.3s linear;
+-moz-transition:-moz-transform 0.3s linear,box-shadow 0.3s linear;  /*for Firefox*/
+-webkit-transition:-webkit-transform 0.3s linear,box-shadow 0.3s linear;    /*for Chrome &Safari*/
+-o-transition:-o-transform 0.3s linear,box-shadow 0.3s linear;   /*for Opera*/
+}
+.hotel_list li.left_first:hover,.hotel_list li.left_last:hover,.hotel_list li.left:hover,.hotel_list li.right_first:hover,.hotel_list li.right_last:hover,.hotel_list li.right:hover
+{
+transform:scale(1,1);
+box-shadow:0 0 13px 7px #c8c6c6;
+-ms-transform:scale(1,1);  /*for IE9*/
+-moz-transform:scale(1,1);  /*for Firefox*/
+-webkit-transform:scale(1,1);   /*for Chrome &Safari*/
+-o-transform:scale(1,1)   /*for Opera*/
+}
+
+/*food & women*/
+.food{ margin-top:10px;width:1090px}
+#food_title{ background:url(../images/content_title_bg02.png) no-repeat; height:60px; line-height:80px; text-align:right; width:1090px; display:block}
+#food_title a{ color:#262625}
+#food_title a:hover{ color:#f81502}
+#women_title{ background:url(../images/content_title_bg07.png) no-repeat; height:60px; line-height:80px; text-align:right; width:1090px; display:block}
+#women_title a{ color:#e40689}
+#women_title a:hover{ color:#f81502}
+.food_content{ background:#fff; margin-top:20px; padding:25px; padding:12px\9}
+.food_list{ outline:1px solid #d5d3d3; outline-offset:12px; padding:12px\9}
+.food_list li.left_first{ width:329px; float:left; height:360px; overflow:hidden; padding:0 12px 12px 0; border-right:1px solid #d5d3d3; border-bottom:1px solid #d5d3d3}
+.food_list li.right_first{ width:329px; float:right; height:360px; overflow:hidden; padding:0 0 12px 12px; border-right:none; border-bottom:1px solid #d5d3d3}
+.food_list li.left{ width:329px; float:left; height:360px;  overflow:hidden;padding:12px 12px 12px 0; border-right:1px solid #d5d3d3; border-bottom:1px solid #d5d3d3}
+.food_list li.right{ width:329px; float:right; height:360px;  overflow:hidden; padding:12px 0 12px 12px; border-right:none; border-bottom:1px solid #d5d3d3}
+.food_list li.left_last{ width:329px; float:left; height:360px;  overflow:hidden; padding:12px 12px 12px 0; border-right:1px solid #d5d3d3; border-bottom:none}
+.food_list li.right_last{ width:329px; float:right; height:360px;  overflow:hidden; padding:12px 0 12px 12px; border-right:none; border-bottom:none}
+.food_list li.center{ width:329px; float:left; height:360px;  overflow:hidden;padding:12px; border-right:1px solid #d5d3d3; border-bottom:1px solid #d5d3d3}
+.food_list li.center_first{ width:329px; float:left; height:360px;  overflow:hidden;padding:0 12px 12px; border-right:1px solid #d5d3d3; border-bottom:1px solid #d5d3d3}
+.food_list li.center_last{ width:329px; float:left; height:360px;  overflow:hidden;padding:12px; border-right:1px solid #d5d3d3; border-bottom:none}
+.food_list_texttop{ width:329px; height:60px} 
+.food_list_textbottom{padding:0 4px} 
+.food_name{ font-size:16px; font-weight:bold; width:313px; height:31px; line-height:35px; text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.food_descrip{ font-size:14px; color:#999; width:313px;height:20px; line-height:20px; padding:0 8px; text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.food_newprice{ float:left; width:auto; font-size:24px; font-weight:bold; color:#df0011}
+.food_oldprice{ float:right; width:auto; line-height:38px; padding-right:8px; font-size:12px; color:#929191; text-decoration:line-through}
+.food_list li.left_first,.food_list li.left_last,.food_list li.left,.food_list li.right_first,.food_list li.right_last,.food_list li.right,.food_list li.center_first,.food_list li.center_last,.food_list li.center
+{
+transition:transform 0.3s linear,box-shadow 0.3s linear;
+-moz-transition:-moz-transform 0.3s linear,box-shadow 0.3s linear;  /*for Firefox*/
+-webkit-transition:-webkit-transform 0.3s linear,box-shadow 0.3s linear;    /*for Chrome &Safari*/
+-o-transition:-o-transform 0.3s linear,box-shadow 0.3s linear;   /*for Opera*/
+}
+.food_list li.left_first:hover,.food_list li.left_last:hover,.food_list li.left:hover,.food_list li.right_first:hover,.food_list li.right_last:hover,.food_list li.right:hover,.food_list li.center_first:hover,.food_list li.center_last:hover,.food_list li.center:hover
+{
+transform:scale(1,1);
+box-shadow:0 0 10px 5px #c8c6c6;
+-ms-transform:scale(1,1);  /*for IE9*/
+-moz-transform:scale(1,1);  /*for Firefox*/
+-webkit-transform:scale(1,1);   /*for Chrome &Safari*/
+-o-transform:scale(1,1)   /*for Opera*/
+}
+
+/*movie */
+.movie{ margin-top:10px;width:1090px}
+#movie_title{ background:url(../images/content_title_bg03.png) no-repeat; height:60px; line-height:80px; text-align:right; width:1090px; display:block}
+#movie_title a{ color:#02b0cf}
+#movie_title a:hover{ color:#f81502}
+.movie_content{ background:#fff; margin-top:20px; padding:12px}
+.movie_list li.wrapbox{ width:1066px;height:336px; overflow:hidden; padding-bottom:24px;  margin-bottom:12px; border-bottom:1px solid #d5d3d3}
+.movie_list li.wrapbox_last{ width:1066px;height:336px; overflow:hidden; padding-bottom:24px; border-bottom:none}
+.movie_list_textright{ float:right; width:268px; height:336px} 
+.movie_name{ font-size:16px; font-weight:bold; max-width:268px; height:31px; line-height:35px;margin-bottom:5px; text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+table td.movie_intr{ display:inline-block; font-size:14px; color:#999; width:50px; vertical-align:top ; border:none;background:#fff}
+table td.movie_intrdetail{ display:inline-block; font-size:14px; color:#999; width:218px; max-height:40px;min-height:25px; border:none; background:#fff; text-overflow:ellipsis;overflow:hidden }
+.movie_descrip{ font-size:14px; color:#999; width:268px;height:120px;line-height:20px; margin:20px 0; overflow:hidden}
+.movie_newprice{ float:left; width:auto; font-size:24px; font-weight:bold; color:#df0011}
+.movie_oldprice{ float:right; width:auto; line-height:38px; padding-right:8px; font-size:12px; color:#929191; text-decoration:line-through}
+.movie_sp{ background:#df0011; font-size:12px; padding:1px 6px;color:#fff; line-height:31px; text-align:31px; margin-left:10px; display:inline}
+.movie_list li.wrapbox,.movie_list li.wrapbox_last
+{
+transition:transform 0.3s linear,box-shadow 0.3s linear;
+-moz-transition:-moz-transform 0.3s linear,box-shadow 0.3s linear;  /*for Firefox*/
+-webkit-transition:-webkit-transform 0.3s linear,box-shadow 0.3s linear;    /*for Chrome &Safari*/
+-o-transition:-o-transform 0.3s linear,box-shadow 0.3s linear;   /*for Opera*/
+}
+.movie_list li.wrapbox:hover,.movie_list li.wrapbox_last:hover
+{
+transform:scale(1,1);
+box-shadow:0 0 12px 7px #c8c6c6;
+-ms-transform:scale(1,1);  /*for IE9*/
+-moz-transform:scale(1,1);  /*for Firefox*/
+-webkit-transform:scale(1,1);   /*for Chrome &Safari*/
+-o-transform:scale(1,1)   /*for Opera*/
+}
+
+/* entertainment */
+.entertainment{ margin-top:10px;width:1090px}
+#entertainment_title{ background:url(../images/content_title_bg04.png) no-repeat; height:60px; line-height:80px; text-align:right; width:1090px; display:block}
+#entertainment_title a{ color:#ff8901}
+#entertainment_title a:hover{ color:#f81502}
+.entertainment_content{ background:#fff; margin-top:20px; padding:25px; padding:12px\9}
+.entertainment_list{ outline:1px solid #d5d3d3; outline-offset:12px; padding:12px\9}
+.entertainment_list li.left_first{ width:507px; float:left; height:544px; overflow:hidden; padding:0 12px 12px 0; border-right:1px solid #d5d3d3; border-bottom:1px solid #d5d3d3}
+.entertainment_list li.right_first{ width:507px; float:right; height:544px; overflow:hidden; padding:0 0 12px 12px; border-right:none; border-bottom:1px solid #d5d3d3}
+.entertainment_list li.left{ width:507px; float:left; height:544px;  overflow:hidden;padding:12px 12px 12px 0; border-right:1px solid #d5d3d3; border-bottom:1px solid #d5d3d3}
+.entertainment_list li.right{ width:507px; float:right; height:544px;  overflow:hidden; padding:12px 0 12px 12px; border-right:none; border-bottom:1px solid #d5d3d3}
+.entertainment_list li.left_last{ width:507px; float:left; height:544px;  overflow:hidden; padding:12px 12px 12px 0; border-right:1px solid #d5d3d3; border-bottom:none}
+.entertainment_list li.right_last{ width:507px; float:right; height:544px;  overflow:hidden; padding:12px 0 12px 12px; border-right:none; border-bottom:none}
+.entertainment_list_textleft{ float:left;width:302px; height:60px} 
+.entertainment_list_textright{ float:right;width:197px; height:60px; line-height:60px;padding-right:8px; text-align:right} 
+.entertainment_name{ font-size:16px; font-weight:bold; width:302px; height:31px; line-height:35px; text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.entertainment_descrip{ font-size:14px; color:#999; width:302px;height:20px; line-height:20px; padding-left:8px; text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.entertainment_newprice{ font-size:24px; font-weight:bold; color:#df0011; margin-right:15px}
+.entertainment_oldprice{ font-size:12px; color:#929191; text-decoration:line-through}
+.entertainment_list li.left_first,.entertainment_list li.left_last,.entertainment_list li.left,.entertainment_list li.right_first,.entertainment_list li.right_last,.entertainment_list li.right
+{
+transition:transform 0.3s linear,box-shadow 0.3s linear;
+-moz-transition:-moz-transform 0.3s linear,box-shadow 0.3s linear;  /*for Firefox*/
+-webkit-transition:-webkit-transform 0.3s linear,box-shadow 0.3s linear;    /*for Chrome &Safari*/
+-o-transition:-o-transform 0.3s linear,box-shadow 0.3s linear;   /*for Opera*/
+}
+.entertainment_list li.left_first:hover,.entertainment_list li.left_last:hover,.entertainment_list li.left:hover,.entertainment_list li.right_first:hover,.entertainment_list li.right_last:hover,.entertainment_list li.right:hover
+{
+transform:scale(1,1);
+box-shadow:0 0 13px 7px #c8c6c6;
+-ms-transform:scale(1,1);  /*for IE9*/
+-moz-transform:scale(1,1);  /*for Firefox*/
+-webkit-transform:scale(1,1);   /*for Chrome &Safari*/
+-o-transform:scale(1,1)   /*for Opera*/
+}
+
+/* shopping*/
+.shopping{ margin-top:10px;width:1090px}
+#shopping_title{ background:url(../images/content_title_bg05.png) no-repeat; height:60px; line-height:80px; text-align:right; width:1090px; display:block}
+#shopping_title a{ color:#f10011}
+#shopping_title a:hover{ color:#e37305}
+.shopping_content{ background:#fff; margin-top:20px; padding:12px}
+.shopping_list li.wrapcon{ width:1066px;height:400px; overflow:hidden; padding-bottom:12px;  margin-bottom:12px; border-bottom:1px solid #d5d3d3}
+.shopping_list li.wrapcon_last{ width:1066px;height:400px; overflow:hidden; padding-bottom:12px; border-bottom:none}
+.shopping_list_textleft{ float:left;width:800px; height:60px} 
+.shopping_list_textright{ float:right;width:197px; height:60px; line-height:60px;padding-right:8px; text-align:right} 
+.shopping_name{ font-size:16px; font-weight:bold; width:800px; height:31px; line-height:35px; text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.shopping_descrip{ font-size:14px; color:#999; width:800px;height:20px; line-height:20px; padding-left:8px; text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.shopping_newprice{ font-size:24px; font-weight:bold; color:#df0011; margin-right:15px}
+.shopping_oldprice{ font-size:12px; color:#929191; text-decoration:line-through}
+.shopping_list li.wrapcon,.shopping_list li.wrapcon_last
+{
+transition:transform 0.3s linear,box-shadow 0.3s linear;
+-moz-transition:-moz-transform 0.3s linear,box-shadow 0.3s linear;  /*for Firefox*/
+-webkit-transition:-webkit-transform 0.3s linear,box-shadow 0.3s linear;    /*for Chrome &Safari*/
+-o-transition:-o-transform 0.3s linear,box-shadow 0.3s linear;   /*for Opera*/
+}
+.shopping_list li.wrapcon:hover,.shopping_list li.wrapcon_last:hover
+{
+transform:scale(1,1);
+box-shadow:0 0 13px 7px #c8c6c6;
+-ms-transform:scale(1,1);  /*for IE9*/
+-moz-transform:scale(1,1);  /*for Firefox*/
+-webkit-transform:scale(1,1);   /*for Chrome &Safari*/
+-o-transform:scale(1,1)   /*for Opera*/
+}
+
+/*lifeservice */
+.lifeservice{ margin-top:10px;width:1090px}
+#lifeservice_title{ background:url(../images/content_title_bg06.png) no-repeat; height:60px; line-height:80px; text-align:right; width:1090px; display:block}
+#lifeservice_title a{ color:#03830c}
+#lifeservice_title a:hover{ color:#f81502}
+.lifeservice_content{ background:#fff; margin-top:20px; padding:24px; padding:12px\9}
+.lifeservice_list{ outline:1px solid #d5d3d3; outline-offset:12px; padding:12px\9}
+.lifeservice_list li{ padding:0 0 16px; height:695px}
+.lifeservice_list li.first{ padding-top:0}
+.lifeservice_list li.last{ padding-bottom:0}
+.leftwrapp{ float:left; width:328px; height:695px; padding-right:12px; border-right:1px solid #d5d3d3; border-bottom:1px solid #d5d3d3}
+.leftwrapp.last{ border-bottom:none}
+.rightwrapp{ float:right; width:689px; height:695px; padding-left:12px; border-bottom:1px solid #d5d3d3}
+.rightwrapp.last{ border-bottom:none}
+.rightwrapp_list{ width:689px; height:335px; margin-bottom:15px; border-bottom:1px solid #d5d3d3}
+.rightwrapp_list.down{ border-bottom:none; margin-bottom:0}
+.leftwrapp_list_texttop{ width:328px; height:60px} 
+.leftwrapp_list_texbottom{ padding:0 4px} 
+.leftwrapp_name{ font-size:16px; font-weight:bold; width:328px; height:31px; line-height:35px; text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.leftwrapp_descrip{ font-size:14px; color:#999; width:328px;height:20px; line-height:20px; padding:0 8px; text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.leftwrapp_newprice{ float:left; width:auto; font-size:24px; font-weight:bold; color:#df0011}
+.leftwrapp_oldprice{ float:right; width:auto; line-height:38px; padding-right:8px; font-size:12px; color:#929191; text-decoration:line-through}
+.rightwrapp_list_textleft{ float:left;width:464px; height:50px} 
+.rightwrapp_list_textright{ float:right;width:197px; height:50px; line-height:50px;padding-right:8px; text-align:right} 
+.rightwrapp_name{ font-size:16px; font-weight:bold; width:526px; height:31px; line-height:35px; text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.rightwrapp_descrip{ font-size:14px; color:#999; width:526px;height:20px; line-height:20px; padding-left:8px; text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.rightwrapp_newprice{ font-size:24px; font-weight:bold; color:#df0011; margin-right:15px}
+.rightwrapp_oldprice{ font-size:12px; color:#929191; text-decoration:line-through}
+.leftwrapp,.leftwrapp.last,.rightwrapp_list,.rightwrapp_list.down
+{
+transition:transform 0.3s linear,box-shadow 0.3s linear;
+-moz-transition:-moz-transform 0.3s linear,box-shadow 0.3s linear;  /*for Firefox*/
+-webkit-transition:-webkit-transform 0.3s linear,box-shadow 0.3s linear;    /*for Chrome &Safari*/
+-o-transition:-o-transform 0.3s linear,box-shadow 0.3s linear;   /*for Opera*/
+}
+.leftwrapp:hover,.leftwrapp.last:hover,.rightwrapp_list:hover,.rightwrapp_list.down:hover
+{
+transform:scale(1,1);
+box-shadow:0 0 9px 5px #c8c6c6;
+-ms-transform:scale(1,1);  /*for IE9*/
+-moz-transform:scale(1,1);  /*for Firefox*/
+-webkit-transform:scale(1,1);   /*for Chrome &Safari*/
+-o-transform:scale(1,1)   /*for Opera*/
+}

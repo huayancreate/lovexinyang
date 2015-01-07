@@ -17,7 +17,8 @@ use yii\filters\AccessControl;
 use frontend\models\CusUserAccount;
 use common\hycommon\tool\GenerateValidateCode;
 use common\hycommon\tool\SendPhoneSMS;
-use common\hycommon\tool\SendSocketMessage;
+use common\hycommon\tool\HttpTool;
+use hy\common\model\Request;
 
 use yii\web\Session;
 
@@ -26,6 +27,9 @@ use yii\web\Session;
  */
 class SiteController extends Controller
 {
+
+
+
     /**
      * @inheritdoc
      */
@@ -37,7 +41,7 @@ class SiteController extends Controller
                 'only' => ['logout', 'signup'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
+                        'actions' => ['login','signup'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
@@ -73,26 +77,101 @@ class SiteController extends Controller
         ];
     }
 
+    /**
+     * @return string
+     */
     public function actionIndex()
     {
-        return $this->render('index');
+        //$this->layout= false;
+        $this->layout = 'toolbar.php';
+        // 获取 头 广告
+        $headAd = HttpTool::post_data('AdvAction','{"opeType":"getBannerList","type":"0"}');
+        // 获取 滚动广告
+        //$scrollAd = HttpTool::post_data('AdvAction','{"opeType":"getBannerList","type":"1"}');
+        $scrollAd = json_decode('[{"type":0,"ID":"","img":"images/banner1.jpg","path":"http://www.meituan.com/tuijian/maoyan/131"},
+        {"type":0,"ID":"","img":"images/banner1.jpg","path":"http://www.meituan.com/tuijian/maoyan/131"}]');
+        // 获取 商品类型
+        //$type = HttpTool::post_data('{"opeType":"getBannerList","type":"0"}');
+        //获取推荐商品
+        $foodGoods = HttpTool::post_data('GoodsAction','{"opeType":"getList","isSuggest":"1","typeID":1}');
+        $foodGoods = json_decode('[{"goodsID":1,"shopImg":"images/food01.jpg","name":"科颜氏黄瓜植物精华爽肤水 250ml","des":"护肤之行，始于补水！科颜氏黄瓜植物精华爽肤水 250ml，水到沁出来！","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
+        {"goodsID":1,"shopImg":"images/food01.jpg","name":"科颜氏黄瓜植物精华爽肤水 250ml","des":"护肤之行，始于补水！科颜氏黄瓜植物精华爽肤水 250ml，水到沁出来！","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
+        {"goodsID":1,"shopImg":"images/food01.jpg","name":"科颜氏黄瓜植物精华爽肤水 250ml","des":"护肤之行，始于补水！科颜氏黄瓜植物精华爽肤水 250ml，水到沁出来！","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
+        {"goodsID":1,"shopImg":"images/food01.jpg","name":"科颜氏黄瓜植物精华爽肤水 250ml","des":"护肤之行，始于补水！科颜氏黄瓜植物精华爽肤水 250ml，水到沁出来！","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
+        {"goodsID":1,"shopImg":"images/food01.jpg","name":"科颜氏黄瓜植物精华爽肤水 250ml","des":"护肤之行，始于补水！科颜氏黄瓜植物精华爽肤水 250ml，水到沁出来！","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
+        {"goodsID":1,"shopImg":"images/food01.jpg","name":"科颜氏黄瓜植物精华爽肤水 250ml","des":"护肤之行，始于补水！科颜氏黄瓜植物精华爽肤水 250ml，水到沁出来！","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"}]');
+
+        $movieGoods = HttpTool::post_data('GoodsAction','{"opeType":"getList","isSuggest":"1","typeID":2}');
+        $movieGoods = json_decode('[{"goodsID":1,"shopImg":"images/movie03.jpg","name":"变相黑侠","des":"剧情：1949年，架空当都市——帝都。这是一个延续了贵族制度的社会，贫富差距极大，帝都的富人中有九成是特权阶级。突然，帝都出现了一个以富人为目标、不断盗取艺术品和古董的怪盗。他有着","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
+        {"goodsID":1,"shopImg":"images/movie03.jpg","name":"变相黑侠","des":"剧情：1949年，架空当都市——帝都。这是一个延续了贵族制度的社会，贫富差距极大，帝都的富人中有九成是特权阶级。突然，帝都出现了一个以富人为目标、不断盗取艺术品和古董的怪盗。他有着","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"}]');
+
+        $hotelGoods = HttpTool::post_data('GoodsAction','{"opeType":"getList","isSuggest":"1","typeID":3}');
+        $hotelGoods = json_decode('[{"goodsID":1,"shopImg":"images/hotel03.jpg","name":"【东方红大道】欢乐迪KTV","des":"下午档欢唱实惠套餐，免费WiFi","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
+        {"goodsID":1,"shopImg":"images/entertainment02.jpg","name":"【东方红大道】欢乐迪KTV","des":"下午档欢唱实惠套餐，免费WiFi","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
+        {"goodsID":1,"shopImg":"images/entertainment02.jpg","name":"【东方红大道】欢乐迪KTV","des":"下午档欢唱实惠套餐，免费WiFi","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
+        {"goodsID":1,"shopImg":"images/entertainment02.jpg","name":"【东方红大道】欢乐迪KTV","des":"下午档欢唱实惠套餐，免费WiFi","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"}]');
+
+        $entertainmentGoods = HttpTool::post_data('GoodsAction','{"opeType":"getList","isSuggest":"1","typeID":4}');
+        $entertainmentGoods = json_decode('[{"goodsID":1,"shopImg":"images/food01.jpg","name":"【东方红大道】欢乐迪KTV","des":"下午档欢唱实惠套餐，免费WiFi","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
+        {"goodsID":1,"shopImg":"images/entertainment02.jpg","name":"【东方红大道】欢乐迪KTV","des":"下午档欢唱实惠套餐，免费WiFi","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
+        {"goodsID":1,"shopImg":"images/entertainment02.jpg","name":"【东方红大道】欢乐迪KTV","des":"下午档欢唱实惠套餐，免费WiFi","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
+        {"goodsID":1,"shopImg":"images/entertainment02.jpg","name":"【东方红大道】欢乐迪KTV","des":"下午档欢唱实惠套餐，免费WiFi","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"}]');
+
+        $lifeserviceGoods = HttpTool::post_data('GoodsAction','{"opeType":"getList","isSuggest":"1","typeID":5}');
+        $lifeserviceGoods = json_decode('[{"goodsID":1,"shopImg":"images/food01.jpg","name":"【东方红大道】欢乐迪KTV","des":"下午档欢唱实惠套餐，免费WiFi","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
+        {"goodsID":1,"shopImg":"images/entertainment02.jpg","name":"【东方红大道】欢乐迪KTV","des":"下午档欢唱实惠套餐，免费WiFi","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
+        {"goodsID":1,"shopImg":"images/entertainment02.jpg","name":"【东方红大道】欢乐迪KTV","des":"下午档欢唱实惠套餐，免费WiFi","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"} ]');
+
+        $womenGoods = HttpTool::post_data('GoodsAction','{"opeType":"getList","isSuggest":"1","typeID":6}');
+        $womenGoods = json_decode('[{"goodsID":1,"shopImg":"images/women02.jpg","name":"【平桥区】恋雨阁发型设计","des":"洗发+剪发+造型，男女不限，发长不限","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
+        {"goodsID":1,"shopImg":"images/entertainment02.jpg","name":"【东方红大道】欢乐迪KTV","des":"下午档欢唱实惠套餐，免费WiFi","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
+        {"goodsID":1,"shopImg":"images/entertainment02.jpg","name":"【东方红大道】欢乐迪KTV","des":"下午档欢唱实惠套餐，免费WiFi","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"} ]');
+
+        return $this->render('index',[
+            "headAd"=>$headAd,
+            'scrollAd'=>$scrollAd,
+            'foodGoods'=>$foodGoods,
+            'hotelGoods'=>$hotelGoods,
+            'movieGoods'=>$movieGoods,
+            'entertainmentGoods'=>$entertainmentGoods,
+            'lifeserviceGoods'=>$lifeserviceGoods,
+            'womenGoods'=>$womenGoods
+        ]);
     }
 
     public function actionLogin()
     {
+        $this->layout = 'null.php';
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
-
         $model = new LoginForm();
         $result['msg'] = '';
-
         if ($model->load(Yii::$app->request->post())) {
             $result =  $model->login();
             //处理ajax请求认证
-            if($result['code'] === true){
-                SendSocketMessage::loginMsg($model->getUser()->userAccount);
-            }
             if(Yii::$app->request->post('token')==='ajax'){
                 return json_encode($result);
             }
@@ -102,8 +181,7 @@ class SiteController extends Controller
         }
         return $this->render('login', [
                 'model' => $model,'error' => $result['msg']
-            ]);
-
+        ]);
     }
 
     public function actionLogout()
@@ -122,7 +200,6 @@ class SiteController extends Controller
             } else {
                 Yii::$app->session->setFlash('error', 'There was an error sending email.');
             }
-
             return $this->refresh();
         } else {
             return $this->render('contact', [
@@ -138,6 +215,7 @@ class SiteController extends Controller
 
     public function actionSignup()
     {
+        $this->layout = 'null.php';
         $model = new SignupForm();
         $error = '';
         if ($model->load(Yii::$app->request->post())) {

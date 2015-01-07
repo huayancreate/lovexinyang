@@ -45,4 +45,5 @@ return array(
     'bootui\\select2\\' => array($vendorDir . '/3ch3r46/bootui-select2'),
     'bootui\\datepicker\\' => array($vendorDir . '/3ch3r46/bootui-datepicker'),
     'bootui\\' => array($vendorDir . '/3ch3r46/yii2-bootui'),
+    'ElephantIO\\' => array($vendorDir . '/wisembly/elephant.io/src', $vendorDir . '/wisembly/elephant.io/test'),
 );
