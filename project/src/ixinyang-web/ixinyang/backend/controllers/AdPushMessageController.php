@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\ComCityCenter;
 use Yii;
 use backend\models\AdPushMessage;
 use backend\models\AdPushMessageSearch;
@@ -121,7 +122,9 @@ class AdPushMessageController extends Controller
 
     public function actionPushmessage()
     {
-        return $this->renderPartial("pushmessage");
+        $model = new ComCityCenter();
+        $city = $model->getAllCity();
+        return $this->renderPartial("pushmessage", ['city' => $city]);
     }
 
     public function actionSend()
@@ -135,5 +138,12 @@ class AdPushMessageController extends Controller
             $msg = '{"msg":"success"}';
         }
         return $msg;
+    }
+
+    public function actionGetCounty($cityId)
+    {
+        $model = new ComCityCenter();
+        $county = $model->getCountyByCityId($cityId);
+        return json_encode($county);
     }
 }

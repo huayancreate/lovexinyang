@@ -73,26 +73,26 @@ class StoGoodsController extends Controller
             $transaction=\Yii::$app->db->beginTransaction(); 
             try{
 
-                $files = UploadedFile::getInstances($model, 'file');  //»ñÈ¡ÉÏ´«ÎÄ¼ş
+                $files = UploadedFile::getInstances($model, 'file');  //ï¿½ï¿½È¡ï¿½Ï´ï¿½ï¿½Ä¼ï¿½
 
-                $model->save();  //ÉÌÆ·ĞÅÏ¢±£´æ
+                $model->save();  //ï¿½ï¿½Æ·ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
 
-                $this->stoGoodsStoreModelSave($model->id);//ÉÌÆ·¶ÔÓ¦µêÆÌĞÅÏ¢±í±£´æ
+                $this->stoGoodsStoreModelSave($model->id);//ï¿½ï¿½Æ·ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½?ï¿½ï¿½
 
                 foreach ($files as $file) {
 
-                    $path=$this->uploads($file); //ÎÄ¼şÉÏ´«
+                    $path=$this->uploads($file); //ï¿½Ä¼ï¿½ï¿½Ï´ï¿½
 
                     $goodsPicture=new GoodsPicture();
-                    $goodsPicture->goodsId=$model->id; //ÉÌÆ·ĞÅÏ¢ID
-                    $goodsPicture->path=$path; //Í¼Æ¬Â·¾¶
+                    $goodsPicture->goodsId=$model->id; //ï¿½ï¿½Æ·ï¿½ï¿½Ï¢ID
+                    $goodsPicture->path=$path; //Í¼Æ¬Â·ï¿½ï¿½
                     $goodsPicture->renewTime=date("Y-m-d H:i:s");
                     $goodsPicture->uploadPersonnel="admin";
 
                     $goodsPicture->save();
                 }
 
-                $transaction->commit(); //ÊÂÎñ½áÊø
+                $transaction->commit(); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
                 // $message=$model->getErrors();
                 // $message['success']=true;
@@ -113,7 +113,7 @@ class StoGoodsController extends Controller
             return json_encode($message);
 
         } else {
-            //»ñÈ¡ÉÌÆ·Àà±ğ
+            //ï¿½ï¿½È¡ï¿½ï¿½Æ·ï¿½ï¿½ï¿½
             $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
 
             $model->subClass=1;
@@ -142,7 +142,7 @@ class StoGoodsController extends Controller
                 return json_encode($message);
             //return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            //»ñÈ¡ÉÌÆ·Àà±ğ
+            //ï¿½ï¿½È¡ï¿½ï¿½Æ·ï¿½ï¿½ï¿½
             $categoryModel=new ComCategoryMaintain();
             $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
             
@@ -182,47 +182,47 @@ class StoGoodsController extends Controller
     }
 
     /**
-     * ÎÄ¼şÉÏ´«
-     * @param  [type] $files [ÎÄ¼ş¼¯ºÏ]
+     * ï¿½Ä¼ï¿½ï¿½Ï´ï¿½
+     * @param  [type] $files [ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½]
      * @return [type]        [description]
      */
     protected function uploads($file){
 
         $filePath = "uploads/goodsPic/";
         
-        $ext = $file->getExtension(); //»ñÈ¡ÎÄ¼şºó×º Èç: ".jpg"
+        $ext = $file->getExtension(); //ï¿½ï¿½È¡ï¿½Ä¼ï¿½ï¿½ï¿½×º ï¿½ï¿½: ".jpg"
         
-        $randName = time() . rand(1000, 9999) . "." . $ext; //Éú³ÉĞÂÎÄ¼şÃû³Æ
+        $randName = time() . rand(1000, 9999) . "." . $ext; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½
 
         if(!file_exists($filePath)){
             mkdir($filePath,0777,true);
         }
 
-        $file->saveAs($filePath.$randName); //±£´æÎÄ¼ş
+        $file->saveAs($filePath.$randName); //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
 
         return $filePath.$randName;
     }
 
     /**
-     * [stoGoodsStoreModelSave ÉÌÆ·¶ÔÓ¦µêÆÌĞÅÏ¢±íĞÅÏ¢Ìí¼Ó]
-     * @param  [type] $goodsId [ÉÌÆ·id]
+     * [stoGoodsStoreModelSave ï¿½ï¿½Æ·ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½]
+     * @param  [type] $goodsId [ï¿½ï¿½Æ·id]
      * @return [type]          [description]
      */
     protected function stoGoodsStoreModelSave($goodsId){
         $stoGoodsStoreModel=new StoGoodsStore();
-        //ÉÌÆ·id
+        //ï¿½ï¿½Æ·id
         $stoGoodsStoreModel->goodsId=$goodsId;
-        //µêÆÌid    ´Ósession¶ÁÈ¡   ÔİÊ±Ğ´Ä¬ÈÏÖµ
+        //ï¿½ï¿½ï¿½ï¿½id    ï¿½ï¿½sessionï¿½ï¿½È¡   ï¿½ï¿½Ê±Ğ´Ä¬ï¿½ï¿½Öµ
         $stoGoodsStoreModel->storeId=1;
-        //ÉÌ¼Òid    ´Ósession¶ÁÈ¡   ÔİÊ±Ğ´Ä¬ÈÏÖµ
+        //ï¿½Ì¼ï¿½id    ï¿½ï¿½sessionï¿½ï¿½È¡   ï¿½ï¿½Ê±Ğ´Ä¬ï¿½ï¿½Öµ
         $stoGoodsStoreModel->sellerId=1;
-        //ÉÌÆ·¿â´æ  ÏÈĞ´Ä¬ÈÏÖµ Ö®ºó»á´¦Àí
+        //ï¿½ï¿½Æ·ï¿½ï¿½ï¿½  ï¿½ï¿½Ğ´Ä¬ï¿½ï¿½Öµ Ö®ï¿½ï¿½á´¦ï¿½ï¿½
         $stoGoodsStoreModel->inventory=1000;
-        //´´½¨Ê±¼ä  µ±Ç°Ê±¼ä
+        //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½  ï¿½ï¿½Ç°Ê±ï¿½ï¿½
         $stoGoodsStoreModel->createDate=date("Y-m-d H:i:s");
-        //´´½¨ÈË    ´Ósession¶ÁÈ¡
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½    ï¿½ï¿½sessionï¿½ï¿½È¡
         $stoGoodsStoreModel->crreteUserID='111';
-        //±£´æ
+        //ï¿½ï¿½ï¿½ï¿½
         $stoGoodsStoreModel->save();
 
     }

@@ -92,7 +92,7 @@ $this->params['breadcrumbs'][] = '账号管理';
     <script type="text/javascript">
         function View(title, url) {
             //JuiDialog.dialog('viewDialog', title, url, 'accountForm', 'accountList');
-            $("#viewDialog").html("");
+            $("#viewDialog").empty();
             $("#viewDialog").dialog("open");
             $("#viewDialog").dialog({
                 width: 800,
@@ -142,6 +142,7 @@ $this->params['breadcrumbs'][] = '账号管理';
             });
         }
         function Detail(title, url) {
+            $("#viewDialog").empty();
             JuiDialog.dialogView("viewDialog", title, url);
         }
         function Delete(url) {
