@@ -12,19 +12,19 @@ use yii\filters\VerbFilter;
 /**
  * ComCategoryMaintainController implements the CRUD actions for ComCategoryMaintain model.
  */
-class ComCategoryMaintainController extends Controller
+class ComCategoryMaintainController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Lists all ComCategoryMaintain models.

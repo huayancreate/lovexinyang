@@ -20,14 +20,16 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/zTreeStyle.css',
+        'css/business.css',
     ];
     public $js = [
         'js/jquery.ztree.all-3.5.js',
+        'js/jquery.ztree.core-3.5.min.js',
+        'js/jquery.ztree.excheck-3.5.min.js',
         'js/jquery.iframeDialog.js',
         'js/map.js',
-        'js/dialog.js',
-        'js/bootstrap3-validation.js',
-        'js/bootbox.js',
+	    'js/dialog.js',
+        'js/bootstrap-Dialog.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

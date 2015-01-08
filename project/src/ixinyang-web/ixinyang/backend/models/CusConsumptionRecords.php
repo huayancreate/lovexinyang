@@ -72,7 +72,7 @@ class CusConsumptionRecords extends \yii\db\ActiveRecord
             'verifierTime' => '验证时间',
             'shopId' => '店铺ID',
             'shopName' => '店铺名称',
-            'flag' => '消费类型标识',
+            'flag' => '消费类型标识', //0 平台消费  1 现金消费
         ];
     }
 

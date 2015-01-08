@@ -14,19 +14,19 @@ use yii\filters\VerbFilter;
 /**
  * ComGoodsReviewController implements the CRUD actions for ComGoodsReview model.
  */
-class ComGoodsReviewController extends Controller
+class ComGoodsReviewController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Lists all ComGoodsReview models.

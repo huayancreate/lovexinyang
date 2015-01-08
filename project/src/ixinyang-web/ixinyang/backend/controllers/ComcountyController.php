@@ -18,19 +18,19 @@ use yii\filters\VerbFilter;
 /**
  * ComcountyController implements the CRUD actions for ComCounty model.
  */
-class ComCountyController extends Controller
+class ComCountyController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Lists all ComCounty models.

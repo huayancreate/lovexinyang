@@ -21,19 +21,19 @@ use yii\data\Pagination;
 /*
  * StoApplyInfoController implements the CRUD actions for StoApplyInfo model.
  */
-class StoApplyInfoController extends Controller
+class StoApplyInfoController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
   
 
     public function actionMap()
@@ -203,7 +203,7 @@ class StoApplyInfoController extends Controller
 
           //时间段为空
           if (empty($dateRange)) {
-                $fromDate=date("Y-m-d");
+               $fromDate=date("Y-m-d");
                $toDate=date("Y-m-d");
            }
            else{
@@ -229,7 +229,7 @@ class StoApplyInfoController extends Controller
             }
             
        }
-        $toDate=$toDate.' 23:59:59';
+       $toDate=$toDate.' 23:59:59';
         //最终审核状态 是1 说明是客服申请成功 等待客户经理审核  
         $applyStatus=1;
         $model=new StoApplyInfo();
@@ -270,8 +270,8 @@ class StoApplyInfoController extends Controller
     public function actionCheckpass()
     {
       if (Yii::$app->request->post()){
-          //获取当前登录人  暂时注释
-        //Yii::$app->session['loginName']
+       //获取当前登录人  暂时注释
+       //Yii::$app->session['loginName']
         //申请id
         $applyId=$_POST["applyId"];
         //最终审核状态
@@ -288,13 +288,16 @@ class StoApplyInfoController extends Controller
         $customerManagerId='111111';
         //客户经理名称 暂时写空
         $customerManagerName='张三';
+
         //事务开始 
         $transaction=\Yii::$app->db->beginTransaction();
         try {
              //1、根据申请id查询该商家的申请信息
-             $model = $this->findModel($applyId);        
+             $model = $this->findModel($applyId);
+            
              //商家信息保存成功后获取 商家ID
              $sellerId=$this->sellerInfoModelSave($model,$sellerName,$owner);
+
              //门店信息保存成功后获取门店id
               $storeInfoId=$this->storeInfoModelSave($model,$sellerId,$alipayName,$alipayNo);
              //2、商家账号信息

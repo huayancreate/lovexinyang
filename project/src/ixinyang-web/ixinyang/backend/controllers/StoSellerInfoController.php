@@ -16,19 +16,19 @@ use yii\filters\VerbFilter;
 /**
  * StoSellerInfoController implements the CRUD actions for StoSellerInfo model.
  */
-class StoSellerInfoController extends Controller
+class StoSellerInfoController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Lists all StoSellerInfo models.

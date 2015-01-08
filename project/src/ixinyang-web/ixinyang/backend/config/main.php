@@ -30,6 +30,10 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'authManager'=>[
+            'class'=>'yii\rbac\DbManager',
+            'defaultRoles' => ['guest'],
+        ]
     ],
     'params' => $params,
 ];

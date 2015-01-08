@@ -21,19 +21,19 @@ use yii\filters\VerbFilter;
 /**
  * ComAccountController implements the CRUD actions for ComAccount model.
  */
-class ComAccountController extends Controller
+class ComAccountController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Lists all ComCategoryMaintain models.

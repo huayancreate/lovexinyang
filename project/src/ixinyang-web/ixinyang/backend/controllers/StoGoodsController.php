@@ -17,19 +17,19 @@ use backend\models\StoGoodsStore;
 /**
  * StoGoodsController implements the CRUD actions for StoGoods model.
  */
-class StoGoodsController extends Controller
+class StoGoodsController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Lists all StoGoods models.
@@ -73,26 +73,26 @@ class StoGoodsController extends Controller
             $transaction=\Yii::$app->db->beginTransaction(); 
             try{
 
-                $files = UploadedFile::getInstances($model, 'file');  //��ȡ�ϴ��ļ�
+                $files = UploadedFile::getInstances($model, 'file');  //获取上传文件
 
-                $model->save();  //��Ʒ��Ϣ����
+                $model->save();  //商品信息保存
 
                 $this->stoGoodsStoreModelSave($model->id);//��Ʒ��Ӧ������Ϣ�?��
 
                 foreach ($files as $file) {
 
-                    $path=$this->uploads($file); //�ļ��ϴ�
+                    $path=$this->uploads($file); //文件上传
 
                     $goodsPicture=new GoodsPicture();
-                    $goodsPicture->goodsId=$model->id; //��Ʒ��ϢID
-                    $goodsPicture->path=$path; //ͼƬ·��
+                    $goodsPicture->goodsId=$model->id; //商品信息ID
+                    $goodsPicture->path=$path; //图片路径
                     $goodsPicture->renewTime=date("Y-m-d H:i:s");
                     $goodsPicture->uploadPersonnel="admin";
 
                     $goodsPicture->save();
                 }
 
-                $transaction->commit(); //�������
+                $transaction->commit(); //事务结束
 
                 // $message=$model->getErrors();
                 // $message['success']=true;
@@ -113,7 +113,7 @@ class StoGoodsController extends Controller
             return json_encode($message);
 
         } else {
-            //��ȡ��Ʒ���
+            //获取商品类别
             $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
 
             $model->subClass=1;
@@ -142,7 +142,7 @@ class StoGoodsController extends Controller
                 return json_encode($message);
             //return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            //��ȡ��Ʒ���
+            //获取商品类别
             $categoryModel=new ComCategoryMaintain();
             $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
             
@@ -182,23 +182,23 @@ class StoGoodsController extends Controller
     }
 
     /**
-     * �ļ��ϴ�
-     * @param  [type] $files [�ļ�����]
+     * 文件上传
+     * @param  [type] $files [文件集合]
      * @return [type]        [description]
      */
     protected function uploads($file){
 
         $filePath = "uploads/goodsPic/";
         
-        $ext = $file->getExtension(); //��ȡ�ļ���׺ ��: ".jpg"
+        $ext = $file->getExtension(); //获取文件后缀 如: ".jpg"
         
-        $randName = time() . rand(1000, 9999) . "." . $ext; //������ļ����
+        $randName = time() . rand(1000, 9999) . "." . $ext; //生成新文件名称
 
         if(!file_exists($filePath)){
             mkdir($filePath,0777,true);
         }
 
-        $file->saveAs($filePath.$randName); //�����ļ�
+        $file->saveAs($filePath.$randName); //保存文件
 
         return $filePath.$randName;
     }

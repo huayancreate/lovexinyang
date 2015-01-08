@@ -20,19 +20,19 @@ use backend\models\StoStoreInfo;
 /**
  * CusConsumptionRecordsController implements the CRUD actions for CusConsumptionRecords model.
  */
-class CusConsumptionRecordsController extends Controller
+class CusConsumptionRecordsController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Lists all CusConsumptionRecords models.

@@ -16,19 +16,19 @@ use yii\data\ActiveDataProvider;
 /**
  * CusVerificationCodeController implements the CRUD actions for CusVerificationCode model.
  */
-class CusVerificationCodeController extends Controller
+class CusVerificationCodeController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Lists all CusVerificationCode models.

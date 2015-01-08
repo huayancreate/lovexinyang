@@ -15,19 +15,19 @@ use yii\data\ActiveDataProvider;
 /**
  * AdRecommendGoodsController implements the CRUD actions for AdRecommendGoods model.
  */
-class AdRecommendGoodsController extends Controller
+class AdRecommendGoodsController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Lists all AdRecommendGoods models.

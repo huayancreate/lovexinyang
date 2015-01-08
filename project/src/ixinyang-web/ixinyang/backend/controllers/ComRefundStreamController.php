@@ -12,19 +12,19 @@ use yii\filters\VerbFilter;
 /**
  * ComRefundStreamController implements the CRUD actions for ComRefundStream model.
  */
-class ComRefundStreamController extends Controller
+class ComRefundStreamController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Lists all ComRefundStream models.
