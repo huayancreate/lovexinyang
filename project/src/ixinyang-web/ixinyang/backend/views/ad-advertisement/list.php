@@ -15,6 +15,13 @@ use yii\jui\Dialog;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             [
+                'attribute'=>'adType',
+                'value'=>function($data){
+                  
+                  return $data['adType']==1 ? "手机端": "web端";
+                }
+            ],
+            [
                 'attribute'=>'photoUrl',
                 'format'=>'html',
                 'value'=>function($data){

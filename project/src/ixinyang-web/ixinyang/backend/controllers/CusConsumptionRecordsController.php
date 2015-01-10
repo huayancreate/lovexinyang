@@ -22,7 +22,7 @@ use backend\models\StoStoreInfo;
  */
 class CusConsumptionRecordsController extends Controller
 {
-    public function behaviors()
+    /*public function behaviors()
     {
         return [
             'verbs' => [
@@ -32,7 +32,7 @@ class CusConsumptionRecordsController extends Controller
                 ],
             ],
         ];
-    }
+    }*/
 
     /**
      * Lists all CusConsumptionRecords models.

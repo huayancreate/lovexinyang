@@ -25,6 +25,7 @@ use backend\models\FileUpload;
 
     <?= $form->field($model,'file[]')->widget(
         FileInput::className(),[
+
             'options'=>[
                 'multiple' => true,
             ],
@@ -35,8 +36,13 @@ use backend\models\FileUpload;
                 'browseLabel'=>'浏览文件',
                 'removeLabel'=>'移除文件',
                 'initialCaption'=>"请选择上传文件，多个文件请全选",
-                'overwriteInitial'=>false
+                'overwriteInitial'=>false,
+                'maxFileSize'=>1024*1024*2,//单位 是 KB
+                'showCaption' => true,
+                'showRemove' => true,
+                'maxFileCount' => 4,
             ],
+
         ])->label("选择图片")?>
 
     <?= $form->field($model, 'goodsName')->textInput(['maxlength' => 150]) ?>
@@ -74,14 +80,44 @@ use backend\models\FileUpload;
 
     <?= $form->field($model, 'supplyDateTime')->textInput() ?>
 
-    <?= $form->field($model, 'enjoyRebate')->textInput() ?>
+    <?= $form->field($goodsStoreModel, 'inventory')->textInput() ?>
 
-    <?= $form->field($model, 'goodsState')->checkbox() ?>
+    <?= $form->field($goodsStoreModel, 'enjoyRebate')->checkbox() ?>
+    
+    <?= $form->field($goodsStoreModel, 'goodsState')->hiddenInput(['id'=>'hiddenGoodsState','name'=>'hiddenGoodsState'])->label(false)?>
 
-    <div style="text-align:right;margin:10px;">
-        <?= Html::submitButton($model->isNewRecord ? '保存' : '修改', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+
+    <div class="line-height" style="text-align:right;margin:16px;">
+        <?= Html::submitButton($model->isNewRecord ? '草稿保存' : '修改', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary','id'=>'btnSave']) ?>
+       <?php if($model->isNewRecord){ ?>
+            <?= Html::submitButton( '发布'  , ['class' => 'btn btn-success' ,'id'=>'btnPublish']) ?>
+       <?php }?>
+        
     </div>
 
     <?php ActiveForm::end(); ?>
 
 </div>
+
+<script type="text/javascript">
+    $(function(){
+        //草稿保存
+        $("#btnSave").click(function(){
+            //草稿保存   商品状态：0：待发布、1已发布、2已下架
+            $("#hiddenGoodsState").val(0);
+        });
+
+        //发布
+        $("#btnPublish").click(function(){
+            //草稿保存   商品状态：0：待发布、1已发布、2已下架
+            $("#hiddenGoodsState").val(1);
+        });
+
+    });
+
+</script>
+<style type="text/css">
+.line-height{
+    line-height:40px;
+  }
+</style>

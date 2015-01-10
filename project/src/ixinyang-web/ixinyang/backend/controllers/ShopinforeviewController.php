@@ -17,7 +17,7 @@ use backend\models\StoStoreInfo;
  */
 class ShopinforeviewController extends Controller
 {
-    public function behaviors()
+    /*public function behaviors()
     {
         return [
             'verbs' => [
@@ -27,7 +27,7 @@ class ShopinforeviewController extends Controller
                 ],
             ],
         ];
-    }
+    }*/
 
     /**
      * Lists all ShopInfoReview models.

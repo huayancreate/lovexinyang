@@ -12,6 +12,11 @@ use yii\widgets\DetailView;
         'model' => $model,
         'attributes' => [
             [
+                'attribute'=>'adType',
+                'format'=>'raw',  
+                'value'=> $model->adType==1 ? "手机端": "web端",
+            ],
+            [
                 'attribute'=>'photoUrl',
                 'format'=>'raw',  
                 'value'=> "<img src=".$model->photoUrl." width='400px'; />",

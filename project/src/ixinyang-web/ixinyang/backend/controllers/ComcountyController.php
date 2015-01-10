@@ -20,7 +20,7 @@ use yii\filters\VerbFilter;
  */
 class ComCountyController extends Controller
 {
-    public function behaviors()
+    /*public function behaviors()
     {
         return [
             'verbs' => [
@@ -30,7 +30,7 @@ class ComCountyController extends Controller
                 ],
             ],
         ];
-    }
+    }*/
 
     /**
      * Lists all ComCounty models.

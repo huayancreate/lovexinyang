@@ -17,13 +17,14 @@ use backend\models\StoStoreInfo;
 use backend\models\StoLogonAccount;
 use backend\models\ComRole;
 use yii\data\Pagination;
+use backend\models\TAdmUser;
 
 /*
  * StoApplyInfoController implements the CRUD actions for StoApplyInfo model.
  */
 class StoApplyInfoController extends Controller
 {
-    public function behaviors()
+    /*public function behaviors()
     {
         return [
             'verbs' => [
@@ -33,7 +34,7 @@ class StoApplyInfoController extends Controller
                 ],
             ],
         ];
-    }
+    }*/
   
 
     public function actionMap()
@@ -297,7 +298,7 @@ class StoApplyInfoController extends Controller
              $sellerId=$this->sellerInfoModelSave($model,$sellerName,$owner);
              //门店信息保存成功后获取门店id
               $storeInfoId=$this->storeInfoModelSave($model,$sellerId,$alipayName,$alipayNo);
-             //2、商家账号信息
+             //2、商家账号信息  现在改成 插入另一张表  
              $result=$this->logonAccountModelSave($sellerId,$model->storeName,$storeInfoId);
              if (!empty( $sellerId) && !empty($storeInfoId) && $result) {
                    //3、执行修改   商家申请数据的修改
@@ -461,15 +462,15 @@ class StoApplyInfoController extends Controller
         }
     }
 
-    protected function logonAccountDataCreate($sellerId,$storeName,$storeInfoId,$roleName){
-
-            $logonAccountModel=new StoLogonAccount();
-           //店铺ID  
-           $logonAccountModel->storeId=$storeInfoId;
-            //角色ID  根据roleName查询id
-           $comRoleMode=ComRole::findBySql('select * from com_role where isValid=1 and roleName="'.$roleName.'"')->one();
-             //事务开始 
-           $transaction3=\Yii::$app->db->beginTransaction();
+    /*protected function logonAccountDataCreate($sellerId,$storeName,$storeInfoId,$roleName)
+    {
+       $logonAccountModel=new StoLogonAccount();
+       //店铺ID  
+       $logonAccountModel->storeId=$storeInfoId;
+        //角色ID  根据roleName查询id
+       $comRoleMode=ComRole::findBySql('select * from com_role where isValid=1 and roleName="'.$roleName.'"')->one();
+         //事务开始 
+       $transaction3=\Yii::$app->db->beginTransaction();
         try {
             if (!empty($comRoleMode)) {
                $logonAccountModel->roleId=$comRoleMode->id;
@@ -494,6 +495,38 @@ class StoApplyInfoController extends Controller
               return false;
             }
             
+         } 
+        catch (Exception  $e) {
+
+          $transaction3->rollBack();
+          return false;
+
+        }
+    }*/
+
+    protected function logonAccountDataCreate($sellerId,$storeName,$storeInfoId,$roleName)
+    {
+       $tAdmUserModel=new TAdmUser();
+         //事务开始 
+       $transaction3=\Yii::$app->db->beginTransaction();
+        try {
+               //商家账号  店铺名称+角色名
+               $tAdmUserModel->username=$storeName.$roleName;
+               //帐号密码  默认 123456
+               $tAdmUserModel->password='123456';
+               //帐号密码  默认 123456
+               $tAdmUserModel->password_repeat='123456';
+               //账号名称、昵称  店铺名称+角色名 和商家账号相同
+               $tAdmUserModel->nickName=$storeName.$roleName;
+               //是否有效
+               $tAdmUserModel->validity='1';
+               //权限标识：0、对应商家下所有分店 1、分店
+               $tAdmUserModel->flag=0;
+               //保存
+               $tAdmUserModel->save();
+            //提交
+              $transaction3->commit();
+              return true;
          } 
         catch (Exception  $e) {
 

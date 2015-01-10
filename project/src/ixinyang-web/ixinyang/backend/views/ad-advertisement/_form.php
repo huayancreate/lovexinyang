@@ -5,6 +5,8 @@ use yii\bootstrap\ActiveForm;
 use yii\jui\DatePicker;
 use kartik\widgets\FileInput;
 use backend\models\Ad;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Ad */
@@ -13,14 +15,18 @@ use backend\models\Ad;
 
 <div class="ad-form">
 
+
     <?php $form = ActiveForm::begin(['layout' => 'horizontal','id'=>'advertisementForm',
         'options' => ['enctype' => 'multipart/form-data'],
-       
+         'validationUrl'=>Url::to(['ad-advertisement/imagevalidate']),
+         'ajaxParam' => 'ajax',
     ]); ?>
+
 
  <div class="row">
  <div class="col-lg-12">
-     <?= $form->field($model,'file')->widget(
+     <?= $form->field($model, 'adType')->inline()->radioList(['1'=>'手机端','2'=>'web端'])?>
+      <?= $form->field($model,'file',['enableAjaxValidation'=>true])->widget(
         FileInput::className(),[
             'options'=>[
                 'multiple' => false,
@@ -34,8 +40,10 @@ use backend\models\Ad;
                 'browseLabel'=>'浏览文件',
                 'removeLabel'=>'移除文件',
                 'initialCaption'=>"请选择上传文件",
-                'overwriteInitial'=>true
+                'overwriteInitial'=>true,
+                //'maxFileSize'=>100,//单位 是 KB
             ],
+
         ])->label("广告图片")?>
 
 
@@ -71,7 +79,11 @@ use backend\models\Ad;
                 ],
                ])
       ?>
+    <!--默认值选中-->
+    <?php $dictionaryModel->codeName=$model->mapLocation;?>
 
+    <?= $form->field($dictionaryModel, 'codeName')->dropDownList(ArrayHelper::map($dictionaryList,'id','codeName'),['prompt' => '--请选择对应位置--'])
+    ?>
     <?= $form->field($model, 'isValid')->checkbox() ?>
    
 
@@ -90,16 +102,12 @@ use backend\models\Ad;
 
 <script type="text/javascript">
     $(function(){
-       $("#advertisementForm").on("submit", function(event) {
+     /* $("#advertisementForm").on("submit", function(event) {
           if ($("#photoUrl").attr('value')=="" || $("#photoUrl").attr('value')==undefined) {
              alert('请选择广告');
              return false;
           };
-      });
-
-     $("#photoUrl").change(function(){
-           $("#photoUrl").attr('value',$("#photoUrl").val());
-      });
+      });*/
 
        //开始日期变动 若结束日期小于开始日期  则给结束日期赋值:开始日期
        $("#ad-startdate").change(function(){
@@ -118,11 +126,10 @@ use backend\models\Ad;
             if (days<0) {
               $("#ad-startdate").val(applyTimeEndValue);
             };
-         });
+        });
+
     });
 
-     
-    
     //d1 d2都是日期参数
     function DateDiff(d1,d2){ 
     var day = 24 * 60 * 60 *1000; 
@@ -159,5 +166,6 @@ use backend\models\Ad;
       var cdate = y+"-"+m+"-"+d; 
       return cdate; 
     }
+   
 </script>
 

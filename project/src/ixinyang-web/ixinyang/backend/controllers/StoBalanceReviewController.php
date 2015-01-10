@@ -15,7 +15,7 @@ use yii\filters\VerbFilter;
  */
 class StoBalanceReviewController extends Controller
 {
-    public function behaviors()
+    /*public function behaviors()
     {
         return [
             'verbs' => [
@@ -25,7 +25,7 @@ class StoBalanceReviewController extends Controller
                 ],
             ],
         ];
-    }
+    }*/
 
     /**
      * Lists all StoBalanceReview models.

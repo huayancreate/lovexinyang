@@ -11,6 +11,10 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\data\ActiveDataProvider;
 use yii\web\UploadedFile;
+use common\models\ComDictionary;
+use yii\bootstrap\ActiveForm;
+use yii\web\Response;
+use common\hycommon\tool\PictureTool;
 
 
 /**
@@ -19,7 +23,7 @@ use yii\web\UploadedFile;
 class AdAdvertisementController extends Controller
 {
 
-    public function behaviors()
+    /*public function behaviors()
     {
         return [
             'verbs' => [
@@ -29,7 +33,7 @@ class AdAdvertisementController extends Controller
                 ],
             ],
         ];
-    }
+    }*/
 
     /**
      * Lists all Ad models.
@@ -88,36 +92,46 @@ class AdAdvertisementController extends Controller
     public function actionCreate()
     {
         $model = new Ad();
+        $dictionaryModel=new ComDictionary();
 
-        if ($model->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post()) && $dictionaryModel->load(Yii::$app->request->post())) {
+           
+            $file=UploadedFile::getInstance($model,'file'); //获取上传文件
+
+            $model->file=$file;
             
-        	if ($model->validate()) {
-        		 //创建人员ID  先写固定值
-        		 $model->createrId=0;
-        		 //创建时间  当前时间
-        		 $model->createTime=date("Y-m-d H:i:s");
-        		 //对应位置  在数据字典中读取
-        		 //$model->mapLocation=1;
-                 $file=UploadedFile::getInstance($model,'file'); //获取上传文件
+            //$this->redirect(['imagevalidate']);
 
-                 $path=$this->uploads($file); //文件上传
+            if ($model->validate($model)) {
+                 //创建人员ID  先写固定值
+                 $model->createrId=0;
+                 //创建时间  当前时间
+                 $model->createTime=date("Y-m-d H:i:s");
+                 //对应位置  
+                 $model->mapLocation=(int)$dictionaryModel->codeName;
+                 //文件上传
+                 $pictureToolModel=new PictureTool();
+                 $path= $pictureToolModel->uploads($file,1);
+                 $file->tempName = $path;
                  $model->photoUrl=$path; //图片路径
-
-        		 $model->save();
-
-                 return $this->redirect(['index']);
-        		
-        	}
-        	else{
-        		 //数据验证失败
-                 return $this->renderAjax(['create']);
-        	}
+                 //保存
+                 $model->save();
+            }
+           return $this->redirect(['index']);
+             
         } else {
+            //从数据字典表读取广告位置信息
+            $dictionaryList=$dictionaryModel->selectByCategory('ad_location');
+
+            //广告类型 1 手机端 、2 web端
+            $model->adType='1';
         	$model->isValid='1';
         	$model->startDate=date("Y-m-d");
         	$model->endDate=date("Y-m-d");
             return $this->renderAjax('create', [
                 'model' => $model,
+                'dictionaryModel'=>$dictionaryModel,
+                'dictionaryList'=>$dictionaryList,
             ]);
         }
     }
@@ -131,29 +145,43 @@ class AdAdvertisementController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        if ($model->load(Yii::$app->request->post())) {
-            //flag 0->没有改变  1->图片有变动 
+        //数据字典model
+        $dictionaryModel=new ComDictionary();
+
+        if ($model->load(Yii::$app->request->post()) && $dictionaryModel->load(Yii::$app->request->post())) {
+           
             $file=UploadedFile::getInstance($model,'file'); //获取上传文件
+            $model->file=$file;
             $oldPhotoUrl=$model->photoUrl;
+
+             $pictureToolModel=new PictureTool();
             //如果重新选择了其他图片  则重新保存图片
             if (count($file)>0) {
-                 $path=$this->uploads($file); //文件上传
+                 $path=$pictureToolModel->uploads($file,1); //文件上传
+                 $file->tempName = $path;
                  $model->photoUrl=$path; //图片路径
             }
+             //对应位置  
+             $model->mapLocation=(int)$dictionaryModel->codeName;
+             //修改时间
              $model->updateTime=date('Y-m-d H:i:s');
              //保存成功  删除原来的图片
              if($model->save()){
                 if (count($file)>0) {
                     //如果重新选择了其他图片  删除原来的图片
-                    $this->delfile($oldPhotoUrl);
+                    $pictureToolModel->delfile($oldPhotoUrl);
                 }
              }
-
-            return $this->redirect(['index']);
+           return $this->redirect(['index']);
 
         } else {
+            //从数据字典表读取广告位置信息
+            $dictionaryList=$dictionaryModel->selectByCategory('ad_location');
+
             return $this->renderAjax('update', [
                 'model' => $model,
+                'dictionaryModel'=>$dictionaryModel,
+                'dictionaryList'=>$dictionaryList,
             ]);
         }
     }
@@ -167,10 +195,8 @@ class AdAdvertisementController extends Controller
     public function actionDelete($id)
     {
         //$this->findModel($id)->delete();
-        $model = $this->findModel($id);
-        $model->updateTime=date('Y-m-d H:i:s');
-        $model->isValid='0';
-        $model->save();
+
+        Ad::updateBySql('ad_advertisement',['updateTime'=>date('Y-m-d H:i:s'),'isValid'=>'0'],['id'=>$id]);
 
         return $this->redirect(['index']);
     }
@@ -192,44 +218,17 @@ class AdAdvertisementController extends Controller
     }
 
     /**
-     * 文件上传
-     * @param  [type] $files [文件集合]
-     * @return [type]        [description]
+     * [actionImagevalidate 图片验证]
+     * @return [type] [description]
      */
-    protected function uploads($file){
-        //广告图片路径
-        $filePath = "uploads/adPic/";
-        
-        //$ext = $this->getExtension($file); //获取文件后缀 如: ".jpg"
-        $ext=$file->extension;
-        
-        $randName = time() . rand(1000, 9999) . "." . $ext; //生成新文件名称
+    public function actionImagevalidate(){
 
-        if(!file_exists($filePath)){
-            mkdir($filePath,0777,true);
+        $ad=new Ad();
+        $ad->load(Yii::$app->request->post());
+
+        if (Yii::$app->request->isAjax) {
+          Yii::$app->response->format = Response::FORMAT_JSON;
+          return ActiveForm::validate($ad,'file');
         }
-
-        $file->saveAs($filePath.$randName); //保存文件
-
-        return $filePath.$randName;
     }
-
-    
-    /**
-     * [delfile 删除某个图片]
-     * @param  [type] $fullpath [图片路径]
-     * @return [type]           [description]
-     */
-    protected function delfile($fullpath) {
-          if(!is_dir($fullpath)) {
-              unlink($fullpath);//删除目录中的所有文件
-          } else {
-              delfile($fullpath);
-          }
-    }
-    
-
-
-
-
 }

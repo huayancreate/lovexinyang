@@ -17,7 +17,7 @@ use yii\data\ActiveDataProvider;
  */
 class AdRecommendGoodsController extends Controller
 {
-    public function behaviors()
+    /*public function behaviors()
     {
         return [
             'verbs' => [
@@ -27,7 +27,7 @@ class AdRecommendGoodsController extends Controller
                 ],
             ],
         ];
-    }
+    }*/
 
     /**
      * Lists all AdRecommendGoods models.
@@ -108,7 +108,7 @@ class AdRecommendGoodsController extends Controller
             $model->startDate=date("Y-m-d");
             $model->endDate=date("Y-m-d");
             $jsonStoreInfo=StoStoreInfo::findBySql('select id,storeName from sto_store_info where validity=1 and auditState=4')->asArray()->all();
-           $jsonStoGoods=StoGoods::findBySql("select a.id,a.goodsName,c.storeName FROM sto_goods AS a JOIN sto_goods_store AS b ON a.id=b.`goodsId` AND a.validity=1 AND a.goodsState=1 JOIN sto_store_info AS c ON b.`storeId`=c.`id` AND c.validity=1 AND c.auditState=4")->asArray()->all();
+           $jsonStoGoods=StoGoods::findBySql("select a.id,a.goodsName,c.storeName FROM sto_goods AS a JOIN sto_goods_store AS b ON a.id=b.`goodsId` AND a.validity=1 AND b.goodsState=1 JOIN sto_store_info AS c ON b.`storeId`=c.`id` AND c.validity=1 AND c.auditState=4")->asArray()->all();
             return $this->renderAjax('create', [
                 'model' => $model,'jsonStoreInfo'=>json_encode($jsonStoreInfo),'jsonStoGoods'=>json_encode($jsonStoGoods),
             ]);
