@@ -13,19 +13,19 @@ use yii\filters\VerbFilter;
 /**
  * CusorderdetailsController implements the CRUD actions for CusOrderDetails model.
  */
-class CusorderdetailsController extends Controller
+class CusorderdetailsController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Lists all CusOrderDetails models.
@@ -34,7 +34,7 @@ class CusorderdetailsController extends Controller
     public function actionIndex()
     {
         $searchModel = new CusOrderDetailsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams,1); // search('Ìá½»²ÎÊı',ÉÌ¼ÒID)
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams,1); // search('ÃŒÃ¡Â½Â»Â²ÃÃŠÃ½',Ã‰ÃŒÂ¼Ã’ID)
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -105,7 +105,7 @@ class CusorderdetailsController extends Controller
     }
 
     /**
-     * È·ÈÏÏû·Ñ£¬ĞÂÔöÏû·Ñ¼ÇÂ¼²¢Ôö¼Ó»áÔ±»ı·Ö
+     * ç¡®è®¤æ¶ˆè´¹ï¼Œæ–°å¢æ¶ˆè´¹è®°å½•å¹¶å¢åŠ ä¼šå‘˜ç§¯åˆ†
      * @return [type] [description]
      */
     public function actionConsumption(){
@@ -113,14 +113,14 @@ class CusorderdetailsController extends Controller
         $transaction=\Yii::$app->db->beginTransaction();
 
         try{
-            $keys=$_POST["keys"];  //»ñÈ¡¶©µ¥Ã÷Ï¸ID
+            $keys=$_POST["keys"];  //è·å–è®¢å•æ˜ç»†ID
             foreach ($keys as $key) {
-                $model=$this->findModel($key);  //»ñÈ¡¶©µ¥Ã÷Ï¸
+                $model=$this->findModel($key);  //è·å–è®¢å•æ˜ç»†
 
-                $this->consumptionModel($model)->save(); //ĞÂÔöÏû·ÑÁ÷Ë®
+                $this->consumptionModel($model)->save(); //æ–°å¢æ¶ˆè´¹æµæ°´
 
                 $model->CodeStatus=2;
-                $model->save(); //ĞŞ¸Ä¶©µ¥×´Ì¬
+                $model->save(); //ä¿®æ”¹è®¢å•çŠ¶æ€
                 //print_r($model);
             }
 
@@ -130,7 +130,7 @@ class CusorderdetailsController extends Controller
 
             $transaction->rollback();
 
-            return "·Ç·¨²Ù×÷";
+            return "éæ³•æ“ä½œ";
         }
         return $this->redirect(['index']);
     }
@@ -154,19 +154,19 @@ class CusorderdetailsController extends Controller
 
     protected function consumptionModel($item){
         $sumption=new CusConsumptionRecords();
-        $sumption->orderId=$item->orderId;  //¶©µ¥ID
-        $sumption->goodsId=$item->goodsId;  //ÉÌÆ·ID
-        $sumption->verfificationCode=$item->validateCode; //ÑéÖ¤Âë
-        $sumption->goodsNumber=$item->totalNum; //ÉÌÆ·ÊıÁ¿
-        $sumption->costPrice=$item->price; //ÉÌÆ·¼Û¸ñ
-        $sumption->payablePrice=$item->rebatePrice; //Êµ¸¶¼Û¸ñ
-        $sumption->rebate=$item->rebate; //ÕÛ¿Û
-        $sumption->memberCardNo=$item->memberCardNo; //»áÔ±¿¨ºÅ
-        $sumption->shopId=$item->shopId; //ÉÌ¼ÒID
-        $sumption->shopName=$item->shopName; //ÉÌ¼ÒÃû³Æ
-        $sumption->verifierAccount="verifier-Admin";  //ÑéÖ¤ÈË
-        $sumption->verifierTime=date("Y-m-d H:i:s"); //ÑéÖ¤Ê±¼ä
-        $sumption->flag="0"; // 0£ºÆ½Ì¨Ïû·Ñ /  1:ÏÖ½ğÏû·Ñ
+        $sumption->orderId=$item->orderId;  //è®¢å•ID
+        $sumption->goodsId=$item->goodsId;  //å•†å“ID
+        $sumption->verfificationCode=$item->validateCode; //éªŒè¯ç 
+        $sumption->goodsNumber=$item->totalNum; //å•†å“æ•°é‡
+        $sumption->costPrice=$item->price; //å•†å“ä»·æ ¼
+        $sumption->payablePrice=$item->rebatePrice; //å®ä»˜ä»·æ ¼
+        $sumption->rebate=$item->rebate; //æŠ˜æ‰£
+        $sumption->memberCardNo=$item->memberCardNo; //ä¼šå‘˜å¡å·
+        $sumption->shopId=$item->shopId; //å•†å®¶ID
+        $sumption->shopName=$item->shopName; //å•†å®¶åç§°
+        $sumption->verifierAccount="verifier-Admin";  //éªŒè¯äºº
+        $sumption->verifierTime=date("Y-m-d H:i:s"); //éªŒè¯æ—¶é—´
+        $sumption->flag="0"; // 0ï¼šå¹³å°æ¶ˆè´¹ /  1:ç°é‡‘æ¶ˆè´¹
         
         return $sumption;
     }

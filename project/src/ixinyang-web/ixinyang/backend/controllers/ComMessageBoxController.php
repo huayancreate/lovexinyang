@@ -132,10 +132,11 @@ class ComMessageBoxController extends Controller
     {
         $model = new ComMessageBox();
         $model->sendMessage();
-        if (count($model->getErrors()) > 0) {
-            return $msg = '{"msg":"error"}';
-        } else {
-            return $msg = '{"msg":"success"}';
-        }
+        return count($model->getErrors()) > 0 ? '{"msg":"error"}' : '{"msg":"success"}';
+//        if (count($model->getErrors()) > 0) {
+//            return $msg = '{"msg":"error"}';
+//        } else {
+//            return $msg = '{"msg":"success"}';
+//        }
     }
 }

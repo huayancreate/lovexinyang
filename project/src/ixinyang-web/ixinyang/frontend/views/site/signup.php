@@ -7,81 +7,114 @@ use yii\captcha\Captcha;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\SignupForm */
 
-$this->title = '注册';
 ?>
-    <div class="site-signup">
-        <h1><?= Html::encode($this->title) ?></h1>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="css/public.css" rel="stylesheet" type="text/css" />
+    <link href="css/login_register.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="<?=  Yii::$app->urlManager->baseUrl ?>/assets/43cf4500/css/bootstrap.css">
+    <link rel="stylesheet" href="<?=  Yii::$app->urlManager->baseUrl ?>/css/site.css">
+    <title>用户注册|爱生活</title>
+    <!--[if lt IE9]>
+    <script src="js/html5.js"></script>
+    <![endif]-->
+</head>
+<body style="background:url(images/login_bg.png) no-repeat top center">
+<header class="top_title">
+    <div class="wrap_content_box">
+        <div class="top_logo"><a class="logo" href="<?php Yii::$app->urlManager->baseUrl?>index.php?r=site/index"><img src="images/register_logo.png" /></a></div>
+         <a class="btn1" href="<?= Yii::$app->urlManager->baseUrl?>/index.php?r=site/login">在此登录</a><span>已有帐号?</span>
+        <div class="clearfloat"></div>
+    </div>
+</header>
+<!--header  end-->
+<section class="wrap_content_box">
+    <div class="login_wrap">
+        <article class="">
+            <div class="login_wrap_left_ico"><img src="images/register_ico.png" /></div>
+            <div class="site-signup">
 
-        <?php if($error!=null) {
-          echo '<div class="alert alert-warning alert-dismissible" role="alert" align="center">
+                <?php if($error!=null) {
+                    echo '<div class="alert alert-warning alert-dismissible" role="alert" align="center">
             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             <span class="glyphicon glyphicon-exclamation-sign"></span><strong>'.$error.'</strong>
         </div>';
-        }
-        ?>
+                }
+                ?>
 
-        <div class="row">
-            <div class="col-lg-8">
-                <?php $form = ActiveForm::begin(['id' => 'form-signup','layout' => 'horizontal']); ?>
+                <div class="row">
+                    <div >
+                        <?php $form = ActiveForm::begin(['id' => 'form-signup','layout' => 'horizontal']); ?>
 
 
-                <div class="form-group field-signupform-useraccount required">
-                    <label class="control-label col-sm-2" for="signupform-useraccount">用户帐号</label>
-                    <div class="col-sm-5 has-feedback">
-                        <input id="signupform-useraccount" class="form-control" placeholder="请输入您的手机号作为您的登录帐号"  type="text" name="SignupForm[userAccount]">
-                        <span class="glyphicon field-signupform-useraccount form-control-feedback"></span>
+                        <div class="form-group field-signupform-useraccount required">
+                            <label class="control-label col-sm-2" for="signupform-useraccount">用户帐号</label>
+                            <div class="col-sm-5 has-feedback">
+                                <input id="signupform-useraccount" class="form-control" placeholder="请输入您的手机号作为您的登录帐号"  type="text" name="SignupForm[userAccount]">
+                                <span class="glyphicon field-signupform-useraccount form-control-feedback"></span>
+                            </div>
+                            <div class="help-block help-block-error "></div>
+                        </div>
+
+
+                        <div class="form-group field-signupform-verifycode" style="display: none;">
+                            <label class="control-label col-sm-2" for="signupform-verifyCode">图形验证码</label>
+                            <div class="col-sm-5 has-feedback ">
+                                <?= Captcha::widget(['name'=>'SignupForm[verifyCode]','id'=>'signupform-verifycode',
+                                    'template' => '<div class="row"><div class="col-lg-6">{input}<span class="glyphicon field-signupform-verifycode form-control-feedback"></span></div><div class="col-lg-3">{image}</div></div> ',
+                                ]) ?>
+                            </div>
+                            <div class="help-block help-block-error ">请输入图形验证码</div>
+                        </div>
+                        <div class="form-group field-signupform-code required">
+                            <label class="control-label col-sm-2" for="signupform-code">短信动态码</label>
+                            <div class="col-sm-5 has-feedback">
+                                <input id="signupform-code" class="form-control" type="text" name="SignupForm[code]">
+                                <span class="glyphicon field-signupform-code form-control-feedback"></span>
+                                <input id="sendcode" class="btn-normal btn-mini " type="button" value="免费获取短信动态码">
+                                <span style="font-size: 12px;color: #666;" id="codeTips"></span>
+                            </div>
+                            <div class="help-block help-block-error "></div>
+                        </div>
+                        <div class="form-group field-signupform-userpassword required">
+                            <label class="control-label col-sm-2" for="signupform-userpassword">创建密码</label>
+                            <div class="col-sm-5 has-feedback">
+                                <input id="signupform-userpassword" class="form-control" type="password" name="SignupForm[userPassWord]">
+                                <span class="glyphicon field-signupform-userpassword form-control-feedback"></span>
+                            </div>
+                            <div class="help-block help-block-error "></div>
+                        </div>
+                        <div class="form-group field-signupform-password_reset required">
+                            <label class="control-label col-sm-2" for="signupform-password_reset">确认密码</label>
+                            <div class="col-sm-5 has-feedback">
+                                <input id="signupform-password_reset" class="form-control" type="password" name="SignupForm[password_reset]">
+                                <span class="glyphicon field-signupform-password_reset form-control-feedback"></span>
+                            </div>
+                            <div class="help-block help-block-error "></div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btnlogin" name="signup-button" type="button" onclick="reg()">同意以下协议并注册</button>
+                        </div>
+                        <a class="f1" target="_blank" href="">《爱信阳用户协议》</a>
+                        <?php ActiveForm::end(); ?>
                     </div>
-                    <div class="help-block help-block-error "></div>
                 </div>
 
-
-                <div class="form-group field-signupform-verifycode" style="display: none;">
-                    <label class="control-label col-sm-2" for="signupform-verifyCode">图形验证码</label>
-                    <div class="col-sm-5 has-feedback ">
-                        <?= Captcha::widget(['name'=>'SignupForm[verifyCode]','id'=>'signupform-verifycode',
-                            'template' => '<div class="row"><div class="col-lg-6">{input}<span class="glyphicon field-signupform-verifycode form-control-feedback"></span></div><div class="col-lg-3">{image}</div></div> ',
-                        ]) ?>
-                     </div>
-                    <div class="help-block help-block-error ">请输入图形验证码</div>
-                </div>
-                <div class="form-group field-signupform-code required">
-                    <label class="control-label col-sm-2" for="signupform-code">短信动态码</label>
-                    <div class="col-sm-5 has-feedback">
-                        <input id="signupform-code" class="form-control" type="text" name="SignupForm[code]">
-                        <span class="glyphicon field-signupform-code form-control-feedback"></span>
-                        <input id="sendcode" class="btn-normal btn-mini " type="button" value="免费获取短信动态码">
-                        <span style="font-size: 12px;color: #666;" id="codeTips"></span>
-                    </div>
-                    <div class="help-block help-block-error "></div>
-                </div>
-                <div class="form-group field-signupform-userpassword required">
-                    <label class="control-label col-sm-2" for="signupform-userpassword">创建密码</label>
-                    <div class="col-sm-5 has-feedback">
-                        <input id="signupform-userpassword" class="form-control" type="password" name="SignupForm[userPassWord]">
-                        <span class="glyphicon field-signupform-userpassword form-control-feedback"></span>
-                    </div>
-                    <div class="help-block help-block-error "></div>
-                </div>
-                <div class="form-group field-signupform-password_reset required">
-                    <label class="control-label col-sm-2" for="signupform-password_reset">确认密码</label>
-                    <div class="col-sm-5 has-feedback">
-                        <input id="signupform-password_reset" class="form-control" type="password" name="SignupForm[password_reset]">
-                        <span class="glyphicon field-signupform-password_reset form-control-feedback"></span>
-                    </div>
-                    <div class="help-block help-block-error "></div>
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary" name="signup-button" type="button" onclick="reg()">同意以下协议并注册</button>
-                </div>
-                <a class="f1" target="_blank" href="http://www.meituan.com/about/terms">《爱信阳用户协议》</a>
-                <?php ActiveForm::end(); ?>
             </div>
-        </div>
-        <div id="test">
-
-        </div>
-
+        </article>
     </div>
+</section>
+<!--section  主体内容  end-->
+<footer>
+    <div class="wrap_content_box footer_bottom">
+        <address class="footer_bottom_up">Copyright&nbsp;&copy;&nbsp;2014<a href="#">爱信阳</a>版权所有<a href="#">皖ICP备201400001号</a><a href="#">京公网安备11010502025545号</a><a href="#">电子公告服务规则</a>技术支持：<a href="http://www.huayancreate.com" target="_blank">安徽华研电子科技</a></address>
+        <div class="footer_bottom_down"><a href="#" target="_blank"><img src="images/footer01.jpg" /></a><a href="#" target="_blank"><img src="images/footer02.jpg" /></a><a href="#" target="_blank"><img src="images/footer03.jpg" /></a><a href="#" target="_blank"><img src="images/footer04.jpg" /></a></div>
+    </div><!--footer_bottom  end-->
+</footer>
+<!--footer  end-->
+</body>
+</html>
+
 
 
     <script type="text/javascript">

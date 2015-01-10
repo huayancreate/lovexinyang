@@ -12,19 +12,19 @@ use yii\filters\VerbFilter;
 /**
  * CusOrderController implements the CRUD actions for CusOrder model.
  */
-class CusOrderController extends Controller
+class CusOrderController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Lists all CusOrder models.

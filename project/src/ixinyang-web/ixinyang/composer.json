@@ -14,6 +14,7 @@
     },
     "minimum-stability": "dev",
     "require": {
+        "wisembly/elephant.io": "~3.0",
         "php": ">=5.4.0",
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
@@ -24,7 +25,6 @@
         "kartik-v/yii2-date-range": "*",
         "kartik-v/yii2-widget-fileinput": "*",
         "kartik-v/yii2-widgets": "*",
-        "wisembly/elephant.io": "~3.0",
         "hightman/xunsearch": "*@beta"
     },
     "require-dev": {

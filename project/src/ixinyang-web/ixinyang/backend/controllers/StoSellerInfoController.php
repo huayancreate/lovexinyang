@@ -16,19 +16,19 @@ use yii\filters\VerbFilter;
 /**
  * StoSellerInfoController implements the CRUD actions for StoSellerInfo model.
  */
-class StoSellerInfoController extends Controller
+class StoSellerInfoController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Lists all StoSellerInfo models.
@@ -47,9 +47,9 @@ class StoSellerInfoController extends Controller
         $model = new StoBalanceReview();
         $data = StoBalanceReview::find()->orderBy('id desc')->one();
         if ($data == null) {
-            $model->balanceEndTime = date('Y-m-d H:i:s');
+            $model->balanceEndTime = date('Y-m-d');
         } else {
-            $endTime = date('Y-m-d H:i:s', strtotime($data->balanceEndTime . "+ 1 day"));
+            $endTime = date('Y-m-d', strtotime($data->balanceEndTime . "+ 1 day"));
             $model->balanceEndTime = $endTime;
         }
         $consumptionRecords = new CusConsumptionRecords();
@@ -150,15 +150,15 @@ class StoSellerInfoController extends Controller
             $arr = explode('to', $dateRange);
             $fromDate = $arr[0] . ' 00:00:00';
             $toDate = $arr[1] . ' 23:59:59';
-            if(empty($dateRange)){
+            if (empty($dateRange)) {
                 $fromDate = date("Y-m-d H:i:s");
                 $toDate = date("Y-m-d H:i:s");
             }
 
             $model = new CusConsumptionRecords();
             $model->settleAccount($fromDate, $toDate);
+            return count($model->getErrors()) > 0 ? '{"msg":"error"}' : '{"msg":"success"}';
         }
-        return "";
     }
 
     public function actionRefund()
@@ -166,8 +166,12 @@ class StoSellerInfoController extends Controller
         if (Yii::$app->request->post()) {
             $dateRange = $_POST['dateRangeRefund'];
             $arr = explode("to", $dateRange);
-            $fromDate = $arr[0] . ' 00:00:00';
-            $toDate = $arr[1] . ' 23:59:59';
+            $fromDate = date("Y-m-d H:i:s");
+            $toDate = date("Y-m-d H:i:s");
+            if (!empty($dateRange)) {
+                $fromDate = $arr[0] . ' 00:00:00';
+                $toDate = $arr[1] . ' 23:59:59';
+            }
 
             $refundModel = new ComRefundReviewSearch();
             $refundDataProvider = $refundModel->getRefundReviews($fromDate, $toDate);
@@ -182,8 +186,12 @@ class StoSellerInfoController extends Controller
         if (Yii::$app->request->post()) {
             $dateRange = $_POST["dateRange"];
             $arr = explode('to', $dateRange);
-            $fromDate = $arr[0] . ' 00:00:00';
-            $toDate = $arr[1] . ' 23:59:59';
+            $fromDate = date("Y-m-d H:i:s");
+            $toDate = date("Y-m-d H:i:s");
+            if (!empty($dateRange)) {
+                $fromDate = $arr[0] . ' 00:00:00';
+                $toDate = $arr[1] . ' 23:59:59';
+            }
 
             $consumptionRecords = new CusConsumptionRecords();
             $comsumptionProvider = $consumptionRecords->getConsumption($fromDate, $toDate);

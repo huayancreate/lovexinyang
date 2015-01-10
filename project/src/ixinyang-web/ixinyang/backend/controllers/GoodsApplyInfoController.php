@@ -12,19 +12,19 @@ use yii\filters\VerbFilter;
 /**
  * GoodsApplyInfoController implements the CRUD actions for GoodsApplyInfo model.
  */
-class GoodsApplyInfoController extends Controller
+class GoodsApplyInfoController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Lists all GoodsApplyInfo models.

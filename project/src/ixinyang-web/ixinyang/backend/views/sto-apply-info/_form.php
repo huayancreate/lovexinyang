@@ -11,7 +11,7 @@ use yii\web\jqueryAsset;
 /* @var $model backend\models\StoApplyInfo */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-<div style="margin-left: -160px">
+<div>
     <?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => 250]) ?>
@@ -61,8 +61,8 @@ use yii\web\jqueryAsset;
             <?= Html::submitButton('提交申请', ['class' => 'btn btn-success']) ?>
         </div>
     </div>
-    <?= $form->field($model, 'longitude')->hiddenInput()->label('') ?>
-    <?= $form->field($model, 'latitude')->hiddenInput()->label('') ?>
+    <?= $form->field($model, 'longitude')->hiddenInput(['id' => 'longitude'])->label('') ?>
+    <?= $form->field($model, 'latitude')->hiddenInput(['id' => 'latitude'])->label('') ?>
 
     <?php ActiveForm::end(); ?>
 </div>
@@ -207,7 +207,7 @@ Dialog::end();
     $(document).ready(function () {
         <!--地图调用-->
         var mapUrl = '<?php echo Yii::$app->urlManager->baseUrl.'/map.html'?>';
-        jQuery.showMap('map_button', mapUrl, 'loglat');
+        jQuery.showMap('map_button', mapUrl, 'longitude', 'latitude');
         <!--地图调用-->
 
         $.fn.zTree.init($("#treeDemo"), setting);

@@ -12,19 +12,19 @@ use yii\filters\VerbFilter;
 /**
  * ComRefundReviewController implements the CRUD actions for ComRefundReview model.
  */
-class ComRefundReviewController extends Controller
+class ComRefundReviewController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Lists all ComRefundReview models.

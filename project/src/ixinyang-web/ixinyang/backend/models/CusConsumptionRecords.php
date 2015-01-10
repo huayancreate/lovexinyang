@@ -72,7 +72,7 @@ class CusConsumptionRecords extends \yii\db\ActiveRecord
             'verifierTime' => '验证时间',
             'shopId' => '店铺ID',
             'shopName' => '店铺名称',
-            'flag' => '消费类型标识',
+            'flag' => '消费类型标识', //0 平台消费  1 现金消费
         ];
     }
 
@@ -86,7 +86,7 @@ class CusConsumptionRecords extends \yii\db\ActiveRecord
 
     public function getSumConsumption($fromDate, $toDate)
     {
-        $sql = "select sum(payablePrice*goodsNumber) as payablePrice from cus_consumption_records
+        $sql = "select sum(payablePrice*goodsNumber) as payablePrice,sellerName,sellerAccount from cus_consumption_records
               where shopId=1 and (verifierTime BETWEEN '$fromDate' and '$toDate') and flag='0'";
         $model = CusConsumptionRecords::findBySql($sql)->one();
         return $model;

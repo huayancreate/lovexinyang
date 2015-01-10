@@ -56,4 +56,22 @@ class StoLogonAccount extends \yii\db\ActiveRecord
             'flag' => 'Flag',
         ];
     }
+
+    /**
+     *根据商家登录名获取商家登录信息
+     * @param string $loginname          
+     * @return static null
+     */
+    public static function findByUsername($loginname)
+    {
+        return static::findOne([
+            'loginName' => $loginname,
+            //'status' => self::STATUS_ACTIVE 
+        ]);
+    }
+
+    public function validatePassword($password)
+    {
+        return Yii::$app->security->validatePassword($password, $this->password_hash);
+    }
 }

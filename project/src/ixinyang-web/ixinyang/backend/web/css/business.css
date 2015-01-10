@@ -1,0 +1,97 @@
+﻿@charset "utf-8";
+
+*{margin:0;padding:0}
+body{ height:100%; width:100%;font:normal 14px "微软雅黑","宋体","arial Narrow"; color:#333; background:#fff; margin:0; padding:0}
+div,span,p,pre,hr,object,blockquote,form,textarea,select,h1,h2,h3,h4,h5,h6,ul,ol,dl,iframe,frameset,frame,map,td,tr,th{padding:0;margin:0; border:0}
+li,dt,dd{list-style:none;}
+em{font-style:normal}
+img{border:0;vertical-align:middle}
+table{border-collapse:collapse;border-spacing:0;padding:0;margin:0; border:0}
+html{ height:100%; width:100%}
+/*html5*/
+article,aside,footer,header,section,footer,nav,figure,dialog,menu{display:block}
+
+/*公共样式*/
+section.wrap_content_box{ width:1090px; height:90%; min-height:905px;  margin:0 auto}
+.wrap_content_box{ width:1090px; margin:0 auto}
+/* table*/
+table{ width:100%; margin:0 auto}
+table tr.unable{ filter:alpha(opacity=40); -moz-opacity:0.4; opacity:0.4}  /* 不可操作状态*/
+table th{ background:#f5f5f5; color:#1186cb; text-align:center; height:40px; line-height:40px; font-weight:bold; border:1px solid #e5e5e5}
+table td{ border:1px solid #e5e5e5; text-align:center; color:#333; background:#fff; padding:15px; vertical-align:middle}
+table td:hover{ background:#f7fdff}
+
+/* form 相关*/
+textarea{ border:1px solid #cbcbcb;padding:10px; margin:0 10px; height:100px; width:300px; font-family:"微软雅黑","arial Narrow","宋体";color:#666}
+input{ border:1px solid #cbcbcb;padding:0 10px; margin:0 10px; height:30px; line-height:30px; font-family:"微软雅黑","arial Narrow","宋体";color:#666; overflow:hidden}
+select{ border:1px solid #cbcbcb; padding-left:10px; font-family:"微软雅黑","arial Narrow","宋体";color:#666; height:28px; line-height:28px}
+select option{ padding-left:10px}
+
+/* a */
+a{color:#333;text-decoration:none}
+a:hover{color:#f81502; cursor:pointer; text-decoration:none}
+
+/* 清除浮动 */
+.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.clearfloat{ zoom:1}
+
+/*header 头部*/
+header{ padding:15px 0 0; margin-bottom:10px; overflow:hidden; height:10%; min-height:95px; min-width:1090px;
+       background:url(../img/b_bg.png) 0 0 repeat-x;    /*for Safari*/
+       background:-moz-linear-gradient(to bottom,#049fe8 ,#1186cb);   /*for Firefox*/
+	   background:-webkit-linear-gradient(to bottom,#049fe8 ,#1186cb);   /*for Chrome*/
+	   background:-o-linear-gradient(to bottom,#049fe8 ,#1186cb);   /*for Opera*/
+       background:linear-gradient(to bottom,#049fe8 ,#1186cb);
+	   background:url(../img/b_bg.png) 0 0 repeat-x\9;   /*for IE8*/
+      }
+header #left_logo{ background:url(../img/b_logo.png) no-repeat; display:block; width:333px; height:69px; float:left}
+header a,header span{ float:right; width:auto; display:inline-block; padding:0 12px; margin-top:50px; color:#fff; text-shadow:0 0 1px #024686}
+header a:hover{ color:#ccf1fe; text-decoration:underline}
+header strong{ color:#ccf1fe; font-weight:normal}
+
+/*section 中间部分左右框架*/
+section{ margin:10px auto}
+aside{ float:left; width:240px; height:100%; background:#f8f8f8}
+article{ float:left; width:850px; height:100%; background:#fff}
+aside li summary{ margin-bottom:5px; font-weight:bold; padding:0 15px; color:#333;height:40px; line-height:40px; border:1px solid #e6e6e6; background:#f0f0f0; border-left:none; border-right:none}
+aside li a{ display:block; height:40px; line-height:40px;background:#f8f8f8; padding:0 50px; color:#333}
+aside li a:hover,aside li a.selected{ color:#fff; font-weight:bold; background:#8197a3}
+
+/* section 右侧主体内容*/
+.wrap{ padding:0 30px 10px; margin:0 auto}
+.wrap_caption{ background:#eee; height:35px; line-height:35px; font-weight:bold; padding-left:15px; margin:0 0 10px}   /* 区块标题*/
+.wrap_content{ padding:10px 0 20px; border-bottom:1px dashed #e7e7e7; margin:0 auto}  /* 区块内容*/
+figure{ margin-bottom:15px}
+.action_botton{ display:inline-block; padding:0 32px; height:30px; line-height:30px; color:#fff; text-align:center; border:1px solid #e27200; border-radius:4px; -moz-border-radius:4px; /*for old Firefox*/ 
+       background:url(../img/action_botton.png) 0 0 repeat-x;    /*for Safari*/
+       background:-moz-linear-gradient(to bottom,#f89a00 ,#e27200);   /*for Firefox*/
+	   background:-webkit-linear-gradient(to bottom,#f89a00 ,#e27200);   /*for Chrome*/
+	   background:-o-linear-gradient(to bottom,#f89a00 ,#e27200);   /*for Opera*/
+       background:linear-gradient(to bottom,#f89a00 ,#e27200);
+	   background:url(../img/action_botton.png) 0 0 repeat-x\9;   /*for IE8*/ 
+}
+.action_botton.input_submit{ height:32px; line-height:32px}
+.action_botton:hover,.action_botton.input_submit:hover{ cursor:pointer; color:#fff;
+       background:url(../img/action_botton_hover.png) 0 0 repeat-x;    /*for Safari*/
+       background:-moz-linear-gradient(to bottom,#f29701 ,#d26a01);   /*for Firefox*/
+	   background:-webkit-linear-gradient(to bottom,#f29701 ,#d26a01);   /*for Chrome*/
+	   background:-o-linear-gradient(to bottom,#f29701 ,#d26a01);   /*for Opera*/
+       background:linear-gradient(to bottom,#3f29701 ,#d26a01);
+	   background:url(../img/action_botton_hover.png) 0 0 repeat-x\9;   /*for IE8*/ 
+}
+
+/*分页*/
+.rangpage{ margin:15px auto; padding-left:200px}
+.rangpage a{ display:inline-block;padding:3px 12px; margin-right:10px; background:#f3f3f3; border:1px solid #c6c6c6; text-align:center}
+.rangpage a:hover{border-color:#1186cb; color:#fff;
+    background:-moz-radial-gradient(ellipse,#15a1e0 0%,#1691d9 65%,#1186cb 100%);   /*for Firefox*/
+	background:-webkit-radial-gradient(ellipse,#15a1e0 0%,#1691d9 65%,#1186cb 100%);   /*for Chrome &Safari*/
+	background:-o-radial-gradient(ellipse,#15a1e0 0%,#1691d9 65%,#1186cb 100%);   /*for Opera*/
+	background:radial-gradient(ellipse,#15a1e0 0%,#1691d9 65%,#1186cb 100%);
+	background:url(../images/search_bg.png) center repeat\9;   /*for IE8*/
+}
+.rangpage a.first,.rangpage a.last{ filter:alpha(opacity=50); -moz-opacity:0.5; opacity:0.5}
+.rangpage a.first:hover,.rangpage a.last:hover{ cursor:default; background:#f3f3f3; border:1px solid #c6c6c6; color:#333}
+
+/* footer*/
+footer{ padding:15px 0; text-align:center; height:50px; background:#f8f8f8;  margin:10px auto 0}

@@ -19,19 +19,21 @@ use common\hycommon\tool\PictureTool;
 /**
  * StoGoodsController implements the CRUD actions for StoGoods model.
  */
-class StoGoodsController extends Controller
+class StoGoodsController extends BackendController
 {
-    /*public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }*/
+
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
+
 
     /**
      * Lists all StoGoods models.
@@ -88,6 +90,7 @@ class StoGoodsController extends Controller
             $transaction=\Yii::$app->db->beginTransaction(); 
             try{
 
+<<<<<<< HEAD
                 $files = UploadedFile::getInstances($model, 'file');  //»ñÈ¡ÉÏ´«ÎÄ¼þ
 
                 //创建时间
@@ -106,22 +109,41 @@ class StoGoodsController extends Controller
                 $model->save();  //ÉÌÆ·ÐÅÏ¢±£´æ
 
                 $this->stoGoodsStoreModelSave($model->id,$goodsStoreModel);//ÉÌÆ·¶ÔÓ¦µêÆÌÐÅÏ¢±í±£´æ
+=======
+                $files = UploadedFile::getInstances($model, 'file');  //获取上传文件
+
+                $model->save();  //商品信息保存
+
+                $this->stoGoodsStoreModelSave($model->id);//��Ʒ��Ӧ������Ϣ�?��
+>>>>>>> fffb70330574f07ed2f70bda0ea99b896f512d5e
 
                 $pictureToolModel=new PictureTool();
                 foreach ($files as $file) {
 
+<<<<<<< HEAD
                     $path=$pictureToolModel->uploads($file,2); //ÎÄ¼þÉÏ´«
 
                     $goodsPicture=new GoodsPicture();
                     $goodsPicture->goodsId=$model->id; //ÉÌÆ·ÐÅÏ¢ID
                     $goodsPicture->path=$path; //Í¼Æ¬Â·¾¶
+=======
+                    $path=$this->uploads($file); //文件上传
+
+                    $goodsPicture=new GoodsPicture();
+                    $goodsPicture->goodsId=$model->id; //商品信息ID
+                    $goodsPicture->path=$path; //图片路径
+>>>>>>> fffb70330574f07ed2f70bda0ea99b896f512d5e
                     $goodsPicture->renewTime=date("Y-m-d H:i:s");
                     $goodsPicture->uploadPersonnel="admin";
 
                     $goodsPicture->save();
                 }
 
+<<<<<<< HEAD
                 $transaction->commit(); //ÊÂÎñ½áÊø
+=======
+                $transaction->commit(); //事务结束
+>>>>>>> fffb70330574f07ed2f70bda0ea99b896f512d5e
 
                 // $message=$model->getErrors();
                 // $message['success']=true;
@@ -135,7 +157,11 @@ class StoGoodsController extends Controller
             //return json_encode($message);
             return $this->redirect(['index']);
         } else {
+<<<<<<< HEAD
             //»ñÈ¡ÉÌÆ·Àà±ð
+=======
+            //获取商品类别
+>>>>>>> fffb70330574f07ed2f70bda0ea99b896f512d5e
             $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
 
             
@@ -226,6 +252,7 @@ class StoGoodsController extends Controller
                  //提交
                  $transaction->commit();
 
+<<<<<<< HEAD
             } 
             catch (Exception $e) {
                 //回滚
@@ -236,6 +263,17 @@ class StoGoodsController extends Controller
         } 
         else {
            
+=======
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            
+                $message=$model->getErrors();
+                $message['success']=true;
+                return json_encode($message);
+            //return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            //获取商品类别
+            $categoryModel=new ComCategoryMaintain();
+>>>>>>> fffb70330574f07ed2f70bda0ea99b896f512d5e
             $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
             
             return $this->renderAjax('update', [
@@ -302,6 +340,7 @@ class StoGoodsController extends Controller
     }
 
     /**
+<<<<<<< HEAD
      * Finds the StoGoodsStore model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
@@ -336,6 +375,49 @@ class StoGoodsController extends Controller
         //商品状态
         $stoGoodsStoreModel->goodsState=$_POST['hiddenGoodsState'];
         //±£´æ
+=======
+     * 文件上传
+     * @param  [type] $files [文件集合]
+     * @return [type]        [description]
+     */
+    protected function uploads($file){
+
+        $filePath = "uploads/goodsPic/";
+        
+        $ext = $file->getExtension(); //获取文件后缀 如: ".jpg"
+        
+        $randName = time() . rand(1000, 9999) . "." . $ext; //生成新文件名称
+
+        if(!file_exists($filePath)){
+            mkdir($filePath,0777,true);
+        }
+
+        $file->saveAs($filePath.$randName); //保存文件
+
+        return $filePath.$randName;
+    }
+
+    /**
+     * [stoGoodsStoreModelSave ��Ʒ��Ӧ������Ϣ����Ϣ���]
+     * @param  [type] $goodsId [��Ʒid]
+     * @return [type]          [description]
+     */
+    protected function stoGoodsStoreModelSave($goodsId){
+        $stoGoodsStoreModel=new StoGoodsStore();
+        //��Ʒid
+        $stoGoodsStoreModel->goodsId=$goodsId;
+        //����id    ��session��ȡ   ��ʱдĬ��ֵ
+        $stoGoodsStoreModel->storeId=1;
+        //�̼�id    ��session��ȡ   ��ʱдĬ��ֵ
+        $stoGoodsStoreModel->sellerId=1;
+        //��Ʒ���  ��дĬ��ֵ ֮��ᴦ��
+        $stoGoodsStoreModel->inventory=1000;
+        //����ʱ��  ��ǰʱ��
+        $stoGoodsStoreModel->createDate=date("Y-m-d H:i:s");
+        //������    ��session��ȡ
+        $stoGoodsStoreModel->crreteUserID='111';
+        //����
+>>>>>>> fffb70330574f07ed2f70bda0ea99b896f512d5e
         $stoGoodsStoreModel->save();
 
     }

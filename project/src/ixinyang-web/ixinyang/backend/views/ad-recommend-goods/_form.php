@@ -87,8 +87,6 @@ $(function(){
          });
 });
 
-
-
 //type  1  加载商品     2  加载店铺
 function loadData(source,type){
     $( "#adrecommendgoods-ad_recommend_goods" ).autocomplete({

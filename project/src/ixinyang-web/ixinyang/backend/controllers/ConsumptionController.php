@@ -14,19 +14,21 @@ use yii\filters\VerbFilter;
 /**
  * ConsumptionController implements the CRUD actions for CusConsumptionRecords model.
  */
-class ConsumptionController extends Controller
+class ConsumptionController extends BackendController
 {
-    /*public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }*/
+
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
+
 
     /**
      * Lists all CusConsumptionRecords models.

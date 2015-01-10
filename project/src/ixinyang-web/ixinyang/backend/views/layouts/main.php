@@ -5,6 +5,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use frontend\widgets\Alert;
+use yii\helpers\ArrayHelper;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -23,42 +24,24 @@ AppAsset::register($this);
 </head>
 <body>
     <?php $this->beginBody() ?>
-    <div class="wrap">
-        <?php
-            NavBar::begin([
-                'brandLabel' => 'My Company',
-                'brandUrl' => Yii::$app->homeUrl,
-                'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
-                ],
-            ]);
-            $menuItems = [
-                ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'About', 'url' => ['/site/about']],
-                ['label' => 'Contact', 'url' => ['/site/contact']],
-            ];
-            if (Yii::$app->user->isGuest) {
-                $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-                $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-            } else {
-                $menuItems[] = [
-                    'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                    'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post']
-                ];
-            }
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => $menuItems,
-            ]);
-            NavBar::end();
-        ?>
-    <div class="container">
-        <div class="row-fluid">
-         <?= $content ?>
-        </div>
+    <header>
+    <div class="wrap_content_box">
+        <div id="left_logo"></div>
+        <a href="#">返回首页</a>
+        <a href="#">修改密码</a>
+        <?=Html::a('退出', ['site/logout'], [
+            'data' => [
+                'method' => 'post',
+            ],
+        ])?>
+        <span>欢迎您，<strong><?= Yii::$app->user->identity->username ?></strong></span>
+        <div class="clearfloat"></div>
     </div>
-    </div>
+    </header>
+    
+    <section class="wrap_content_box"> 
+        <?= $content ?>
+    </section>
 
     <footer class="footer">
         <div class="container">

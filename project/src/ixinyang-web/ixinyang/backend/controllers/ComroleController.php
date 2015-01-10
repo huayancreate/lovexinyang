@@ -10,6 +10,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller; 
 use yii\web\NotFoundHttpException; 
 use yii\filters\VerbFilter; 
+use yii\base\ErrorHandler;
 
 
 
@@ -18,20 +19,8 @@ use yii\filters\VerbFilter;
 /** 
  * ComroleController implements the CRUD actions for comrole model. 
  */ 
-class ComroleController extends Controller
+class ComroleController extends BackendController
 { 
-    public function behaviors() 
-    { 
-        return [ 
-            'verbs' => [ 
-                'class' => VerbFilter::className(), 
-                'actions' => [ 
-                    'delete' => ['post'], 
-                ], 
-            ], 
-        ]; 
-    } 
-
     /** 
      * Lists all comrole models. 
      * @return mixed 

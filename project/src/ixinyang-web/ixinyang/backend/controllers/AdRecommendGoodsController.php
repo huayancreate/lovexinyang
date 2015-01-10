@@ -15,34 +15,21 @@ use yii\data\ActiveDataProvider;
 /**
  * AdRecommendGoodsController implements the CRUD actions for AdRecommendGoods model.
  */
-class AdRecommendGoodsController extends Controller
+class AdRecommendGoodsController extends BackendController
 {
-    /*public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }*/
 
-    /**
-     * Lists all AdRecommendGoods models.
-     * @return mixed
-     */
-   /* public function actionIndex()
-    {
-        $searchModel = new AdRecommendGoodsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-    }*/
 
     /**
      * Lists all AdRecommendGoods models.

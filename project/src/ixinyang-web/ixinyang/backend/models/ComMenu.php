@@ -87,5 +87,33 @@ class ComMenu extends \yii\db\ActiveRecord
         ComMenu::updateBySql('com_menu',['isValid'=>1,'updateTime'=>date("Y-m-d H:i:s")], ['id' =>$id]);
     }
 
+    /**
+     * 生成菜单
+     * @return [type] [description]
+     */
+    public static function generateMenuByUser()
+    {
+        $list = ComMenu::find()->where('isValid=1')->all();
+        $menu = Yii::$app->controller->renderPartial('@backend/views/layouts/_menu',[
+            'list'=>$list,
+            'admin'=>(Yii::$app->user->id==1)?true:false
+        ]);
+        return $menu;
+    }
 
+    /**
+     * 获取子菜单
+     * @return static
+     */
+    public function getSon()
+    {
+        return $this->hasMany(ComMenu::className(),['parentMenuId'=>'id']);
+    }
+    /**
+     * 获取父菜单
+     */
+    public function getFather()
+    {
+        return $this->hasOne(ComMenu::className(),['id'=>'parentMenuId']);
+    }
 }

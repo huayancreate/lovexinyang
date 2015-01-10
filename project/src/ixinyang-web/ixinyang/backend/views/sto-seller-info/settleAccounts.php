@@ -12,6 +12,7 @@ use yii\grid\GridView;
 ?>
 <div id="consumptionList">
     <label>总计：(￥) <?php echo $comsumptionModel->payablePrice ?></label>
+    <?php \yii\widgets\Pjax::begin(['id' => 'test']); ?>
     <?= GridView::widget([
         'dataProvider' => $comsumptionProvider,
         'columns' => [
@@ -23,26 +24,23 @@ use yii\grid\GridView;
             'verfificationCode',
         ],
     ]); ?>
+    <?php \yii\widgets\Pjax::end(); ?>
     <div style="border: 1px solid #ccc;padding: 10px 0px 0px 15px">
         <div class="form-group">
-            <label class="control-label" for="inputSuccess4">商家转入帐号名称：</label>
-            <label class="control-label" for="inputSuccess4">2014090115122</label>
+            <label class="control-label" for="inputSuccess4">商家名称：</label>
+            <label class="control-label" for="inputSuccess4"><?php echo $comsumptionModel->sellerName ?></label>
         </div>
         <div class="form-group">
             <label class="control-label" for="inputSuccess4">商家转入帐号：</label>
-            <label class="control-label" for="inputSuccess4">2014090115122</label>
+            <label class="control-label" for="inputSuccess4"><?php echo $comsumptionModel->sellerAccount ?></label>
         </div>
     </div>
     <div style="margin-top: 15px">
-        <?= Html::button('结款', ['class' => 'btn btn-success ', 'onclick' => 'SettleAccounts()']) ?>
+        <?= Html::button('结款', ['id' => 'settAccounts', 'class' => 'btn btn-success ', 'onclick' => 'SettleAccounts()']) ?>
     </div>
 </div>
 <script type="text/javascript">
-    $(function () {
-        var dateRange = $('input[name="dateRange"]');
-        dateRange.attr("readonly", "readonly");
-        dateRange.attr("placeholder", "请选择日期范围");
-    });
+
     function SettleAccounts() {
         var dateRange = $('input[name="dateRange"]');
         if (dateRange.val() == "") {
@@ -53,6 +51,7 @@ use yii\grid\GridView;
             $.ajax({
                 cache: true,
                 type: "POST",
+                dataType: "json",
                 url: "index.php?r=sto-seller-info/settle",
                 data: $('#comsumptionSearch').serialize(),
                 async: false,
@@ -60,7 +59,15 @@ use yii\grid\GridView;
                     alert("Connection error");
                 },
                 success: function (data) {
-                    //alert(data);
+                    if (data.msg == "success") {
+                        bootbox.alert("结款成功", function () {
+                            $("#settAccounts").attr("disabled", "disabled");
+                        });
+                    } else {
+                        bootbox.alert("结款成功", function () {
+                            $("#settAccounts").attr("disabled", "disabled");
+                        });
+                    }
                 }
             });
         }
@@ -76,7 +83,16 @@ use yii\grid\GridView;
                 alert("Connection error");
             },
             success: function (data) {
-                $("#consumptionList").html(data);
+                if (data != "") {
+                    $("#consumptionList").html(data);
+                    var result = $("#consumptionList").find("div").hasClass("empty");
+                    if (!result) {
+                        $("#settAccounts").removeAttr("disabled");
+                    }
+                    else {
+                        $("#settAccounts").attr("disabled", "disabled");
+                    }
+                }
             }
         });
     }

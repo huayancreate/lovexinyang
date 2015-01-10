@@ -39,7 +39,9 @@ use kartik\daterange\DateRangePicker;
                 alert("Connection error");
             },
             success: function (data) {
-                $("#refundList").html(data);
+                if (data != "") {
+                    $("#refundList").html(data);
+                }
             }
 
         });

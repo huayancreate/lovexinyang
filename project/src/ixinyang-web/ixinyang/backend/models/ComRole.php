@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\validators\UniqueValidator;
 
 /**
  * This is the model class for table "com_role".
@@ -32,6 +33,7 @@ class ComRole extends \yii\db\ActiveRecord
     {
         return [
             [['roleName'],'required','message' => '{attribute}不能为空.'],
+            [['roleName'],'unique','message' => '{attribute}已存在.'],
             [['updateTime'], 'safe'],
             [['roleCode'], 'integer'],
             [['creater', 'roleName', 'updatePerson'], 'string', 'max' => 50],

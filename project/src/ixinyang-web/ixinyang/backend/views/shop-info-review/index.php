@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="shop-info-review-index">
     <p>
-        <?= Html::a('·ÖµêÉêÇë','javascript:void(0);', ['id'=>'btnAdd','class' => 'btn btn-success']) ?>
+        <?= Html::a('åˆ†åº—ç”³è¯·','javascript:void(0);', ['id'=>'btnAdd','class' => 'btn btn-success']) ?>
     </p>
 <?php \yii\widgets\Pjax::begin(['id'=>'gridList']); ?>
     <?= GridView::widget([
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'businessHours',
             [
                 'attribute' => 'auditState',
-                'label'=>'×´Ì¬',
+                'label'=>'çŠ¶æ€',
                 'value'=>
                     function($model){
                         return $model->getState($model->auditState);
@@ -36,23 +36,23 @@ $this->params['breadcrumbs'][] = $this->title;
                     'view'=>function($url,$model){
                         return Html::a('<span class="glyphicon  glyphicon-eye-open"></span>', "javascript:void(0)",
                             [
-                                'title' => Yii::t('yii', '²é¿´'),
+                                'title' => Yii::t('yii', 'æŸ¥çœ‹'),
                                 'data-pjax' => '0',
-                                'onClick'=>'getView("'.$model->shopName.'","shopinforeview/view&id='.$model->id.'")'
+                                'onClick'=>'getView("'.$model->shopName.'","shop-info-review/view&id='.$model->id.'")'
                             ]);
                     },
                     'update'=>function($url,$model){
                     return Html::a('<span class="glyphicon glyphicon-pencil"></span>', "javascript:void(0)",
                         [
-                            'title' => Yii::t('yii', 'ĞŞ¸Ä'),
-                            'onClick'=>'getEdit("shopinforeview/update&id='.$model->id.'","shopinforeviewFrom","gridList","ĞŞ¸Ä")'
+                            'title' => Yii::t('yii', 'ä¿®æ”¹'),
+                            'onClick'=>'getEdit("shop-info-review/update&id='.$model->id.'","shopinforeviewFrom","gridList","ä¿®æ”¹")'
                         ]);
                     },
                     'delete'=>function($url,$model){
                     return Html::a('<span class="glyphicon glyphicon-trash"></span>', 'javascript:void(0)',
                         [
-                            'title' => Yii::t('yii', 'É¾³ı'),
-                            'onClick'=>'expurgate("shopinforeview/delete&id='.$model->id.'")'
+                            'title' => Yii::t('yii', 'åˆ é™¤'),
+                            'onClick'=>'expurgate("shop-info-review/delete&id='.$model->id.'")'
                         ]);
                     },
                 ]
@@ -86,8 +86,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
 $(function(){
     $("#btnAdd").click(function(){
-        var url="shopinforeview/create";
-        JuiDialog.dialog("dialogId","·ÖµêÉêÇë",url,"shopinforeviewFrom","gridList");
+        var url="shop-info-review/create";
+        JuiDialog.dialog("dialogId","åˆ†åº—ç”³è¯·",url,"shopinforeviewFrom","gridList");
     });
 });
 
@@ -99,7 +99,7 @@ function getEdit(url,fromId,gridId,title){
     JuiDialog.dialog("dialogId",title,url,fromId,gridId);
 }
 function expurgate(url){
-    if(confirm("È·¶¨ÒªÉ¾³ıÊı¾İÂğ")){
+    if(confirm("ç¡®å®šè¦åˆ é™¤æ•°æ®å—")){
         JuiDialog.del(url,"gridList");
     }
 }

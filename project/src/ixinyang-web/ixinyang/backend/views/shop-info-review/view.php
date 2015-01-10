@@ -32,21 +32,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'shopName',
             'contact',
             [
-                'label'=>'³ÇÊÐ',
+                'label'=>'åŸŽå¸‚',
                 'value'=>ComCityCenter::findOne($model->cityId)->cityCenterName,
             ],
             [
-                'label' => 'ÇøÏØ',
+                'label' => 'åŒºåŽ¿',
                 'value' => ComCounty::findOne($model->countyId)->countyName,
             ],
             [
-                'label' => 'ÉÌÈ¦',
+                'label' => 'å•†åœˆ',
                 'value' => ComBusinessDistrict::findOne($model->businessDistrictId)->businessDistrictName,
             ],
             'address',
             'businessHours',
             [
-                'label'=>'ÉóºË×´Ì¬',
+                'label'=>'å®¡æ ¸çŠ¶æ€',
                 'value'=>$model->getState($model->auditState),
             ],
             'storeOutline:ntext',

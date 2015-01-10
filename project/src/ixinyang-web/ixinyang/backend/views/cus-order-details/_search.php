@@ -42,13 +42,13 @@ use yii\bootstrap\ActiveForm;
 
     <?php // echo $form->field($model, 'shopName') ?>
 
-    <?php echo "<b>验证码：</b>".$form->field($model, 'validateCode') ?>
+    <?php echo "<b>楠岃瘉鐮侊細</b>".$form->field($model, 'validateCode') ?>
 
     <?php // echo $form->field($model, 'CodeStatus') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('查询', ['class' => 'btn btn-primary']) ?>
-        <?= Html::button('确认消费', ['id'=>'btnSave','class' => 'btn btn-primary']) ?>
+        <?= Html::submitButton('鏌ヨ', ['class' => 'btn btn-primary']) ?>
+        <?= Html::button('纭娑堣垂', ['id'=>'btnSave','class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

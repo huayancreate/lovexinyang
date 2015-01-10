@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
 use cliff363825\kindeditor\KindEditorWidget;
-
+use kartik\widgets\DatePicker;
 /* @var $this yii\web\View */
 /* @var $model backend\models\ShopInfoReview */
 /* @var $form yii\widgets\ActiveForm */
@@ -14,25 +14,25 @@ use cliff363825\kindeditor\KindEditorWidget;
 <div class="shop-info-review-form">
 
     <?php $form = ActiveForm::begin(['layout' => 'horizontal','id'=>'shopinforeviewFrom']); ?>
-    <!--µêÆÌÃû³Æ-->
+    <!--åº—é“ºåç§°-->
     <?= $form->field($model, 'shopName')->textInput(['maxlength' => 50]) ?>
-    <!--ÁªÏµ·½Ê½-->
+    <!--è”ç³»æ–¹å¼-->
     <?= $form->field($model, 'contact')->textInput(['maxlength' => 50]) ?>
-    <!--³ÇÊĞ-->   
+    <!--åŸå¸‚-->   
     <?php $cityModel->cityCenterName=$model->cityId;  ?>
-    <?= $form->field($cityModel, 'cityCenterName')->dropDownList(ArrayHelper::map($cityList, 'id', 'cityCenterName'), ['prompt' => '--³ÇÊĞ--']) ?>
+    <?= $form->field($cityModel, 'cityCenterName')->dropDownList(ArrayHelper::map($cityList, 'id', 'cityCenterName'), ['prompt' => '--åŸå¸‚--']) ?>
     <input type="hidden" id="cityId" name="ShopInfoReview[cityId]" value=<?= $model->cityId?>> 
-    <!--ÇøÓò-->
-    <?= $form->field($model, 'countyId')->dropDownList(['prompt' => '--ÇøÓò--']) ?>
+    <!--åŒºåŸŸ-->
+    <?= $form->field($model, 'countyId')->dropDownList(['prompt' => '--åŒºåŸŸ--']) ?>
     <input type="hidden" id="countyId" value=<?= $model->countyId?>> 
-    <!--ÉÌÈ¦-->
-    <?= $form->field($model, 'businessDistrictId')->dropDownList(['prompt' => '--ÉÌÈ¦--']) ?>
+    <!--å•†åœˆ-->
+    <?= $form->field($model, 'businessDistrictId')->dropDownList(['prompt' => '--å•†åœˆ--']) ?>
     <input type="hidden" id="businessDistrictId" value=<?= $model->businessDistrictId?>>
-    <!--ÏêÏ¸µØÖ·-->
+    <!--è¯¦ç»†åœ°å€-->
     <?= $form->field($model, 'address')->textInput(['maxlength' => 250]) ?>
-    <!--ÓªÒµÊ±¼ä-->
+    <!--è¥ä¸šæ—¶é—´-->
     <?= $form->field($model, 'businessHours')->textInput(['maxlength' => 100]) ?>
-    <!--ÃÅµê¸ÅÊö-->
+    <!--é—¨åº—æ¦‚è¿°-->
     <?= 
         $form->field($model, 'storeOutline')->widget(KindEditorWidget::className(), [ 
             'clientOptions' => [ 
@@ -48,9 +48,9 @@ use cliff363825\kindeditor\KindEditorWidget;
             ], 
         ]); 
     ?> 
-    <!--µØÍ¼¾­¶È-->
+    <!--åœ°å›¾ç»åº¦-->
     <?= $form->field($model, 'longitude')->textInput() ?>
-    <!--µØÍ¼Î³¶È-->
+    <!--åœ°å›¾çº¬åº¦-->
     <?= $form->field($model, 'latitude')->textInput() ?>
     
     <!-- <div class="form-group">
@@ -63,7 +63,7 @@ use cliff363825\kindeditor\KindEditorWidget;
 
 <script type="text/javascript"> 
 
-//»ñÈ¡ÇøÓò
+//è·å–åŒºåŸŸ
 function getCountry(cityId) {
     $.ajax({
         type: "get",
@@ -72,7 +72,7 @@ function getCountry(cityId) {
         dataType: "json",
         success: function (data) {
             $("#shopinforeview-countyid").empty();
-            $("#shopinforeview-countyid").append("<option value='0'>-" + "-ÇøÓò-" + "-</option>");
+            $("#shopinforeview-countyid").append("<option value='0'>-" + "-åŒºåŸŸ-" + "-</option>");
             jQuery.each(data, function (idx, item) {
                 if($("#countyId").val()===item.countyId){
                     $("#shopinforeview-countyid").append("<option value='" + item.countyId + "'selected>" + item.countyName + "</option>");
@@ -83,7 +83,7 @@ function getCountry(cityId) {
     });
 }
 
-    //»ñÈ¡ÉÌÈ¦
+    //è·å–å•†åœˆ
 function getBusiness(countyId) {
     $.ajax({
         type: "get",
@@ -92,7 +92,7 @@ function getBusiness(countyId) {
         dataType: "json",
         success: function (business) {
             $("#shopinforeview-businessdistrictid").empty();
-            $("#shopinforeview-businessdistrictid").append("<option value='0'>-" + "-ÉÌÈ¦-" + "-</option>");
+            $("#shopinforeview-businessdistrictid").append("<option value='0'>-" + "-å•†åœˆ-" + "-</option>");
             jQuery.each(business, function (idx, item) {
                 if($("#businessDistrictId").val()===item.businessDistrictId){
                     $("#shopinforeview-businessdistrictid").append("<option value='" + item.businessDistrictId + "'selected>" + item.businessDistrictName + "</option>");
@@ -104,13 +104,13 @@ function getBusiness(countyId) {
 }
 
 $(function(){
-    //Í¨¹ıÊĞÉ¸Ñ¡ÇøÏØ
+    //é€šè¿‡å¸‚ç­›é€‰åŒºå¿
     $("#comcitycenter-citycentername").change(function(){
         $("#cityId").val($(this).val());
         getCountry($(this).val());
     });
 
-    //Í¨¹ıÇøÏØÉ¸Ñ¡ÇøÓò
+    //é€šè¿‡åŒºå¿ç­›é€‰åŒºåŸŸ
     $("#shopinforeview-countyid").change(function(){
         getBusiness($(this).val());
     });

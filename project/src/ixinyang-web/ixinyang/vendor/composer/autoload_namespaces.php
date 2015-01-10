@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'HTMLPurifier' => array($vendorDir . '/ezyang/htmlpurifier/library'),
     'Faker\\PHPUnit' => array($vendorDir . '/fzaninotto/faker/test'),
     'Faker' => array($vendorDir . '/fzaninotto/faker/src'),

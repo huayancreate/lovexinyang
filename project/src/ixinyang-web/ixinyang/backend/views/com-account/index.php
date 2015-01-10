@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = '账号管理';
         <h1><?= Html::encode($this->title) ?></h1>
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
         <p>
-            <?= Html::a('创建账号', 'javascript:void(0)', ['class' => 'btn btn-success', 'onClick' => 'View("创建账号","index.php?r=com-account/create")']) ?>
+            <?= Html::a('创建账号', 'javascript:void(0)', ['class' => 'btn btn-success', 'onClick' => 'View("创建账号","com-account/create")']) ?>
             <!--        <a class="btn btn-success" href="#" onclick="View('创建类别','index.php?r=com-category-maintain/create','')">创建类别</a>-->
         </p>
 
@@ -62,7 +62,7 @@ $this->params['breadcrumbs'][] = '账号管理';
                                     [
                                         'title' => Yii::t('yii', 'Update'),
                                         'data-pjax' => true,
-                                        'onClick' => 'View("账号修改","index.php?r=com-account/update&id=' . $model['id'] . '&roleId=' . $person->id . '")'
+                                        'onClick' => 'View("账号修改","com-account/update&id=' . $model['id'] . '&roleId=' . $person->id . '")'
                                     ]);
                             },
                             'delete' => function ($url, $model) {
@@ -73,76 +73,28 @@ $this->params['breadcrumbs'][] = '账号管理';
                                         'onClick' => 'Delete("com-account/delete&id=' . $model['id'] . '")'
                                     ]);
                             }
-
                         ]
                     ],
                 ],
             ]); ?>
             <?php \yii\widgets\Pjax::end(); ?>
         </div>
+        <?php
+        Dialog::begin([
+            'id' => 'viewDialog',
+            'clientOptions' => ['modal' => true, 'autoOpen' => false, 'width' => '800', 'height' => '600'],]);
+        ?>
+        <div id="view"></div>
+        <?php
+        Dialog::end();
+        ?>
     </div>
-<?php
-Dialog::begin([
-    'id' => 'viewDialog',
-    'clientOptions' => ['modal' => true, 'autoOpen' => false, 'width' => '800', 'height' => '600'],]);
-?>
-    <div id="view"></div>
-<?php
-Dialog::end();
-?>
     <script type="text/javascript">
         function View(title, url) {
-            //JuiDialog.dialog('viewDialog', title, url, 'accountForm', 'accountList');
-            $("#viewDialog").html("");
-            $("#viewDialog").dialog("open");
-            $("#viewDialog").dialog({
-                width: 800,
-                height: 500,
-                title: title,
-                resizable: true,
-                overlay: {
-                    opacity: 0.5,
-                    background: "black",
-                    overflow: 'auto'
-                },
-                buttons: [
-                    {
-                        text: "保存",
-                        "class": 'btn btn-success',
-                        click: function () {
-                            if ($("form").valid(this, "error!") == true) {
-                                SaveOrUpdate(url);
-                                $(this).dialog('close');
-                            }
-                        }
-                    },
-                    {
-                        text: "取消",
-                        "class": 'btn btn-danger',
-                        click: function () {
-                            $(this).dialog('close');
-                        }
-                    }
-                ]
-            });
-            $("#viewDialog").load(url);
-        }
-        function SaveOrUpdate(url) {
-            $.ajax({
-                cache: true,
-                type: "POST",
-                url: url,
-                data: $('#accountForm').serialize(),// 你的formid
-                async: false,
-                error: function (request) {
-                    alert("Connection error");
-                },
-                success: function (data) {
-                    $.pjax.reload({container: '#accountList'});
-                }
-            });
+            JuiDialog.showDialogWithValid('viewDialog', title, url, url, 'accountForm', 'accountList');
         }
         function Detail(title, url) {
+            $("#viewDialog").empty();
             JuiDialog.dialogView("viewDialog", title, url);
         }
         function Delete(url) {

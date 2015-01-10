@@ -78,6 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
     ]); ?>
     <?php \yii\widgets\Pjax::end(); ?>
 </div>
+<div id="treeGrid"></div>
 <?php
 Dialog::begin([
     'id' => 'viewDialog',

@@ -1,0 +1,206 @@
+﻿@charset "utf-8";
+
+/*public*/
+*{margin:0;padding:0}
+body{ height:100%; width:100%;font:normal 14px "微软雅黑","宋体","arial Narrow"; color:#333; background:#f7f7f7; margin:0; padding:0}
+div,span,p,pre,hr,object,blockquote,form,textarea,select,h1,h2,h3,h4,h5,h6,ul,ol,dl,iframe,frameset,frame,map,td,tr,th{padding:0;margin:0; border:0}
+li,dt,dd{list-style:none;}
+em{font-style:normal}
+input{ border:1px solid #799098;padding:0 10px;font-family:"微软雅黑","arial Narrow","宋体";color:#799098; overflow:hidden}
+select{ border:1px solid #799098; padding-left:10px; font-family:"微软雅黑","arial Narrow","宋体";color:#799098; height:30px; line-height:30px}
+select option{ padding-left:10px}
+a{color:#333;text-decoration:none}
+a:hover{color:#f81502; cursor:pointer; text-decoration:none}
+img{border:0;vertical-align:middle}
+table{border-collapse:collapse;border-spacing:0;padding:0;margin:0; border:0}
+html{ height:100%; width:100%}
+.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.clearfloat{zoom:1}
+.wrap_content_box{ width:1090px; margin:0 auto}
+.productsubpage_content{ background:#fff}
+b{ color:#e91503; font-weight:normal}
+i{ color:#b5b4b4; font-style:normal;padding:0 3px}
+.pingfen_show{ background:url(../images/pingfen.png) no-repeat; width:85px; height:16px; display:inline-block; position:relative;padding-right:0 !important}
+.pingfen_show_on{ background:url(../images/pfeng_02.png) no-repeat; height:16px; display:inline-block; position:absolute; left:0; top:0;z-index:2; overflow:hidden; padding-right:0 !important}
+
+/*html5*/
+article,aside,footer,header,section,footer,nav,figure,dialog,menu{display:block}
+
+/*header*/
+.header_top_add{ height:40px; width:100%;background:#83a900}
+
+.header_center_title{ width:100%;height:30px; line-height:30px; background:#f2f2f2; border-bottom:1px solid #e5e5e5; position:fixed; top:0; left:0; z-index:9999}
+.header_center_title_left{ float:left;width:auto;height:30px}
+.header_center_title_right{ float:right;width:auto;height:30px}
+.header_center_title_left a,.header_center_title_right a,.header_center_title_left span,.header_center_title_right span{ padding:0 6px; font-size:12px; color:#666}
+.header_center_title_right span.chart_ico{ background:url(../images/chart.png) left 2px no-repeat;padding-left:20px}
+.header_center_title_right span.sele_list{ background:url(../images/list.png) right 2px no-repeat;padding-right:12px}
+.header_center_title_right span.sele_list:hover{background:url(../images/list_hover.png) right 2px no-repeat}
+.header_center_title_left a:hover,.header_center_title_right a:hover{ color:#f81502}
+
+.header_center_content{ width:100%; background:#fff; padding:20px 0}
+.header_left{ float:left;width:auto; height:81px}
+.header_center{ float:left;width:auto; height:75px;margin-left:50px; margin-top:-2px}
+.header_right{ float:right;width:auto; padding-top:12px; margin-left:20px}
+.header_left_citylist{ display:inline-block;margin-left:25px;padding-left:15px;width:90px; height:55px; vertical-align:middle;border-left:3px solid #047db6}
+.header_left_citylist span{ display:block;font-size:16px;color:#333}
+.header_left_citybtn{ display:block;width:70px; height:22px; line-height:22px;text-align:center;border:1px solid #e3e3e3; color:#999; font-size:14px;margin-top:7px; border-radius:6px}
+.header_left_citybtn{
+	-moz-border-radius:6px;   /*for Firefox*/
+	background:-moz-linear-gradient(to top,#f8f8f8 0%,#fff 77%,#fff 100%);       /*for Firefox*/
+	background:-webkit-linear-gradient(to top,#f8f8f8 0%,#fff 77%,#fff 100%);    /*for Chrome &Safari*/
+	background:-o-linear-gradient(to top,#f8f8f8 0%,#fff 77%,#fff 100%);    /*for Opera*/
+	background:linear-gradient(to top,#f8f8f8 0%,#fff 77%,#fff 100%);
+    transition:background 2s;
+	-moz-transition:background 2s;    /*for Firefox*/
+	-webkit-transition:background 2s;     /*for Chrome &Safari*/
+	-o-transition:background 2s ;    /*for Opera*/
+}
+.header_left_citybtn:hover{
+	background:-moz-linear-gradient(to top,#e6e6e6 0%,#fff 77%,#fff 100%); /*for Firefox*/
+	background:-webkit-linear-gradient(to top,#e6e6e6 0%,#fff 77%,#fff 100%); /*for Chrome &Safari*/
+	background:-o-linear-gradient(to top,#e6e6e6 0%,#fff 77%,#fff 100%); /*for Opera*/
+	background:linear-gradient(to top,#e6e6e6 0%,#fff 77%,#fff 100%);
+}
+.header_center_search{ margin-top:5px}
+.header_center_search span.s_list{ float:left;height:41px; line-height:41px; width:60px; display:block; text-align:center; background:url(../images/search_list.png) 50px center no-repeat #1186cb;padding-right:12px; color:#fff; font-size:14px}
+.header_center_search span.s_list:hover{ background:url(../images/search_list_hover.png) 50px center no-repeat #1186cb;padding-right:12px; color:#ccf1fe;cursor:pointer}
+.header_center_search span.s_content{ float:left;height:35px; line-height:35px;width:350px; display:block;  background:url(../images/fdj.jpg) 8px center no-repeat #fff;padding-right:12px; padding-left:38px;color:#666;font-size:14px; border:3px solid #1186cb}
+.header_center_search span.s_content input{ border:none;height:35px; line-height:35px;height:34px\9; line-height:34px\9;width:362px; padding:0}
+.header_center_search span.s_btn{ float:left;height:41px; line-height:41px; width:60px; display:block; text-align:center;  color:#fff; font-size:14px}
+.header_center_search span.s_btn{
+    background:-moz-radial-gradient(ellipse,#15a1e0 0%,#1691d9 65%,#1186cb 100%);   /*for Firefox*/
+	background:-webkit-radial-gradient(ellipse,#15a1e0 0%,#1691d9 65%,#1186cb 100%);   /*for Chrome &Safari*/
+	background:-o-radial-gradient(ellipse,#15a1e0 0%,#1691d9 65%,#1186cb 100%);   /*for Opera*/
+	background:radial-gradient(ellipse,#15a1e0 0%,#1691d9 65%,#1186cb 100%);
+	background:url(../images/search_bg.png) center no-repeat\9;   /*for IE8*/
+	}
+.header_center_search span.s_btn:hover{ background: #1186cb; color:#ccf1fe;cursor:pointer}
+.header_hotsearch{ margin-top:10px; max-width:535px; height:20px; overflow:hidden}
+.header_hotsearch a{ margin-right:20px}
+
+.header_right a.orderset{ float:left; background:url(../images/dd.png) no-repeat; width:71px; height:52px; display:inline-block}
+.header_right a.orderset:hover{ background:url(../images/dd_hover.png) no-repeat}
+.header_right a.orderchart{ float:left; background:url(../images/gwc.png) no-repeat; width:100px; height:52px; display:inline-block}
+.header_right a.orderchart:hover{ background:url(../images/gwc_hover.png) no-repeat}
+.header_right a.orderchart span{ line-height:35px;color:#fff; padding-left:55px; width:35px; height:26px; text-overflow:ellipsis; overflow:hidden;font-size:12px;display:block}
+
+.header_bottom_menu,.footer_center_menu{ width:100%; height:40px; padding-top:2px; display:block}
+.header_bottom_menu,.footer_center_menu{
+    background:url(../images/menu_bg.png) 0 0 repeat-x;    /*for Safari*/
+    background:-moz-linear-gradient(to bottom,#02a0eb ,#1186cb);   /*for Firefox*/
+	background:-webkit-linear-gradient(to bottom,#02a0eb ,#1186cb);   /*for Chrome*/
+	background:-o-linear-gradient(to bottom,#02a0eb ,#1186cb);   /*for Opera*/
+	background:linear-gradient(to bottom,#02a0eb ,#1186cb);
+	background:url(../images/menu_bg.png) 0 0 repeat-x\9;   /*for IE8*/
+	}
+.header_menu a{ display:block; float:left; width:auto; height:40px; padding:0 25px; color:#fff; line-height:36px; text-align:center; text-shadow:1px 1px 0 #02669c; font-size:18px }
+.header_menu a:hover{ color:#000; text-shadow:none}
+.header_menu a:hover{
+    background:url(../images/menu_bg_hover.png) 0 0 repeat-x;    /*for Safari*/
+	background:-moz-linear-gradient(to bottom,#fff ,#f3f3f3);   /*for Firefox*/
+	background:-webkit-linear-gradient(to bottom,#fff ,#f3f3f3);   /*for Chrome*/
+	background:-o-linear-gradient(to bottom,#fff ,#f3f3f3);   /*for Opera*/
+	background:linear-gradient(to bottom,#fff ,#f3f3f3);
+	background:url(../images/menu_bg_hover.png) 0 0 repeat-x\9;   /*for IE8*/
+}
+
+/*footer*/
+.footer_top_message{ width:100%; background:#eee; padding:20px 0}
+.footer_top_message li{ float:left; width:auto;padding:0 95px; border-right:1px solid #d0cece}
+.footer_top_message li.last{ border-right:none}
+.footer_top_message_caption{ font-weight:bold;margin-bottom:5px}
+.footer_top_message_details{ display:block;font-size:12px; line-height:25px}
+.footer_center_menu a{ display:block; float:left; width:auto; height:40px; padding:0 25px; color:#fff; line-height:36px; text-align:center; text-shadow:1px 1px 0 #02669c; font-size:18px }
+.footer_center_menu a:hover{ color:#ccf1fe; cursor:pointer}
+.footer_bottom{ padding:15px 0 5px;text-align:center}
+.footer_bottom_up{ font-size:12px; font-style:normal}
+.footer_bottom_up a{ padding:0 5px}
+.footer_bottom_down{ margin-top:15px}
+.footer_bottom_down a{ margin-right:15px; border:1px solid #e4e4e4; width:127px; height:50px; display:inline-block}
+
+/*leftbar 左侧悬浮导航*/
+.leftbar{ position:fixed; top:31%; left:17%;width:67px; height:602px}
+.leftbar_line{ background:url(../images/leftbar_nav.png) 0 -67px no-repeat; width:67px; height:10px;display:block}
+.leftbar_list{ background:url(../images/leftbar_nav.png)  no-repeat; width:67px; height:67px; display:block}
+.leftbar_list:hover{ background:url(../images/leftbar_nav_hover.png)  no-repeat; width:67px; height:67px; display:block}
+.leftbar_list01{ background-position:0 0}
+.leftbar_list01:hover{ background-position:0 0}
+.leftbar_list02{ background-position:0 -77px}
+.leftbar_list02:hover{ background-position:0 -77px}
+.leftbar_list03{ background-position:0 -153px}
+.leftbar_list03:hover{ background-position:0 -153px}
+.leftbar_list04{ background-position:0 -230px}
+.leftbar_list04:hover{ background-position:0 -230px}
+.leftbar_list05{ background-position:0 -306px}
+.leftbar_list05:hover{ background-position:0 -306px}
+.leftbar_list06{ background-position:0 -382px}
+.leftbar_list06:hover{ background-position:0 -382px}
+.leftbar_list07{ background-position:0 -459px}
+.leftbar_list07:hover{ background-position:0 -459px}
+.leftbar_list08{ background-position:0 -536px}
+.leftbar_list08:hover{ background-position:0 -536px}
+
+/*rightbar 右侧悬浮按钮*/
+.rightbar{ position:fixed; top:75%; right:18%;width:52px; height:208px}
+.rightbar_list{ background:url(../images/rightbar.png)  no-repeat; width:52px; height:52px; display:block}
+.rightbar_list:hover{ background:url(../images/rightbar_hover.png)  no-repeat; width:52px; height:52px; display:block}
+.rightbar_list01{ background-position:0 0}
+.rightbar_list01:hover{ background-position:0 0}
+.rightbar_list02{ background-position:0 -52px}
+.rightbar_list02:hover{ background-position:0 -52px}
+.rightbar_list span{ font-size:10px; color:#fff; padding:7px 0 0 22px; display:inline-block;max-width:27px; height:13px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap}
+.rightbar_list03{ background-position:0 -104px}
+.rightbar_list03:hover{ background-position:0 -104px}
+.rightbar_list04{ background-position:0 -156px}
+.rightbar_list04:hover{ background-position:0 -156px}
+
+/* right_listbar 右侧悬浮菜单 */
+.right_listbar{ width:45px; height:100%; position:fixed; right:0; top:0; z-index:99999; background:#444851}
+.right_listbar_up{ position:absolute; top:2%; right:0; width:45px}
+.right_listbar_down{ position:absolute; bottom:0; right:0; width:45px}
+.right_listbar li a{ background:url(../images/right_listbar.png)  no-repeat; width:45px; height:45px; display:block; margin-bottom:10px}
+.right_listbar li a:hover{ background:url(../images/right_listbar.png) no-repeat #1186cb; width:45px; height:45px; display:block}
+.right_listbar li a.list01{ background-position:0 0}
+.right_listbar li a.list02{ background-position:-45px 0}
+.right_listbar li a.list03{ background-position:0 -45px}
+.right_listbar li a.list04{ background-position:-45px -45px}
+.right_listbar li a.list05{ background-position:0 -90px}
+.right_listbar li a.list06{ background-position:0 -225px; color:#fff; padding-top:94px; font-size:12px; text-align:center; text-overflow:ellipsis; white-space:nowrap; overflow:hidden}
+.right_listbar li a.list06:hover{ background-position:-45px -225px; color:#fff}
+.right_listbar li a.list07{ background-position:0 -180px}
+.right_listbar li a.list08{ background-position:0 -135px}
+.right_listbar li a.list09{ background-position:-45px -135px}
+.right_listbar li a.list10{ background-position:-45px -90px}
+
+/*分页*/
+.rangpage{ margin:15px auto; padding-left:200px}
+.rangpage a{ display:inline-block;padding:3px 12px; margin-right:10px; background:#f3f3f3; border:1px solid #c6c6c6; text-align:center}
+.rangpage a:hover{border-color:#1186cb; color:#fff;
+    background:-moz-radial-gradient(ellipse,#15a1e0 0%,#1691d9 65%,#1186cb 100%);   /*for Firefox*/
+	background:-webkit-radial-gradient(ellipse,#15a1e0 0%,#1691d9 65%,#1186cb 100%);   /*for Chrome &Safari*/
+	background:-o-radial-gradient(ellipse,#15a1e0 0%,#1691d9 65%,#1186cb 100%);   /*for Opera*/
+	background:radial-gradient(ellipse,#15a1e0 0%,#1691d9 65%,#1186cb 100%);
+	background:url(../images/search_bg.png) center repeat\9;   /*for IE8*/
+}
+.rangpage a.first,.rangpage a.last{ filter:alpha(opacity=50); -moz-opacity:0.5; opacity:0.5}
+.rangpage a.first:hover,.rangpage a.last:hover{ cursor:default; background:#f3f3f3; border:1px solid #c6c6c6; color:#333}
+
+/*评论&回复*/
+.score{margin:10px 0; display:block}
+.score_show{ margin-bottom:6px}
+.score_show span{ margin-right:15px}
+.score strong{ font-weight:normal; color:#f00}
+.score_show span ul{ display:inline-block; vertical-align:middle}
+.score_show span li{ display:inline-block; width:17px; height:16px; overflow:hidden;margin-right:3px; background:url(../images/pingfen.png) no-repeat 0 0;background-clip:border-box}
+.score_show span li:hover{ background:url(../images/pfeng_02.png) no-repeat 0 0; background-clip:content-box; cursor:pointer}
+.score textarea{ border:1px solid #e7e7e7; height:150px; width:97%; font:normal 14px "微软雅黑","宋体","arial Narrow"; color:#666; padding:8px}
+.score_show_bottom{ margin-top:10px}
+.score_show_bottom .floaleft{ float:left; width:auto}
+.score_show_bottom .floaright{ float:right; width:auto}
+.score_show_bottom label{ height:30px; margin-right:15px}
+.score_show_bottom input{margin-right:8px;margin-right:6px\9; vertical-align:middle; border:none\9}
+.score_show_bottom a.filedate{ background:#f4f3f3; margin-right:8px; border:1px solid #c4c4c4; color:#333; padding:1px 10px; width:80px; height:25px; line-height:25px; text-align:center}
+.score_show_bottom a.filedate:hover{ background:#ddd}
+.score_show_bottom input.subm{ background:#f00; color:#fff; border:none; padding:1px 15px; height:25px;text-align:center}
+.score_show_bottom input.subm:hover{ background:#eb0101; cursor:pointer}

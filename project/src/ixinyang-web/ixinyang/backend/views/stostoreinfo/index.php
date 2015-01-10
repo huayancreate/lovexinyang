@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => '店铺信息申请',
                 'content' => 
                     '<div data-pjax="true" style="border:1px solid #ccc;border-top:0px;padding:15px;">'.
-                        $this->render('../shopinforeview/index',['dataProvider'=>$shoInforeViewData]).
+                        $this->render('../shop-info-review/index',['dataProvider'=>$shoInforeViewData]).
                     '</div>',
             ],
         ],

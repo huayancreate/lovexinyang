@@ -15,19 +15,20 @@ use backend\models\StoStoreInfo;
 /**
  * ShopinforeviewController implements the CRUD actions for ShopInfoReview model.
  */
-class ShopinforeviewController extends Controller
+class ShopinforeviewController extends BackendController
 {
-    /*public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }*/
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
+
 
     /**
      * Lists all ShopInfoReview models.
