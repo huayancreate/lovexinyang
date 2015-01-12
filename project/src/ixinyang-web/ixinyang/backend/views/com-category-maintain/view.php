@@ -12,9 +12,6 @@ $this->params['breadcrumbs'][] = ['label' => '类别维护', 'url' => ['index']]
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="com-category-maintain-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [

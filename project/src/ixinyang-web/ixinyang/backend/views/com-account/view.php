@@ -11,9 +11,6 @@ $this->params['breadcrumbs'][] = ['label' => '账号管理', 'url' => ['create']
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="com-account-view">
-
-    <h4><?= Html::encode($this->title) ?></h4>
-
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -23,23 +20,23 @@ $this->params['breadcrumbs'][] = $this->title;
             'sex',
             'phoneNumber',
             [
-                'attribute'=>'角色',
-                'format'=>'raw',   
-                'value' =>$role,
+                'attribute' => '角色',
+                'format' => 'raw',
+                'value' => $role,
             ],
             'email:email',
             'address',
             [
-                'attribute'=>'accountStatus',
-                'format'=>'raw',   
-                'value' =>$model->accountStatus==1?'有效':'无效',  
+                'attribute' => 'accountStatus',
+                'format' => 'raw',
+                'value' => $model->accountStatus == 1 ? '有效' : '无效',
             ],
             [
-                'attribute'=>'isFirstLogin',
-                'format'=>'raw',   
-                'value' =>$model->isFirstLogin==1?'是':'否',  
+                'attribute' => 'isFirstLogin',
+                'format' => 'raw',
+                'value' => $model->isFirstLogin == 1 ? '是' : '否',
             ],
-            'createTime', 
+            'createTime',
             'updateTime',
         ],
     ]) ?>

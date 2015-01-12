@@ -12,8 +12,6 @@ $this->title = 'App 广告推送';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ad-push-message-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>

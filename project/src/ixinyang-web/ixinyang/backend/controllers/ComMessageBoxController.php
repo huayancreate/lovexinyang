@@ -12,19 +12,19 @@ use yii\filters\VerbFilter;
 /**
  * ComMessageBoxController implements the CRUD actions for ComMessageBox model.
  */
-class ComMessageBoxController extends Controller
+class ComMessageBoxController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+//    public function behaviors()
+//    {
+//        return [
+//            'verbs' => [
+//                'class' => VerbFilter::className(),
+//                'actions' => [
+//                    'delete' => ['post'],
+//                ],
+//            ],
+//        ];
+//    }
 
     /**
      * Lists all ComMessageBox models.
