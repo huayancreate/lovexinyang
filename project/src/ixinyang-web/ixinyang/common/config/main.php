@@ -8,7 +8,9 @@ return [
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
-            'log' => [
+
+        ],
+                    'log' => [
                 'targets' => [
                     'file' => [
                         'class' => 'yii\log\FileTarget',
@@ -17,7 +19,6 @@ return [
                     ],
                 ],
             ],
-        ],
     ],
     'timeZone' => 'Asia/Chongqing',
 ];
