@@ -12,8 +12,6 @@ $this->title = '会员消息推送';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="com-message-box-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>

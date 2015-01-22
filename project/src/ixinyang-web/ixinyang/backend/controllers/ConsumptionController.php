@@ -16,6 +16,7 @@ use yii\filters\VerbFilter;
  */
 class ConsumptionController extends BackendController
 {
+
     // public function behaviors()
     // {
     //     return [
@@ -27,6 +28,7 @@ class ConsumptionController extends BackendController
     //         ],
     //     ];
     // }
+
 
     /**
      * Lists all CusConsumptionRecords models.

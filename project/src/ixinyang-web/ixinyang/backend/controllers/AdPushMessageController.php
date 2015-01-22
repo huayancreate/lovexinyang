@@ -13,19 +13,19 @@ use yii\filters\VerbFilter;
 /**
  * AdPushMessageController implements the CRUD actions for AdPushMessage model.
  */
-class AdPushMessageController extends Controller
+class AdPushMessageController extends BackendController
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+//    public function behaviors()
+//    {
+//        return [
+//            'verbs' => [
+//                'class' => VerbFilter::className(),
+//                'actions' => [
+//                    'delete' => ['post'],
+//                ],
+//            ],
+//        ];
+//    }
 
     /**
      * Lists all AdPushMessage models.
@@ -129,15 +129,16 @@ class AdPushMessageController extends Controller
 
     public function actionSend()
     {
-        $msg = "";
+        //$msg = "";
         $model = new AdPushMessage();
         $model->sendMessage();
-        if (count($model->getErrors()) > 0) {
-            $msg = '{"msg":"error"}';
-        } else {
-            $msg = '{"msg":"success"}';
-        }
-        return $msg;
+        //if (count($model->getErrors()) > 0) {
+        //    $msg = '{"msg":"error"}';
+        //} else {
+        //    $msg = '{"msg":"success"}';
+        //}
+        //return $msg;
+        return count($model->getErrors()) > 0 ? '{"msg":"error"}' : '{"msg":"success"}';
     }
 
     public function actionGetCounty($cityId)

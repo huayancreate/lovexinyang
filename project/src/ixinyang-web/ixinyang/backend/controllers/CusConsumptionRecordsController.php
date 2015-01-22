@@ -22,6 +22,7 @@ use backend\models\StoStoreInfo;
  */
 class CusConsumptionRecordsController extends BackendController
 {
+
     // public function behaviors()
     // {
     //     return [
@@ -33,6 +34,7 @@ class CusConsumptionRecordsController extends BackendController
     //         ],
     //     ];
     // }
+
 
     /**
      * Lists all CusConsumptionRecords models.

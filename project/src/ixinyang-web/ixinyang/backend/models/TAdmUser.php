@@ -3,7 +3,9 @@
 namespace backend\models;
 
 use Yii;
+
 use yii\web\IdentityInterface;
+
 
 /**
  * This is the model class for table "t_adm_user".
@@ -11,12 +13,19 @@ use yii\web\IdentityInterface;
  * @property integer $id
  * @property string $username
  * @property string $password
+ * @property string $password_repeat
+ * @property string $verifyCode
  * @property string $userphoto
+ * @property string $nickName
+ * @property string $validity
+ * @property integer $flag
  */
+
 class TAdmUser extends \yii\db\ActiveRecord implements IdentityInterface
 {
     public $password_repeat;
     public $verifyCode;
+
     /**
      * @inheritdoc
      */
@@ -31,12 +40,17 @@ class TAdmUser extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
+
+            [['flag'], 'integer'],
+            [['verifyCode', 'nickName'], 'string', 'max' => 50],
+            [['validity'], 'string', 'max' => 2],
             ['username','unique'],
             [['username', 'password'], 'required'],
             [['password_repeat'],'required','on'=>['create','chgpwd']],
             ['verifyCode','captcha','on'=>['create','chgpwd']],
             [['username', 'password', 'userphoto'], 'string', 'max' => 255],
             ['password_repeat','compare','compareAttribute'=>'password']
+
         ];
     }
 
@@ -52,8 +66,15 @@ class TAdmUser extends \yii\db\ActiveRecord implements IdentityInterface
             'password_repeat'=>'重复密码',
             'verifyCode'=>'验证码',
             'userphoto'=>'用户头像',
+            'nickName' => '用户昵称',
+            'validity' => '是否有效',
+            'flag' => '标识',
         ];
     }
+
+            
+        
+    
     public function beforeSave($insert)
     {
         if($this->isNewRecord || $this->password!=$this->oldAttributes['password'])
@@ -100,3 +121,4 @@ class TAdmUser extends \yii\db\ActiveRecord implements IdentityInterface
         return $authKey===$this->getAuthKey();
     }
 }
+

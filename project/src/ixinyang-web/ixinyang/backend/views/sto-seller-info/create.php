@@ -11,9 +11,6 @@ $this->params['breadcrumbs'][] = ['label' => 'Sto Seller Infos', 'url' => ['inde
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="sto-seller-info-create">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>

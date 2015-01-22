@@ -12,9 +12,6 @@ $this->params['breadcrumbs'][] = ['label' => $model->nickname, 'url' => ['view',
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="com-account-update">
-
-    <h4><?= Html::encode($this->title) ?></h4>
-      
     <?= $this->render('_form', [
         'model' => $model,'role'=>$role,'roles'=>$roles,
         'roleId'=>$roleId,

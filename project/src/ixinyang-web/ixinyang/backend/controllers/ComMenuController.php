@@ -26,8 +26,6 @@ class ComMenuController extends BackendController
     //     ];
     // }
    
-
-   
     /**
      * Lists all ComMenu models.
      * @return mixed
@@ -59,32 +57,22 @@ class ComMenuController extends BackendController
     }
 
 
-    public function actionAdd($id)
+    public function actionAdd($id,$flag)
     {
         $model = new ComMenu();
         if ($model->load(Yii::$app->request->post())) {
-              if ($model->validate()) {
-                      $parentMenuIdHdn=$_POST["parentMenuIdHdn"];
-                      $model->parentMenuId=$parentMenuIdHdn;
-                      $model->createTime=date("Y-m-d H:i:s");
-                      $model->save();
-
-                      //数据验证成功
-                      $message=$model->getErrors();
-                      $message["success"]=True;
-                      return json_encode($message);
-                }
-                else{
-                       //数据验证失败
-                      $message=$model->getErrors();
-                      $message["success"]=False;
-                      return json_encode($message);
-                }
+             if ($model->validate()) {
+                 $parentMenuIdHdn=$_POST["parentMenuIdHdn"];
+                  $model->parentMenuId=$parentMenuIdHdn;
+                  $model->createTime=date("Y-m-d H:i:s");
+                  $model->save();
+             }
+            return $this->redirect("index.php?r=com-menu/index");
         }
         else{
                 $model->isValid='1';
                 $model->id=$id;
-                return $this->renderPartial('add',['model'=>$model]); 
+                return $this->renderAjax('add',['model'=>$model,'flag'=>$flag]); 
         }
         
     }
@@ -109,7 +97,7 @@ class ComMenuController extends BackendController
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id)
+    public function actionUpdate($id,$flag)
     {
         $model = $this->findModel($id);   
 
@@ -134,7 +122,7 @@ class ComMenuController extends BackendController
         else {
              $model->id=$id;
             return $this->renderPartial('update', [
-                'model' => $model,
+                'model' => $model,'flag'=>$flag
             ]);
         }
     }

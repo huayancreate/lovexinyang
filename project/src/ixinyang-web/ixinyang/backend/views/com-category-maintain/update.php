@@ -11,9 +11,6 @@ $this->params['breadcrumbs'][] = ['label' => $model->categoryName, 'url' => ['vi
 $this->params['breadcrumbs'][] = '修改';
 ?>
 <div class="com-category-maintain-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <?= $this->render('_form', [
         'model' => $model,
         'category' => $category,

@@ -20,7 +20,7 @@ use yii\jui\Dialog;
 
        <div class="line-height">
          <?= $rootModel->menuName ?>
-         <input type="button" class="btn btn-success" id="add_<?=$rootModel->id ?>" name="add_<?=$rootModel->id ?>" value="添加" onclick="addMenu(<?=$rootModel->id ?>)">
+         <input type="button" class="btn btn-success" id="add_<?=$rootModel->id ?>" name="add_<?=$rootModel->id ?>" value="添加" onclick="addMenu(<?=$rootModel->id ?>,0)">
        </div>
 
         <?php
@@ -42,9 +42,9 @@ use yii\jui\Dialog;
          <?php if ($firstLevelModel->isValid==1) {?>
           <?= $firstLevelModel->menuName ?>
           <div class="right">
-               <input type="button" class="btn btn-success" id="add_<?=$firstLevelModel->id ?>" name="add_<?=$firstLevelModel->id ?>" value="添加" onclick="addMenu(<?=$firstLevelModel->id ?>)"> 
+               <input type="button" class="btn btn-success" id="add_<?=$firstLevelModel->id ?>" name="add_<?=$firstLevelModel->id ?>" value="添加" onclick="addMenu(<?=$firstLevelModel->id ?>,1)"> 
              
-               <input type="submit" class="btn btn-primary" id="update_<?=$firstLevelModel->id ?>" name="update_<?=$firstLevelModel->id ?>" value="修改" onclick="updateMenu(<?=$firstLevelModel->id ?>)">
+               <input type="submit" class="btn btn-primary" id="update_<?=$firstLevelModel->id ?>" name="update_<?=$firstLevelModel->id ?>" value="修改" onclick="updateMenu(<?=$firstLevelModel->id ?>,1)">
                 
                  <?= Html::a('作废', ['delete', 'id' =>$firstLevelModel->id,'isValid'=>$model->isValid], [
                     'class' => 'btn btn-danger',
@@ -57,9 +57,9 @@ use yii\jui\Dialog;
          <?php }  else { ?>
            <div class="graycss"> <?= $firstLevelModel->menuName ?> 
            <div class="right">
-           <input type="button" class="btn btn-success" id="add_<?=$firstLevelModel->id ?>" name="add_<?=$firstLevelModel->id ?>" value="添加" onclick="addMenu(<?=$firstLevelModel->id ?>)" disabled="true"> 
+           <input type="button" class="btn btn-success" id="add_<?=$firstLevelModel->id ?>" name="add_<?=$firstLevelModel->id ?>" value="添加" onclick="addMenu(<?=$firstLevelModel->id ?>,1)" disabled="true"> 
          
-           <input type="submit" class="btn btn-primary" id="update_<?=$firstLevelModel->id ?>" name="update_<?=$firstLevelModel->id ?>" value="修改" onclick="updateMenu(<?=$firstLevelModel->id ?>)" disabled="true">
+           <input type="submit" class="btn btn-primary" id="update_<?=$firstLevelModel->id ?>" name="update_<?=$firstLevelModel->id ?>" value="修改" onclick="updateMenu(<?=$firstLevelModel->id ?>,1)" disabled="true">
              
               <?= Html::a('作废', ['delete', 'id' =>$firstLevelModel->id,'isValid'=>$model->isValid], [
                 'class' => 'btn btn-danger',
@@ -106,7 +106,7 @@ use yii\jui\Dialog;
                                <?= $secondLevelModel->menuName ?>
                               
                                <div style="float:right">
-                                  <input type="button" class="btn btn-primary" id="update_<?=$secondLevelModel->id ?>" name="update_<?=$secondLevelModel->id ?>" value="修改" onclick="updateMenu(<?=$secondLevelModel->id ?>)">
+                                  <input type="button" class="btn btn-primary" id="update_<?=$secondLevelModel->id ?>" name="update_<?=$secondLevelModel->id ?>" value="修改" onclick="updateMenu(<?=$secondLevelModel->id ?>,2)">
                                         <?= Html::a('作废', ['delete', 'id' =>$secondLevelModel->id,'isValid'=>$model->isValid], [
                                              'class' => 'btn btn-danger',
                                              'data' => [
@@ -119,7 +119,7 @@ use yii\jui\Dialog;
                               <?php }  else { ?>
                               <div class="graycss"> <?= $secondLevelModel->menuName ?>
                                 <div class="right">
-                                    <input type="button" class="btn btn-primary" id="update_<?=$secondLevelModel->id ?>" name="update_<?=$secondLevelModel->id ?>" value="修改" onclick="updateMenu(<?=$secondLevelModel->id ?>)" disabled="true">
+                                    <input type="button" class="btn btn-primary" id="update_<?=$secondLevelModel->id ?>" name="update_<?=$secondLevelModel->id ?>" value="修改" onclick="updateMenu(<?=$secondLevelModel->id ?>,2)" disabled="true">
                                           <?= Html::a('作废', ['delete', 'id' =>$secondLevelModel->id,'isValid'=>$model->isValid], [
                                                'class' => 'btn btn-danger',
                                                'data' => [
@@ -128,13 +128,16 @@ use yii\jui\Dialog;
                                                ],
                                                'disabled'=>true,
                                           ]) ?>
-                                    <?= Html::a('激活', ['active', 'id' =>$secondLevelModel->id,'isValid'=>$model->isValid], [
+                                  <?php if ($firstLevelModel->isValid==1): ?>
+                                     <?= Html::a('激活', ['active', 'id' =>$secondLevelModel->id,'isValid'=>$model->isValid], [
                                       'class' => 'btn btn-danger',
                                       'data' => [
                                           'confirm' => '确定激活该菜单吗?',
                                           'method' => 'post',
                                        ],
                                      ])  ?> 
+                                  <?php endif ?>
+                                   
                                 </div>
                                </div>
                               <?php }   ?>
@@ -170,10 +173,10 @@ use yii\jui\Dialog;
 </style>
 <script type="text/javascript">
 
-function addMenu(id)
+function addMenu(id,flag)
 {
   //var isValidDropStr=$("#isValidDrop").val();
-  getLoadInfo(id);
+  getLoadInfo(id,flag);
   $("#dialogId").dialog("open");
         $("#dialogId").dialog({
                 autoOpen:false,
@@ -197,30 +200,30 @@ function addMenu(id)
           });
     
 }
-function getLoadInfo(id){
+function getLoadInfo(id,flag){
      $.ajax({
          type:"post",
-         url:"index.php?r=com-menu%2Fadd&id="+id,
+         url:"index.php?r=com-menu%2Fadd&id="+id+"&flag="+flag,
          success:function(data) {
             $("#dialogId").html(data);
          }
        });
 }
 
-function getUpdateInfo(id){
+function getUpdateInfo(id,flag){
      $.ajax({
          type:"post",
-         url:"index.php?r=com-menu%2Fupdate&id="+id,
+         url:"index.php?r=com-menu%2Fupdate&id="+id+"&flag="+flag,
          success:function(data) {
             $("#dialogId").html(data);
          }
        });
 }
 
-function updateMenu(id)
+function updateMenu(id,flag)
 {
  //var isValidDropStr=$("#isValidDrop").val();
-  getUpdateInfo(id);
+  getUpdateInfo(id,flag);
   $("#dialogId").dialog("open");
         $("#dialogId").dialog({
                 autoOpen:false,

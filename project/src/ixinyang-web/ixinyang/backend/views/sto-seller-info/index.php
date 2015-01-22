@@ -12,8 +12,6 @@ $this->title = '财务数据';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="sto-seller-info-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?php

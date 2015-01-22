@@ -17,9 +17,7 @@ use yii\web\JqueryAsset;
 $this->title = '录入新工号';
 $this->params['breadcrumbs'][] = '账号管理';
 ?>
-
     <div class="com-category-maintain-index">
-        <h1><?= Html::encode($this->title) ?></h1>
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
         <p>
             <?= Html::a('创建账号', 'javascript:void(0)', ['class' => 'btn btn-success', 'onClick' => 'View("创建账号","com-account/create")']) ?>
@@ -106,6 +104,6 @@ $this->params['breadcrumbs'][] = '账号管理';
         }
     </script>
 <?php
-$this->registerJsFile(Yii::$app->urlManager->baseUrl . '/js/bootstrap-multiselect.js', ['depends' => [JqueryAsset::className()]]);
 $this->registerCssFile(Yii::$app->urlManager->baseUrl . '/css/bootstrap-multiselect.css', []);
+$this->registerJsFile(Yii::$app->urlManager->baseUrl . '/js/bootstrap-multiselect.js', ['depends' => [JqueryAsset::className()]]);
 ?>

@@ -12,8 +12,6 @@ $this->title = '类别维护';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="com-category-maintain-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>

@@ -43,17 +43,24 @@ class Ad extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            // [['photoUrl'], 'file', 'extensions' => 'gif, jpg',],
              //去掉前后空格
-            [['mapLink','mapOrder','adName'],'trim'],
+            [['mapLink','mapOrder','adName'],'trim'],//, 'mapLocation'
             //必填
-            [['mapLink','mapOrder', 'startDate', 'endDate'],'required','message'=>'{attribute}不能为空'],
+            [['mapLink','mapOrder', 'startDate', 'endDate',],'required','message'=>'{attribute}不能为空'],
             [['mapLink','mapOrder'],'unique','message'=>'{attribute}已经存在'],
             [['createrId', 'mapOrder', 'mapLocation'], 'integer'],
             [['createTime', 'updateTime', 'endDate', 'startDate'], 'safe'],
             [['mapLink', 'adName', 'photoUrl'], 'string', 'max' => 200],
-            [['isValid'], 'string', 'max' => 1],
-            [['mapLink'],'url','message'=>'请输入正确的链接地址']
+            [['isValid','adType'], 'string', 'max' => 1],
+            [['mapLink'],'url','message'=>'请输入正确的链接地址'],
+            [['file'],'image',
+                      'maxHeight'=>1200,'overHeight'=>'图片超过了指定高度',
+                      'maxWidth'=>1200, 'overWidth'=>'图片超过了指定宽度',
+                      'maxSize'=>1024*1024*2,'tooBig'=>'图片过大',
+                      'skipOnError'=>0,
+                      'skipOnEmpty'=>0,
+                      'uploadRequired'=>'请上传文件！',
+            ],
         ];
     }
 
@@ -75,6 +82,8 @@ class Ad extends \yii\db\ActiveRecord
             'startDate' => '开始日期(有效期)',
             'isValid' => '是否有效',
             'photoUrl' => '广告图片',
+            'adType'=>'广告类型',
+            'file'=>'上传图片',
         ];
     }
 

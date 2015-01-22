@@ -34,14 +34,13 @@ class ComMenu extends \yii\db\ActiveRecord
             //去掉前后空格
             [['menuName','menuUrl'],'trim'],
             //菜单名称不能为空
-            [['menuName','menuUrl'],'required','message'=>'{attribute}不能为空'],
-             //检查菜单名是否重复
-            ['menuUrl','unique','message'=>'{attribute}已经存在'],
+            [['menuName'],'required','message'=>'{attribute}不能为空'],
             [['createTime', 'updateTime'], 'safe'],
             [['parentMenuId'], 'integer'],
             [['menuUrl'], 'string', 'max' => 200],
             [['menuName'], 'string', 'max' => 50],
-            [['isValid'], 'string', 'max' => 1]
+            [['isValid'], 'string', 'max' => 1],
+            [['menuUrl'],'url','message'=>'请输入正确的链接地址']
         ];
     }
 
