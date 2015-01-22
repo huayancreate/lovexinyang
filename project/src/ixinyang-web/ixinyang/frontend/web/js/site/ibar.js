@@ -64,115 +64,6 @@ define('ibar-faq', function (a, b, c) {
     },
         c.exports = f
 }),
-    define('ibar-history', function (a, b, c) {
-        var d = {
-            init: function (a) {
-                var b = this;
-                b.getHistoryData(function (c) {
-                    b.renderHtml(c, a.container),
-                        b.clearHistory(),
-                        b.addCart()
-                })
-            },
-            getHistoryData: function (a) {
-                var b = RM_SITE_MAIN_WEBBASEURL + 'i/ajax/get_view_history?callback=?';
-                $.getJSON(b, null, function (b) {
-                    a.call(this, b)
-                })
-            },
-            renderHtml: function (a, b) {
-                var c = [
-                ];
-                if (c.push('<div class="ibar-moudle-wrap ibar_plugin" id="iBarHistroy">'), c.push('<h2 class="ibar_plugin_title"><span class="ibar_plugin_name">最近查看</span></h2>'), c.push('<div class="ibar_plugin_content">'), a && a.length > 0) {
-                    c.push('<div class="ibar-history-head">共' + a.length + '件商品<a href="javascript:;" id="ibar-btn-clearhistory">清空</a></div>'),
-                        c.push('<div class="ibar-moudle-product">');
-                    for (var d in a) {
-                        var e = a[d],
-                            f = e.short_name,
-                            g = e.type,
-                            h = e.deal_hash_id || '',
-                            i = e.product_id || '',
-                            j = e.url,
-                            k = e.image_100,
-                            l = (e.buyer_number, e.discounted_price),
-                            m = (e.discount, 'deal' == g ? h : i),
-                            g = 'deal' == g ? 'deal' : 'product';
-                        c.push('<div class="imp_item"><a href="' + j + '?from=ibar_view_recent_product" title="' + f + '" target="_blank" class="pic">'),
-                            c.push('<img src="' + k + '" width="100" height="100"/></a><p class="tit"><a href="' + j + '?from=ibar_view_recent_product" title="' + f + '" target="_blank">'),
-                            c.push(f + '</a></p><p class="price"><em>¥</em>' + l + '</p>'),
-                            c.push('<a href="javascript:;" target="_blnak" class="imp-addCart" key="' + m + '" type="' + g + '" img="' + k + '">加入购物车</a>'),
-                            c.push('<div class="sku_box"><select class="sku_select"><option value="0">型号选择</option></select></div></div>')
-                    }
-                    c.push('</div>')
-                } else c.push('<div class="ibar-his-none">您最近没有浏览过小美家商品<br/>亲，快去逛逛吧！</div>');
-                c.push('</div>'),
-                    c.push('</div>'),
-                    b.append(c.join(''))
-            },
-            clearHistory: function () {
-                $('#ibar-btn-clearhistory').bind('click', function () {
-                    $.getJSON(RM_SITE_MAIN_WEBBASEURL + 'i/deal/ajax_delete_history?callback=?', null, function () {
-                        $('#iBarHistroy .ibar_plugin_content').html('<div class="ibar-his-none">您最近没有浏览过小美家商品<br/>亲，快去逛逛吧！</div>')
-                    })
-                })
-            },
-            getSku: function (a, b) {
-                var c = 'http://www.' + RM_SITE_MAIN_TOPLEVELDOMAINNAME + '/i/ajax/get_sku_data';
-                $.ajax({
-                    url: c,
-                    data: a,
-                    type: 'get',
-                    dataType: 'jsonp',
-                    success: function (a) {
-                        b.call(this, $.parseJSON(a))
-                    }
-                })
-            },
-            addCart: function () {
-                var a = this,
-                    b = $('.imp-addCart');
-                b.click(function () {
-                    var b = $(this),
-                        c = b.attr('key'),
-                        d = b.attr('type'),
-                        e = b.attr('img'),
-                        f = b.next().find('.sku_select'),
-                        g = '';
-                    return a.getSku({
-                        id: c,
-                        type: d
-                    }, function (a) {
-                        var h = a.length,
-                            i = {
-                                elem: null,
-                                img: e,
-                                sku: null,
-                                hashid: 'product' == d ? '' : c,
-                                num: 1,
-                                from: getUrlArgs('from') + '|ibar_view_recent_cart_button'
-                            };
-                        if (1 == h) {
-                            var j = a[0].sku_sellable;
-                            if (0 == j) return b.html('已抢光').addClass('sold_out'),
-                                void 0;
-                            i.elem = b,
-                                i.sku = a[0].sku_no,
-                                Ixy.app.iBar.addCart(i)
-                        } else {
-                            for (var k in a) a[k].sku_sellable > 0 && (g += '<option value="' + a[k].sku_no + '">' + a[k].sku_attribute + '</option>');
-                            '' != g ? (b.hide(), f.append(g).show())  : b.addClass('sold_out').html('已抢光'),
-                                f.change(function () {
-                                    var a = $(this).val();
-                                    0 != a && (i.elem = f, i.sku = a, Ixy.app.iBar.addCart(i))
-                                })
-                        }
-                    }),
-                        !1
-                })
-            }
-        };
-        c.exports = d
-    }),
     define('ibar-favorite', function (a, b, c) {
         function d(a) {
             var b = a.onSale,
@@ -283,13 +174,13 @@ define('ibar-faq', function (a, b, c) {
                 return e
             },
             e = {
-                product: '聚美优品',
+                product: '爱生活',
                 media: '名品特卖',
                 global: {
                     name: '海外直邮',
                     group: !0
                 },
-                promo_cards: '聚美红包'
+                promo_cards: '爱生活红包'
             },
             f = [
                 'product',
@@ -682,7 +573,8 @@ define('ibar-fly', function (a, b) {
     b.main = function (a) {
         d.main(a)
     }
-}), define('gotop', [
+}),
+define('gotop', [
     'util'
 ], function (a) {
     a('util');
@@ -982,7 +874,7 @@ define('ibar-fly', function (a, b) {
             })
         }(Ixy.using('util'))
 }),
-define('ibar', [
+define('site/ibar', [
     'util',
     'gotop',
     'ibar-fly',
@@ -990,7 +882,6 @@ define('ibar', [
     'ibar-cart',
     'ibar-asset',
     'ibar-favorite',
-    'ibar-history',
     'ibar-faq'
 ], function (a) {
     'use strict';
@@ -1030,20 +921,13 @@ define('ibar', [
             iBarCart: a('ibar-cart'),
             iBarAsset: a('ibar-asset'),
             iBarFavorite: a('ibar-favorite'),
-            iBarHistroy: a('ibar-history'),
             iBarFaq: a('ibar-faq')
         },
         H = {
             zIndex: 9990,
-            compactWidth: 1050
-            //addCartAjaxUrl: 'http://cart.' + F + '/i/cart/ajax_add_to_cart'
+            compactWidth: 1050,
+            addCartAjaxUrl: BASEURL + '/index.php?r=cart/add&'
         },
-        I = [
-            '普通会员',
-            '黄金会员',
-            '白金会员',
-            '钻石会员'
-        ],
         J = !1,
         K = Ixy.util,
         L = K.throttle,
@@ -1083,7 +967,7 @@ define('ibar', [
                     + '<li class="mpbtn_favorite">' + '<a href="#" data-judgelogin="1" data-plugin="iBarFavorite"><s></s>我的收藏</a>'
                     + '<div class="mp_tooltip">我的收藏<s class="icon_arrow_right_black"></s></div>' + '</li>'
                     + '<li class="mpbtn_recharge">' + '<a href="#" data-plugin="iBarRecharge"><s></s><span class="text">会</span></a>' + '<div class="mp_tooltip">我的会员卡<s class="icon_arrow_right_black"></s></div>' + '</li>' + '</ul>'
-                    + '<ul class="ibar_mp_bottom">' + '<li class="mpbtn_qrcode">' + '<a href="#"><s></s>手机聚美</a>'
+                    + '<ul class="ibar_mp_bottom">' + '<li class="mpbtn_qrcode">' + '<a href="#"><s></s>手机爱生活</a>'
                     + '<div class="mp_qrcode"><img src="http://s0.jmstatic.com/templates/jumei/images/ibar/placeholder.png" data-lazysrc="http://s0.jmstatic.com/templates/jumei/images/ibar/qrcode.png" width="148" height="175" /><s class="icon_arrow_white"></s></div>' + '</li>'
                     + '<li class="mpbtn_gotop" id="gotop">' + '<a href="#" class="btn_gotop"><s></s>返回顶部</a>' + '<div class="mp_tooltip">返回顶部<s class="icon_arrow_right_black"></s></div>' + '</li>' + '</ul>' + '</div>'
                     + '<div class="ibar_login_box ' + e + '">' + '<div class="avatar_box">' + '<p class="avatar_imgbox"><img src="' + g + '" alt="头像" width="62" height="62" /></p>' + f + '</div>' + '<div class="login_btnbox">'
@@ -1158,20 +1042,17 @@ define('ibar', [
                     e = 'http://cart.' + F + '/i/cart/new_items/',
                     f = '',
                     g = 0;
-                if (a.multiple) {
-                    for (c = a.sku.length; c > g; g++) d = 0 === parseInt(a.hashid[g]) ? '' : a.hashid[g],
-                        f += a.sku[g] + ',' + d + ',' + a.num[g] + '|';
-                    f = f.slice(0, f.length - 1)
-                } else a.combt ? f = a.combt : (d = 0 === parseInt(a.hashid) ? '' : a.hashid, f = a.sku + ',' + d + ',' + a.num);
-                J ? window.location.href = e + f + '?from=' + a.from : $.ajax({
+                 $.ajax({
                     url: A,
                     data: {
                         _ajax_: 1,
                         items: f,
                         which_cart: a.which_cart,
+                        number: a.num,
+                        gid: a.gid,
                         from: a.from
                     },
-                    dataType: 'jsonp',
+                    dataType: 'json',
                     success: function (c) {
                         'success' === c.type ? (O = c.cart_item_number, a.callback(), b.trigger('likecartadd'))  : b.trigger('likecarterror', c)
                     },
@@ -1466,7 +1347,7 @@ define('ibar', [
                     top: '0px',
                     right: '0px'
                 }), b.css('display', 'block'),
-                    //A = a.addCartAjaxUrl,
+                    A = a.addCartAjaxUrl,
                     y = c.outerWidth(), z = g.outerWidth(),
                     S.initPluginLayout(),
                     void 0 !== window.__cartNumber__ && i.text(window.__cartNumber__), window.__initiBar__ = !0,
@@ -1495,11 +1376,12 @@ define('ibar', [
                 })
         };
     T.addCart = function (a) {
-        E && (E = !1, a.callback = function () {
-            S.addCartCallback(a)
-        }, S.getAddCartData(a), setTimeout(function () {
+        E && (E = !1,
+            a.callback = function () {S.addCartCallback(a)},
+            S.getAddCartData(a),
+            setTimeout(function () {
             E = !0
-        }, 2000))
+            }, 2000))
     },
         T.cartUpdate = function (a) {
             'function' == typeof a && Q.push(a)

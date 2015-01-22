@@ -2,11 +2,6 @@
  * Created by pan on 2014/12/26.
  */
 
-
-$('.carousel').carousel({
-    interval: 3000
-    });
-
 $("#content img").lazyload({
     threshold: 100,
     effect      : "fadeIn"
@@ -21,18 +16,6 @@ $(window).resize(function () {
     else
         $('#home_nav_bar').hide()
 }).trigger('resize');
-
-// seajs 的简单配置
-seajs.config({
-    base: "../web/js/site"
-});
-window.Ixy || (window.Ixy = new Object),
-seajs.use('ibar', function () {
-    new Ixy.app.iBar;
-});
-seajs.use('tbar', function () {
-    new Ixy.app.tBar;
-});
 
 $(window).on('scroll', function () {
     var sTop = $(window).scrollTop();

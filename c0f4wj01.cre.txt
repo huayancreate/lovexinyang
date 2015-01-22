@@ -1,0 +1,118 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch dev
+# Your branch and 'origin/dev' have diverged,
+# and have 1 and 4 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# Changes to be committed:
+#	modified:   .gitignore
+#	modified:   .idea/workspace.xml
+#	deleted:    "project/design/\351\235\231\346\200\201\351\241\265\351\235\242/\345\225\206\345\223\201\350\257\246\347\273\206\351\241\265.rar"
+#	new file:   project/src/ixinyang-web/ixinyang/common/statics/js/html5.js
+#	new file:   project/src/ixinyang-web/ixinyang/common/statics/js/jquery.placeholder.min.js
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/controllers/CartController.php
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/controllers/DetailController.php
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/controllers/OrderController.php
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/controllers/SearchController.php
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/controllers/SiteController.php
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/views/cart/cart.php
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/views/detail/goodsDetail.php
+#	renamed:    project/src/ixinyang-web/ixinyang/frontend/views/layouts/main.php -> project/src/ixinyang-web/ixinyang/frontend/views/layouts/level.php
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/views/layouts/main.php
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/views/layouts/null.php
+#	deleted:    project/src/ixinyang-web/ixinyang/frontend/views/layouts/toolbar.php
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/views/layouts/topbar.php
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/views/order/OrderDetails.php
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/views/order/chosepayment.php
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/views/order/myorders.php
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/views/order/paymentRusult.php
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/views/search/businessSearch.php
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/views/search/search.php
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/views/site/index.php
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/views/site/login.php
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/views/site/requestPasswordResetToken.php
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/views/site/signup.php
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/web/css/ProductSubpage.css
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/web/css/SearchPage.css
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/web/css/ShoppingCart_order.css
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/web/css/index.css
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/web/css/public.css
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/web/css/topbar.css
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/web/favicon.ico
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/web/images/banner2.jpg
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/web/images/logo.jpg
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/web/images/menu_bg.png
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/web/js/common/slide.js
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/web/js/detail/goods.js
+#	new file:   project/src/ixinyang-web/ixinyang/frontend/web/js/order/order.js
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/web/js/site/ibar.js
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/web/js/site/index.js
+#	modified:   project/src/ixinyang-web/ixinyang/frontend/web/js/site/tbar.js
+#
+# Untracked files:
+#	project/src/ixinyang-web/ixinyang/frontend/views/order/orderConfirm.php
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/OrderConfirmate_bg.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/OrderConfirmate_bg_hover.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_01.jpg
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_02.jpg
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_03.jpg
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_04.jpg
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_05.jpg
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_06.jpg
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_07.jpg
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_08.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_09.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_10.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_11.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_12.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_13.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_14.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_15.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_16.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_17.jpg
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/Payment_18.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/ShoppingCart01.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/SuccessfulPayment_03.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/action_botton.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/action_botton_hover.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/card.jpg
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/chart_menu.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/chart_menu1.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/chart_menu2.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/chart_menu3.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/chart_menu_hover.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/chongzhi_hover.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/cx.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/cx_hover.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/del_ico.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/del_ico_hover.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/ico06.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/ico06_hover.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/ico09.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/ico10.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/ico11.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/index_icons.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/next.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/next_hover.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/order_action.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/order_action_hover.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/order_confirmate.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/order_confirmate_hover.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/person_ico.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/person_ico_hover.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/photo.jpg
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/qx.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/qx_hover.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/search_list2.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/setted.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/setting_hover.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/slider.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/unset.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/wc.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/wc_hover.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/xiugai.png
+#	project/src/ixinyang-web/ixinyang/frontend/web/images/xiugai_hover.png
+#
+

@@ -6,17 +6,11 @@ use yii\helpers\Html;
 /* @var $model \common\models\LoginForm */
 
 ?>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="css/public.css" rel="stylesheet" type="text/css" />
     <link href="css/login_register.css" rel="stylesheet" type="text/css" />
     <link href="css/login.css" rel="stylesheet" type="text/css" />
-    <title>登录|爱生活</title>
-    <!--[if lt IE9]>
-    <script src="js/html5.js"></script>
-    <![endif]-->
     <link rel="stylesheet" href="<?=  Yii::$app->urlManager->baseUrl ?>/css/site.css">
-    <link rel="stylesheet" href="<?=  Yii::$app->urlManager->baseUrl ?>/assets/43cf4500/css/bootstrap.css">
+    <title>登录|爱生活</title>
 </head>
 <body style="background:url(<?=  Yii::$app->urlManager->baseUrl ?>/images/login_bg.png) no-repeat top center">
 <header class="top_title">
@@ -37,8 +31,6 @@ use yii\helpers\Html;
                         <div  class="alert alert-danger alert-dismissible" role="alert" style="padding: 0;">
                             <span class="glyphicon glyphicon-exclamation-sign help-block"><?php if($error!=null) { echo $error; } ?></span></div>
                     </div>
-
-
                     <div class="form-group">
                         <div class="col-xs-12">
                             <div class=" input-group">
@@ -53,7 +45,7 @@ use yii\helpers\Html;
                         <div class="col-xs-12">
                             <div class=" input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon glyphicon-lock"></span></span>
-                                <input type="password" class="form-control" placeholder="密码" id="password"  name="LoginForm[password]">
+                                <input type="password" class="form-control" placeholder="密码"  id="password"  name="LoginForm[password]">
                             </div>
                         </div>
                     </div>
@@ -101,7 +93,6 @@ use yii\helpers\Html;
             }
             ], []);
     });
-
     <?php $this->endBlock(); ?>
 </script>
 

@@ -1,12 +1,10 @@
 <?php $this->registerJsFile("assets/43cf4500/js/bootstrap.js"); ?>
-<?php $this->registerCssFile("css/topbar.css"); ?>
-<?php $this->registerCssFile("css/mei.css"); ?>
 <?php $this->registerJsFile("js/site/index.js"); ?>
 
 <?php
 if ($headAd !=null && $headAd!='') {
 ?>
-<div id="top_carousel" class="carousel slide header_top_add" data-ride="carousel">
+<div id="top_carousel" class="carousel slide header_top_add" data-ride="carousel" data-interval="3000">
     <ol class="top-carousel-indicators">
         <?php
         for ($i = 0; $i < count($headAd); $i++) {
@@ -33,85 +31,7 @@ if ($headAd !=null && $headAd!='') {
 }
 ?>
 <!--header_top_add  头部广告 end-->
-
-<div class="header_center_title">
-    <section class="wrap_content_box" id="topBar">
-        <?php
-        if (Yii::$app->user->isGuest) {
-            ?>
-            <div class="header_center_title_left">爱生活，每天多一点！<a href="<?= Yii::$app->urlManager->baseUrl?>/index.php?r=site/login"><b>请登录</b></a><i>|</i><span><a href="<?= Yii::$app->urlManager->baseUrl?>/index.php?r=site/signup"><b>快速注册</b></a></span></div>
-            <div class="header_center_title_right">
-                <span class="chart_ico">购物车<a href="#"><b>0</b></a>件</span><i>|</i>
-                <span class="sele_list"><a href="#">我的订单</a></span><i>|</i>
-                <a href="#">联系客服</a><i>|</i>
-                <a href="#">手机爱信阳</a>
-            </div>
-        <?php
-        }else{
-            ?>
-            <div class="header_center_title_left">欢迎您，<a href="#"><b><?= Yii::$app->user->identity->userName===null? Yii::$app->user->identity->userAccount : Yii::$app->user->identity->userName?></b></a>
-                <a data-method="post" href="<?= Yii::$app->urlManager->baseUrl?>/index.php?r=site/logout">退出</a><i>|</i>
-                 <a class="dropdown-toggle dropdown--open" data-plugin="tBarMsg" data-toggle="dropdown">
-                    <span class="dropdown-toggle"><i class="icon-envelope icon-animated-vertical"></i>
-                     消息 <span class="badge badge-success">12</span></span>
-                </a>
-            </div>
-            <div class="header_center_title_right">
-                <span class="chart_ico">购物车<a href="#"><b>129</b></a>件</span><i>|</i>
-                <span class="sele_list"><a href="#">我的订单</a></span><i>|</i>
-                <a href="#">联系客服</a><i>|</i>
-                <a href="#">手机爱信阳</a>
-            </div>
-        <?php
-        }
-        ?>
-        <div class="clearfloat"></div>
-    </section>
-</div>
-<!-- header_center_title 头部页眉  end-->
-
-<div class="header_center_content">
-    <section class="wrap_content_box">
-            <aside class="header_left">
-                <img src="images/logo.jpg" width="119" height="81" />
-                <div class="header_left_citylist">
-                    <span>信阳市</span>
-                </div>
-            </aside>
-            <article class="header_center">
-                <figure class="header_center_search">
-                    <span class="s_list">
-                        <span class="s_list">商品</span>
-                    </span>
-				<span class="s_content">
-				   <input type="search" list="search_list" autocomplete="on"  placeholder="请输入商品名称" />
-				</span>
-                    <span class="s_btn">搜索</span>
-                    <div class="clearfloat"></div>
-                    <figcaption class="header_hotsearch">热门搜索：<a href="#"><b>信阳美食团购</b></a><a href="#">信阳特产</a><a href="#"><b>宾馆</b></a><a href="#"><b>特色小吃</b></a><a href="#">旅游景点</a><a href="#">美食</a></figcaption>
-                </figure>
-            </article>
-            <!--<aside class="header_right"><a href="#" class="orderset"></a><a href="#" class="orderchart"><span>12999999</span></a><div class="clearfloat"></div></aside>-->
-            <div class="clearfloat"></div>
-        </section>
-    </div>
-    <!-- header_center_content 头部中间  end-->
-
-    <div class="header_bottom_menu">
-        <nav class="wrap_content_box  header_menu">
-            <a href="<?php Yii::$app->urlManager->baseUrl?>index.php?r=site/index">首页</a>
-            <a href="#">美食</a>
-            <a href="#">酒店/宾馆</a>
-            <a href="#">电影</a>
-            <a href="#">休闲娱乐</a>
-            <a href="#">旅游</a>
-            <a href="#">公益</a>
-            <div class="clearfloat"></div>
-        </nav>
-    </div>
-    <!-- header_bottom_menu 头部导航  end-->
-</header>
-<!--header  end-->
+<?php include '/../layouts/topbar.php';?>
 
 <section id="content">
 
@@ -119,7 +39,7 @@ if ($headAd !=null && $headAd!='') {
 <?php
 if ($scrollAd !=null && $scrollAd!='') {
 ?>
-<div id="carousel-generic" class="carousel slide banner" data-ride="carousel">
+<div id="carousel-generic" class="carousel slide banner" data-ride="carousel" data-interval="4000">
     <ol class="carousel-indicators">
         <?php
         for ($i = 0; $i < count($scrollAd); $i++) {
@@ -170,7 +90,7 @@ if ($scrollAd !=null && $scrollAd!='') {
                 for ($i = 1; $i <= count( $foodGoods); $i++) {
                     ?>
                     <li class="<?= $i%3 == 1 ? 'left_first':($i%3==0?'right_first':'center_first') ?>">
-                        <a  target="_blank" href="<?=$foodGoods[$i-1]->path ?>"><img class="lazy" src="images/grey.gif" data-original="<?=$foodGoods[$i-1]->shopImg?>"   />
+                        <a  target="_blank" href="<?= Yii::$app->urlManager->baseUrl?>/index.php?r=detail/index&goodsID=<?=$foodGoods[$i-1]->goodsID ?>"><img class="lazy" src="images/grey.gif" data-original="<?=$foodGoods[$i-1]->shopImg?>"   />
                         <figure class="food_list_texttop">
                             <figcaption class="food_name"><?=$foodGoods[$i-1]->name?></figcaption>
                             <p class="food_descrip"><?=$foodGoods[$i-1]->des?></p>
@@ -199,7 +119,7 @@ if ($scrollAd !=null && $scrollAd!='') {
                 for ($i = 1; $i <= count( $hotelGoods); $i++) {
                     ?>
                     <li class="<?=  $i%2==0?'right':'left'  ?>">
-                        <a  target="_blank" href="<?=$hotelGoods[$i-1]->path ?>"><img class="lazy" src="images/grey.gif" data-original="<?=$hotelGoods[$i-1]->shopImg?>"   />
+                        <a  target="_blank" href="<?= Yii::$app->urlManager->baseUrl?>/index.php?r=detail/index&goodsID=<?=$hotelGoods[$i-1]->goodsID ?>"><img class="lazy" src="images/grey.gif" data-original="<?=$hotelGoods[$i-1]->shopImg?>"   />
                             <figure class="hotel_list_textleft">
                                 <figcaption class="hotel_name"><?=$hotelGoods[$i-1]->name?></figcaption>
                                 <p class="hotel_descrip"><?=$hotelGoods[$i-1]->des?></p>
@@ -228,7 +148,7 @@ if ($scrollAd !=null && $scrollAd!='') {
                 for ($i = 1; $i <= count( $movieGoods); $i++) {
                     ?>
                     <li class="wrapbox">
-                        <a href="<?=$movieGoods[$i-1]->path ?>"><img class="lazy" src="images/grey.gif" data-original="<?=$movieGoods[$i-1]->shopImg?>" />
+                        <a href="<?= Yii::$app->urlManager->baseUrl?>/index.php?r=detail/index&goodsID=<?=$movieGoods[$i-1]->goodsID ?>"><img class="lazy" src="images/grey.gif" data-original="<?=$movieGoods[$i-1]->shopImg?>" />
                         <figure class="movie_list_textright">
                             <figcaption class="movie_name"><?=$movieGoods[$i-1]->name?></figcaption>
                             <p class="movie_descrip"><?=$movieGoods[$i-1]->des?></p>
@@ -257,7 +177,7 @@ if ($scrollAd !=null && $scrollAd!='') {
                 for ($i = 1; $i <= count( $entertainmentGoods); $i++) {
                     ?>
                     <li class="<?=  $i%2==0?'right':'left'  ?>">
-                        <a  target="_blank" href="<?=$entertainmentGoods[$i-1]->path ?>"><img class="lazy" src="images/grey.gif" data-original="<?=$entertainmentGoods[$i-1]->shopImg?>"   />
+                        <a  target="_blank" href="<?= Yii::$app->urlManager->baseUrl?>/index.php?r=detail/index&goodsID=<?=$entertainmentGoods[$i-1]->goodsID ?>"><img class="lazy" src="images/grey.gif" data-original="<?=$entertainmentGoods[$i-1]->shopImg?>"   />
                             <figure class="entertainment_list_textleft">
                                 <figcaption class="entertainment_name"><?=$entertainmentGoods[$i-1]->name?></figcaption>
                                 <p class="entertainment_descrip"><?=$entertainmentGoods[$i-1]->des?></p>
@@ -289,7 +209,7 @@ if ($scrollAd !=null && $scrollAd!='') {
                 for ($i = 1; $i <= count( $lifeserviceGoods); $i++) {
                     ?>
                     <li class="<?=  $i%2==0?'right':'left'  ?>">
-                        <a  target="_blank" href="<?=$lifeserviceGoods[$i-1]->path ?>"><img class="lazy" src="images/grey.gif" data-original="<?=$lifeserviceGoods[$i-1]->shopImg?>"   />
+                        <a  target="_blank" href="<?= Yii::$app->urlManager->baseUrl?>/index.php?r=detail/index&goodsID=<?=$lifeserviceGoods[$i-1]->goodsID ?>"><img class="lazy" src="images/grey.gif" data-original="<?=$lifeserviceGoods[$i-1]->shopImg?>"   />
                             <figure class="entertainment_list_textleft">
                                 <figcaption class="entertainment_name"><?=$lifeserviceGoods[$i-1]->name?></figcaption>
                                 <p class="entertainment_descrip"><?=$lifeserviceGoods[$i-1]->des?></p>
@@ -323,7 +243,7 @@ if  ($womenGoods !=null && $womenGoods!='') {
                 for ($i = 1; $i <= count( $womenGoods); $i++) {
                     ?>
                     <li class="<?= $i%3 == 1 ? 'left_first':($i%3==0?'right_first':'center_first') ?>">
-                        <a  target="_blank" href="<?=$womenGoods[$i-1]->path ?>"><img class="lazy" src="images/grey.gif" data-original="<?=$womenGoods[$i-1]->shopImg?>"   />
+                        <a  target="_blank" href="<?=  Yii::$app->urlManager->baseUrl?>/index.php?r=detail/index&goodsID=<?=$womenGoods[$i-1]->goodsID ?> "><img class="lazy" src="images/grey.gif" data-original="<?=$womenGoods[$i-1]->shopImg?>"   />
                             <figure class="food_list_texttop">
                                 <figcaption class="food_name"><?=$womenGoods[$i-1]->name?></figcaption>
                                 <p class="food_descrip"><?=$womenGoods[$i-1]->des?></p>

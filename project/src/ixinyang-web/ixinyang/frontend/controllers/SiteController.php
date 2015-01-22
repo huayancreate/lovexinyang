@@ -83,13 +83,12 @@ class SiteController extends Controller
     public function actionIndex()
     {
         //$this->layout= false;
-        $this->layout = 'toolbar.php';
         // 获取 头 广告
         $headAd = HttpTool::post_data('AdvAction','{"opeType":"getBannerList","type":"0"}');
         // 获取 滚动广告
         //$scrollAd = HttpTool::post_data('AdvAction','{"opeType":"getBannerList","type":"1"}');
         $scrollAd = json_decode('[{"type":0,"ID":"","img":"images/banner1.jpg","path":"http://www.meituan.com/tuijian/maoyan/131"},
-        {"type":0,"ID":"","img":"images/banner1.jpg","path":"http://www.meituan.com/tuijian/maoyan/131"}]');
+        {"type":0,"ID":"","img":"images/banner2.jpg","path":"http://www.meituan.com/tuijian/maoyan/131"}]');
         // 获取 商品类型
         //$type = HttpTool::post_data('{"opeType":"getBannerList","type":"0"}');
         //获取推荐商品
@@ -107,13 +106,7 @@ class SiteController extends Controller
         {"goodsID":1,"shopImg":"images/food01.jpg","name":"科颜氏黄瓜植物精华爽肤水 250ml","des":"护肤之行，始于补水！科颜氏黄瓜植物精华爽肤水 250ml，水到沁出来！","discountPrice":"40","salesNum":"300",
         "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"}]');
 
-        $movieGoods = HttpTool::post_data('GoodsAction','{"opeType":"getList","isSuggest":"1","typeID":2}');
-        $movieGoods = json_decode('[{"goodsID":1,"shopImg":"images/movie03.jpg","name":"变相黑侠","des":"剧情：1949年，架空当都市——帝都。这是一个延续了贵族制度的社会，贫富差距极大，帝都的富人中有九成是特权阶级。突然，帝都出现了一个以富人为目标、不断盗取艺术品和古董的怪盗。他有着","discountPrice":"40","salesNum":"300",
-        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
-        {"goodsID":1,"shopImg":"images/movie03.jpg","name":"变相黑侠","des":"剧情：1949年，架空当都市——帝都。这是一个延续了贵族制度的社会，贫富差距极大，帝都的富人中有九成是特权阶级。突然，帝都出现了一个以富人为目标、不断盗取艺术品和古董的怪盗。他有着","discountPrice":"40","salesNum":"300",
-        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"}]');
-
-        $hotelGoods = HttpTool::post_data('GoodsAction','{"opeType":"getList","isSuggest":"1","typeID":3}');
+        $hotelGoods = HttpTool::post_data('GoodsAction','{"opeType":"getList","isSuggest":"1","typeID":2}');
         $hotelGoods = json_decode('[{"goodsID":1,"shopImg":"images/hotel03.jpg","name":"【东方红大道】欢乐迪KTV","des":"下午档欢唱实惠套餐，免费WiFi","discountPrice":"40","salesNum":"300",
         "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
         {"goodsID":1,"shopImg":"images/entertainment02.jpg","name":"【东方红大道】欢乐迪KTV","des":"下午档欢唱实惠套餐，免费WiFi","discountPrice":"40","salesNum":"300",
@@ -121,6 +114,12 @@ class SiteController extends Controller
         {"goodsID":1,"shopImg":"images/entertainment02.jpg","name":"【东方红大道】欢乐迪KTV","des":"下午档欢唱实惠套餐，免费WiFi","discountPrice":"40","salesNum":"300",
         "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
         {"goodsID":1,"shopImg":"images/entertainment02.jpg","name":"【东方红大道】欢乐迪KTV","des":"下午档欢唱实惠套餐，免费WiFi","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"}]');
+
+        $movieGoods = HttpTool::post_data('GoodsAction','{"opeType":"getList","isSuggest":"1","typeID":3}');
+        $movieGoods = json_decode('[{"goodsID":1,"shopImg":"images/movie03.jpg","name":"变相黑侠","des":"剧情：1949年，架空当都市——帝都。这是一个延续了贵族制度的社会，贫富差距极大，帝都的富人中有九成是特权阶级。突然，帝都出现了一个以富人为目标、不断盗取艺术品和古董的怪盗。他有着","discountPrice":"40","salesNum":"300",
+        "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"},
+        {"goodsID":1,"shopImg":"images/movie03.jpg","name":"变相黑侠","des":"剧情：1949年，架空当都市——帝都。这是一个延续了贵族制度的社会，贫富差距极大，帝都的富人中有九成是特权阶级。突然，帝都出现了一个以富人为目标、不断盗取艺术品和古董的怪盗。他有着","discountPrice":"40","salesNum":"300",
         "price":"56","path":"http://sh.jumei.com/i/deal/d150103p21879zc.html?from=index_hotdeals3_pos166_d3_onsale_new"}]');
 
         $entertainmentGoods = HttpTool::post_data('GoodsAction','{"opeType":"getList","isSuggest":"1","typeID":4}');
@@ -291,6 +290,7 @@ class SiteController extends Controller
      */
     public function actionRequestPasswordReset()
     {
+        $this->layout = 'level.php';
         $model = new CusUserAccount();
         $error =null;
 
@@ -327,6 +327,7 @@ class SiteController extends Controller
      */
     public function actionRequestPasswordSms()
     {
+        $this->layout = 'level.php';
         $error =null;
         $session = Yii::$app->getSession();
         $session->open();
@@ -351,6 +352,7 @@ class SiteController extends Controller
      */
     public function actionResetPassword()
     {
+        $this->layout = 'level.php';
         $erorr = null;
         if ($password = Yii::$app->request->post('userPassWord')) {
             $password_ret = Yii::$app->request->post('password_reset');

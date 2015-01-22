@@ -1,0 +1,244 @@
+@charset "utf-8";
+
+/* top 购物车menu  */
+.top_chart{ margin:40px 0 50px; padding:0 12px; background:#fff}	
+.top_chart.sub_sec{ margin:20px 0 40px}
+.chart_left{ float:left; width:auto; background:url(../images/ShoppingCart01.png) no-repeat; height:25px; display:block; padding:52px 0 0 95px}
+.chart_left_show{ height:16px; color:#888; font-size:16px}
+.chart_left_show em{ float:right; margin-left:10px; margin-top:-2px }
+.bar_down{ background:#e7e7e7; width:150px; height:16px; display:inline-block; position:relative}
+.bar_up{ background:#1186cb;  height:16px; display:inline-block; position:absolute; left:0; top:0;z-index:2; overflow:hidden}
+.chart_menu{ float:right; width:auto; height:77px}
+.chart_menu.sub_second{ width:65%; margin:0 auto;}
+.chart_menu li{ float:left; width:auto; padding:0 30px; background:url(../images/chart_menu.png) repeat-x; line-height:87px; height:77px; font-size:16px; color:#9b9b9b; text-align:center}
+.chart_menu li.sub_secondlist{ width:23%}
+.chart_menu li.s_chected{ background:url(../images/chart_menu_hover.png) repeat-x; color:#fff}
+.chart_menu li.bar{ float:left; width:14px; height:77px; padding:0}
+.chart_menu li.bar.bar1{ background:url(../images/chart_menu1.png) no-repeat}
+.chart_menu li.bar.bar2{ background:url(../images/chart_menu2.png) no-repeat}
+.chart_menu li.bar.bar3{ background:url(../images/chart_menu3.png) no-repeat}
+
+/* chart_wrap 购物车内容 */
+.chart_wrap{ margin:0 auto; padding:0 12px}
+.chart_wrap.order_boxing{ margin-top:30px; margin-bottom:15px}
+.chart_wrap.order_boxing.bussiness{ margin:0; padding:0}
+.chart_wrap table{ width:95%; box-shadow:0 0 4px #e3e3e3; margin:0 auto}
+.chart_wrap table tr{ background:#fff}
+.chart_wrap table tr:hover{ background:#f7fdff}
+.chart_wrap table tr.unable{ filter:alpha(opacity=40); -moz-opacity:0.4; opacity:0.4}
+.chart_wrap table th{ background:#f5f5f5; color:#1186cb; text-align:center; height:40px; line-height:40px; font-weight:bold; border:1px solid #e5e5e5}
+.chart_wrap table th.ch_a{ width:80px}
+.chart_wrap table th.ch_b{ width:385px; width:395px\9}
+.chart_wrap table th.ch_d{ width:145px}
+.chart_wrap table th.ch_e{ width:60px; width:55px\9}
+.chart_wrap table th.ch_f{ width:120px}
+.chart_wrap table td{ border:1px solid #e5e5e5; text-align:center; color:#333; padding:15px; vertical-align:middle}
+.chart_wrap table.bussiness{ width:100%; box-shadow:none}
+.chart_wrap table.bussiness tr{ border-bottom:1px dashed #e7e7e7}
+.chart_wrap table.bussiness tr.last{ border-bottom:none}
+.chart_wrap table.bussiness td{ border:none; text-align:left}
+.chart_wrap table.bussiness td.old_price{ text-decoration:line-through; color:#999}
+.chart_wrap input.se_a{ width:14px; height:14px; margin-right:6px; border:1px solid #e0e0e0; border:none\9; vertical-align:middle}
+.chart_wrap_img{ float:left; width:46px; height:46px; width:50px\9; height:50px\9; overflow:hidden; margin-right:15px; outline:1px solid #e3e3e3; outline-offset:3px; padding:3px\9}
+.chart_wrap_img:hover{ outline:1px solid #f00; cursor:pointer}
+.chart_wrap_text{ float:left; width:300px; text-align:left}
+.chart_wrap_text h4{ color:#333; font-weight:normal; font-size:14px; width:300px; height:20px; line-height:20px;overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-bottom:3px}
+.chart_wrap_text h5{ color:#999; font-weight:normal; font-size:14px; width:300px; height:20px; line-height:20px;overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.chart_wrap span.less_more{ float:left; width:30px; height:30px; display:block; background:#b1b1b1; text-align:center; line-height:30px; font-size:24px; font-weight:bold; color:#fff }
+.chart_wrap span.less_more:hover{ background:#f00; cursor:pointer}
+.chart_wrap input.se_b{ float:left; width:48px; height:28px; line-height:28px;  text-align:center; padding:0 5px; color:#333; background:#fff; border:1px solid #b1b1b1; border-left:none;
+border-right:none}
+.chart_wrap a.del{ background:url(../images/del_ico.png) no-repeat center; width:18px; height:16px; display:inline-block}
+.chart_wrap a.del:hover{ background:url(../images/del_ico_hover.png) no-repeat center}
+.chart_wrap em{ color:#f00}
+.chart_wrap strong{ color:#f00; font-size:18px}
+.chart_wrap time{ display:inline; margin-left:8px; font-size:12px; padding:1px 6px; border:1px solid #f00; color:#f00}
+
+/* chart_bottom 订单提交*/
+.chart_bottom{ margin:20px 0; padding:0 36px}
+.chart_bottom_box{ float:right;width:400px; height:100px; background:none; border:3px solid #f00; padding:5px 12px}
+.chart_bottom p{ margin:6px 0; text-align:right}
+.chart_bottom p em{ color:#f00; padding:0 3px}
+.chart_bottom p i{ color:#999; font-style:normal; font-weight:normal}
+.chart_bottom p span{ margin-left:15px; font-weight:bold}
+.chart_bottom p span strong{ font-size:18px; color:#f00}
+.chart_bottom p input.se_c{ border:1px solid #a1a1a1; color:#333; background:#fff; text-align:center;  height:20px; line-height:20px; width:60px}
+.chart_bottom p input.se_a{ width:14px; height:14px; margin-right:6px; border:1px solid #e0e0e0; border:none\9; vertical-align:middle}
+.chart_bottom p input.se_d{ width:121px; height:40px;background:url(../images/order_action.png) no-repeat; border:none; margin-top:17px}
+.chart_bottom p input.se_d:hover{ background:url(../images/order_action_hover.png) no-repeat; cursor:pointer}
+.chart_bottom p input.se_e{ width:121px; height:40px;background:url(../images/order_confirmate.png) no-repeat; border:none; margin-top:17px}
+.chart_bottom p input.se_e:hover{ background:url(../images/order_confirmate_hover.png) no-repeat; cursor:pointer}
+
+/* 订单信息确认*/
+.order_confirmate{ padding:0 12px; margin-bottom:35px}
+.order_confirmate.order_detail{ margin-top:25px; margin-bottom:0}
+.order_confirmate_title{ height:40px; line-height:40px; font-size:16px; background:#e5e5e5; padding:0 15px 0 25px}
+.pay_addresslist{ float:left; height:26px; line-height:26px;border:1px solid #d0cece; background:url(../images/list.png) right center no-repeat #fff; padding:0 23px 0 12px ; margin-top:6px; margin-right:10px}
+.pay_addresslist:hover{ color:#f00; background:url(../images/list_hover.png) right center no-repeat #fcfcfc; cursor:pointer}
+.order_confirmate_wrap{ background:#fcfcfc; margin:10px 0; padding:10px 15px}
+.order_confirmate_wrap.myorder{ background:#fff}
+.order_confirmate_wrap.order_ssdetail{ padding-bottom:45px}
+.order_confirmate_wrap .p_divline{ margin:8px 0}
+.order_confirmate span{ float:right;width:auto; color:#999}
+.order_confirmate span.zhuangtai{ float:none; display:block}
+.order_confirmate h3{ float:left; display:block; width:126px; height:20px; text-align:right; font-size:14px}
+.order_confirmate h4{ float:left; width:750px; color:#333; font-size:14px; font-weight:normal}
+.order_confirmate h4 strong{ margin-right:15px; color:#f00}
+.order_confirmate h4 i{ color:#999; margin-right:15px}
+.order_confirmate h4 a.p_text{ text-decoration:underline; color:#1186cb}
+.order_confirmate h4 a.p_text:hover{ text-decoration:none; color:#f00}
+.order_confirmate h4 em{ color:#f00}
+.order_confirmate span a{ font-size:14px; margin-left:8px;color:#1186cb; text-decoration:underline}
+.order_confirmate span a:hover{ color:#f00; text-decoration:none}
+
+.order_confirmate span a.details_title{ text-decoration:none; display:inline; padding:0 12px; margin-left:0; border-right:1px solid #333}
+.order_confirmate span a.details_title.un_action{ color:#999; border-right:1px solid #999}
+.order_confirmate span a.details_title.end,.order_confirmate span a.details_title.un_action.end{ border-right:none}
+.order_confirmate span a.details_title:hover{ color:#f00}
+.order_confirmate span a.details_title.un_action{ color:#999; border-right:1px solid #999}
+.order_confirmate span a.details_title.un_action:hover{ color:#999; border-right:1px solid #999; cursor:default}
+.order_confirmate span a.details_title.un_action.end:hover{ color:#999; border-right:none; cursor:default}
+.order_confirmate_wrap a.o_button{ width:108px; height:30px; line-height:30px; text-align:center; border:1px solid #d9d9d9; border-radius:4px; color:#333; padding:3px 8px;
+    -moz-border-radius:3px;   /*for 旧版Firefox*/
+    background:url(../images/OrderConfirmate_bg.png) repeat-x;     /*for  Safari*/
+	background:-moz-linear-gradient(to top,#fdfdfdf 0%,#fafafa 76%,#fff 100%);       /*for 旧版Firefox*/
+	background:-webkit-linear-gradient(to top,#fdfdfdf 0%,#fafafa 76%,#fff 100%);    /*for 旧版Chrome*/
+	background:-o-linear-gradient(to top,#fdfdfdf 0%,#fafafa 76%,#fff 100%);    /*for 旧版Opera*/
+	background:linear-gradient(to top,#fdfdfdf 0%,#fafafa 76%,#fff 100%);
+	background:url(../images/OrderConfirmate_bg.png) repeat-x\9;     /*for  IE*/
+	}
+.order_confirmate_wrap a.o_button:hover{ color:#f00;
+    background:url(../images/OrderConfirmate_bg_hover.png) repeat-x;     /*for  Safari*/
+	background:-moz-linear-gradient(to top,#cecece 0%,#eee 76%,#fafafa 100%);       /*for 旧版Firefox*/
+	background:-webkit-linear-gradient(to top,#cecece 0%,#eee 76%,#fafafa 100%);    /*for 旧版Chrome*/
+	background:-o-linear-gradient(to top,#cecece 0%,#eee 76%,#fafafa 100%);    /*for 旧版Opera*/
+	background:linear-gradient(to top,#cecece 0%,#eee 76%,#fafafa 100%);
+	background:url(../images/OrderConfirmate_bg_hover.png) repeat-x\9;     /*for  IE*/
+	}
+.order_newaddress{ display:block; margin:30px 0 15px; background:#f7f7f7; border:1px dashed #b2b2b2; padding:25px 35px 13px}
+.order_newaddress span.addresslist{ margin-right:30px; float:none; color:#333}
+.order_newaddress span.addresslist strong{ color:#f00; margin-left:5px; vertical-align:middle}
+.order_newaddress span.addresslist select{ width:100px; background:#fff; margin-right:10px}
+.order_newaddress textarea{ height:62px;width:943px; background:#fff; border:1px solid #cbcbcb; padding:10px; font:normal 14px "微软雅黑","宋体","arial Narrow"; color:#333; margin:20px 0 10px}
+.order_newaddress a.save{ float:right; display:inline-block; padding:1px 15px; background:#f00; color:#fff; height:25px; line-height:25px; text-align:center; margin-left:25px; font-weight:bold}
+.order_newaddress a.save:hover{ background:#e10000}
+
+/* 我的订单*/
+.myorder_top{ height:26px; line-height:26px; margin:0 auto; margin-bottom:20px}
+.myorder_top_left{ float:left; width:auto}
+.myorder_top_right{ float:right; width:auto}
+.myorder_top label{ margin-right:20px;line-height:26px; float:left}
+.myorder_top input,.myorder_wrap li input{ border:none; height:13px; line-height:13px; vertical-align:middle; background:#fff; margin-right:6px}
+.myorder_top a{ display:block; float:left; width:auto; border:1px solid #959595; height:26px; line-height:26px; background:#f3f3f3; padding:0 12px; margin-right:15px}
+.myorder_top a:hover{ color:#fff;background:#1186cb;  border:1px solid #1186cb}
+.myorder_top a.unsel{ display:block; float:left; height:26px; border:1px solid #959595; background:url(../images/list.png) right center no-repeat #f3f3f3; padding:0 23px 0 12px ; margin-right:15px}
+.myorder_top a.unsel:hover{ color:#fff;background:url(../images/list2_hover.png) right center no-repeat #1186cb;  border:1px solid #1186cb}
+.myorder_top_right span{ color:#f00; float:none; font-weight:bold}
+.myorder_top_right a{ display:inline-block; float:none; background:none;padding:0 8px; height:26px; text-align:center; line-height:26px; width:50px; border:1px solid #e7e7e7; margin-right:0; margin-left:15px}
+.myorder_top_right a:hover{ background:#1186cb; border:1px solid #fff;  color:#fff}
+.myorder_top_right a.first,.myorder_top_right a.last{ filter:alpha(opacity=50); -moz-opacity:0.5; opacity:0.5; cursor:auto}
+.myorder_top_right a.first:hover,.myorder_top_right a.last:hover{ background:none; border:1px solid #e7e7e7; color:#333; cursor:default}
+.myorder_middle_title{ float:left; background:#f5f5f5; color:#1186cb; text-align:center; height:40px; line-height:40px; font-weight:bold; border:1px solid #e5e5e5; border-right:none}
+.myorder_wrap_content{ float:left; border:1px solid #e5e5e5; border-right:none; padding:15px; text-align:center; height:46px}
+.myorder_middle_title.last,.myorder_wrap_content.last{ border-right:1px solid #e5e5e5}
+.myorder_middle_title.ch_a{ width:77px}
+.myorder_middle_title.ch_f{ width:97px}
+.myorder_middle_title.ch_b{ width:400px; width:401px\9}
+.myorder_middle_title.last.ch_d{ width:210px; width:209px\9}
+.myorder_middle_title.ch_c{ width:90px}
+.myorder_wrap_content.ch_a{ width:47px; line-height:46px}
+.myorder_wrap_content.ch_f{ width:67px; line-height:46px; padding:15px 5px}
+.myorder_wrap_content.ch_e{ width:67px; line-height:46px}
+.myorder_wrap_content.ch_c{ width:60px; line-height:64px; padding: 7px 15px 23px; overflow:hidden}
+.myorder_wrap_content.ch_c2{ width:60px; line-height:22px; overflow:hidden}
+.myorder_wrap_content.ch_b{ width:370px; width:371px\9}
+.myorder_wrap_content.last.ch_d{ width:180px; width:179px\9; line-height:25px; text-align:left}
+.myorder_wrap{ margin:8px auto 15px}
+.myorder_wrap ul{ padding-bottom:5px}
+.myorder_wrap li{ border-top:1px solid #e5e5e5;margin-bottom:10px}
+.myorder_wrap li i{ color:#f00}
+.myorder_wrap_caption{ background:#fcfcfc; height:30px; line-height:30px; border-right:1px solid #e5e5e5; border-left:1px solid #e5e5e5; padding:0 12px}
+.myorder_wrap_caption span{ margin-right:35px; float:none; color:#333}
+.myorder_wrap_caption a{ text-decoration:underline}
+.myorder_wrap_caption a:hover{ text-decoration:none}
+.myorder_wrap_caption a.define{ float:right; display:block; padding:0 12px; background:#f00; border:1px solid #eb0101; text-decoration:none; color:#fff; margin-top:2px; line-height:24px}
+.myorder_wrap_caption a.define:hover{ background:#eb0101}
+.myorder_box{ padding:0}
+.myorder_box:hover{ background:#f7fdff}
+
+.myorder_operate{ width:60px; width:auto\9; display:inline-block; text-align:left; padding:2px 10px 0 20px; background:url(../images/ico06.png)  no-repeat left center; height:14px; line-height:14px}
+.myorder_operate:hover{ background:url(../images/ico06_hover.png) no-repeat left center; color:#f00; cursor:pointer}
+.myorder_operate.delete,.myorder_operate.delete:hover{ background-position:0 3px}
+.myorder_operate.pay,.myorder_operate.pay:hover{ background-position:0 -15px}
+.myorder_operate.pay_ing,.myorder_operate.pay_ing:hover{ background-position:0 -31px}
+.myorder_operate.pingjia,.myorder_operate.pingjia:hover{ background-position:0 -47px}
+.myorder_operate.logistics,.myorder_operate.logistics:hover{ background-position:0 -64px}
+.myorder_operate.cancel,.myorder_operate.cancel:hover{ background-position:0 -80px}
+.myorder_operate.details,.myorder_operate.details:hover{ background-position:0 -96px}
+.myorder_operate.remind,.myorder_operate.remind:hover{ background-position:0 -112px}
+.myorder_operate.buy,.myorder_operate.buy:hover{ background-position:0 -128px}
+
+/* 订单支付*/
+.paymentstyle{ margin:8px 12px}
+.paymentstyle p{ font-size:16px; font-weight:bold; margin:20px 0 25px}
+.paymentstyle .paylist{ padding-bottom:12px; border-bottom:1px dashed #e7e7e7}
+.paymentstyle .paylist li{ width:166px; width:181px\9; height:67px; float:left; margin-right:40px; margin-bottom:15px}
+.paymentstyle .paylist li input{ border:none; vertical-align:middle; color:#f00}
+.paymentimage{ display:inline-block; border:2px solid #dbdbdb; vertical-align:middle; margin-left:15px; margin-left:10px\9;  width:134px; height:63px}
+.paymentimage:hover,.paymentimage.p_selected{ border-color:#f00; color:#f00; cursor:pointer}
+.paymentimage img{ height:39px; width:134px; overflow:hidden}
+.paymentimage h4{ background:#eff0f2;font-size:12px; color:#333; width:134px; text-align:center; height:15px; line-height:15px; margin-top:5px;
+padding:2px 0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.payment_next{ background:url(../images/next.png) no-repeat; width:121px; height:40px; margin:25px auto 0; display:block; border:none}
+.payment_next:hover{ background:url(../images/next_hover.png) no-repeat; cursor:pointer}
+
+.successfulpayment{ margin:30px auto}
+.successful_ico{ background:url(../images/SuccessfulPayment_03.png) no-repeat left center; width:340px; margin:0 auto; padding:39px 0 0 79px}
+.successfu_msgshow{ border:1px solid #e5e5e5; box-shadow:0 0 4px #e3e3e3;  width:520px; margin:50px auto 0}
+.successfu_msgshow_title{ height:32px; line-height:32px; background:#f5f5f5; font-size:16px; font-weight:bold; padding-left:25px}
+.successfu_msgshow_wrap{ padding:25px 60px}
+.successfu_msgshow_wrap p{ margin-bottom:5px}
+.successfu_msgshow_wrap strong{ color:#f00}
+.successfu_msgshow_bottom{ background:#e7e7e7; text-align:center; width:520px; margin:15px auto 0; height:28px; line-height:28px}
+.successfu_msgshow_bottom a{ display:inline; padding:0 12px;border-right:1px solid #333}
+.successfu_msgshow_bottom a.end{ color:#f00; border-right:none; text-decoration:underline}
+.successfu_msgshow_bottom a.end:hover{ color:#1186cb;text-decoration:none; cursor:pointer}
+
+.orders-summary {
+    padding: 10px 0;
+    z-index: 20;
+    position: relative;
+}
+.orders-summary .order-list {
+    width: 410px;
+    font-size: 12px;
+    overflow: hidden;
+}
+.orders-summary .order-item {
+    overflow: hidden;
+    margin: 5px 0;
+}
+.orders-summary .order-name {
+    float: left;
+    width: 370px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: pre;
+}
+.orders-summary .order-number {
+    float: right;
+}
+.orders-summary .total-money {
+     position: absolute;
+     top: 6px;
+     right: 0;
+    font-size: 16px;
+ }
+.orders-summary .total-money .money {
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 700;
+    color: #f76120;
+    margin: 0 3px;
+}

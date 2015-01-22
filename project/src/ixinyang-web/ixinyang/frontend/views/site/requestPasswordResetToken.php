@@ -1,13 +1,13 @@
 <?php
-use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
-use yii\captcha\Captcha;
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \frontend\models\PasswordResetRequestForm */
+    use yii\helpers\Html;
+    use yii\bootstrap\ActiveForm;
+    use yii\captcha\Captcha;
+    /* @var $this yii\web\View */
+    /* @var $form yii\bootstrap\ActiveForm */
+    /* @var $model \frontend\models\PasswordResetRequestForm */
 
-$this->title = '找回密码';
-?>
+    $this->title = '找回密码';
+    ?>
 <div class="site-request-password-reset">
     <h1>找回密码</h1>
 

@@ -2,108 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="850db637-1ee0-47cb-bbd5-a6959b155569" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/banner1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/chart.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/content_title_bg01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/content_title_bg02.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/content_title_bg03.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/content_title_bg04.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/content_title_bg05.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/content_title_bg06.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/content_title_bg07.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/dd.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/dd_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/entertainment01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/entertainment02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/entertainment03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/entertainment04.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/fdj.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/fonts/fontawesome-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/food01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/food02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/food03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/food04.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/food05.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/food06.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/footer01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/footer02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/footer03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/footer04.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/grey.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/gwc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/gwc_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/header_top_add.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/hotel01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/hotel02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/hotel03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/hotel04.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/ibar_sprites.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/leftbar_nav.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/leftbar_nav_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/lifeservice01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/lifeservice02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/lifeservice03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/lifeservice04.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/lifeservice05.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/lifeservice06.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/list.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/list_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/loading.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/logo.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/menu_bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/menu_bg_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/movie01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/movie02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/movie03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/rightbar.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/rightbar_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/search_bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/search_list.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/search_list_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/shopping01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/shopping02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/shopping03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/women01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/women02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/women03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/women04.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/women05.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/women06.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/hycommon/tool/HttpTool.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/MessageController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/ibar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/index.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/ixy_core.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/mei.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/layouts/null.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/public.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/tbar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/layouts/toolbar.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/topbar.css" />
-      <change type="DELETED" beforePath="C:\Users\pan\Documents\GitHub\lovexinyang\project\src\ixinyang-web\ixinyang\common\hycommon\tool\SendWorkermanMessage.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/assets/AppAsset.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/assets/AppAsset.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/ClassLoader.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/ClassLoader.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/banner2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/CartController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/DetailController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/OrderController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/SearchController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/ShoppingCart_order.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/search/businessSearch.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/cart/cart.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/order/chosePayment.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/detail/goods.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/detail/goodsDetail.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/statics/js/html5.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/statics/js/jquery.placeholder.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/order/myOrders.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/order/order.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/order/orderDetails.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/order/paymentRusult.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/search/search.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/common/slide.js" />
+      <change type="DELETED" beforePath="C:\Users\pan\Documents\GitHub\lovexinyang\project\design\静态页面\商品详细页.rar" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\pan\Documents\GitHub\lovexinyang\project\src\ixinyang-web\ixinyang\frontend\views\layouts\main.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/layouts/level.php" />
+      <change type="MOVED" beforePath="C:\Users\pan\Documents\GitHub\lovexinyang\project\src\ixinyang-web\ixinyang\frontend\views\layouts\toolbar.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/layouts/topbar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/favicon.ico" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/favicon.ico" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/logo.jpg" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/logo.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/menu_bg.png" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/images/menu_bg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/ProductSubpage.css" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/ProductSubpage.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/SearchPage.css" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/SearchPage.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/SiteController.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/SiteController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/autoload.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/autoload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_classmap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_files.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_files.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_namespaces.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_namespaces.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_psr4.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_psr4.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_real.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/autoload_real.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.json" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.lock" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/constant.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/constant.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/ibar.js" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/ibar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/index.css" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/index.js" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/index.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/composer/installed.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/login.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/main-local.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/main-local.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/layouts/main.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/layouts/main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/layouts/null.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/layouts/null.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/public.css" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/public.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/requestPasswordResetToken.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/requestPasswordResetToken.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/signup.php" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/signup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/tbar.js" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/tbar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/topbar.css" afterPath="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/topbar.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lovexinyang.iws" />
@@ -132,64 +71,19 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6785714" vertical-offset="0" max-vertical-offset="7201">
-              <caret line="1" column="40" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="5681">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="toolbar.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/layouts/toolbar.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.821428" vertical-offset="228" max-vertical-offset="1824">
-              <caret line="30" column="19" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tbar.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tbar.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/tbar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="31.206896" vertical-offset="1361" max-vertical-offset="3135">
-              <caret line="24" column="53" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.24314442" vertical-offset="513" max-vertical-offset="4598">
+              <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/index.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1539" max-vertical-offset="24073">
-              <caret line="62" column="74" selection-start-line="62" selection-start-column="74" selection-end-line="62" selection-end-column="74" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="topbar.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/topbar.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2430279" vertical-offset="11031" max-vertical-offset="11533">
-              <caret line="587" column="12" selection-start-line="587" selection-start-column="12" selection-end-line="587" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ibar.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/ibar.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.931034" vertical-offset="7026" max-vertical-offset="29108">
-              <caret line="395" column="28" selection-start-line="386" selection-start-column="20" selection-end-line="395" selection-end-column="28" />
-              <folding>
-                <element signature="e#21917#22290#0" expanded="false" />
-                <marker date="1420529568411" expanded="false" signature="38908:38921" placeholder="..." />
-                <marker date="1420529568411" expanded="false" signature="55730:55872" placeholder="..." />
-                <marker date="1420529568411" expanded="false" signature="59715:59906" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -197,8 +91,8 @@
       <file leaf-file-name="SiteController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/SiteController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.071429" vertical-offset="267" max-vertical-offset="6992">
-              <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2736" max-vertical-offset="7030">
+              <caret line="176" column="41" selection-start-line="176" selection-start-column="41" selection-end-line="176" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -207,8 +101,30 @@
       <file leaf-file-name="LoginForm.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/models/LoginForm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.714286" vertical-offset="738" max-vertical-offset="1710">
-              <caret line="63" column="48" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="1729">
+              <caret line="62" column="38" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
+              <folding>
+                <element signature="e#34#42#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SendSocketMessage.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/hycommon/tool/SendSocketMessage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="931">
+              <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="constant.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/constant.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="76" max-vertical-offset="228">
+              <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -217,21 +133,43 @@
       <file leaf-file-name="MessageController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/MessageController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.535714" vertical-offset="988" max-vertical-offset="1501">
-              <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-              <folding>
-                <element signature="e#39#47#0#PHP" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="721" max-vertical-offset="1254">
+              <caret line="67" column="42" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/yiisoft/yii2/web/User.php">
+      <file leaf-file-name="topbar.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/topbar.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.178572" vertical-offset="9424" max-vertical-offset="12635">
-              <caret line="518" column="0" selection-start-line="518" selection-start-column="0" selection-end-line="518" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="9099" max-vertical-offset="13300">
+              <caret line="446" column="17" selection-start-line="446" selection-start-column="17" selection-end-line="446" selection-end-column="17" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="topbar.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/layouts/topbar.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="445" max-vertical-offset="2299">
+              <caret line="33" column="48" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ibar.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/ibar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="17869" max-vertical-offset="26999">
+              <caret line="950" column="22" selection-start-line="950" selection-start-column="12" selection-end-line="950" selection-end-column="22" />
+              <folding>
+                <marker date="1421141492864" expanded="false" signature="33317:33330" placeholder="..." />
+                <marker date="1421141492864" expanded="false" signature="49963:50105" placeholder="..." />
+                <marker date="1421141492864" expanded="false" signature="53576:53767" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -292,9 +230,10 @@
         <option value="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/index.js" />
         <option value="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/SiteController.php" />
         <option value="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/MessageController.php" />
-        <option value="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/tbar.js" />
         <option value="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/index.php" />
         <option value="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/topbar.css" />
+        <option value="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/layouts/topbar.php" />
+        <option value="$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/tbar.js" />
       </list>
     </option>
   </component>
@@ -306,8 +245,10 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="PhpXdebugProxy" ide_key="phpStrom" host="localhost" port="80" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1360" />
-    <option name="height" value="728" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -338,6 +279,12 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
+    <OptionsSetting value="true" id="添加" />
+    <OptionsSetting value="true" id="移除" />
+    <OptionsSetting value="true" id="检出" />
+    <OptionsSetting value="true" id="更新" />
+    <OptionsSetting value="true" id="状态" />
+    <OptionsSetting value="true" id="编辑" />
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
@@ -421,6 +368,150 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ixinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lovexinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lovexinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ixinyang-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ixinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lovexinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lovexinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ixinyang-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ixinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kartik-v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lovexinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lovexinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ixinyang-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ixinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kartik-v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yii2-widget-select2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lovexinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lovexinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ixinyang-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ixinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kartik-v" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yii2-widget-select2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -716,6 +807,82 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="search" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lovexinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lovexinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ixinyang-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ixinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="order" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lovexinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lovexinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ixinyang-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ixinyang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -750,7 +917,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -787,10 +954,6 @@
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MessageController.php" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpFileNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -819,116 +982,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lovexinyang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lovexinyang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ixinyang-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ixinyang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hycommon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lovexinyang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lovexinyang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ixinyang-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ixinyang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hycommon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tool" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lovexinyang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lovexinyang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ixinyang-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ixinyang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hycommon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -965,7 +1018,6 @@
             </PATH_ELEMENT>
           </PATH>
         </subPane>
-        <option name="show-excluded-files" value="false" />
       </pane>
     </panes>
   </component>
@@ -1010,15 +1062,12 @@
       <recent name="C:\Users\pan\Documents\GitHub\lovexinyang\project\src\ixinyang-web\ixinyang\common\statics\js\workerman" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Web Application.localhost">
+  <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
       <method />
     </configuration>
-    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" server_name="localhost" start_url="http://localhost/ixinyang/frontend/web/index.php?r=site/index">
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
+    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application">
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
@@ -1031,15 +1080,10 @@
       <BehatRunner />
       <method />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <pass-parent-env-vars>false</pass-parent-env-vars>
-      <envs />
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <method />
     </configuration>
     <configuration default="false" name="localhost" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" server_name="localhost" start_url="http://localhost/ixinyang/frontend/web/index.php?r=site/index">
@@ -1062,30 +1106,38 @@
       <option name="number" value="Default" />
       <updated>1419150803396</updated>
     </task>
+    <task id="LOCAL-00001" summary="修正">
+      <created>1421893930609</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1421893930609</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1360" height="728" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28923076" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27805695" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25340393" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24923077" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="变化" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31323284" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3843648" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27805695" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -1127,6 +1179,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="修正" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1160,33 +1214,61 @@
           <line>1507</line>
           <option name="timeStamp" value="55" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/yiisoft/yii2/web/User.php</url>
-          <line>569</line>
-          <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/MessageController.php</url>
-          <line>62</line>
-          <option name="timeStamp" value="80" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/MessageController.php</url>
-          <line>69</line>
-          <option name="timeStamp" value="81" />
-        </line-breakpoint>
       </breakpoints>
       <option name="time" value="82" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="PhpWebAppRunConfigurationType">
-        <watch expression="$foodGoods" language="PHP" />
-        <watch expression="$i-1" language="PHP" />
-        <watch expression="Yii::$app-&gt;user-&gt;isGuest" language="PHP" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/layouts/topbar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1976" max-vertical-offset="2299">
+          <caret line="104" column="30" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/ibar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7505" max-vertical-offset="26999">
+          <caret line="395" column="28" selection-start-line="386" selection-start-column="20" selection-end-line="395" selection-end-column="28" />
+          <folding>
+            <marker date="1421141492864" expanded="false" signature="33317:33330" placeholder="..." />
+            <marker date="1421141492864" expanded="false" signature="49963:50105" placeholder="..." />
+            <marker date="1421141492864" expanded="false" signature="53576:53767" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/models/LoginForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1197" max-vertical-offset="1729">
+          <caret line="63" column="48" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/MessageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1311" max-vertical-offset="1501">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/yiisoft/yii2/web/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="9842" max-vertical-offset="12768">
+          <caret line="518" column="0" selection-start-line="518" selection-start-column="0" selection-end-line="518" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/yiisoft/yii2/web/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="9424" max-vertical-offset="12635">
+          <caret line="518" column="0" selection-start-line="518" selection-start-column="0" selection-end-line="518" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/assets/AppAsset.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.142858" vertical-offset="106" max-vertical-offset="646">
@@ -1205,7 +1287,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="4953" max-vertical-offset="118180">
           <caret line="268" column="12" selection-start-line="268" selection-start-column="12" selection-end-line="268" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1216,66 +1297,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_7.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35077518" vertical-offset="674" max-vertical-offset="21242">
-          <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_6.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35188866" vertical-offset="1666" max-vertical-offset="22781">
-          <caret line="97" column="9" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_8.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35077518" vertical-offset="3923" max-vertical-offset="20938">
-          <caret line="216" column="9" selection-start-line="216" selection-start-column="9" selection-end-line="216" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/hycommon/tool/SendSocketMessage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4108527" vertical-offset="73" max-vertical-offset="931">
-          <caret line="20" column="48" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/_superglobals.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0" vertical-offset="3664" max-vertical-offset="4408">
-          <caret line="220" column="11" selection-start-line="220" selection-start-column="11" selection-end-line="220" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/http.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5785288" vertical-offset="47893" max-vertical-offset="61332">
-          <caret line="2536" column="23" selection-start-line="2536" selection-start-column="9" selection-end-line="2536" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="516">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_5.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35077518" vertical-offset="6032" max-vertical-offset="21869">
-          <caret line="327" column="9" selection-start-line="327" selection-start-column="9" selection-end-line="327" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_4.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35077518" vertical-offset="503" max-vertical-offset="20805">
-          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1307,13 +1332,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/curl_d.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35077518" vertical-offset="2973" max-vertical-offset="7315">
-          <caret line="166" column="8" selection-start-line="166" selection-start-column="8" selection-end-line="166" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/hycommon/tool/SendPhoneSMS.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.60437375" vertical-offset="1425" max-vertical-offset="2280">
@@ -1339,7 +1357,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.571429" vertical-offset="5050" max-vertical-offset="10146">
           <caret line="282" column="13" selection-start-line="282" selection-start-column="13" selection-end-line="282" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1361,7 +1378,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.8897338" vertical-offset="253" max-vertical-offset="4199">
           <caret line="121" column="18" selection-start-line="121" selection-start-column="18" selection-end-line="121" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1379,13 +1395,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/constant.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.392857" vertical-offset="0" max-vertical-offset="228">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="2261">
@@ -1397,9 +1406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1995">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1419150655911" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1407,9 +1413,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1957">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1419150655913" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1417,9 +1420,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="4598">
           <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-          <folding>
-            <marker date="1420509790666" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1427,9 +1427,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="2071">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1419150655915" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1437,7 +1434,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1140">
           <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1445,7 +1441,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="1482">
           <caret line="32" column="15" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1453,7 +1448,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.6785715" vertical-offset="18393" max-vertical-offset="28709">
           <caret line="983" column="0" selection-start-line="983" selection-start-column="0" selection-end-line="983" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1461,7 +1455,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.857143" vertical-offset="5183" max-vertical-offset="12635">
           <caret line="285" column="0" selection-start-line="285" selection-start-column="0" selection-end-line="285" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1469,7 +1462,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.6785715" vertical-offset="10394" max-vertical-offset="16207">
           <caret line="558" column="0" selection-start-line="558" selection-start-column="0" selection-end-line="558" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1477,31 +1469,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.035714" vertical-offset="2219" max-vertical-offset="4009">
           <caret line="138" column="32" selection-start-line="138" selection-start-column="32" selection-end-line="138" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/SiteController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.071429" vertical-offset="267" max-vertical-offset="6992">
-          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/models/LoginForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.714286" vertical-offset="738" max-vertical-offset="1710">
-          <caret line="63" column="48" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/yiisoft/yii2/web/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.178572" vertical-offset="9424" max-vertical-offset="12635">
-          <caret line="518" column="0" selection-start-line="518" selection-start-column="0" selection-end-line="518" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1509,69 +1476,129 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="2774" max-vertical-offset="9139">
           <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/MessageController.php">
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/kartik-v/yii2-widget-select2/lib/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.535714" vertical-offset="988" max-vertical-offset="1501">
-          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding>
-            <element signature="e#39#47#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.6040146" vertical-offset="1683" max-vertical-offset="2280">
+          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/ibar.js">
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/composer.lock">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.931034" vertical-offset="7026" max-vertical-offset="29108">
-          <caret line="395" column="28" selection-start-line="386" selection-start-column="20" selection-end-line="395" selection-end-column="28" />
-          <folding>
-            <element signature="e#21917#22290#0" expanded="false" />
-            <marker date="1420529568411" expanded="false" signature="38908:38921" placeholder="..." />
-            <marker date="1420529568411" expanded="false" signature="55730:55872" placeholder="..." />
-            <marker date="1420529568411" expanded="false" signature="59715:59906" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.17988394" vertical-offset="36634" max-vertical-offset="48222">
+          <caret line="1933" column="48" selection-start-line="1933" selection-start-column="48" selection-end-line="1933" selection-end-column="48" />
         </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="855" max-vertical-offset="24073">
           <caret line="62" column="74" selection-start-line="62" selection-start-column="74" selection-end-line="62" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="5681">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/layouts/toolbar.php">
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/ibar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.821428" vertical-offset="228" max-vertical-offset="1824">
-          <caret line="30" column="19" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="17869" max-vertical-offset="26999">
+          <caret line="950" column="22" selection-start-line="950" selection-start-column="12" selection-end-line="950" selection-end-column="22" />
+          <folding>
+            <marker date="1421141492864" expanded="false" signature="33317:33330" placeholder="..." />
+            <marker date="1421141492864" expanded="false" signature="49963:50105" placeholder="..." />
+            <marker date="1421141492864" expanded="false" signature="53576:53767" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/topbar.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="9099" max-vertical-offset="13300">
+          <caret line="446" column="17" selection-start-line="446" selection-start-column="17" selection-end-line="446" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/vendor/yiisoft/yii2/web/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35084426" vertical-offset="4069" max-vertical-offset="12635">
+          <caret line="231" column="20" selection-start-line="231" selection-start-column="20" selection-end-line="231" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/config/constant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="76" max-vertical-offset="228">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/models/LoginForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="1729">
+          <caret line="62" column="38" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
+          <folding>
+            <element signature="e#34#42#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/SiteController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2736" max-vertical-offset="7030">
+          <caret line="176" column="41" selection-start-line="176" selection-start-column="41" selection-end-line="176" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/backend/models/AdPushMessage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17171717" vertical-offset="1279" max-vertical-offset="2052">
+          <caret line="70" column="20" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/layouts/topbar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="445" max-vertical-offset="2299">
+          <caret line="33" column="48" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/common/hycommon/tool/SendSocketMessage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="931">
+          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/controllers/MessageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="721" max-vertical-offset="1254">
+          <caret line="67" column="42" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/js/site/tbar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="31.206896" vertical-offset="1361" max-vertical-offset="3135">
-          <caret line="24" column="53" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/views/site/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6785714" vertical-offset="0" max-vertical-offset="7201">
-          <caret line="1" column="40" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/src/ixinyang-web/ixinyang/frontend/web/css/topbar.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2430279" vertical-offset="11031" max-vertical-offset="11533">
-          <caret line="587" column="12" selection-start-line="587" selection-start-column="12" selection-end-line="587" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.24314442" vertical-offset="513" max-vertical-offset="4598">
+          <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
           <folding />
         </state>
       </provider>

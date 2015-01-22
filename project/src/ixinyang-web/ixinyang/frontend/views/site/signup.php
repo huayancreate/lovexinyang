@@ -8,16 +8,11 @@ use yii\captcha\Captcha;
 /* @var $model \frontend\models\SignupForm */
 
 ?>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="css/public.css" rel="stylesheet" type="text/css" />
     <link href="css/login_register.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="<?=  Yii::$app->urlManager->baseUrl ?>/assets/43cf4500/css/bootstrap.css">
     <link rel="stylesheet" href="<?=  Yii::$app->urlManager->baseUrl ?>/css/site.css">
     <title>用户注册|爱生活</title>
-    <!--[if lt IE9]>
-    <script src="js/html5.js"></script>
-    <![endif]-->
 </head>
 <body style="background:url(images/login_bg.png) no-repeat top center">
 <header class="top_title">
@@ -69,7 +64,7 @@ use yii\captcha\Captcha;
                         <div class="form-group field-signupform-code required">
                             <label class="control-label col-sm-2" for="signupform-code">短信动态码</label>
                             <div class="col-sm-5 has-feedback">
-                                <input id="signupform-code" class="form-control" type="text" name="SignupForm[code]">
+                                <input id="signupform-code" class="form-control" placeholder="请输入手机短信获取的验证码"  type="text" name="SignupForm[code]">
                                 <span class="glyphicon field-signupform-code form-control-feedback"></span>
                                 <input id="sendcode" class="btn-normal btn-mini " type="button" value="免费获取短信动态码">
                                 <span style="font-size: 12px;color: #666;" id="codeTips"></span>

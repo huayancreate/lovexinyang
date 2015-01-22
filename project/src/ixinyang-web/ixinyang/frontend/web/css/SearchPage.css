@@ -1,7 +1,6 @@
 @charset "utf-8";
 
-.position_menu{ height:30px;background:#fff; line-height:30px; padding:8px 0 8px 12px}
-.search_top_ads{ height:100px; padding:10px 0; border-top:1px solid #e7e7e7; background:#fff; overflow:hidden}
+.search_top_ads{ height:100px; padding:10px 0; background:#fff; overflow:hidden}
 
 /* top 搜索条件 */
 .search_conditions{ margin-bottom:20px; padding:0 12px; background:#fff}
@@ -33,7 +32,7 @@
 .sequence a:hover{ color:#fff;background:url(../images/list2_hover.png) right center no-repeat #1186cb}
 .sequence a.moren{ display:block; float:left; width:auto; height:26px; line-height:26px; color:#fff; background:#1186cb; padding:0 12px; margin-right:3px}
 .sequence label{ margin-left:20px;line-height:22px; float:left}
-.sequence input{ border:1px solid #e7e7e7;border:none\9; height:13px; line-height:13px; vertical-align:middle; background:#fff; margin-right:6px}
+.sequence input{ border:none; height:13px; line-height:13px; vertical-align:middle; background:#fff; margin-right:6px}
 .sequence_right span{ color:#f00; font-weight:bold}
 .sequence_right b{ font-weight:normal; padding:0 15px; color:#333}
 .sequence_right a{ display:inline-block; float:none; background:none;padding:0 8px; height:22px; text-align:center; line-height:22px; width:50px; border:1px solid #e7e7e7; margin-right:0; margin-left:15px}
@@ -41,9 +40,10 @@
 .sequence_right a.first,.sequence_right a.last{ filter:alpha(opacity=50); -moz-opacity:0.5; opacity:0.5; cursor:auto}
 .sequence_right a.first:hover,.sequence_right a.last:hover{ background:none; border:1px solid #e7e7e7; color:#333; cursor:default}
 
-/*搜索结果展现*/
+/*商品搜索结果展现*/
 .search_onshow{ width:1090px}
 .search_onshow_content{ background:#fff; margin-top:10px; padding:25px; padding:12px\9}
+.search_onshow_content.business{ padding:12px}
 .search_onshow_list{ outline:1px solid #d5d3d3; outline-offset:12px; padding:12px\9}
 .search_onshow_list li.left_first{ width:329px; float:left; height:430px; overflow:hidden; padding:0 12px 12px 0; border-right:1px solid #d5d3d3; border-bottom:1px solid #d5d3d3}
 .search_onshow_list li.right_first{ width:329px; float:right; height:430px; overflow:hidden; padding:0 0 12px 12px; border-right:none; border-bottom:1px solid #d5d3d3}
@@ -82,3 +82,37 @@ box-shadow:0 0 10px 5px #c8c6c6;
 -webkit-transform:scale(1,1);   /*for Chrome &Safari*/
 -o-transform:scale(1,1)   /*for Opera*/
 }
+
+/*商家搜索结果展现*/
+.business_list li{ border:1px solid #e7e7e7; margin-bottom:20px}
+.business_list li.last{ margin-bottom:0}
+.business_list p{ margin:6px 0}
+.business_title{ border-bottom:1px dashed #e7e7e7; background:#f7f7f7; padding:15px}
+.business_title h4{ font-size:16px; display:inline-block; margin-bottom:3px}
+.a_alink{ display:inline-block; margin:0 8px; color:#1186cb}
+.a_alink:hover{ color:#f00}
+.business_nameshow{ float:left; width:640px}
+.business_evaluateshow{ float:left; width:270px}
+.business_evaluateshow strong{ color:#f00; margin-left:6px; font-size:16px; vertical-align:text-bottom}
+.business_cardshow{ float:left; width:124px; text-align:center}
+.carderpic{ border:2px solid #fff; width:120px; height: 64px; overflow:hidden; margin-bottom:10px; border-radius:4px; -moz-border-radius:4px  /*for old Firefox*/ }
+.common_botton{ display:inline-block; padding:0 10px; height:25px; line-height:25px; color:#fff; text-align:center; border:1px solid #e27200; border-radius:4px; -moz-border-radius:4px; /*for old Firefox*/ 
+       background:url(../images/action_botton.png) 0 0 repeat-x;    /*for Safari*/
+       background:-moz-linear-gradient(to bottom,#f89a00 ,#e27200);   /*for Firefox*/
+	   background:-webkit-linear-gradient(to bottom,#f89a00 ,#e27200);   /*for Chrome*/
+	   background:-o-linear-gradient(to bottom,#f89a00 ,#e27200);   /*for Opera*/
+       background:linear-gradient(to bottom,#f89a00 ,#e27200);
+	   background:url(../images/action_botton.png) 0 0 repeat-x\9;   /*for IE8*/ 
+}
+.common_botton:hover{ cursor:pointer; color:#fff;
+       background:url(../images/action_botton_hover.png) 0 0 repeat-x;    /*for Safari*/
+       background:-moz-linear-gradient(to bottom,#f29701 ,#d26a01);   /*for Firefox*/
+	   background:-webkit-linear-gradient(to bottom,#f29701 ,#d26a01);   /*for Chrome*/
+	   background:-o-linear-gradient(to bottom,#f29701 ,#d26a01);   /*for Opera*/
+       background:linear-gradient(to bottom,#3f29701 ,#d26a01);
+	   background:url(../images/action_botton_hover.png) 0 0 repeat-x\9;   /*for IE8*/ 
+}
+.business_more{ display:block; text-align:center; margin:0 auto}
+.business_more a{ background:url(../images/search_list2.png) no-repeat  96px center #eee;  color:#333; margin:0 auto; padding:0 25px 0 15px; font-size:12px; height:22px;line-height:22px;  
+display:inline-block; border:1px solid #e7e7e7; border-bottom:none}
+.business_more a:hover{ background:url(../images/search_list.png) no-repeat 96px center #1186cb; border:1px solid #1186cb; border-bottom:none; color:#fff; cursor:pointer}
