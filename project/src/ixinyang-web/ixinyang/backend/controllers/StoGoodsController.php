@@ -90,7 +90,7 @@ class StoGoodsController extends BackendController
             $transaction=\Yii::$app->db->beginTransaction(); 
             try{
 
-<<<<<<< HEAD
+
                 $files = UploadedFile::getInstances($model, 'file');  //»ñÈ¡ÉÏ´«ÎÄ¼þ
 
                 //创建时间
@@ -109,59 +109,46 @@ class StoGoodsController extends BackendController
                 $model->save();  //ÉÌÆ·ÐÅÏ¢±£´æ
 
                 $this->stoGoodsStoreModelSave($model->id,$goodsStoreModel);//ÉÌÆ·¶ÔÓ¦µêÆÌÐÅÏ¢±í±£´æ
-=======
+
                 $files = UploadedFile::getInstances($model, 'file');  //获取上传文件
 
                 $model->save();  //商品信息保存
 
                 $this->stoGoodsStoreModelSave($model->id);//��Ʒ��Ӧ������Ϣ�?��
->>>>>>> fffb70330574f07ed2f70bda0ea99b896f512d5e
+
 
                 $pictureToolModel=new PictureTool();
                 foreach ($files as $file) {
 
-<<<<<<< HEAD
+
                     $path=$pictureToolModel->uploads($file,2); //ÎÄ¼þÉÏ´«
 
                     $goodsPicture=new GoodsPicture();
                     $goodsPicture->goodsId=$model->id; //ÉÌÆ·ÐÅÏ¢ID
                     $goodsPicture->path=$path; //Í¼Æ¬Â·¾¶
-=======
+
                     $path=$this->uploads($file); //文件上传
 
                     $goodsPicture=new GoodsPicture();
                     $goodsPicture->goodsId=$model->id; //商品信息ID
                     $goodsPicture->path=$path; //图片路径
->>>>>>> fffb70330574f07ed2f70bda0ea99b896f512d5e
                     $goodsPicture->renewTime=date("Y-m-d H:i:s");
                     $goodsPicture->uploadPersonnel="admin";
 
                     $goodsPicture->save();
                 }
 
-<<<<<<< HEAD
-                $transaction->commit(); //ÊÂÎñ½áÊø
-=======
                 $transaction->commit(); //事务结束
->>>>>>> fffb70330574f07ed2f70bda0ea99b896f512d5e
-
-                // $message=$model->getErrors();
-                // $message['success']=true;
-                
 
             } catch (Exception $e) {
                 $transaction->rollBack();
                 $message['success']=false;
             }
-
-            //return json_encode($message);
+           
             return $this->redirect(['index']);
         } else {
-<<<<<<< HEAD
-            //»ñÈ¡ÉÌÆ·Àà±ð
-=======
             //获取商品类别
->>>>>>> fffb70330574f07ed2f70bda0ea99b896f512d5e
+
             $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
 
             
@@ -252,7 +239,7 @@ class StoGoodsController extends BackendController
                  //提交
                  $transaction->commit();
 
-<<<<<<< HEAD
+
             } 
             catch (Exception $e) {
                 //回滚
@@ -263,7 +250,7 @@ class StoGoodsController extends BackendController
         } 
         else {
            
-=======
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             
                 $message=$model->getErrors();
@@ -273,7 +260,6 @@ class StoGoodsController extends BackendController
         } else {
             //获取商品类别
             $categoryModel=new ComCategoryMaintain();
->>>>>>> fffb70330574f07ed2f70bda0ea99b896f512d5e
             $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
             
             return $this->renderAjax('update', [
@@ -340,7 +326,6 @@ class StoGoodsController extends BackendController
     }
 
     /**
-<<<<<<< HEAD
      * Finds the StoGoodsStore model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
@@ -356,26 +341,8 @@ class StoGoodsController extends BackendController
         }
     }
 
-    /**
-     * [stoGoodsStoreModelSave ÉÌÆ·¶ÔÓ¦µêÆÌÐÅÏ¢±íÐÅÏ¢Ìí¼Ó]
-     * @param  [type] $goodsId [ÉÌÆ·id]
-     * @return [type]          [description]
-     */
-    protected function stoGoodsStoreModelSave($goodsId,$stoGoodsStoreModel){
-        //ÉÌÆ·id
-        $stoGoodsStoreModel->goodsId=$goodsId;
-        //µêÆÌid    ´Ósession¶ÁÈ¡   ÔÝÊ±Ð´Ä¬ÈÏÖµ
-        $stoGoodsStoreModel->storeId=1;
-        //ÉÌ¼Òid    ´Ósession¶ÁÈ¡   ÔÝÊ±Ð´Ä¬ÈÏÖµ
-        $stoGoodsStoreModel->sellerId=1;
-        //´´½¨Ê±¼ä  µ±Ç°Ê±¼ä
-        $stoGoodsStoreModel->createDate=date("Y-m-d H:i:s");
-        //´´½¨ÈË    ´Ósession¶ÁÈ¡
-        $stoGoodsStoreModel->crreteUserID='111';
-        //商品状态
-        $stoGoodsStoreModel->goodsState=$_POST['hiddenGoodsState'];
         //±£´æ
-=======
+    /**
      * 文件上传
      * @param  [type] $files [文件集合]
      * @return [type]        [description]
@@ -402,22 +369,27 @@ class StoGoodsController extends BackendController
      * @param  [type] $goodsId [��Ʒid]
      * @return [type]          [description]
      */
-    protected function stoGoodsStoreModelSave($goodsId){
-        $stoGoodsStoreModel=new StoGoodsStore();
-        //��Ʒid
+      protected function stoGoodsStoreModelSave($goodsId,$stoGoodsStoreModel){
+        //ÉÌÆ·id
         $stoGoodsStoreModel->goodsId=$goodsId;
         //����id    ��session��ȡ   ��ʱдĬ��ֵ
+        //µêÆÌid    ´Ósession¶ÁÈ¡   ÔÝÊ±Ð´Ä¬ÈÏÖµ
         $stoGoodsStoreModel->storeId=1;
         //�̼�id    ��session��ȡ   ��ʱдĬ��ֵ
+        //ÉÌ¼Òid    ´Ósession¶ÁÈ¡   ÔÝÊ±Ð´Ä¬ÈÏÖµ
         $stoGoodsStoreModel->sellerId=1;
         //��Ʒ���  ��дĬ��ֵ ֮��ᴦ��
         $stoGoodsStoreModel->inventory=1000;
         //����ʱ��  ��ǰʱ��
+        //´´½¨Ê±¼ä  µ±Ç°Ê±¼ä
         $stoGoodsStoreModel->createDate=date("Y-m-d H:i:s");
         //������    ��session��ȡ
+        //´´½¨ÈË    ´Ósession¶ÁÈ¡
         $stoGoodsStoreModel->crreteUserID='111';
         //����
->>>>>>> fffb70330574f07ed2f70bda0ea99b896f512d5e
+        //商品状态
+        $stoGoodsStoreModel->goodsState=$_POST['hiddenGoodsState'];
+        //±£´æ
         $stoGoodsStoreModel->save();
 
     }
