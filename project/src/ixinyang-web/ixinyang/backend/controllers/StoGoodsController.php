@@ -249,24 +249,24 @@ class StoGoodsController extends BackendController
 
         } 
         else {
-           
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            
-                $message=$model->getErrors();
-                $message['success']=true;
-                return json_encode($message);
-            //return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            //获取商品类别
-            $categoryModel=new ComCategoryMaintain();
-            $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
-            
-            return $this->renderAjax('update', [
-                'model' => $model,'categoryModel'=>$categoryModel,'categoryList'=>$categoryList,
-                'goodsStoreModel'=>$goodsStoreModel,
-            ]);
-        }
+                if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                    
+                        $message=$model->getErrors();
+                        $message['success']=true;
+                        return json_encode($message);
+                    //return $this->redirect(['view', 'id' => $model->id]);
+                } else {
+                    //获取商品类别
+                    $categoryModel=new ComCategoryMaintain();
+                    $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
+                    
+                    return $this->renderAjax('update', [
+                        'model' => $model,'categoryModel'=>$categoryModel,'categoryList'=>$categoryList,
+                        'goodsStoreModel'=>$goodsStoreModel,
+                    ]);
+                }
+            }
     }
 
     /**
