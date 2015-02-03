@@ -4,6 +4,14 @@ namespace backend\models;
 
 use Yii;
 use yii\data\ActiveDataProvider;
+use JPush\Model as M;
+use JPush\JPushClient;
+use JPush\JPushLog;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+use JPush\Exception\APIConnectionException;
+use JPush\Exception\APIRequestException;
 
 /**
  * This is the model class for table "com_message_box".
@@ -85,6 +93,17 @@ class ComMessageBox extends \yii\db\ActiveRecord
                 $model->content = $content;
                 $model->save();
             }
+            $master_secret = '1ab69e0b2c85638eb7768a76';
+            $app_key='0fbc2f3266750b4e3ae40f51';
+            JPushLog::setLogHandlers(array(new StreamHandler('jpush.log', Logger::DEBUG)));
+            $client = new JPushClient($app_key, $master_secret);
+            $result = $client->push()
+                ->setPlatform(M\all)
+                ->setAudience(M\all)
+                ->setNotification(M\notification($title))
+                ->setMessage(M\message($content))
+                //->printJSON()
+                ->Send();
         }
     }
 

@@ -11,4 +11,7 @@ return array(
     'Faker\\PHPUnit' => array($vendorDir . '/fzaninotto/faker/test'),
     'Faker' => array($vendorDir . '/fzaninotto/faker/src'),
     'Diff' => array($vendorDir . '/phpspec/php-diff/lib'),
+    'jpush' => array($vendorDir . '/jpush/jpush/src'),
+    'Psr\\Log\\' => array($vendorDir . '/psr/log'),
+    'Httpful' => array($vendorDir . '/nategood/httpful/src'),
 );

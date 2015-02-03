@@ -15,8 +15,8 @@ $br = '<br/>';
 $spilt = ' - ';
 
 
-$master_secret = 'd94f733358cca97b18b2cb98';
-$app_key='47a3ddda34b2602fa9e17c01';
+$master_secret = '1ab69e0b2c85638eb7768a76';
+$app_key='0fbc2f3266750b4e3ae40f51';
 JPushLog::setLogHandlers(array(new StreamHandler('jpush.log', Logger::DEBUG)));
 $client = new JPushClient($app_key, $master_secret);
 
