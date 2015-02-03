@@ -25,7 +25,8 @@
         "kartik-v/yii2-date-range": "*",
         "kartik-v/yii2-widget-fileinput": "*",
         "kartik-v/yii2-widgets": "*",
-        "hightman/xunsearch": "*@beta"
+        "hightman/xunsearch": "*@beta",
+        "jpush/jpush": "v3.2.1"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

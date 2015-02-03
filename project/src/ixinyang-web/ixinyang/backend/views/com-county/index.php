@@ -16,9 +16,10 @@ use yii\web\jqueryAsset;
 $this->title = '区县管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="com-county-index">
 
-<div class="row">
+  <div class="row">
    <?php $form = ActiveForm::begin([
          'layout' => 'horizontal',
          'action' => ['search'],
@@ -36,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ?>
     </div>
     <?= Html::submitButton('查询', ['class' =>'btn btn-success','id'=>'btnSelect']) ?>
-    <?php ActiveForm::end(); ?>
+    <?php ActiveForm::end(); ?> 
   
 </div>
  <div class="row">
@@ -48,9 +49,13 @@ $this->params['breadcrumbs'][] = $this->title;
      <?= GridView::widget([
         'id'=>'countyGrid',
         'dataProvider' => $dataProvider,
+        'tableOptions'=>['class'=>'','id'=>'test123'],
+        'rowOptions' => function ($model, $key, $index, $grid) {
+                return ['id' => $model['countyId'],'onclick'=>"dosubmit('".$model['countyId']."',this)"];
+        },
         'columns' => [
             ['class' => 'yii\grid\SerialColumn',],
-           /* [
+            [
                 'attribute'=>'countyId',
                 'label'=>'区县id',
                 'value'=>function($data){
@@ -58,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
                    return $data['countyId'];
                 },
                // 'visible' => false
-            ],*/
+            ],
              [
                 'attribute'=>'cityCenterId',
                 'label'=>'市区名称',
@@ -124,20 +129,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
 </div>
 
-<style type="text/css">
-.trSelected{ 
-background-color: #B0E0E6; 
-} 
-</style>
-
-
-
 <script type="text/javascript"> 
 <?php
   $this->beginBlock('JS_END');
 ?>
 $(function(){
-    $("table").removeClass("table-striped");
 
     $("#countyAdd").click(function(){
       //弹出dialog 添加对话框
@@ -167,29 +163,6 @@ $(function(){
               });
     });
 });
-
-//触发行事件 点击某行区县 区县下对应的商圈加载出来
-$("table tbody tr:gt(0)").bind("click",function(){
-    $("table tbody tr:gt(0)").removeClass("trSelected");
-    $(this).addClass("trSelected");
-    $("#businessdistrictDiv").show();
-    
-    var id=$(this).attr("data-key");
-    dosubmit(id);
-    //alert(id);
-      
-});
-
- //把商圈列表页面加载出来
- function dosubmit(id){
-     $.ajax({
-         type:"post",
-         url:"index.php?r=com-county/selectinfo&countyId="+id,
-         success:function(data) {
-             $("#businessdistrictDiv").html(data);
-         }
-     });
- }
 
 //弹出dialog 添加对话框
 function getLoadInfo(){
@@ -238,6 +211,30 @@ function updateFunction(id){
               });
 }
 
+//把商圈列表页面加载出来
+function dosubmit(id,obj){
+
+    var _table=obj.parentNode;
+    for (var i=0;i<_table.rows.length;i++){
+       for (var j=0; j<_table.rows[i].cells.length; j++) {
+
+        var td =$(_table.rows[i].cells[j]);
+        $(td).css("background-color","");
+       };
+    } 
+    $(obj).children("td").css("background-color","#AAAAAA");
+  
+   $.ajax({
+           type:"post",
+           url:"index.php?r=com-county/selectinfo&countyId="+id,
+           success:function(data) {
+               $("#businessdistrictDiv").html(data);
+           }
+       });
+} 
+
+
+
 <?php
   $this->endBlock();
 ?>
@@ -258,3 +255,4 @@ function updateFunction(id){
 <?php 
 $this->registerJs($this->blocks['JS_END'], \yii\web\View::POS_END);
 ?>
+
