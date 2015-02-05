@@ -80,7 +80,7 @@ class AdAdvertisementController extends Controller
     public function actionView($id)
     {
         $model=$this->findModel($id);
-        $comdicModel=ComDictionary::find()->where(['id'=>$model->mapLocation])->one();
+        $comdicModel=ComDictionary::selectCodeNameById($model->mapLocation);
 
         return $this->renderPartial('view', [
             'model' => $model,
