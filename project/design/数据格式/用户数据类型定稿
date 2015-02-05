@@ -1,3 +1,14 @@
+手机验证    			PhoneCaptchaActionController
+	发送验证码		sendCaptcha
+
+sendCaptcha:
+提交:
+{
+	
+}
+
+
+
 基础数据		BaseActionController
 	分类		getType
 	区域		getRegion
@@ -175,10 +186,13 @@ signin:
 }
 
 返回json:
+{"success":"true",
+	"content":
 {
 	"result": "value",(true/false)
 	"ID": "value",
 	"message": "value" (true:message传递token值, false:message传递错误信息)
+}
 }
 
 getInfo:
@@ -451,22 +465,22 @@ getCardList
 		"recordList":
 		[ 
 			{
-				"id": "1231232131",
+				"cardID": "1231232131",
 				"shopName": "value",  （店铺名称）
 				"img": "value",    	（会员卡图片）
 				"number": "value",  (会员卡卡号)
 				"level": "value",  (所享有的等级折扣)
 			},
 			{
-				"id": "1231232131",
+				"cardID": "1231232131",
 				"shopName": "value",  （店铺名称）
 				"img": "value",    	（会员卡图片）
 				"number": "value",  (会员卡卡号)
 				"level": "value",  (所享有的等级折扣)
 			},
 		]
-		"pageCount": "10",
-        "pecordCount":"100"
+		"pageCount": "2",
+        "recordCount":"21"
 	}
 }
 
@@ -831,7 +845,8 @@ getList:
 	"regionID": "区域id",
 	"typeID":  "类别id",
 	"location":  "经度，纬度",
-	"bussinessID": 商圈id
+	"bussinessID": 商圈id,
+	"isSuggest"
 	"orderBy":  "value" (0,1,2,3,4,5,6)
 }
 返回json
