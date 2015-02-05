@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = 'Update';
 <div class="ad-update">
 
     <?= $this->render('_form', [
-        'model' => $model,
+        'model' =>$model,
         'dictionaryModel'=>$dictionaryModel,
         'dictionaryList'=>$dictionaryList,
     ]) ?>

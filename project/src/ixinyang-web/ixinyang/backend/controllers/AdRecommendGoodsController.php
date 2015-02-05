@@ -85,7 +85,7 @@ class AdRecommendGoodsController extends BackendController
             }
             else{
                  //数据验证失败
-                  return $this->redirect('create');
+                  return $this->redirect('index.php?r=ad-advertisement/create');
 
             }
         } 

@@ -21,6 +21,11 @@ use yii\widgets\DetailView;
                 'format'=>'raw',  
                 'value'=> "<img src=".$model->photoUrl." width='400px'; />",
             ],
+            [
+                'attribute'=>'mapLocation',
+                'format'=>'raw',  
+                'value'=> !empty($comdicModel)? $comdicModel->codeName: "",
+            ],
             'adName',
             'startDate',
             'endDate',

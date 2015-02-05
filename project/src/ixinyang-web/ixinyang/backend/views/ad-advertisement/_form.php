@@ -16,35 +16,54 @@ use yii\helpers\Url;
 <div class="ad-form">
 
 
-    <?php $form = ActiveForm::begin(['layout' => 'horizontal','id'=>'advertisementForm',
-        'options' => ['enctype' => 'multipart/form-data'],
-         'validationUrl'=>Url::to(['ad-advertisement/imagevalidate']),
-         'ajaxParam' => 'ajax',
+    <?php $form = ActiveForm::begin([
+      'id'=>'advertisementForm',
+      'layout' => 'horizontal',
+      'options' => ['enctype' =>'multipart/form-data'],
     ]); ?>
-
 
  <div class="row">
  <div class="col-lg-12">
      <?= $form->field($model, 'adType')->inline()->radioList(['1'=>'手机端','2'=>'web端'])?>
-      <?= $form->field($model,'file',['enableAjaxValidation'=>true])->widget(
-        FileInput::className(),[
-            'options'=>[
-                'multiple' => false,
-                'value'=>$model->photoUrl,
-                'id'=>'photoUrl'
-            ],
-            'pluginOptions'=>[
-                'initialPreview'=>Ad::getPicture($model->id),
-                'previewFileType' => 'any',
-                'showUpload'=>false,
-                'browseLabel'=>'浏览文件',
-                'removeLabel'=>'移除文件',
-                'initialCaption'=>"请选择上传文件",
-                'overwriteInitial'=>true,
-                //'maxFileSize'=>100,//单位 是 KB
-            ],
+      <div id="phoneDiv" >
+          <?= $form->field($model,'file')->widget(
+            FileInput::className(),[
+                'options'=>[
+                    'multiple' => false,
+                    'value'=>$model->photoUrl,
+                ],
+                'pluginOptions'=>[
+                    'initialPreview'=>Ad::getPicture($model->id),
+                    'previewFileType' => 'any',
+                    'showUpload'=>false,
+                    'browseLabel'=>'浏览文件',
+                    'removeLabel'=>'移除文件',
+                    'initialCaption'=>"请选择上传文件",
+                    'overwriteInitial'=>true,
+                ],
 
-        ])->label("广告图片")?>
+            ])->label("广告图片")?>
+        </div>
+
+         <div id="webDiv" style="display:none">
+          <?= $form->field($model,'fileWeb')->widget(
+            FileInput::className(),[
+                'options'=>[
+                    'multiple' => false,
+                    'value'=>$model->photoUrl,
+                ],
+                'pluginOptions'=>[
+                    'initialPreview'=>Ad::getPicture($model->id),
+                    'previewFileType' => 'any',
+                    'showUpload'=>false,
+                    'browseLabel'=>'浏览文件',
+                    'removeLabel'=>'移除文件',
+                    'initialCaption'=>"请选择上传文件",
+                    'overwriteInitial'=>true,
+                ],
+
+            ])->label("广告图片")?>
+        </div>
 
 
     <?= $form->field($model, 'mapLink')->textArea(['maxlength' => 200]) ?>
@@ -89,8 +108,9 @@ use yii\helpers\Url;
 
 <div class="col-lg-7">
     <div class="form-group pull-right">
-     <?= Html::submitButton($model->isNewRecord ? '保存' : '更新', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    <!-- <?=Html::submitButton('保存',['class' => 'btn btn-success'])?> -->
+
+    <?= Html::submitButton($model->isNewRecord ? '保存' : '更新', ['id'=>$model->isNewRecord ? 'btnSave' : 'btnUpdate','class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+   
     </div>
 </div>
     <?php ActiveForm::end(); ?>
@@ -101,13 +121,39 @@ use yii\helpers\Url;
 </div>
 
 <script type="text/javascript">
-    $(function(){
-     /* $("#advertisementForm").on("submit", function(event) {
-          if ($("#photoUrl").attr('value')=="" || $("#photoUrl").attr('value')==undefined) {
-             alert('请选择广告');
-             return false;
-          };
-      });*/
+  $(function(){
+
+    $("#btnSave").click(function(){
+      if(!$("div").hasClass("required has-error")){
+         document.getElementById("advertisementForm").submit();
+      }
+      else{
+        return false;
+      }
+    });
+
+    $("#btnUpdate").click(function(){
+      if(!$("div").hasClass("required has-error")){
+         document.getElementById("advertisementForm").submit();
+      }
+      else{
+        return false;
+      }
+    });
+   
+
+    $("input[name='Ad[adType]']").click(function(){
+        <!-- 1  手机端   2 web端-->
+       if ($("input[name='Ad[adType]']:checked").val()=="1") 
+        {
+          $("#phoneDiv").show();
+          $("#webDiv").hide();
+        }
+        else{
+          $("#webDiv").show();
+          $("#phoneDiv").hide();
+        }
+    });
 
        //开始日期变动 若结束日期小于开始日期  则给结束日期赋值:开始日期
        $("#ad-startdate").change(function(){

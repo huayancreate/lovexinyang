@@ -79,8 +79,12 @@ class AdAdvertisementController extends Controller
      */
     public function actionView($id)
     {
+        $model=$this->findModel($id);
+        $comdicModel=ComDictionary::find()->where(['id'=>$model->mapLocation])->one();
+
         return $this->renderPartial('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'comdicModel'=>$comdicModel,
         ]);
     }
 
@@ -91,17 +95,22 @@ class AdAdvertisementController extends Controller
      */
     public function actionCreate()
     {
+
         $model = new Ad();
         $dictionaryModel=new ComDictionary();
+        $model->scenario ='add';
 
         if ($model->load(Yii::$app->request->post()) && $dictionaryModel->load(Yii::$app->request->post())) {
            
-            $file=UploadedFile::getInstance($model,'file'); //获取上传文件
-
-            $model->file=$file;
-            
-            //$this->redirect(['imagevalidate']);
-
+           if ($model->adType==1) {
+               $file=UploadedFile::getInstance($model,'file'); //获取上传文件
+               $model->file=$file;
+           }
+           else{
+               $file=UploadedFile::getInstance($model,'fileWeb'); //获取上传文件
+               $model->fileWeb=$file;
+           }
+           
             if ($model->validate($model)) {
                  //创建人员ID  先写固定值
                  $model->createrId=0;
@@ -111,15 +120,21 @@ class AdAdvertisementController extends Controller
                  $model->mapLocation=(int)$dictionaryModel->codeName;
                  //文件上传
                  $pictureToolModel=new PictureTool();
-                 $path= $pictureToolModel->uploads($file,1);
-                 $file->tempName = $path;
-                 $model->photoUrl=$path; //图片路径
+                 if (count($file)>0) 
+                 {
+                     $path= $pictureToolModel->uploads($file,1);
+                     $file->tempName = $path;
+                     $model->photoUrl=$path; //图片路径
+                 }
                  //保存
                  $model->save();
+
             }
-           return $this->redirect(['index']);
+             //print_r($model->getErrors());
+            return $this->redirect(['index']);
              
         } else {
+
             //从数据字典表读取广告位置信息
             $dictionaryList=$dictionaryModel->selectByCategory('ad_location');
 
@@ -145,13 +160,21 @@ class AdAdvertisementController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+
         //数据字典model
         $dictionaryModel=new ComDictionary();
 
         if ($model->load(Yii::$app->request->post()) && $dictionaryModel->load(Yii::$app->request->post())) {
            
-            $file=UploadedFile::getInstance($model,'file'); //获取上传文件
-            $model->file=$file;
+          if ($model->adType=="1") {
+               $file=UploadedFile::getInstance($model,'file'); //获取上传文件
+               $model->file=$file;
+           }
+           else{
+               $file=UploadedFile::getInstance($model,'fileWeb'); //获取上传文件
+               $model->fileWeb=$file;
+           }
+           
             $oldPhotoUrl=$model->photoUrl;
 
              $pictureToolModel=new PictureTool();
@@ -160,6 +183,12 @@ class AdAdvertisementController extends Controller
                  $path=$pictureToolModel->uploads($file,1); //文件上传
                  $file->tempName = $path;
                  $model->photoUrl=$path; //图片路径
+                 //图片重新上传
+                  $model->scenario = 'update';
+            }
+            else{
+                //图片没修改
+                $model->scenario='updateoldphoto';
             }
              //对应位置  
              $model->mapLocation=(int)$dictionaryModel->codeName;
@@ -172,7 +201,8 @@ class AdAdvertisementController extends Controller
                     $pictureToolModel->delfile($oldPhotoUrl);
                 }
              }
-           return $this->redirect(['index']);
+          
+          return $this->redirect(['index']);
 
         } else {
             //从数据字典表读取广告位置信息
@@ -214,21 +244,6 @@ class AdAdvertisementController extends Controller
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
-        }
-    }
-
-    /**
-     * [actionImagevalidate 图片验证]
-     * @return [type] [description]
-     */
-    public function actionImagevalidate(){
-
-        $ad=new Ad();
-        $ad->load(Yii::$app->request->post());
-
-        if (Yii::$app->request->isAjax) {
-          Yii::$app->response->format = Response::FORMAT_JSON;
-          return ActiveForm::validate($ad,'file');
         }
     }
 }

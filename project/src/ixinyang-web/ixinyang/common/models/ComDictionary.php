@@ -60,4 +60,10 @@ class ComDictionary extends \yii\db\ActiveRecord
         $dictionaryList=ComDictionary::find()->where(['category'=>$category])->all();
         return $dictionaryList;
     }
+
+    public function selectCodeNameById($id)
+    {
+        $model=ComDictionary::find()->where(['id' => $id])->one();
+        return $model;
+    }
 }

@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\jui\Dialog;
+use common\models\ComDictionary;
 
 ?>
  <p>
@@ -22,10 +23,19 @@ use yii\jui\Dialog;
                 }
             ],
             [
-                'attribute'=>'photoUrl',
+                 'attribute'=>'photoUrl',
                 'format'=>'html',
                 'value'=>function($data){
                     return "<img src=".$data['photoUrl']." width='50px'; />";
+                }
+            ],
+            [
+                'attribute'=>'mapLocation',
+                'label'=>'广告位置',
+                'format'=>'html',
+                'value'=>function($model){
+                    $comdicModel=ComDictionary::selectCodeNameById($model['mapLocation']);
+                    return !empty($comdicModel)? $comdicModel->codeName : "";
                 }
             ],
             'mapLink',

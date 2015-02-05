@@ -28,6 +28,7 @@ class Ad extends \yii\db\ActiveRecord
      * @var UploadedFile file attribute
      */
     public $file;
+    public $fileWeb;
 
     /**
      * @inheritdoc
@@ -37,22 +38,58 @@ class Ad extends \yii\db\ActiveRecord
         return 'ad_advertisement';
     }
 
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios['add'] = ['mapLink', 'mapOrder','adName', 'startDate', 'endDate','createrId', 'mapLocation','createTime', 'photoUrl','isValid','adType','file','fileWeb'];
+        $scenarios['update'] = ['mapLink', 'mapOrder','adName', 'startDate', 'endDate','createrId', 'mapLocation','createTime', 'photoUrl','isValid','adType','file','fileWeb'];
+        $scenarios['updateoldphoto'] = ['mapLink', 'mapOrder','adName', 'startDate', 'endDate','createrId', 'mapLocation','createTime', 'photoUrl','isValid','adType'];
+        return $scenarios;
+    }
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
+       $phonefile = function($model) { return $model->adType =="1"; };
+       $webfile = function($model) { return $model->adType =="2"; };
+
         return [
              //去掉前后空格
             [['mapLink','mapOrder','adName'],'trim'],//, 'mapLocation'
             //必填
+            //[['mapLink','mapOrder'],'unique','message'=>'{attribute}已经存在'],
             [['mapLink','mapOrder', 'startDate', 'endDate',],'required','message'=>'{attribute}不能为空'],
-            [['mapLink','mapOrder'],'unique','message'=>'{attribute}已经存在'],
+          
             [['createrId', 'mapOrder', 'mapLocation'], 'integer'],
             [['createTime', 'updateTime', 'endDate', 'startDate'], 'safe'],
             [['mapLink', 'adName', 'photoUrl'], 'string', 'max' => 200],
             [['isValid','adType'], 'string', 'max' => 1],
             [['mapLink'],'url','message'=>'请输入正确的链接地址'],
+            
+             [['file'],'image',
+                      'maxHeight'=>1200,'overHeight'=>'图片超过了指定高度',
+                      'maxWidth'=>1200, 'overWidth'=>'图片超过了指定宽度',
+                      'maxSize'=>1024*1024*2,'tooBig'=>'图片过大',
+                      'skipOnError'=>0,
+                      'skipOnEmpty'=>0,
+                      'uploadRequired'=>'请上传文件！',
+                      'when' => $phonefile,
+                      'on'=>'update',
+            ],
+
+             [['fileWeb'],'image',
+                      'maxHeight'=>1200,'overHeight'=>'图片超过了指定高度',
+                      'maxWidth'=>1200, 'overWidth'=>'图片超过了指定宽度',
+                      'maxSize'=>1024*1024*2,'tooBig'=>'图片过大',
+                      'skipOnError'=>0,
+                      'skipOnEmpty'=>0,
+                      'uploadRequired'=>'请上传文件！',
+                      'when' => $webfile,
+                      'on'=>'update',
+            ],
+
             [['file'],'image',
                       'maxHeight'=>1200,'overHeight'=>'图片超过了指定高度',
                       'maxWidth'=>1200, 'overWidth'=>'图片超过了指定宽度',
@@ -60,6 +97,19 @@ class Ad extends \yii\db\ActiveRecord
                       'skipOnError'=>0,
                       'skipOnEmpty'=>0,
                       'uploadRequired'=>'请上传文件！',
+                      'when' => $phonefile,
+                      'on'=>'add',
+            ],
+
+            [['fileWeb'],'image',
+                      'maxHeight'=>1200,'overHeight'=>'图片超过了指定高度',
+                      'maxWidth'=>1200, 'overWidth'=>'图片超过了指定宽度',
+                      'maxSize'=>1024*1024*2,'tooBig'=>'图片过大',
+                      'skipOnError'=>0,
+                      'skipOnEmpty'=>0,
+                      'uploadRequired'=>'请上传文件！',
+                      'when' => $webfile,
+                      'on'=>'add',
             ],
         ];
     }
