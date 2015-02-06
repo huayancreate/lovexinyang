@@ -99,9 +99,9 @@ use yii\helpers\Url;
                ])
       ?>
     <!--默认值选中-->
-    <?php $dictionaryModel->categoryName=$model->mapLocation;?>
+    <?php $dictionaryModel->codeName=$model->mapLocation;?>
 
-    <?= $form->field($dictionaryModel, 'categoryName')->dropDownList(ArrayHelper::map($dictionaryList,'id','categoryName'),['prompt' => '--请选择对应位置--'])
+    <?= $form->field($dictionaryModel, 'codeName')->dropDownList(ArrayHelper::map($dictionaryList,'id','codeName'),['prompt' => '--请选择对应位置--'])
     ?>
     <?= $form->field($model, 'isValid')->checkbox() ?>
    

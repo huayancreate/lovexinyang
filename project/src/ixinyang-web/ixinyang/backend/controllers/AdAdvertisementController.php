@@ -117,7 +117,7 @@ class AdAdvertisementController extends Controller
                  //创建时间  当前时间
                  $model->createTime=date("Y-m-d H:i:s");
                  //对应位置  
-                 $model->mapLocation=(int)$dictionaryModel->categoryName;
+                 $model->mapLocation=(int)$dictionaryModel->codeName;
                  //文件上传
                  $pictureToolModel=new PictureTool();
                  if (count($file)>0) 
@@ -191,7 +191,7 @@ class AdAdvertisementController extends Controller
                 $model->scenario='updateoldphoto';
             }
              //对应位置  
-             $model->mapLocation=(int)$dictionaryModel->categoryName;
+             $model->mapLocation=(int)$dictionaryModel->codeName;
              //修改时间
              $model->updateTime=date('Y-m-d H:i:s');
              //保存成功  删除原来的图片
