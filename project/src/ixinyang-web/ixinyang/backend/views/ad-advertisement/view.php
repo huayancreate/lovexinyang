@@ -24,7 +24,7 @@ use yii\widgets\DetailView;
             [
                 'attribute'=>'mapLocation',
                 'format'=>'raw',  
-                'value'=> !empty($comdicModel)? $comdicModel->codeName: "",
+                'value'=> !empty($comdicModel)? $comdicModel->categoryName: "",
             ],
             'adName',
             'startDate',

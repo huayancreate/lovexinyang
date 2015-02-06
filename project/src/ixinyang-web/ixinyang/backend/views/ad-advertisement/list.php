@@ -35,7 +35,7 @@ use common\models\ComDictionary;
                 'format'=>'html',
                 'value'=>function($model){
                     $comdicModel=ComDictionary::selectCodeNameById($model['mapLocation']);
-                    return !empty($comdicModel)? $comdicModel->codeName : "";
+                    return !empty($comdicModel)? $comdicModel->categoryName : "";
                 }
             ],
             'mapLink',
