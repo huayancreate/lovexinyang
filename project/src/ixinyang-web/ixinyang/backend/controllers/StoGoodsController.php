@@ -114,9 +114,6 @@ class StoGoodsController extends BackendController
 
                 $model->save();  //商品信息保存
 
-                $this->stoGoodsStoreModelSave($model->id);//��Ʒ��Ӧ������Ϣ�?��
-
-
                 $pictureToolModel=new PictureTool();
                 foreach ($files as $file) {
 
