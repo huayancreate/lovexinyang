@@ -5,6 +5,7 @@ use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use yii\helpers\Json;
 use yii\web\IdentityInterface;
 
 /**
@@ -25,15 +26,16 @@ use yii\web\IdentityInterface;
 class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
-    const STATUS_ACTIVE = 10;
+    const STATUS_ACTIVE = 10;  //启用
+    const STATUS_VALIDITY=0;  //锁定
+    const STATUS_DELETE=-1; //删除
     const ROLE_USER = 10;
-
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return '{{%t_adm_user}}';
+        return 't_adm_user';
     }
 
     /**
@@ -42,21 +44,46 @@ class User extends ActiveRecord implements IdentityInterface
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
+            'timestamp' => [
+                'class' => 'yii\behaviors\TimestampBehavior',
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => [
+                        'created_at',
+                        'updated_at'
+                    ],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => [
+                        'updated_at'
+                    ]
+                ]
+            ]
         ];
     }
 
     /**
      * @inheritdoc
      */
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            ['status', 'default','value' => self::STATUS_ACTIVE],
+            ['status','in','range' => [ self::STATUS_ACTIVE,self::STATUS_DELETED]],
+            ['role','default','value' => self::ROLE_USER],
+            ['role','in','range' => [self::ROLE_USER]],
+            ['username','filter','filter' => 'trim'],
+            ['username', 'required'],
+            ['username','unique'],
+            ['username','string','min' => 2,'max' => 255],
+        ];
+    }
 
-            ['role', 'default', 'value' => self::ROLE_USER],
-            ['role', 'in', 'range' => [self::ROLE_USER]],
+    public function attributeLabels()
+    {
+        return [
+            'username' => '用户名',
+            'password' => '密码',
         ];
     }
 
@@ -84,7 +111,10 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findByUsername($username)
     {
-        return static::findOne(['username' => $username]);
+        return static::findOne([
+            'username' => $username,
+            'status' => self::STATUS_ACTIVE
+        ]);
     }
 
     /**
@@ -153,7 +183,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function validatePassword($password)
     {
-        return Yii::$app->security->validatePassword($password, $this->password_hash);
+        return Yii::$app->getSecurity()->validatePassword($password, $this->password_hash);
     }
 
     /**
@@ -188,5 +218,17 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    public static function create($attributes){
+        $user=new static();
+        $user->setAttributes($attributes);
+        $user->setPassword($attributes["password"]);
+        $user->generateAuthKey();
+        if($user->save()){
+            return $user;
+        }else{
+            return null;
+        }
     }
 }

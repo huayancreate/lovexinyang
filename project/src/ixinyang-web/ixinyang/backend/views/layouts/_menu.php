@@ -8,10 +8,10 @@ use yii\helpers\Url;
 				<?php if($father->parentid==0):?>
 					<li>
 						<details open>
-							<summary><?= $father->menuname ?></summary>
+							<summary><?= $father->name ?></summary>
 						<?php foreach ($list as $p):?>
 							<?php if($father->id==$p->parentid):?>
-								<a href="<?=Url::to('index.php?r='.$p['route'])?>"> <?= $p->menuname ?> </a>
+								<a href="<?=Url::to('index.php?r='.$p['route'])?>"> <?= $p->name ?> </a>
 							<?php endif ?>
 						<?php endforeach; ?>
 						</details>

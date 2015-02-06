@@ -9,7 +9,7 @@ use yii\helpers\ArrayHelper;
  * This is the model class for table "t_menu".
  *
  * @property integer $id
- * @property string $menuname
+ * @property string $name
  * @property integer $parentid
  * @property string $route
  * @property string $menuicon
@@ -31,9 +31,10 @@ class TMenu extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['menuname','route'], 'required','message' => '{attribute}不能为空.'],
+            [['name','route'], 'required','message' => '{attribute}不能为空.'],
+            [['name','route'], 'unique','message'=>'{attribute}已经存在'],
             [['parentid', 'level'], 'integer'],
-            [['menuname', 'route'], 'string', 'max' => 32],
+            [['name', 'route'], 'string', 'max' => 32],
             [['menuicon'], 'string', 'max' => 16]
         ];
     }
@@ -45,7 +46,7 @@ class TMenu extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'menuname' => '菜单名称',
+            'name' => '菜单名称',
             'parentid' => '父类',
             'route' => '路由',
             'menuicon' => '图标',
@@ -60,14 +61,14 @@ class TMenu extends \yii\db\ActiveRecord
         if($insert)
         {
             $permission = $auth->createPermission($this->route);
-            $permission->description = $this->menuname;
+            $permission->description = $this->name;
             $auth->add($permission);
         }else
         {
             $route = ArrayHelper::getValue($changedAttributes,'route',$this->route);
             $permission = $auth->getPermission($route);
             $permission->name = $this->route;
-            $permission->description = $this->menuname;
+            $permission->description = $this->name;
             $auth->update($route,$permission);
         }
 
@@ -81,6 +82,13 @@ class TMenu extends \yii\db\ActiveRecord
         if($p = $auth->getPermission($this->route))
             $auth->remove($p);
     }
+    
+    public function getdropTmenu()
+    {
+       $data = TMenu::find()->asArray()->all();
+       return ArrayHelper::map($data, 'id', 'name');
+    }
+    
     /**
      * 获取子菜单
      * @return static

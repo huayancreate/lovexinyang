@@ -46,7 +46,7 @@ $this->params['breadcrumbs'] = [
                             <?php endif; ?>
                             onclick="ckbox(1,this)" name="<?= $k['id'] ?>" id="<?= $k['id'] ?>"/>
 
-                        <?=$k['menuname']?>
+                        <?=$k['name']?>
                     </td>
                     <td>
                     <?php if (is_array($k['parentid'])): ?>
@@ -59,7 +59,7 @@ $this->params['breadcrumbs'] = [
                                 <?php endif; ?>
                                     onclick="ckbox(2,this)"/>
 
-                            <?= $p['menuname'] ?>&nbsp;
+                            <?= $p['name'] ?>&nbsp;
                         <?php endforeach;?>
                     <?php endif; ?>
                     </td>

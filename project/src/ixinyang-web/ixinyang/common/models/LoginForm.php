@@ -3,14 +3,15 @@ namespace common\models;
 
 use Yii;
 use yii\base\Model;
+use backend\models\StoLogonAccount;
 
 /**
  * Login form
  */
 class LoginForm extends Model
 {
-    public $username;
-    public $password;
+    public $username="admin";
+    public $password="admin";
     public $rememberMe = true;
 
     private $_user = false;
@@ -23,11 +24,19 @@ class LoginForm extends Model
     {
         return [
             // username and password are both required
-            [['username', 'password'], 'required'],
+            [['username', 'password'], 'required','message' => '请输入{attribute}.'],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
+        ];
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'username'=>'账号',
+            'password'=>'密码',
         ];
     }
 
@@ -43,7 +52,10 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Incorrect username or password.');
+
+                $this->addError(null);
+
+                \Yii::$app->getSession()->setFlash('error',"账号密码不匹配");
             }
         }
     }
@@ -71,8 +83,19 @@ class LoginForm extends Model
     {
         if ($this->_user === false) {
             $this->_user = User::findByUsername($this->username);
+            //$this->_user=StoLogonAccount::findByLoginName($this->username);
         }
 
         return $this->_user;
+    }
+
+    /**
+     * 创建账号
+    */
+    public function signup(){
+        if($this->validate()){
+            return User::create($this->attributes);
+        }
+        return null;
     }
 }

@@ -1,115 +1,127 @@
 <?php
+
 namespace backend\controllers;
 
 use kartik\widgets\ActiveForm;
 use Yii;
 use backend\models\TMenu;
 use yii\web\Response;
+use yii\helpers\Json;
 
-class SysController extends BackendController
-{
+
+class SysController extends BackendController {
+
     /**
      * 菜单管理
      * @return string
      */
-    public function actionMenu()
-    {
+    public function actionMenu() {
         $model = new TMenu();
 
         $list = TMenu::find()->asArray()->all();
-        return $this->render('menu',[
-           'list'=>$model->getTree($list, 0),
-       ]);
+        return $this->render('menu', [
+                    'list' => $model->getTree($list, 0),
+        ]);
     }
 
     /*
      * 添加/修改菜单
      */
-    public function actionMenumange()
-    {
+
+    public function actionMenumange() {
         $model = new TMenu();
 
-        if(Yii::$app->request->isPost)
-        {
-            $params=Yii::$app->request->post();
+        if (Yii::$app->request->isPost) {
+            $params = Yii::$app->request->post();
 
-            $id=$params['TMenu']['id'];
-            if($id>0){
-                $model=TMenu::findOne($id);
+            $id = $params['TMenu']['id'];
+            if ($id > 0) {
+                $model = TMenu::findOne($id);
             }
 
             $model->load(Yii::$app->request->post());
-            
-            if($model->save())
-            {
-                Yii::$app->session->setFlash('success');
+            if ($model->save()) {
+                //Yii::$app->session->setFlash('success');
                 return $this->redirect(['sys/menu']);
             }
-        }else{
+        } else {
             $params = Yii::$app->request->get();
 
-            $id =$params['id'];
-            if($id > 0){
+            $id = $params['id'];
+            if ($id > 0) {
                 $model = TMenu::findOne($id);
-            }else
-            {
+            } else {
                 $model->loadDefaultValues();
                 $model->parentid = $params['pid'];
             }
         }
-        return $this->render('menumange',[
-            'model'=>$model,
+
+        $tmenu = TMenu::find();
+        return $this->render('menumange', [
+                    'model' => $model,
+                    'menuFather' => $tmenu->where(['parentid' => 0])->all(),
+                    'menuSon' => TMenu::find()->where(['parentid' => $model->parentid])->all()
         ]);
     }
 
-    public function actionMenudel()
-    {
+    public function actionSubcat() {
+        $out = [];
+        if (isset($_POST['depdrop_parents'])) {
+            $parents = $_POST['depdrop_parents'];
+            if ($parents != null) {
+                $cat_id = $parents[0];
+                $out = self::getSubCatList($cat_id);
+
+                echo Json::encode(['output' => $out, 'selected' => '']);
+                return;
+            }
+        }
+        echo Json::encode(['output' => '', 'selected' => '']);
+    }
+
+    private function getSubCatList($pid) {
+        return TMenu::find()->where(['parentid' => $pid])->asArray()->all();
+    }
+
+    public function actionMenudel() {
         $id = Yii::$app->request->get('id');
-        $level = Yii::$app->request->get('level');
-        //循环删除是为了在afterDelete删除对应的permission
-        //一级菜单先删除孙子节点
-        if($level==1)
-        {
-            $son = TMenu::find()->where(['parentid'=>$id,'level'=>2])->all();
-            foreach($son as $s)
-            {
-                $gsons = TMenu::find()->where(['parentid'=>$s->id])->all();
-                foreach($gsons as $g)
-                {
-                    $g->delete();
-                }
+
+        $model = TMenu::findOne($id);
+        //判断是否存在子级。
+        $_list = TMenu::find()->where(['parentid' => $id])->all();
+        if (count($_list) > 0) {
+            Yii::$app->session->setFlash('error', "存在子级菜单，不可删除！");
+            //echo \Yii::t('app', 'I am a message!');
+        } else {
+            //读取auth_item_child判断是否已被授权如果授权则不能删除
+            $authItemChild = \backend\models\AuthItemChild::find()
+                            ->where(['child' => $model->route])->all();
+            print_r($authItemChild);
+            if (count($authItemChild) > 0) {
+                 Yii::$app->session->setFlash('error', "该菜单已被授权，不可删除！");
+            } else {
+                TMenu::findOne($id)->delete();
+                Yii::$app->session->setFlash('success', "操作成功");
             }
         }
-        //一二级菜单删除儿子节点
-        if($level<=2)
-        {
-            $son = TMenu::find()->where(['parentid'=>$id])->all();
-            foreach($son as $s)
-            {
-                $s->delete();
-            }
-        }
-        //删除自身
-        TMenu::findOne($id)->delete();
-        Yii::$app->session->setFlash('success');
         return $this->redirect(['sys/menu']);
     }
+
     /**
      * Ajax 验证菜单名称
      * @return array
      */
-    public function actionAjaxvalidate()
-    {
-        if($id = Yii::$app->request->post('id')){
+    public function actionAjaxvalidate() {
+        if ($id = Yii::$app->request->post('id')) {
             $model = TMenu::findOne($id);
-        }else{
+        } else {
             $model = new TMenu();
-            if(Yii::$app->request->isAjax)
-            {
+            if (Yii::$app->request->isAjax) {
                 $model->load(Yii::$app->request->post());
                 Yii::$app->response->format = Response::FORMAT_JSON;
-                return ActiveForm::validate($model,'menuname');
+                return ActiveForm::validate($model, 'name');
             }
         }
     }
+
 }

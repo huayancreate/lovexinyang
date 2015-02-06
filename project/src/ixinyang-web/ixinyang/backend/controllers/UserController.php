@@ -1,122 +1,142 @@
 <?php
+
 namespace backend\controllers;
 
+use backend\models\AuthAssignment;
 use backend\models\forsearch\TAdmUserSearch;
-use app\models\LoginForm;
 use Yii;
 use backend\models\TAdmUser;
 use yii\helpers\FileHelper;
+use yii\helpers\Json;
 use yii\web\Response;
 use yii\web\UploadedFile;
 use yii\widgets\ActiveForm;
+use common\models\User;
+use common\models\SignupForm;
 
-class UserController extends BackendController
-{
+class UserController extends BackendController {
     /*
      * 用户管理
      */
-    public function actionIndex()
-    {
+
+    public function actionIndex() {
         $searchmodel = new TAdmUserSearch();
         $dataprovider = $searchmodel->search(Yii::$app->request->getQueryParams());
-        return $this->render('index',[
-            'model'=>new TAdmUser(['scenario'=>'create']),
-            'dataprovider'=>$dataprovider,
-            //'searchmodel'=>$searchmodel,
+        return $this->render('index', [
+                    'model' => new TAdmUser(['scenario' => 'create']),
+                    'dataprovider' => $dataprovider,
+                    //'searchmodel'=>$searchmodel,
         ]);
     }
+
     /**
      * 登陆
      * @return null|string
      */
-    public function actionLogin()
-    {
+    public function actionLogin() {
         $model = new TAdmUser();
-        if(Yii::$app->request->isPost)
-        {
+        if (Yii::$app->request->isPost) {
             $model = new LoginForm($_POST);
-            $model->rememberMe = Yii::$app->request->post('rememberMe')?:false;
-            if($model->login())
+            $model->rememberMe = Yii::$app->request->post('rememberMe')? : false;
+            if ($model->login())
                 return $this->goBack('/');
         }
         $this->layout = 'main-login';
-        return $this->render('login',[
-            'model'=>$model
+        return $this->render('login', [
+                    'model' => $model
         ]);
     }
+
     /**
      * 删除用户
      * @param $id
      * @return Response
      * @throws \Exception
      */
-    public function actionDelete($id)
-    {
+    public function actionDelete($id) {
         $model = TAdmUser::findOne($id);
-        if($model->delete())
-            Yii::$app->session->setFlash('success');
-        else
-            Yii::$app->session->setFlash('fail','删除失败');
+        if ($model->delete()) {
+            $assignment=new AuthAssignment();
+            if($assignment->deleteAll(['user_id'=>$id])){
+
+            }
+
+            Yii::$app->session->setFlash('success', "操作成功");
+        } else {
+            Yii::$app->session->setFlash('error', '删除失败');
+        }
         return $this->redirect(['user/index']);
     }
+
     /**
      * 登出
      * @return \yii\web\Response
      */
-    public function actionLogout()
-    {
+    public function actionLogout() {
         Yii::$app->user->logout();
         return $this->goHome();
     }
+
     /**
      * 添加用户
      * @return null|string
      * @throws \yii\base\Exception
      * @throws \yii\base\InvalidConfigException
      */
-    public function actionAdduser()
-    {
-        $model = new TAdmUser(['scenario'=>'create']);
-        if(Yii::$app->request->isPost)
-        {
-            $model->load($_POST);
-            print_r($model->validate());
-            // if($model->validate() && $model->save(false))
-            //     Yii::$app->session->setFlash('success');
-            // else
-            //     Yii::$app->session->setFlash('fail','添加失败');
-            //     
-            /*if($model->load($_POST) && $model->save())
-                Yii::$app->session->setFlash('success');
-            else
-                Yii::$app->session->setFlash('fail','添加失败');*/
-            
-            //return $this->redirect(['user/index']);
-        }
+    public function actionAdduser() {
+//        $model = new TAdmUser();
+//        if (Yii::$app->request->isPost) {
+//            $model->load($_POST);
+//            if($model->validate() && $model->save(false)){
+//                 Yii::$app->session->setFlash('success',"操作成功");
+//            }else{
+//                 Yii::$app->session->setFlash('error','添加失败');
+//            }
+//            return $this->redirect(['user/index']);
+//        }
     }
-
-    public function actionLoadhtml()
-    {
-        if($id = Yii::$app->request->post('id'))
+    
+    /**
+     *  修改用户
+     */
+    public function actionUpdate(){
+        
+        if($id=Yii::$app->request->get('id')){
             $model = TAdmUser::findOne($id);
-        else
-            $model = new TAdmUser();
-        return $this->renderPartial('loadhtml',[
-            'model'=>$model,
+        }else{
+            $model=new TAdmUser();
+        }
+        
+        return $this->render('update', [
+            'model' => $model,
         ]);
     }
+
+    public function actionLoadhtml() {
+        $model = new SignupForm();
+        if($model->load(Yii::$app->request->post())){
+            $user=$model->signup();
+            if($user!=null){
+                return $this->redirect(['user/index']);
+            }else{
+                Yii::$app->session->setFlash('error','添加失败！');
+            }
+        }
+        return $this->render('loadhtml', [
+            'model' => $model,
+        ]);
+    }
+
     /**
      * ajax验证是否存在
      * @return array
      */
-    public function actionAjaxvalidate()
-    {
+    public function actionAjaxvalidate() {
         $model = new TAdmUser();
-        if(Yii::$app->request->isAjax)
-        {
+        if (Yii::$app->request->isAjax) {
             $model->load($_POST);
             Yii::$app->response->format = Response::FORMAT_JSON;
-            return ActiveForm::validate($model,'username');
+            return ActiveForm::validate($model, 'username');
         }
     }
 
@@ -125,55 +145,51 @@ class UserController extends BackendController
      * @return string|Response
      * @throws \Exception
      */
-    public function actionSetphoto()
-    {
+    public function actionSetphoto() {
         $up = UploadedFile::getInstanceByName('photo');
-        if($up && !$up->getHasError())
-        {
+        if ($up && !$up->getHasError()) {
             $userid = Yii::$app->user->id;
-            $filename = $userid.'-'.date('YmdHis').'.'.$up->getExtension();
-            $path = Yii::getAlias('@backend/web/upload').'/user/';
+            $filename = $userid . '-' . date('YmdHis') . '.' . $up->getExtension();
+            $path = Yii::getAlias('@backend/web/upload') . '/user/';
             FileHelper::createDirectory($path);
-            $up->saveAs($path.$filename);
+            $up->saveAs($path . $filename);
             $model = TAdmUser::findOne($userid);
             $oldphoto = $model->userphoto;
             $model->userphoto = $filename;
-            if($model->update())
-            {
+            if ($model->update()) {
                 Yii::$app->session->setFlash('success');
                 //删除旧头像
-                if(is_file($path.$oldphoto))
-                    unlink($path.$oldphoto);
+                if (is_file($path . $oldphoto))
+                    unlink($path . $oldphoto);
                 return $this->goHome();
-            }else
-            {
-                print_r($model->getErrors());exit;
+            }else {
+                print_r($model->getErrors());
+                exit;
             }
         }
-        return $this->render('setphoto',[
-            'preview'=>Yii::$app->user->identity->userphoto,
+        return $this->render('setphoto', [
+                    'preview' => Yii::$app->user->identity->userphoto,
         ]);
     }
+    
 
     /**
      * 修改密码
      * @return string|Response
      */
-    public function actionChangepwd()
-    {
-        $model = TAdmUser::findOne(Yii::$app->user->id);
-        $model->scenario = 'chgpwd';
-        if(Yii::$app->request->isPost)
-        {
-            $model->load(Yii::$app->request->post());
-            if($model->save())
-                Yii::$app->session->setFlash('success');
-            else
-                Yii::$app->session->setFlash('fail');
-            return $this->goHome();
+    public function actionChangepwd($id) {
+
+        $model=User::findOne($id);
+        $model->password_hash=  Yii::$app->security->generatePasswordHash('123456');
+        $model->generateAuthKey();
+        if($model->save()){
+            Yii::$app->session->setFlash('success','密码重置成功！新密码为：<b>'.$model->password_hash.'</b>');
+        }else{
+            Yii::$app->session->setFlash('error',"操作失败");
         }
-        return $this->render('changepwd',[
-            'model'=>$model,
-        ]);
+       return $this->redirect(['user/index']);
     }
+    
+    
+
 }
