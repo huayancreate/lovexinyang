@@ -32,10 +32,9 @@ class ComDictionary extends \yii\db\ActiveRecord
     {
         return [
             [['category'], 'required'],
-            [['category', 'code', 'parentId'], 'string', 'max' => 50],
+            [['category','parentId'], 'string', 'max' => 50],
             [['categoryName'], 'string', 'max' => 100],
-            [['codeName'], 'string', 'max' => 150],
-            [['isValid'], 'string', 'max' => 1]
+            [['isValid','type'], 'string', 'max' => 1]
         ];
     }
 
@@ -47,17 +46,16 @@ class ComDictionary extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'category' => '字典类别',
-            'categoryName' => '字段名称',
-            'code' => '分类编码',
-            'codeName' => '分类内容',
+            'categoryName' => '分类名称',
             'parentId' => '上级编码id',
             'isValid' => '是否有效',
+            'type' => '属性',
         ];
     }
 
     public function selectByCategory($category)
     {
-        $dictionaryList=ComDictionary::find()->where(['category'=>$category])->all();
+        $dictionaryList=ComDictionary::findBySql('SELECT * FROM com_dictionary WHERE parentId=(SELECT id FROM com_dictionary WHERE category="'.$category.'")')->all();
         return $dictionaryList;
     }
 
