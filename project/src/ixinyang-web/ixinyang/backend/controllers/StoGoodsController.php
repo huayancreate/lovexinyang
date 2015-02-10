@@ -115,16 +115,8 @@ class StoGoodsController extends BackendController
 
                 $pictureToolModel=new PictureTool();
                 foreach ($files as $file) {
-
-
+                  
                     $path=$pictureToolModel->uploads($file,2); //ÎÄ¼þÉÏ´«
-
-                    $goodsPicture=new GoodsPicture();
-                    $goodsPicture->goodsId=$model->id; //ÉÌÆ·ÐÅÏ¢ID
-                    $goodsPicture->path=$path; //Í¼Æ¬Â·¾¶
-
-                    $path=$this->uploads($file); //文件上传
-
                     $goodsPicture=new GoodsPicture();
                     $goodsPicture->goodsId=$model->id; //商品信息ID
                     $goodsPicture->path=$path; //图片路径
@@ -200,7 +192,7 @@ class StoGoodsController extends BackendController
 
                      foreach ($files as $file) 
                      {
-
+                        //图片分类  1 广告  2 商品
                         $path=$pictureToolModel->uploads($file,2); //图片上传
 
                         $goodsPicture=new GoodsPicture();
@@ -335,29 +327,6 @@ class StoGoodsController extends BackendController
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-    }
-
-        //±£´æ
-    /**
-     * 文件上传
-     * @param  [type] $files [文件集合]
-     * @return [type]        [description]
-     */
-    protected function uploads($file){
-
-        $filePath = "uploads/goodsPic/";
-        
-        $ext = $file->getExtension(); //获取文件后缀 如: ".jpg"
-        
-        $randName = time() . rand(1000, 9999) . "." . $ext; //生成新文件名称
-
-        if(!file_exists($filePath)){
-            mkdir($filePath,0777,true);
-        }
-
-        $file->saveAs($filePath.$randName); //保存文件
-
-        return $filePath.$randName;
     }
 
     /**
