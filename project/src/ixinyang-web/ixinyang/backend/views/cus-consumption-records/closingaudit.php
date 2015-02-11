@@ -17,10 +17,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
     <label>总计：(￥) <?php echo $consumpRecModel->payablePrice;?></label>
-    <?php Pjax::begin(['id' => 'countries',]) ?>
+    <?php Pjax::begin(['id' => 'countries']) ?>
     <?= GridView::widget([
         'id'=>'closingauditGrid',
-        'options' => ['data-pjax' => true ],
+        'options' => ['data-pjax' => '1' ],
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
@@ -78,6 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
       <?php ActiveForm::end(); ?>
 
 </div>
+
 
 <script type="text/javascript"> 
 
@@ -160,6 +161,6 @@ $this->params['breadcrumbs'][] = $this->title;
         }
        
     }
-
 </script>
+
 

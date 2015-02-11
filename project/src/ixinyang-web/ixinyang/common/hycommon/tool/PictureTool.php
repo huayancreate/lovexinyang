@@ -22,12 +22,11 @@ class PictureTool {
             //广告图片路径  
             if ($type==1) {
                 $filePath = "uploads/adPic/";
+                $ext=$file->extension;
             }else if ($type==2) {
                 $filePath = "uploads/goodsPic/";
+                $ext = $file->getExtension($file); //获取文件后缀 如: ".jpg"
             }
-            
-            //$ext = $this->getExtension($file); //获取文件后缀 如: ".jpg"
-            $ext=$file->extension;
             
             $randName = time() . rand(1000, 9999) . "." . $ext; //生成新文件名称
 

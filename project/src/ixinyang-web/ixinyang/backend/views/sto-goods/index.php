@@ -39,7 +39,7 @@ $this->assetBundles['cliff363825\kindeditor\KindEditorWidget'] = new yii\web\Ass
             ['class' => 'yii\grid\SerialColumn'],
              [
                 'label'=>'商品图片',
-                'format'=>'html',
+                'format'=>'raw',
                 'value'=>function($model){
                     $showStr='';
                     $goodsPictureModels=GoodsPicture::find()->where(['goodsId' =>$model['goodsId']])->all();
