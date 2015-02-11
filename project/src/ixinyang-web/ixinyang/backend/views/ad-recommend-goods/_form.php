@@ -29,8 +29,6 @@ use yii\jui\DatePicker;
                     ],
                    ])
        ?>
-
-    
       <?= 
         $form->field($model,'endDate')->widget(
         DatePicker::className(),[
@@ -89,8 +87,11 @@ $(function(){
 
 //type  1  加载商品     2  加载店铺
 function loadData(source,type){
-    $( "#adrecommendgoods-ad_recommend_goods" ).autocomplete({
+     $( "#adrecommendgoods-ad_recommend_goods" ).autocomplete({
+        matchContains: true,
+        autoFill: true,
         minLength: 0,
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
         source: source,
         focus: function( event, ui ) {
         $( "#adrecommendgoods-ad_recommend_goods" ).val( type==1  ? ui.item.goodsName + "-"+ ui.item.storeName : ui.item.storeName );
@@ -107,12 +108,14 @@ function loadData(source,type){
     })
     .autocomplete( "instance" )._renderItem = function( ul, item ) {
 
+
       var showStr=type==1 ? item.goodsName + '-' + item.storeName : item.storeName;
 
         return $( "<li>" )
         .append( "<a>" + showStr + "</a>" )
         .appendTo( ul );
     };
+
 }
 
   //商品 店铺选择的切换  加载商品或店铺信息

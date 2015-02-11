@@ -59,7 +59,7 @@ class StostoreinfoController extends BackendController
      */
     protected function getShopInforeViewData(){
         $dataProvider = new ActiveDataProvider([
-            'query' => ShopInfoReview::find(),
+            'query' => ShopInfoReview::find()->where('auditState!=4 and auditState!=2')->asArray(),
             'pagination' => ['pagesize' => '5'],
         ]);
         return $dataProvider;

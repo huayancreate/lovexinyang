@@ -12,6 +12,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\models\StoStoreInfo;
+use backend\models\ComCategoryMaintain;
 /**
  * ShopinforeviewController implements the CRUD actions for ShopInfoReview model.
  */
@@ -66,7 +67,8 @@ class ShopinforeviewController extends BackendController
     public function actionCreate()
     {
         $model = new ShopInfoReview();
-
+        //商品类别维护
+        $categoryModel=new ComCategoryMaintain();
 
         if ($model->load(Yii::$app->request->post())) {
 
@@ -78,7 +80,12 @@ class ShopinforeviewController extends BackendController
                 $model->applyUserId="1";//申请人ID
                 $model->applyUserName="张三";//申请人姓名
                 $model->auditState="1"; //申请状态  1、申请中 2、初审通过 3、初审驳回 4、经理审核通过  5、经理审核驳回
-                
+                 //店铺类别
+                if($categoryModel->load(Yii::$app->request->post())){
+                    $model->storeType=(int)$categoryModel->categoryName;
+                }
+                //商家id  当前商家id
+                $model->storeId="1";
                 $model->save();
 
                 $transaction->commit(); //事务结束
@@ -99,9 +106,13 @@ class ShopinforeviewController extends BackendController
             //城市
             $cityModel=new ComCitycenter();
             $cityList=ComCitycenter::find()->all();
+            //获取店铺类别
+            $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
 
             return $this->renderPartial('create', [
-                'model' => $model,'cityModel'=>$cityModel,'cityList'=>$cityList
+                'model' => $model,'cityModel'=>$cityModel,'cityList'=>$cityList,
+                'categoryModel'=>$categoryModel,
+                'categoryList'=>$categoryList,
             ]);
         }
     }

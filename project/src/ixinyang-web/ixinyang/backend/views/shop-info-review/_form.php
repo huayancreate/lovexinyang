@@ -16,6 +16,14 @@ use kartik\widgets\DatePicker;
     <?php $form = ActiveForm::begin(['layout' => 'horizontal','id'=>'shopinforeviewFrom']); ?>
     <!--店铺名称-->
     <?= $form->field($model, 'shopName')->textInput(['maxlength' => 50]) ?>
+    <!--店铺类别-->
+    <?= $form->field($categoryModel, 'categoryName')->dropDownList(
+        ArrayHelper::map($categoryList, 'id', 'categoryName'),
+        ['prompt' => '--店铺类别--'])->label('店铺类别') ?>
+    <!--支付宝账号-->
+    <?= $form->field($model,'alipayNo')->textInput(['maxlength'=>40]) ?>
+    <!--支付宝名称-->
+    <?= $form->field($model,'alipayName')->textInput(['maxlength'=>150]) ?>
     <!--联系方式-->
     <?= $form->field($model, 'contact')->textInput(['maxlength' => 50]) ?>
     <!--城市-->   

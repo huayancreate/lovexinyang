@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\jui\Dialog;
+use backend\models\ShopInfoReview;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -28,9 +29,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label'=>'状态',
                 'value'=>
                     function($model){
-                        return $model->getState($model->auditState);
+                        return ShopInfoReview::getState($model['auditState']);
                     },
             ],
+            [
+                'attribute' => 'Rejection',
+                'value'=>
+                    function($model){
+                        return !empty($model['Rejection']) ? $model['Rejection']: "";
+                    },
+            ],
+            
             ['class' => 'yii\grid\ActionColumn',
                 'buttons'=>[
                     'view'=>function($url,$model){
@@ -38,22 +47,24 @@ $this->params['breadcrumbs'][] = $this->title;
                             [
                                 'title' => Yii::t('yii', '查看'),
                                 'data-pjax' => '0',
-                                'onClick'=>'getView("'.$model->shopName.'","shop-info-review/view&id='.$model->id.'")'
+                                'onClick'=>'getView("'.$model['shopName'].'","shop-info-review/view&id='.$model['id'].'")'
                             ]);
                     },
                     'update'=>function($url,$model){
-                    return Html::a('<span class="glyphicon glyphicon-pencil"></span>', "javascript:void(0)",
-                        [
-                            'title' => Yii::t('yii', '修改'),
-                            'onClick'=>'getEdit("shop-info-review/update&id='.$model->id.'","shopinforeviewFrom","gridList","修改")'
-                        ]);
+                       /* return Html::a('<span class="glyphicon glyphicon-pencil"></span>', "javascript:void(0)",
+                            [
+                                'title' => Yii::t('yii', '修改'),
+                                'onClick'=>'getEdit("shop-info-review/update&id='.$model['id'].'","shopinforeviewFrom","gridList","修改")'
+                            ]);*/
                     },
                     'delete'=>function($url,$model){
-                    return Html::a('<span class="glyphicon glyphicon-trash"></span>', 'javascript:void(0)',
-                        [
-                            'title' => Yii::t('yii', '删除'),
-                            'onClick'=>'expurgate("shop-info-review/delete&id='.$model->id.'")'
-                        ]);
+                        if ($model['auditState']==3 || $model['auditState']==5) {
+                            return Html::a('<span class="glyphicon glyphicon-trash"></span>', 'javascript:void(0)',
+                                [
+                                    'title' => Yii::t('yii', '删除'),
+                                    'onClick'=>'expurgate("shop-info-review/delete&id='.$model['id'].'")'
+                                ]);
+                        }
                     },
                 ]
             ],
