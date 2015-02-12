@@ -57,7 +57,7 @@ class Ad extends \yii\db\ActiveRecord
 
         return [
              //去掉前后空格
-            [['mapLink','mapOrder','adName'],'trim'],//, 'mapLocation'
+            [['mapLink','mapOrder','adName'],'trim'],
             //必填
             //[['mapLink','mapOrder'],'unique','message'=>'{attribute}已经存在'],
             [['mapLink','mapOrder', 'startDate', 'endDate',],'required','message'=>'{attribute}不能为空'],

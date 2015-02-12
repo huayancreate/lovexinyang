@@ -56,20 +56,19 @@ $this->params['breadcrumbs'][] = $this->title;
             'applyMoney',
            
             ['class' => 'yii\grid\ActionColumn', 'header' => '操作', 'headerOptions' => ['width' => '50'],
+             'template'=>'{view}',
                 'buttons' => [
                     'view' => function ($url, $model) {
-                        return Html::a('操作', 'javascript:void(0)',
-                            [
-                                'title' => Yii::t('yii', '结款审核'),
-                                //'onClick' => 'View("结款审核","index.php?r=cus-consumption-records/index&id=' . $model['id'] .'&balanceStartTime='.$model['balanceStartTime'].'&balanceEndTime='.$model['balanceEndTime'].'&shopId='.$model['shopId'].'")'
-                                 'onClick' => 'View("'.$model['balanceStartTime'].'","'.$model['balanceEndTime'].'","'.$model['shopId'].'","'.$model['id'].'")'        
-                            ]);
-                    },
-                    'update' => function () {
-                        return null;
-                    },
-                    'delete' => function () {
-                        return null;
+                        return Html::a('<span class="glyphicon glyphicon-eye-open"></span>',
+                              Yii::$app->urlManager->createUrl(['cus-consumption-records/closingaudit','id' => $model['id'],'balanceStartTime'=>$model['balanceStartTime'],'balanceEndTime'=>$model['balanceEndTime'],'shopId'=>$model['shopId']]),
+                                [
+                                 'title' => Yii::t('yii', '结款审核'),
+                                 'data-pjax' => '0',
+                                 'data' => [
+                                      'method' => 'post',
+                                    ]
+                                ]
+                        );
                     }
                 ],
             ],

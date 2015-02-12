@@ -35,12 +35,12 @@ class AdPushMessage extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['toAge', 'fromAge', 'membershipGrade'], 'integer'],
+            [['toAge', 'fromAge', 'membershipGrade','cityCenterId','area'], 'integer'],
             [['pushIntroduction', 'pushDetails', 'messageTopic'], 'string'],
             [['pushTime'], 'safe'],
-            [['area'], 'string', 'max' => 200],
             [['isValid'], 'string', 'max' => 1],
-            [['pushSex'], 'string', 'max' => 4]
+            [['pushSex'], 'string', 'max' => 4],
+            [['messageTopic','pushIntroduction', 'pushDetails', 'pushSex', 'fromAge','toAge','area'],'required','message'=>'{attribute}不能为空'],
         ];
     }
 
@@ -51,9 +51,10 @@ class AdPushMessage extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'cityCenterId'=>'城市',
             'area' => '地区',
-            'toAge' => '从年龄',
-            'fromAge' => '到年龄',
+            'toAge' => '到年龄',
+            'fromAge' => '从年龄',
             'isValid' => '有消息',
             'pushIntroduction' => '推送简介',
             'pushTime' => '推送时间',
@@ -80,6 +81,9 @@ class AdPushMessage extends \yii\db\ActiveRecord
             $title = $_POST['title'];
             $introduction = $_POST['introduction'];
             $content = $_POST['content'];
+            $area=$_POST['area'];
+            $cityCenterId=$_POST['cityCenterId'];
+
             //1.根据条件查询所有符合要求的用户
             $users = $model->getUserByCondition($sex, $memberGrade, $fromAge, $toAge);
             foreach ($users as $user) {
@@ -94,6 +98,8 @@ class AdPushMessage extends \yii\db\ActiveRecord
                 $adPush->isValid = "1";
                 $adPush->fromAge = $fromAge;
                 $adPush->toAge = $toAge;
+                $adPush->area=$area;
+                $adPush->cityCenterId=$cityCenterId;
                 $adPush->save();
             }
         }

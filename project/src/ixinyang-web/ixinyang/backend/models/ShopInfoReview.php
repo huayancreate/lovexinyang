@@ -58,7 +58,11 @@ class ShopInfoReview extends \yii\db\ActiveRecord
             [['address'], 'string', 'max' => 250],
             [['businessHours', 'applyUserName', 'auditUserName', 'managerName', 'Rejection'], 'string', 'max' => 100],
             [['alipayNo'], 'string', 'max' => 40],
-            [['alipayName'], 'string', 'max' => 150]
+            [['alipayName'], 'string', 'max' => 150],
+            //去掉前后空格
+            [['shopName','alipayNo','alipayName','contact','address','businessHours'],'trim'],
+            //不能为空
+            [['shopName', 'storeType','alipayNo', 'alipayName','contact', 'businessDistrictId', 'cityId', 'countyId','address','businessHours','storeOutline','longitude','latitude'],'required','message'=>'{attribute}不能为空'],
         ];
     }
 

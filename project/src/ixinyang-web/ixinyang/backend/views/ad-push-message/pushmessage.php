@@ -69,10 +69,10 @@ $this->params['breadcrumbs'][] = $this->title;
             <label for="inputEmail3" class="col-sm-2 control-label">地区：</label>
 
             <div class="col-sm-5">
-                <?= Html::dropDownList('area', null, ArrayHelper::map($city, 'id', 'cityCenterName'), ['prompt' => '-无限制-', 'class' => 'form-control']) ?>
+                <?= Html::dropDownList('cityCenterId', null, ArrayHelper::map($city, 'id', 'cityCenterName'), ['prompt' => '-无限制-', 'class' => 'form-control']) ?>
             </div>
             <div class="col-sm-5">
-                <?= Html::dropDownList('county', null, [], ['prompt' => '--无限制--', 'class' => 'form-control']) ?>
+                <?= Html::dropDownList('area', null, [], ['prompt' => '--无限制--', 'class' => 'form-control']) ?>
             </div>
         </div>
     </div>
@@ -99,11 +99,11 @@ $this->params['breadcrumbs'][] = $this->title;
             }
         }
     });
-    $("select[name='area']").change(function () {
+    $("select[name='cityCenterId']").change(function () {
         $.get("index.php?r=ad-push-message/get-county&cityId=" + $(this).val(), function (data) {
-            $("select[name='county']").empty();
+            $("select[name='area']").empty();
             jQuery.each(JSON.parse(data), function (index, item) {
-                $("select[name='county']").append("<option value='" + item.countyId + "'>" + item.countyName + "</option>");
+                $("select[name='area']").append("<option value='" + item.countyId + "'>" + item.countyName + "</option>");
             });
         });
     });

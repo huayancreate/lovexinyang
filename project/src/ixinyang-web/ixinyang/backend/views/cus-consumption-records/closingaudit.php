@@ -9,14 +9,14 @@ use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '截至到结算日期的消费明细';
+$this->title = '商家结款审核--截至到结算日期的消费明细';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="cus-consumption-records-closingaudit">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <label>总计：(￥) <?php echo $consumpRecModel->payablePrice;?></label>
+    <h1> <?= Html::encode($this->title) ?></h1>  
+    <label>总计：(￥) <?php echo number_format($consumpRecModel->payablePrice,'2');?></label>
     <?php Pjax::begin(['id' => 'countries']) ?>
     <?= GridView::widget([
         'id'=>'closingauditGrid',
@@ -31,16 +31,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'verifierAccount',
 
             ['class' => 'yii\grid\ActionColumn',
+                'template'=>'',
                 'buttons' => [
-                    'view' => function () {
-                        return null;
-                    },
-                    'update' => function () {
-                        return null;
-                    },
-                    'delete' => function () {
-                        return null;
-                    }
+                  
                 ],
             ],
         ],
@@ -100,7 +93,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     //当成功后操作。。
                
                 alert("操作成功");
-                $.pjax.reload({container:'#balancereviewGrid'});
+                //$.pjax.reload({container:'#balancereviewGrid'});
+                window.location.href='index.php?r=sto-balance-review/index';
 
                 }else{
                     alert("操作失败原因："+data.errormsg+",请重试.");
@@ -149,7 +143,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     if(data==1){
                         //当成功后操作。。
                         alert("操作成功.");
-                        $.pjax.reload({container:'#balancereviewGrid'});
+                        //$.pjax.reload({container:'#balancereviewGrid'});
+                        window.location.href='index.php?r=sto-balance-review/index';
                     }else{
                         alert("操作失败，请重试.");
                     }

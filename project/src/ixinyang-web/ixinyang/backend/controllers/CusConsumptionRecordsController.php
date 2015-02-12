@@ -136,19 +136,19 @@ class CusConsumptionRecordsController extends BackendController
      * Lists all CusConsumptionRecords models.
      * @return mixed
      */
-    public function actionClosingaudit()
+    public function actionClosingaudit($id,$balanceStartTime,$balanceEndTime,$shopId)
     {
        
        if (Yii::$app->request->post()) {
 
-           //结算起始时间
+           /*//结算起始时间
            $balanceStartTime=$_POST['balanceStartTime'];
            //结算结束时间
            $balanceEndTime=$_POST['balanceEndTime'];
            //店铺id
            $shopId=$_POST['shopId'];
            //商家结算审核表主键id
-           $id=$_POST['id'];
+           $id=$_POST['id'];*/
 
            //session保留值  结算起始时间
            Yii::$app->session['$balanceStartTime']=$balanceStartTime;
@@ -189,7 +189,7 @@ class CusConsumptionRecordsController extends BackendController
            //店铺id
            $balanceReviewModel->shopId=$shopId;
 
-            return $this->renderPartial('closingaudit', [
+            return $this->render('closingaudit', [
                 'dataProvider' => $dataProvider,'consumpRecModel'=>$consumpRecModel,'balanceReviewModel'=>$balanceReviewModel
             ]);
        
