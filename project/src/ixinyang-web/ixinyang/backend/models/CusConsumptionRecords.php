@@ -5,6 +5,7 @@ namespace backend\models;
 use Yii;
 use yii\base\Exception;
 use yii\data\ActiveDataProvider;
+use backend\models\StoStoreInfo;
 
 /**
  * This is the model class for table "cus_consumption_records".
@@ -135,6 +136,14 @@ class CusConsumptionRecords extends \yii\db\ActiveRecord
         $model->financeReviewTime = 0;
         $model->remark = "";
 
+         //根据店铺id查询  当前店铺的支付宝名称  以及 支付宝账号
+        $storeId=1;
+        $storeInfoModel= StoStoreInfo::getStoreInfoByStoreId($storeId);
+        //支付宝帐号
+        $model->alipayNo=$storeInfoModel->alipayNo;
+        //支付宝名称
+        $model->alipayName=$storeInfoModel->alipayName;
+        
         $model->save();
     }
 

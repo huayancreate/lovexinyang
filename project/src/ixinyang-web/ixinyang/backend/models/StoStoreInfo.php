@@ -75,4 +75,15 @@ class StoStoreInfo extends \yii\db\ActiveRecord
             'countryID' => '区县id',
         ];
     }
+
+    public function getStoreInfoByStoreId($id)
+    {
+        if (($model=StoStoreInfo::find()->where("id=".$id)->one())!==null) {
+            return $model;
+        }  
+        else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+   
 }
