@@ -157,5 +157,6 @@ Dialog::end();
 </script>
 <?php
 $this->registerCssFile(Yii::$app->urlManager->baseUrl . '/css/zTreeStyle.css', []);
+$this->registerJsFile(Yii::$app->urlManager->baseUrl.'/js/bootstrap3-validation.js',[]);
 $this->registerJs($this->blocks['JS_END'], \yii\web\View::POS_END)
 ?>
