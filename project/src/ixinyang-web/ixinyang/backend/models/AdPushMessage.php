@@ -40,7 +40,6 @@ class AdPushMessage extends \yii\db\ActiveRecord
             [['pushTime'], 'safe'],
             [['isValid'], 'string', 'max' => 1],
             [['pushSex'], 'string', 'max' => 4],
-            [['messageTopic','pushIntroduction', 'pushDetails', 'pushSex', 'fromAge','toAge','area'],'required','message'=>'{attribute}不能为空'],
         ];
     }
 

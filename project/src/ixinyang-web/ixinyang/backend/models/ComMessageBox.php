@@ -112,9 +112,9 @@ class ComMessageBox extends \yii\db\ActiveRecord
      */
     public function getUserByCondition($sex, $memberGrade, $formAge, $toAge)
     {
-        $fromDate = date('Y-m-d', mktime(0, 0, 0, date('m'), date('d'), date('Y') - $toAge));
-        $toDate = date('Y-m-d', mktime(0, 0, 0, date('m'), date('d'), date('Y') - $formAge));
-
+        $fromDate = date('Y-m-d', mktime(0, 0, 0, date('m'), date('d'), date('Y') - $formAge));
+        $toDate = date('Y-m-d', mktime(0, 0, 0, date('m'), date('d'), date('Y') - $toAge));
+        
         $dataProvider = CusUserIndividualCenter::find()->
         andWhere(['validity' => '1']);
 
@@ -124,8 +124,14 @@ class ComMessageBox extends \yii\db\ActiveRecord
         if (!empty($memberGrade)) {
             $dataProvider->andWhere(['memberGrade' => $memberGrade]);
         }
-        if (!empty($formAge)) {
-            $dataProvider->andWhere(['BETWEEN', 'birthday', $fromDate, $toDate]);
+        if (!empty($formAge) && !empty($toAge)) {
+            $dataProvider->andWhere(['BETWEEN', 'birthday', $toDate,$fromDate]);
+        }
+        else if(!empty($formAge) && empty($toAge)){
+            $dataProvider->andWhere('birthday<="'.$fromDate.'"');
+        }
+        else if(empty($formAge) && !empty($toAge)){
+            $dataProvider->andWhere('birthday>="'.$toDate.'"');
         }
         return $dataProvider->all();
     }

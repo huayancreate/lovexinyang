@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="com-message-box-index">
 
-    <?php $form = ActiveForm::begin(['layout' => 'horizontal', 'id' => 'messageFrom']); ?>
+    <?php $form = ActiveForm::begin(['layout' => 'horizontal','id'=>'messageFrom']); ?>
     <div class="form-group col-sm-12">
         <label for="title">推送主题：</label>
         <?= Html::input('text', 'title', null, ['class' => 'form-control input-mini', 'placeholder' => '推送主题']) ?>
@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <div class="form-group col-sm-12">
         <label for="content">推送详情：</label>
-        <?= Html::textarea('content', null, ['class' => 'form-control', 'placeholder' => '推送详情']) ?>
+        <?= Html::textarea('content', null, ['class' => 'form-control', 'placeholder' => '推送详情','id'=>'content']) ?>
     </div>
     <div class="form-group">
         <div class="form-group col-sm-12">
@@ -76,6 +76,13 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
     </div>
+    <div class="col-lg-offset-10">
+
+    <div class="form-group">
+      
+       <?= Html::button("保存",['id'=>'btnSave','class' =>'btn btn-success']) ?>
+    </div>
+</div>
     <?php ActiveForm::end(); ?>
 </div>
 <script>
@@ -107,5 +114,56 @@ $this->params['breadcrumbs'][] = $this->title;
             });
         });
     });
+    $("#btnSave").click(function(){
+        var p=checkForm();
+        if (p) 
+        {
+            $.ajax({
+                    type:"POST",
+                    url:"index.php?r=ad-push-message/send",
+                    data:$('#messageFrom').serialize(),
+                    dataType:'json',
+                error: function (request) {
+                    alert("Connection error");
+                },
+                success:function(data) {
+                    if(data.success){
+                        //当成功后操作。。
+                        $.pjax.reload({container:'#pushMessageGrid'});
+                    }else{
+                       alert("操作失败");
+                    }
+                }
+            });
+        };
+    }); 
+    function checkForm()
+    {
+         //推送主题
+         var title=$("input[name='title']").val();
+         //推送概述
+         var introduction=$("input[name='introduction']").val();
+         //推送详情
+         var content=$("#content").val();
+
+        if (title== "undefined" || title=='') 
+         { 
+            alert("请输入推送主题");
+            return false;
+         }
+         else if (introduction== "undefined" || introduction=='') 
+         { 
+            alert("请输入推送概述");
+            return false;
+         }
+          else if (content== "undefined" || content=='') 
+         { 
+            alert("请输入推送详情");
+            return false;
+         }
+         else{
+            return true;
+         }
+    }
 </script>
 
