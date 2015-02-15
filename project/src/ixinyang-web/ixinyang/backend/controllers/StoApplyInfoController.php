@@ -169,7 +169,7 @@ class StoApplyInfoController extends BackendController
      //Yii::$app->session['loginName']
       $applyStatus=$_POST['applyStatus'];
       $applyId=$_POST['applyId'];
-      $result=StoApplyInfo::updateBySql('sto_apply_info',['applyStatus'=>$applyStatus,'customerServiceId'=>'','customerServiceName'=>'','cusServiceReviewTime'=>date('Y-m-d h:i:s')],['applyId'=>$applyId]);
+      $result=StoApplyInfo::updateBySql('sto_apply_info',['applyStatus'=>$applyStatus,'customerServiceId'=>Yii::$app->user->identity->id,'customerServiceName'=>Yii::$app->user->identity->role,'cusServiceReviewTime'=>date('Y-m-d h:i:s')],['applyId'=>$applyId]);
       return json_encode($result);
     }
 
@@ -286,10 +286,10 @@ class StoApplyInfoController extends BackendController
         $alipayName=$_POST["alipayName"];
         //支付宝账号
         $alipayNo=$_POST["alipayNo"];
-        //客户经理Id  暂时写空
-        $customerManagerId='111111';
-        //客户经理名称 暂时写空
-        $customerManagerName='张三';
+        //客户经理Id  
+        $customerManagerId=Yii::$app->user->identity->id;
+        //客户经理名称 
+        $customerManagerName=Yii::$app->user->identity->role;
 
         //事务开始 
         $transaction=\Yii::$app->db->beginTransaction();
@@ -341,10 +341,10 @@ class StoApplyInfoController extends BackendController
       $applyStatus=$_POST['applyStatus'];
       //申请Id
       $applyId=$_POST['applyId'];
-      //客户经理Id  暂时写空
-      $customerManagerId='111111';
-      //客户经理名称 暂时写空
-      $customerManagerName='张三';
+      //客户经理Id  
+      $customerManagerId=Yii::$app->user->identity->id;
+      //客户经理名称 
+      $customerManagerName=Yii::$app->user->identity->role;
       //执行修改
       $result=StoApplyInfo::updateBySql('sto_apply_info',['applyStatus'=>$applyStatus,'customerManagerId'=>$customerManagerId,'customerManagerName'=>$customerManagerName,'cusManagerReviewTime'=>date('Y-m-d h:i:s'),'remark'=>$remark],['applyId'=>$applyId]);
       return json_encode($result);
