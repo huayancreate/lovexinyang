@@ -70,8 +70,8 @@ class ComCategoryMaintain extends \yii\db\ActiveRecord
     public function saveCategory()
     {
         $this->isValid = '1';
-        $this->operatorId = '1';
-        $this->operatorName = 'admin';
+        $this->operatorId = Yii::$app->user->identity->id;
+        $this->operatorName = Yii::$app->user->identity->role;
         $this->updateTime = date("Y-m-d H:i:s");
         $this->save();
     }

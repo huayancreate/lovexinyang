@@ -113,7 +113,7 @@ class AdAdvertisementController extends Controller
            
             if ($model->validate($model)) {
                  //创建人员ID  先写固定值
-                 $model->createrId=0;
+                 $model->createrId=Yii::$app->user->identity->id;
                  //创建时间  当前时间
                  $model->createTime=date("Y-m-d H:i:s");
                  //对应位置  

@@ -95,9 +95,9 @@ class StoGoodsController extends BackendController
                 //创建时间
                 $model->createDate=date('Y-m-d H:m:i');
                 //创建人id
-                $model->createID=111;
+                $model->createID=Yii::$app->user->identity->id;
                 //创建人姓名
-                $model->createName='111';
+                $model->createName=Yii::$app->user->identity->role;
                 //商品类别
                 if($categoryModel->load(Yii::$app->request->post())){
 
@@ -199,7 +199,7 @@ class StoGoodsController extends BackendController
                         $goodsPicture->goodsId=$goodsId; //商品ID
                         $goodsPicture->path=$path; //图片路径
                         $goodsPicture->renewTime=date("Y-m-d H:i:s");
-                        $goodsPicture->uploadPersonnel="admin";
+                        $goodsPicture->uploadPersonnel=Yii::$app->user->identity->role;
 
                        if ($goodsPicture->save()) {
                             //标记保存成功的次数  成功累加1次
@@ -339,10 +339,10 @@ class StoGoodsController extends BackendController
         $stoGoodsStoreModel->goodsId=$goodsId;
         //����id    ��session��ȡ   ��ʱдĬ��ֵ
         //µêÆÌid    ´Ósession¶ÁÈ¡   ÔÝÊ±Ð´Ä¬ÈÏÖµ
-        $stoGoodsStoreModel->storeId=1;
+        $stoGoodsStoreModel->storeId=Yii::$app->user->identity->storeId;
         //�̼�id    ��session��ȡ   ��ʱдĬ��ֵ
         //ÉÌ¼Òid    ´Ósession¶ÁÈ¡   ÔÝÊ±Ð´Ä¬ÈÏÖµ
-        $stoGoodsStoreModel->sellerId=1;
+        $stoGoodsStoreModel->sellerId=Yii::$app->user->identity->sellerId;
         //��Ʒ���  ��дĬ��ֵ ֮��ᴦ��
         $stoGoodsStoreModel->inventory=1000;
         //����ʱ��  ��ǰʱ��
@@ -350,7 +350,7 @@ class StoGoodsController extends BackendController
         $stoGoodsStoreModel->createDate=date("Y-m-d H:i:s");
         //������    ��session��ȡ
         //´´½¨ÈË    ´Ósession¶ÁÈ¡
-        $stoGoodsStoreModel->crreteUserID='111';
+        $stoGoodsStoreModel->crreteUserID=Yii::$app->user->identity->id;
         //����
         //商品状态
         $stoGoodsStoreModel->goodsState=$_POST['hiddenGoodsState'];
