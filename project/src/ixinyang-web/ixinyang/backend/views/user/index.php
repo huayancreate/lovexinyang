@@ -34,9 +34,9 @@ Modal::end();
     ])
     ?>   -->
 
-<?= \yii\helpers\Html::a('添加用户',['user/loadhtml'], [
+<!--<?= \yii\helpers\Html::a('添加用户',['user/loadhtml'], [
     'class' => 'btn btn-sm btn-success',
-]) ?>
+]) ?>-->
 </p>
 <?=
 \yii\grid\GridView::widget([

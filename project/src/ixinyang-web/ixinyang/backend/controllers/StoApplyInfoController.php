@@ -526,6 +526,8 @@ class StoApplyInfoController extends BackendController
                //店铺id
                $tAdmUserModel->storeId=$storeInfoId;
                $tAdmUserModel->auth_key=Yii::$app->security->generateRandomString();
+               //店铺名
+               $tAdmUserModel->role=$storeName;
                //保存
                $tAdmUserModel->save();
                //提交
