@@ -517,20 +517,20 @@ class StoApplyInfoController extends BackendController
                //商家账号  店铺名称+角色名
                $tAdmUserModel->username=$storeName.$roleName;
                //帐号密码  默认 123456
-               $tAdmUserModel->password='123456';
-               //帐号密码  默认 123456
-               $tAdmUserModel->password_repeat='123456';
-               //账号名称、昵称  店铺名称+角色名 和商家账号相同
-               $tAdmUserModel->nickName=$storeName.$roleName;
-               //是否有效
-               $tAdmUserModel->validity='1';
+               $tAdmUserModel->password_hash=Yii::$app->security->generatePasswordHash('123456');
+               $tAdmUserModel->password_reset_token=Yii::$app->security->generateRandomString() . '_' . time();
                //权限标识：0、对应商家下所有分店 1、分店
                $tAdmUserModel->flag=0;
+               //商家id
+               $tAdmUserModel->sellerId=$sellerId;
+               //店铺id
+               $tAdmUserModel->storeId=$storeInfoId;
+               $tAdmUserModel->auth_key=Yii::$app->security->generateRandomString();
                //保存
                $tAdmUserModel->save();
-            //提交
-              $transaction3->commit();
-              return true;
+               //提交
+               $transaction3->commit();
+               return true;
          } 
         catch (Exception  $e) {
 

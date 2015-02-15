@@ -61,6 +61,8 @@ class TAdmUser extends \yii\db\ActiveRecord
             'flag' => '权限标识：0、对应商家下所有分店 1、分店',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
+            'sellerId'=>'商家id',
+            'storeId'=>'店铺id',
         ];
     }
 

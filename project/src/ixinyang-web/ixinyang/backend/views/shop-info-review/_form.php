@@ -37,7 +37,7 @@ use kartik\widgets\DatePicker;
     <?= $form->field($model, 'businessDistrictId')->dropDownList(['prompt' => '--商圈--']) ?>
     <input type="hidden" id="businessDistrictId" value=<?= $model->businessDistrictId?>>
     <!--详细地址-->
-    <?= $form->field($model, 'address')->textInput(['maxlength' => 250]) ?>
+    <?= $form->field($model, 'address')->textArea(['maxlength' => 250]) ?>
     <!--营业时间-->
     <?= $form->field($model, 'businessHours')->textInput(['maxlength' => 100]) ?>
     <!--门店概述-->
@@ -61,9 +61,9 @@ use kartik\widgets\DatePicker;
     <!--地图纬度-->
     <?= $form->field($model, 'latitude')->textInput() ?>
     
-    <!-- <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div> -->
+    <div class="form-group">
+    <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    </div>  
 
     <?php ActiveForm::end(); ?>
 

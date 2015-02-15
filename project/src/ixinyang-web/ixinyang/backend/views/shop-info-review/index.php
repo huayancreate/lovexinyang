@@ -13,8 +13,20 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="shop-info-review-index">
     <p>
-        <?= Html::a('分店申请','javascript:void(0);', ['id'=>'btnAdd','class' => 'btn btn-success']) ?>
+           <?= Html::a('分店申请','javascript:void(0);', ['id'=>'btnAdd','class' => 'btn btn-success']) ?>
+             <!-- <?= Html::a('分店申请', Yii::$app->urlManager->createUrl(['shop-info-review/create']),
+                                [
+                                 //'title' => Yii::t('yii', '结款审核'),
+                                 'data-pjax' => '0',
+                                 'data' => [
+                                      'method' => 'post',
+                                    ],
+                                 'class' => 'btn btn-success'
+                                ]
+                        )
+             ?> -->
     </p>
+    <br/>
 <?php \yii\widgets\Pjax::begin(['id'=>'gridList']); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
