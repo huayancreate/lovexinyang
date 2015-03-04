@@ -87,7 +87,7 @@ class CusConsumptionRecords extends \yii\db\ActiveRecord
 
     public function getSumConsumption($fromDate, $toDate)
     {
-        $shopId=1;
+        $shopId=Yii::$app->user->identity->storeId;
         $sql = "select sum(payablePrice*goodsNumber) as payablePrice,sellerName,sellerAccount from cus_consumption_records
               where shopId=$shopId and (verifierTime BETWEEN '$fromDate' and '$toDate') and flag='0'";
         $model = CusConsumptionRecords::findBySql($sql)->one();
@@ -102,7 +102,7 @@ class CusConsumptionRecords extends \yii\db\ActiveRecord
     public function getConsumption($fromDate, $toDate)
     {
         $query = $this::find();
-        $id = 1;//商家Id
+        $id = Yii::$app->user->identity->sellerId;//商家Id
         $query->andWhere(['shopId' => $id, 'flag' => '0']);
         $query->andFilterWhere(['BETWEEN', 'verifierTime', $fromDate, $toDate]);
         $dataProvider = new ActiveDataProvider([
