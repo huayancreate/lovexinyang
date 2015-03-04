@@ -115,7 +115,7 @@ class CusConsumptionRecords extends \yii\db\ActiveRecord
     {
         $model = new StoBalanceReview();
         $model->financeId = 0;
-        $model->financeAccount = "201412141154";
+        $model->financeAccount = 0;
         $model->financeReviewStatus = 0;
         $model->reviewId = 0;
         $model->reviewAccount = "0";
@@ -125,21 +125,25 @@ class CusConsumptionRecords extends \yii\db\ActiveRecord
         $model->serviceAgreement = "0";
         $model->balanceStartTime = $fromDate;
         $model->balanceEndTime = $toDate;
-        $model->storeId = 0;
-        $model->storeName = "测试数据";
-        $model->shopId = 0;
-        $model->shopName = "测试数据";
-        $model->applyerId = 0;
+        //商家id
+        $model->storeId = Yii::$app->user->identity->sellerId;
+        //$model->storeName = "测试数据";
+        //店铺id
+        $model->shopId = Yii::$app->user->identity->storeId;
+
+        //根据店铺id查询  当前店铺的支付宝名称  以及 支付宝账号  店铺名称
+        $storeId=Yii::$app->user->identity->storeId;
+        $storeInfoModel= StoStoreInfo::getStoreInfoByStoreId($storeId);
+       
+        $model->shopName = $storeInfoModel->storeName;
+        $model->applyerId = Yii::$app->user->identity->id;
         $model->applyTime = date("Y-m-d H:i:s");
-        $model->applyerAccount = "201412141153";
+        $model->applyerAccount = Yii::$app->user->identity->role;
         $model->applyMoney = $totalMoney;
         $model->actualBalanceMoney = 0;
         $model->financeReviewTime = 0;
         $model->remark = "";
-
-         //根据店铺id查询  当前店铺的支付宝名称  以及 支付宝账号
-        $storeId=1;
-        $storeInfoModel= StoStoreInfo::getStoreInfoByStoreId($storeId);
+        
         //支付宝帐号
         $model->alipayNo=$storeInfoModel->alipayNo;
         //支付宝名称

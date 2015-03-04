@@ -77,15 +77,18 @@ class ShopinforeviewController extends BackendController
 
                 $model->storeAccount="storeAdmin"; //商家账号
                 $model->applyTime=date("Y-m-d H:i:s");//申请时间
-                $model->applyUserId="1";//申请人ID
-                $model->applyUserName="张三";//申请人姓名
+                $model->applyUserId=Yii::$app->user->identity->id;//申请人ID
+                $model->applyUserName=Yii::$app->user->identity->role;//申请人姓名
                 $model->auditState="1"; //申请状态  1、申请中 2、初审通过 3、初审驳回 4、经理审核通过  5、经理审核驳回
                  //店铺类别
                 if($categoryModel->load(Yii::$app->request->post())){
                     $model->storeType=(int)$categoryModel->categoryName;
                 }
-                //商家id  当前商家id
-                $model->storeId="1";
+                //商家id 
+                $model->storeId=Yii::$app->user->identity->sellerId;
+                //店铺id
+                $model->shopId=Yii::$app->user->identity->storeId;
+
                 $model->save();
 
                 $transaction->commit(); //事务结束
@@ -281,10 +284,10 @@ class ShopinforeviewController extends BackendController
         //最终审核状态
         $auditState=$_POST["auditState"];
        
-        //客户经理Id  暂时写空
-        $managerId='111111';
-        //客户经理名称 暂时写空
-        $managerName='张三';
+        //客户经理Id  
+        $managerId=Yii::$app->user->identity->id;
+        //客户经理名称 
+        $managerName=Yii::$app->user->identity->role;
 
         //事务开始 
         $transaction=\Yii::$app->db->beginTransaction();
@@ -326,9 +329,9 @@ class ShopinforeviewController extends BackendController
       //申请Id
       $id=$_POST['id'];
       //客户经理Id  暂时写空
-      $managerId='111111';
+      $managerId=Yii::$app->user->identity->id;
       //客户经理名称 暂时写空
-      $managerName='张三';
+      $managerName=Yii::$app->user->identity->role;
       //执行修改
       $result=ShopInfoReview::updateBySql('shop_info_review',['auditState'=>$auditState,'managerId'=>$managerId,'managerName'=>$managerName,'managerTime'=>date('Y-m-d h:i:s'),'Rejection'=>$rejection],['id'=>$id]);
       return json_encode($result);

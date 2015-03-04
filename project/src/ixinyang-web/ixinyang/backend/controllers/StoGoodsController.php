@@ -121,7 +121,7 @@ class StoGoodsController extends BackendController
                     $goodsPicture->goodsId=$model->id; //商品信息ID
                     $goodsPicture->path=$path; //图片路径
                     $goodsPicture->renewTime=date("Y-m-d H:i:s");
-                    $goodsPicture->uploadPersonnel="admin";
+                    $goodsPicture->uploadPersonnel=Yii::$app->user->identity->id;
 
                     $goodsPicture->save();
                 }

@@ -212,9 +212,9 @@ class CusConsumptionRecordsController extends BackendController
           //店铺id
           $shopId=$_POST['shopId'];
           //财务人员Id   从session读取
-          $financeId='111111';
+          $financeId=Yii::$app->user->identity->id;
           //财务人员账号 从session读取
-          $financeAccount='张三';
+          $financeAccount=Yii::$app->user->identity->role;
         //事务开始 
         $transaction=\Yii::$app->db->beginTransaction();
         try {
@@ -285,9 +285,9 @@ class CusConsumptionRecordsController extends BackendController
       //申请Id
       $id=$_POST['id'];
       //财务人员Id
-      $financeId='111111';
+      $financeId=Yii::$app->user->identity->id;
       //财务人员账号
-      $financeAccount='张三';
+      $financeAccount=Yii::$app->user->identity->role;
       //执行修改
       $result=StoBalanceReview::updateBySql('sto_balance_review',['financeReviewStatus'=>$financeReviewStatus,'financeId'=>$financeId,'financeAccount'=>$financeAccount,'financeReviewTime'=>date('Y-m-d h:i:s'),'remark'=>$remark],['id'=>$id]);
       return json_encode($result);
@@ -310,9 +310,9 @@ class CusConsumptionRecordsController extends BackendController
         $balanceReviewModel=StoBalanceReview::findOne($id);
         $checkoutStreamModel=new ComCheckoutStream();
         //操作人Id  从session读取
-        $checkoutStreamModel->operatorId='111';
+        $checkoutStreamModel->operatorId=Yii::$app->user->identity->id;
         //操作人账号 从session读取
-        $checkoutStreamModel->operatorAccount='张三';
+        $checkoutStreamModel->operatorAccount=Yii::$app->user->identity->role;
         //操作时间
         $checkoutStreamModel->operatorTime=date('Y-m-d H:i:s');
         //存入支付宝名称  从【sto_balance_review】商家结算审核读取

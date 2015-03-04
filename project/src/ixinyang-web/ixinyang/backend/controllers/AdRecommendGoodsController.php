@@ -70,7 +70,7 @@ class AdRecommendGoodsController extends BackendController
 
         if ($model->load(Yii::$app->request->post())) {
             if ($model->validate()) {
-                 //创建人员ID  先写固定值
+                 //创建人员ID  
                  $model->creater=Yii::$app->user->identity->id;
                  //创建时间  当前时间
                  $model->createTime=date("Y-m-d H:i:s");

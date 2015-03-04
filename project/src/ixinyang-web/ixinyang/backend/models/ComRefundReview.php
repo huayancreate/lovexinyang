@@ -114,6 +114,9 @@ class ComRefundReview extends \yii\db\ActiveRecord
     {
         $transaction = $this->getDb()->beginTransaction();
         try {
+            $this->financeId=Yii::$app->user->identity->id;
+            $this->financeAccount=Yii::$app->user->identity->role;
+            $this->financeReviewTime=date('Y-m-d H:i:s');
             $this->financeReviewStatus = $status;
             $this->remark = $remark;
             $this->save();
@@ -134,8 +137,8 @@ class ComRefundReview extends \yii\db\ActiveRecord
     public function saveRefundReStream()
     {
         $model = new ComRefundStream();
-        $model->operatorId = 0;
-        $model->operatorAccount = "0";
+        $model->operatorId = Yii::$app->user->identity->id;
+        $model->operatorAccount = Yii::$app->user->identity->role;
         $model->operateTime = date("Y-m-d H:i:s");
         $model->loadTime = date("Y-m-d H:i:s");
         $model->loadAlipayName = "0";
