@@ -32,12 +32,11 @@ class ComCategoryMaintainController extends BackendController
      */
     public function actionIndex()
     {
-        $searchModel = new ComCategoryMaintainSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $model=new ComCategoryMaintain();
+        $list = ComCategoryMaintain::find()->asArray()->all();
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'list' => $model->getTree($list, 0),
         ]);
     }
 

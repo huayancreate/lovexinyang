@@ -97,4 +97,24 @@ class ComCategoryMaintain extends \yii\db\ActiveRecord
     {
         return $this->find()->where(['id' => $parentId])->one();
     }
+     /**
+     * 格式化树形数组
+     * @param  [type] $data [description]
+     * @param  [type] $pId  [description]
+     * @return [type]       [description]
+     */
+    public function getTree($data, $pId)
+    {
+        $tree = '';
+        foreach($data as $val)
+        {
+            if($val['parentCategoryId'] == $pId)
+            {         //父亲找到儿子
+                $val['parentCategoryId'] = $this->getTree($data, $val['id']);
+                $tree[] = $val;
+            }
+        }
+
+        return $tree;
+    }
 }
