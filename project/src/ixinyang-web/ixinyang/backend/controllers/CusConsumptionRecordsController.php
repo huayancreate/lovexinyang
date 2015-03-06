@@ -332,9 +332,9 @@ class CusConsumptionRecordsController extends BackendController
         //商家名称         从【sto_balance_review】商家结算审核读取
         $checkoutStreamModel->storeName=$balanceReviewModel->storeName;
         //支出支付宝名称  从配置文件读取
-        $checkoutStreamModel->expenditureAlipayName=constant("C_EXPENDITURE_ALIPAY_NAME");
+        $checkoutStreamModel->expenditureAlipayName='111';
         //支出支付宝账号  从配置文件读取
-        $checkoutStreamModel->expenditureAlipayAccount=constant("C_EXPENDITURE_ALIPAY_ACCOUNT");
+        $checkoutStreamModel->expenditureAlipayAccount='111';
         //支付宝交易流水  接口返回
         $checkoutStreamModel->alipayTransactionStream='111';
         //支付时间        接口返回

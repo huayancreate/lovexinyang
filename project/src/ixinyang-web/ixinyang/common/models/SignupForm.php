@@ -14,10 +14,6 @@ class SignupForm extends Model
     public $username;
     //public $email;
     public $password;
-    //商家id
-    public $sellerId;
-    //店铺id
-    public $storeId;
 
     /**
      * @inheritdoc
