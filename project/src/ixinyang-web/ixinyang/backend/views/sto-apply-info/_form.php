@@ -180,7 +180,17 @@ Dialog::end();
             if (v.length > 0) v = v.substring(0, v.length - 1);
             var cityObj = $("#storeCategoryId");
             cityObj.attr("value", v);
-            $("#stoapplyinfo-storecategoryid").attr("value", id);
+            idArr=id.split(',');
+            if (idArr.length>0) 
+             {
+              //$("#stoapplyinfo-storecategoryid").attr("value", idArr[0]);
+              $("#stoapplyinfo-storecategoryid").val(idArr[0]);
+             }
+             else{
+              //$("#stoapplyinfo-storecategoryid").attr("value", null);
+              $("#stoapplyinfo-storecategoryid").val(0);
+             }
+           
             $("#menuContent").fadeOut("fast");
         }
     }

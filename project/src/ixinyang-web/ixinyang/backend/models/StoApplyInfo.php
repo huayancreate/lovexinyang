@@ -56,7 +56,7 @@ class StoApplyInfo extends \yii\db\ActiveRecord
             [['email'], 'email'],
             [['storePhone'], 'match', 'pattern' => '/^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/', 'message' => '门店电话格式不正确，正确格式为0551-12345678'],
             [['phone'], 'match', 'pattern' => '/^0?(13[0-9]|15[012356789]|18[0236789]|14[57])[0-9]{8}$/', 'message' => '手机号码格式不正确'],
-            [['customerServiceId', 'customerManagerId', 'storeApplyNumber', 'applyStatus', 'city', 'regional', 'businessZone'], 'integer'],
+            [['customerServiceId', 'customerManagerId', 'storeApplyNumber', 'applyStatus', 'city', 'regional', 'businessZone','storeCategoryId'], 'integer'],
             [['cusServiceReviewTime', 'cusManagerReviewTime', 'applyTime'], 'safe'],
             [['customerServiceName', 'customerManagerName', 'storePhone', 'otherContact', 'phone', 'email'], 'string', 'max' => 50],
             [['remark'], 'string', 'max' => 200],
