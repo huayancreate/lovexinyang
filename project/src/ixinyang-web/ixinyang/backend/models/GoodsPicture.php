@@ -33,9 +33,9 @@ class GoodsPicture extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['goodsId'], 'integer'],
+            [['goodsId', 'uploadPersonnel'], 'integer'],
             [['renewTime'], 'safe'],
-            [['path', 'classification', 'uploadPersonnel'], 'string', 'max' => 50],
+            [['path', 'classification'], 'string', 'max' => 50],
             [['attribute'], 'string', 'max' => 200]
         ];
     }

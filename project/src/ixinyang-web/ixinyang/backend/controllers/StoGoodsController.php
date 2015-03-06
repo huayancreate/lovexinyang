@@ -45,8 +45,8 @@ class StoGoodsController extends BackendController
 
         //商品对应店铺信息实体类
         $model=new StoGoodsStore();
-        //当前登陆店铺id  暂时写死  应该从session中读取
-        $storeId=1;
+        //当前登陆店铺id
+        $storeId=Yii::$app->user->identity->storeId;
          $dataProvider=new ActiveDataProvider([
                 'query'=>$model->find()->where('storeId='.$storeId)->asArray(),
                 'pagination' => ['pagesize' => '5'],
@@ -83,13 +83,11 @@ class StoGoodsController extends BackendController
         $goodsStoreModel=new StoGoodsStore();
         //商品类别维护
         $categoryModel=new ComCategoryMaintain();
-
+        $category=new ComCategoryMaintain();
 
         if ($model->load(Yii::$app->request->post()) && $goodsStoreModel->load(Yii::$app->request->post())) {
             $transaction=\Yii::$app->db->beginTransaction(); 
             try{
-
-
                 $files = UploadedFile::getInstances($model, 'file');  //»ñÈ¡ÉÏ´«ÎÄ¼þ
 
                 //创建时间
@@ -98,12 +96,6 @@ class StoGoodsController extends BackendController
                 $model->createID=Yii::$app->user->identity->id;
                 //创建人姓名
                 $model->createName=Yii::$app->user->identity->role;
-                //商品类别
-                if($categoryModel->load(Yii::$app->request->post())){
-
-                    $model->subClass=(int)$categoryModel->categoryName;
-
-                }
                 
                 $model->save();  //ÉÌÆ·ÐÅÏ¢±£´æ
 
@@ -115,8 +107,9 @@ class StoGoodsController extends BackendController
 
                 $pictureToolModel=new PictureTool();
                 foreach ($files as $file) {
-                  
-                    $path=$pictureToolModel->uploads($file,2); //ÎÄ¼þÉÏ´«
+
+                    //图片分类  1 广告  2 商品
+                    $path=$pictureToolModel->uploads($file,2); //图片上传
                     $goodsPicture=new GoodsPicture();
                     $goodsPicture->goodsId=$model->id; //商品信息ID
                     $goodsPicture->path=$path; //图片路径
@@ -135,17 +128,13 @@ class StoGoodsController extends BackendController
            
             return $this->redirect(['index']);
         } else {
-            //获取商品类别
 
-            $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
-
-            
             $model->validity=1;
             return $this->renderAjax('create', [
                 'model' => $model,
                 'categoryModel'=>$categoryModel,
-                'categoryList'=>$categoryList,
                 'goodsStoreModel'=>$goodsStoreModel,
+                'category' => $category,
             ]);
         }
     }
@@ -170,8 +159,6 @@ class StoGoodsController extends BackendController
             $transaction=\Yii::$app->db->beginTransaction(); 
             try
             {
-
-                $model->subClass=(int)$categoryModel->categoryName;
                 //商品保存
                 $model->save();
                 //商品对应店铺信息表保存
@@ -212,7 +199,7 @@ class StoGoodsController extends BackendController
                         } 
                      }
 
-                     //保存成功  删除原来的图片
+                    /* //保存成功  删除原来的图片
                      if($flag==count($files)){
 
                         //如果重新选择了其他图片  删除原来的图片
@@ -221,13 +208,10 @@ class StoGoodsController extends BackendController
                           $pictureToolModel->delfile($oldPhotoUrlArray['path']);
                         }
 
-                     }
-                    
+                     }*/
                 }
                  //提交
                  $transaction->commit();
-
-
             } 
             catch (Exception $e) {
                 //回滚
@@ -243,15 +227,21 @@ class StoGoodsController extends BackendController
                         $message=$model->getErrors();
                         $message['success']=true;
                         return json_encode($message);
-                    //return $this->redirect(['view', 'id' => $model->id]);
+                    
                 } else {
+
                     //获取商品类别
-                    $categoryModel=new ComCategoryMaintain();
-                    $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
+                    $category = $categoryModel->getCategoryByParentId($model->subClass);
+                    if ($category == null) {
+                        $category = new ComCategoryMaintain();
+                        $category->categoryName = '';
+                    }
                     
                     return $this->renderAjax('update', [
-                        'model' => $model,'categoryModel'=>$categoryModel,'categoryList'=>$categoryList,
+                        'model' => $model,
+                        'categoryModel'=>$categoryModel,
                         'goodsStoreModel'=>$goodsStoreModel,
+                        'category'=>$category,
                     ]);
                 }
             }

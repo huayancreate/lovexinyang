@@ -13,8 +13,9 @@ $this->params['breadcrumbs'][] = 'Update';
 <div class="sto-goods-update">
 
     <?= $this->render('_form', [
-        'model' => $model,'categoryModel'=>$categoryModel,'categoryList'=>$categoryList,
+        'model' => $model,'categoryModel'=>$categoryModel,
         'goodsStoreModel'=>$goodsStoreModel,
+        'category' => $category,
     ]) ?>
 
 </div>

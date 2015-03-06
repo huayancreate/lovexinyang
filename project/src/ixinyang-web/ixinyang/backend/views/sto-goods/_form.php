@@ -5,7 +5,6 @@ use yii\helpers\ArrayHelper;
 use yii\bootstrap\ActiveForm;
 use backend\assets\AppAsset;
 use cliff363825\kindeditor\KindEditorWidget;
-use kartik\form\ActiveFormss;
 use kartik\widgets\FileInput;
 use yii\web\Url;
 use kartik\markdown\MarkdownEditor;
@@ -69,13 +68,15 @@ use backend\models\FileUpload;
 
     <?= $form->field($model, 'price')->textInput() ?>
 
-    <?php $categoryModel->categoryName=$model->subClass;  ?>
-    <?= $form->field($categoryModel, 'categoryName')->dropDownList(
-        ArrayHelper::map($categoryList, 'id', 'categoryName'),
-        ['prompt' => '--商品类别--'])->label('类别') ?>
-
-     <input type="hidden" id="storeType" name="StoGoods[subClass]" value=<?= $model->subClass ?>> 
-
+   
+    <div style="position: relative">
+        <?= $form->field($categoryModel, 'categoryName')->textInput(['id' => 'parentCategoryId', 'value' => $category->categoryName]) ?>
+        <div id="menuContent" class="menuContent" style="display:none; position:absolute;z-index:1;width: 80%;">
+            <ul id="treeDemo" class="ztree" style="width:100%;height:300px"></ul>
+        </div>
+    </div>
+    <?= $form->field($model, 'subClass')->hiddenInput(['id' => 'hiddenCategoryId'])->label(false) ?>
+     
     <?= $form->field($model, 'validity')->checkbox() ?>
 
     <?= $form->field($model, 'supplyDateTime')->textInput() ?>
@@ -114,6 +115,68 @@ use backend\models\FileUpload;
         });
 
     });
+
+    function beforeClick(treeId, treeNode) {
+        //var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+        //zTree.expandNode(treeNode);
+    }
+
+    function onClick(e, treeId, treeNode) {
+        //alert(treeNode.categoryName + "----" + treeNode.id);
+        $("#parentCategoryId").val(treeNode.categoryName);
+        $("#hiddenCategoryId").val(treeNode.id);
+        getCategoryGrade(treeNode.id);
+        $("#menuContent").fadeOut("fast");
+    }
+
+    $("#parentCategoryId").bind("click", function () {
+        $("#menuContent").css("display", "block");
+        $("body").bind("mousedown", onBodyDown);
+    });
+
+    function hideMenu() {
+        $("#menuContent").fadeOut("fast");
+        $("body").unbind("mousedown", onBodyDown);
+    }
+    function onBodyDown(event) {
+        if (!(event.target.id == "menuBtn" || event.target.id == "parentCategoryId" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length > 0)) {
+            hideMenu();
+        }
+    }
+    $(function () {
+        BindTree();
+    });
+
+    function BindTree() {
+        var setting = {
+            view: {
+                dblClickExpand: false
+            },
+            async: {
+                enable: true,
+                url: "index.php?r=com-category-maintain/category&type=1"
+            },
+            data: {
+                key: {name: "categoryName"},
+                simpleData: {
+                    enable: true,
+                    idKey: "id",
+                    pIdKey: "parentCategoryId"
+                }
+            },
+            callback: {
+                beforeClick: beforeClick,
+                onClick: onClick
+            }
+        };
+        $.fn.zTree.init($("#treeDemo"), setting);
+    }
+
+    function getCategoryGrade(id) {
+        $.post("index.php?r=com-category-maintain/grade", {id: id}, function (data) {
+            $("#hiddenGrade").val(parseInt(data) + 1);
+        });
+    }
 
 </script>
 <style type="text/css">
