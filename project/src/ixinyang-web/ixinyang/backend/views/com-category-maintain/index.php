@@ -26,6 +26,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
    <div class="tree">
     <ul>
+         <li>
+            <span><i class="icon-leaf"></i>爱信阳类别管理</span> <a href=""></a>
+            <a class="icon-plus" onclick=View('创建类别','index.php?r=com-category-maintain/create','')  title="添加">添加</a>
+        </li>
         <li>
             <ul>
                 <?php \yii\widgets\Pjax::begin(['id' => 'categoryList']) ?>
