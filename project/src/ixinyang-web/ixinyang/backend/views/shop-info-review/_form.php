@@ -56,10 +56,16 @@ use kartik\widgets\DatePicker;
             ], 
         ]); 
     ?> 
+     <div class="col-lg-offset-4">
+        <div class="form-group">
+            <?= Html::button('在地图上标注', ['class' => 'btn btn-warning', 'id' => 'map_button']) ?>
+            <label id="loglat" style="margin-left:5px;color:red;"></label>
+        </div>
+    </div>
     <!--地图经度-->
-    <?= $form->field($model, 'longitude')->textInput() ?>
+    <?= $form->field($model, 'longitude')->textInput(['readonly'=>true]) ?>
     <!--地图纬度-->
-    <?= $form->field($model, 'latitude')->textInput() ?>
+    <?= $form->field($model, 'latitude')->textInput(['readonly'=>true]) ?>
     
     <!-- <div class="form-group">
      <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
@@ -125,6 +131,10 @@ $(function(){
 
     getCountry($("#cityId").val());
     getBusiness($("#countyId").val());
+
+    <!--地图调用-->
+    var mapUrl = '<?php echo Yii::$app->urlManager->baseUrl.'/map.html'?>';
+    jQuery.showMap('map_button', mapUrl, 'shopinforeview-longitude', 'shopinforeview-latitude');
 });
 
     

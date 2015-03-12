@@ -17,6 +17,7 @@ jQuery.showMap = function (id, mapUrl, longitude, latitude) {
             var result = $("#iframeDialogMap").contents().find("#result").html();
             $("#" + longitude).val(result.split(",")[0]);
             $("#" + latitude).val(result.split(",")[1]);
+            $("#iframeDialogMap").remove();
         }
     });
 };

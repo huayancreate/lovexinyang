@@ -35,9 +35,16 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'businessHours')->textInput(['maxlength' => 150]) ?>
 
-    <?= $form->field($model, 'longitude')->textInput(['maxlength' => 100]) ?>
+     <div class="col-lg-offset-4">
+        <div class="form-group">
+            <?= Html::button('在地图上标注', ['class' => 'btn btn-warning', 'id' => 'map_button']) ?>
+            <label id="loglat" style="margin-left:5px;color:red;"></label>
+        </div>
+    </div>
 
-    <?= $form->field($model, 'latitude')->textInput(['maxlength' => 100]) ?>
+    <?= $form->field($model, 'longitude')->textInput(['maxlength' => 100,'readonly'=>true]) ?>
+
+    <?= $form->field($model, 'latitude')->textInput(['maxlength' => 100,'readonly'=>true]) ?>
 
     <!-- <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
@@ -54,6 +61,10 @@ $(function(){
         var storeType=$("#comcategorymaintain-categoryname").val();
         $("#storeType").val(storeType);
     });
+
+    <!--地图调用-->
+    var mapUrl = '<?php echo Yii::$app->urlManager->baseUrl.'/map.html'?>';
+    jQuery.showMap('map_button', mapUrl, 'stostoreinfo-longitude', 'stostoreinfo-latitude');
 });
     
 </script>
