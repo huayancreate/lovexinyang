@@ -98,6 +98,7 @@ class StoApplyInfo extends \yii\db\ActiveRecord
             'applyStatus' => '审核状态',
             'storeCategoryId' => '商家类型',
             'remark' => '驳回备注',
+            'businessHours'=>'营业时间',
         ];
     }
 

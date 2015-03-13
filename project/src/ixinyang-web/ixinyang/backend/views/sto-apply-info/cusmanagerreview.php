@@ -31,6 +31,7 @@ use backend\models\ComBusinessDistrict;
                 'value' => ComBusinessDistrict::findOne($model->businessZone)->businessDistrictName,
             ],
             'address',
+            'businessHours',
             'storePhone',
             'daySales',
             [

@@ -29,6 +29,7 @@ use yii\web\jqueryAsset;
             <label id="loglat" style="margin-left:5px;color:red;"></label>
         </div>
     </div>
+    <?= $form->field($model, 'businessHours')->textInput() ?> 
     <?= $form->field($model, 'storePhone')->textInput() ?>
     <?= $form->field($model, 'daySales')->textInput() ?>
     <div class="form-group field-stoapplyinfo-storecategoryid required">
