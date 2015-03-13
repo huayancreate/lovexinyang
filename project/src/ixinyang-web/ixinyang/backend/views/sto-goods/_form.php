@@ -68,7 +68,6 @@ use backend\models\FileUpload;
 
     <?= $form->field($model, 'price')->textInput() ?>
 
-   
     <div style="position: relative">
         <?= $form->field($categoryModel, 'categoryName')->textInput(['id' => 'parentCategoryId', 'value' => $category->categoryName]) ?>
         <div id="menuContent" class="menuContent" style="display:none; position:absolute;z-index:1;width: 80%;">
@@ -125,7 +124,7 @@ use backend\models\FileUpload;
         //alert(treeNode.categoryName + "----" + treeNode.id);
         $("#parentCategoryId").val(treeNode.categoryName);
         $("#hiddenCategoryId").val(treeNode.id);
-        getCategoryGrade(treeNode.id);
+        //getCategoryGrade(treeNode.id);
         $("#menuContent").fadeOut("fast");
     }
 

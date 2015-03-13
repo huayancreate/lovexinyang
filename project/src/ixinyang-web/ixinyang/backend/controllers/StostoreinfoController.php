@@ -116,9 +116,16 @@ class StostoreinfoController extends BackendController
         } else {
             $categoryModel=new ComCategoryMaintain();
             $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
+            //获取商品类别
+            $category = $categoryModel->getCategoryByParentId($model->storeType);
+            if ($category == null) {
+                $category = new ComCategoryMaintain();
+                $category->categoryName = '';
+            }
 
             return $this->renderPartial('update', [
-                'model' => $model,'categoryModel'=>$categoryModel,'categoryList'=>$categoryList
+                'model' => $model,'categoryModel'=>$categoryModel,'categoryList'=>$categoryList,
+                'category'=>$category
             ]);
         }
     }

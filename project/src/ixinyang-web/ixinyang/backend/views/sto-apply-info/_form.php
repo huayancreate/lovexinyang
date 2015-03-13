@@ -139,7 +139,7 @@ Dialog::end();
         },
         async: {
             enable: true,
-            url: "index.php?r=sto-apply-info/category"
+            url: "index.php?r=com-category-maintain/category&type=1"
         },
         data: {
             key: {name: "categoryName"},

@@ -17,13 +17,20 @@ use kartik\widgets\DatePicker;
     <!--店铺名称-->
     <?= $form->field($model, 'shopName')->textInput(['maxlength' => 50]) ?>
     <!--店铺类别-->
-    <?= $form->field($categoryModel, 'categoryName')->dropDownList(
-        ArrayHelper::map($categoryList, 'id', 'categoryName'),
-        ['prompt' => '--店铺类别--'])->label('店铺类别') ?>
-    <!--支付宝账号-->
-    <?= $form->field($model,'alipayNo')->textInput(['maxlength'=>40]) ?>
+  <!--   <?= $form->field($categoryModel, 'categoryName')->dropDownList(
+      ArrayHelper::map($categoryList, 'id', 'categoryName'),
+      ['prompt' => '--店铺类别--'])->label('店铺类别') ?> -->
+    <div style="position: relative">
+        <?= $form->field($categoryModel, 'categoryName')->textInput(['id' => 'parentCategoryId', 'value' => $category->categoryName]) ?>
+        <div id="menuContent" class="menuContent" style="display:none; position:absolute;z-index:1;width: 80%;">
+            <ul id="treeDemo" class="ztree" style="width:100%;height:300px"></ul>
+        </div>
+    </div>
+    <?= $form->field($model, 'storeType')->hiddenInput(['id' => 'hiddenCategoryId'])->label(false) ?>
     <!--支付宝名称-->
     <?= $form->field($model,'alipayName')->textInput(['maxlength'=>150]) ?>
+    <!--支付宝账号-->
+    <?= $form->field($model,'alipayNo')->textInput(['maxlength'=>40]) ?>
     <!--联系方式-->
     <?= $form->field($model, 'contact')->textInput(['maxlength' => 50]) ?>
     <!--城市-->   
@@ -117,6 +124,68 @@ function getBusiness(countyId) {
     });
 }
 
+ function beforeClick(treeId, treeNode) {
+        //var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+        //zTree.expandNode(treeNode);
+    }
+
+    function onClick(e, treeId, treeNode) {
+        //alert(treeNode.categoryName + "----" + treeNode.id);
+        $("#parentCategoryId").val(treeNode.categoryName);
+        $("#hiddenCategoryId").val(treeNode.id);
+        getCategoryGrade(treeNode.id);
+        $("#menuContent").fadeOut("fast");
+    }
+
+    $("#parentCategoryId").bind("click", function () {
+        $("#menuContent").css("display", "block");
+        $("body").bind("mousedown", onBodyDown);
+    });
+
+    function hideMenu() {
+        $("#menuContent").fadeOut("fast");
+        $("body").unbind("mousedown", onBodyDown);
+    }
+    function onBodyDown(event) {
+        if (!(event.target.id == "menuBtn" || event.target.id == "parentCategoryId" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length > 0)) {
+            hideMenu();
+        }
+    }
+    $(function () {
+        BindTree();
+    });
+
+    function BindTree() {
+        var setting = {
+            view: {
+                dblClickExpand: false
+            },
+            async: {
+                enable: true,
+                url: "index.php?r=com-category-maintain/category&type=1"
+            },
+            data: {
+                key: {name: "categoryName"},
+                simpleData: {
+                    enable: true,
+                    idKey: "id",
+                    pIdKey: "parentCategoryId"
+                }
+            },
+            callback: {
+                beforeClick: beforeClick,
+                onClick: onClick
+            }
+        };
+        $.fn.zTree.init($("#treeDemo"), setting);
+    }
+
+    function getCategoryGrade(id) {
+        $.post("index.php?r=com-category-maintain/grade", {id: id}, function (data) {
+            $("#hiddenGrade").val(parseInt(data) + 1);
+        });
+    }
+
 $(function(){
     //通过市筛选区县
     $("#comcitycenter-citycentername").change(function(){
@@ -135,7 +204,12 @@ $(function(){
     <!--地图调用-->
     var mapUrl = '<?php echo Yii::$app->urlManager->baseUrl.'/map.html'?>';
     jQuery.showMap('map_button', mapUrl, 'shopinforeview-longitude', 'shopinforeview-latitude');
+   
 });
 
     
 </script>
+
+<?php
+$this->registerCssFile(Yii::$app->urlManager->baseUrl . '/css/zTreeStyle.css', []);
+?>

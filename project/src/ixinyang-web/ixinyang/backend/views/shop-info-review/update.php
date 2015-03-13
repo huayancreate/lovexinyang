@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = 'Update';
 <div class="shop-info-review-update">
 
 	<?= $this->render('_form', [
-        'model' => $model,'cityModel'=>$cityModel,'cityList'=>$cityList
+        'model' => $model,'cityModel'=>$cityModel,'cityList'=>$cityList  
     ]) ?>
     
 </div>

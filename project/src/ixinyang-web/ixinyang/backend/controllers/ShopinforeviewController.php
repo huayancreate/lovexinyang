@@ -69,6 +69,7 @@ class ShopinforeviewController extends BackendController
         $model = new ShopInfoReview();
         //商品类别维护
         $categoryModel=new ComCategoryMaintain();
+        $category=new ComCategoryMaintain();
 
         if ($model->load(Yii::$app->request->post())) {
 
@@ -80,10 +81,7 @@ class ShopinforeviewController extends BackendController
                 $model->applyUserId=Yii::$app->user->identity->id;//申请人ID
                 $model->applyUserName=Yii::$app->user->identity->role;//申请人姓名
                 $model->auditState="1"; //申请状态  1、申请中 2、初审通过 3、初审驳回 4、经理审核通过  5、经理审核驳回
-                 //店铺类别
-                if($categoryModel->load(Yii::$app->request->post())){
-                    $model->storeType=(int)$categoryModel->categoryName;
-                }
+            
                 //商家id 
                 $model->storeId=Yii::$app->user->identity->sellerId;
                 //店铺id
@@ -116,6 +114,7 @@ class ShopinforeviewController extends BackendController
                 'model' => $model,'cityModel'=>$cityModel,'cityList'=>$cityList,
                 'categoryModel'=>$categoryModel,
                 'categoryList'=>$categoryList,
+                'category' => $category,
             ]);
         }
     }
@@ -141,6 +140,7 @@ class ShopinforeviewController extends BackendController
 
             return $this->renderPartial('update', [
                 'model' => $model,'cityModel'=>$cityModel,'cityList'=>$cityList
+                
             ]);
         }
     }
