@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\web\JqueryAsset;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -36,9 +37,13 @@ $this->params['breadcrumbs'][] = $this->title;
 <script type="text/javascript"> 
 <?php $this->beginBlock('JS_END'); ?>
     $(function(){
-        JuiDialog.getPage("div_applyInfo","sto-apply-info/view&id=1");
+        JuiDialog.getPage("div_applyInfo","sto-apply-info/view");
     });
 
 <?php $this->endBlock(); ?>
 </script>
-<?php $this->registerJs($this->blocks['JS_END'], \yii\web\View::POS_END); ?>
+<?php 
+$this->registerJs($this->blocks['JS_END'], \yii\web\View::POS_END);
+$this->registerJsFile(Yii::$app->urlManager->baseUrl . '/assets/771e789c/kindeditor.js',  ['depends' => [JqueryAsset::className()]]);
+
+?>

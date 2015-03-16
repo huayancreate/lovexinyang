@@ -54,17 +54,17 @@ class StoApplyInfoController extends BackendController
         $citys = ComCitycenter::find()->all();
 
         if ($model->load(Yii::$app->request->post())) {
-       date_default_timezone_set('PRC');
-       $model->applyTime=date("Y-m-d H:i:s");
-       $model->applyStatus=0;
-           $model->save();
-            return $this->redirect(['create','model' => $model,
-                'citys'=>$citys]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,'citys'=>$citys
-            ]);
-        }
+             date_default_timezone_set('PRC');
+             $model->applyTime=date("Y-m-d H:i:s");
+             $model->applyStatus=0;
+             $model->save();
+              return $this->redirect(['create','model' => $model,
+                  'citys'=>$citys]);
+          } else {
+              return $this->render('create', [
+                  'model' => $model,'citys'=>$citys
+              ]);
+          }
     }
 
 
@@ -173,9 +173,12 @@ class StoApplyInfoController extends BackendController
       return json_encode($result);
     }
 
-    public function actionView($id){
+    public function actionView(){
+
+      $model=StoApplyInfo::find()->where('storeName="'.Yii::$app->user->identity->role.'" AND applyStatus=3 ORDER BY applyTime ASC LIMIT 0,1')->one();
+    
       return $this->renderPartial('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
         ]);
     }
 
