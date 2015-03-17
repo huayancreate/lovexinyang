@@ -82,8 +82,7 @@ use kartik\widgets\DatePicker;
 
 </div>
 
-<script type="text/javascript"> 
-
+<script type="text/javascript">
 //获取区域
 function getCountry(cityId) {
     $.ajax({
@@ -103,8 +102,7 @@ function getCountry(cityId) {
         }
     });
 }
-
-    //获取商圈
+//获取商圈
 function getBusiness(countyId) {
     $.ajax({
         type: "get",
@@ -187,13 +185,11 @@ function getBusiness(countyId) {
     }
 
 $(function(){
-    //通过市筛选区县
     $("#comcitycenter-citycentername").change(function(){
         $("#cityId").val($(this).val());
         getCountry($(this).val());
     });
 
-    //通过区县筛选区域
     $("#shopinforeview-countyid").change(function(){
         getBusiness($(this).val());
     });
@@ -201,7 +197,6 @@ $(function(){
     getCountry($("#cityId").val());
     getBusiness($("#countyId").val());
 
-    <!--地图调用-->
     var mapUrl = '<?php echo Yii::$app->urlManager->baseUrl.'/map.html'?>';
     jQuery.showMap('map_button', mapUrl, 'shopinforeview-longitude', 'shopinforeview-latitude');
    
