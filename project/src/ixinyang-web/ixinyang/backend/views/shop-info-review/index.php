@@ -129,4 +129,6 @@ function expurgate(url){
 
 <?php $this->endBlock(); ?>
 </script>
-<?php $this->registerJs($this->blocks['JS_END'], \yii\web\View::POS_END); ?>
+<?php 
+$this->registerJs($this->blocks['JS_END'], \yii\web\View::POS_END);
+?>

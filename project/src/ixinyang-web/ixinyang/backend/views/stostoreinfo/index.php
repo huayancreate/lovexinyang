@@ -2,8 +2,6 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use yii\web\JqueryAsset;
-
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
@@ -43,6 +41,4 @@ $this->params['breadcrumbs'][] = $this->title;
 </script>
 <?php 
 $this->registerJs($this->blocks['JS_END'], \yii\web\View::POS_END);
-$this->registerJsFile(Yii::$app->urlManager->baseUrl . '/assets/771e789c/kindeditor.js',  ['depends' => [JqueryAsset::className()]]);
-
 ?>

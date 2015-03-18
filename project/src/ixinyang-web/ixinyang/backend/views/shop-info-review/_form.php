@@ -4,7 +4,6 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
 use cliff363825\kindeditor\KindEditorWidget;
-use kartik\widgets\DatePicker;
 /* @var $this yii\web\View */
 /* @var $model backend\models\ShopInfoReview */
 /* @var $form yii\widgets\ActiveForm */
@@ -21,7 +20,7 @@ use kartik\widgets\DatePicker;
       ArrayHelper::map($categoryList, 'id', 'categoryName'),
       ['prompt' => '--店铺类别--'])->label('店铺类别') ?> -->
     <div style="position: relative">
-        <?= $form->field($categoryModel, 'categoryName')->textInput(['id' => 'parentCategoryId', 'value' => $category->categoryName]) ?>
+        <?= $form->field($categoryModel, 'categoryName')->textInput(['id' => 'parentCategoryId', 'value' => $category->categoryName,'readonly'=>true]) ?>
         <div id="menuContent" class="menuContent" style="display:none; position:absolute;z-index:1;width: 80%;">
             <ul id="treeDemo" class="ztree" style="width:100%;height:300px"></ul>
         </div>
@@ -49,7 +48,7 @@ use kartik\widgets\DatePicker;
     <?= $form->field($model, 'businessHours')->textInput(['maxlength' => 100]) ?>
     <!--门店概述-->
     <?= 
-        $form->field($model, 'storeOutline')->widget(KindEditorWidget::className(), [ 
+         $form->field($model, 'storeOutline')->widget(KindEditorWidget::className(), [ 
             'clientOptions' => [ 
             'width' => '400', 
             'height' => 'auto', 
@@ -61,8 +60,9 @@ use kartik\widgets\DatePicker;
             //'uploadJson' => Url::to(['upload']), 
             'uploadJson'=>Yii::$app->urlManager->createUrl(['upload']),
             ], 
-        ]); 
-    ?> 
+        ]);
+    ?>
+
      <div class="col-lg-offset-4">
         <div class="form-group">
             <?= Html::button('在地图上标注', ['class' => 'btn btn-warning', 'id' => 'map_button']) ?>
@@ -76,8 +76,7 @@ use kartik\widgets\DatePicker;
     
     <!-- <div class="form-group">
      <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-     </div>  --> 
-
+     </div>  -->
     <?php ActiveForm::end(); ?>
 
 </div>
@@ -199,10 +198,9 @@ $(function(){
 
     var mapUrl = '<?php echo Yii::$app->urlManager->baseUrl.'/map.html'?>';
     jQuery.showMap('map_button', mapUrl, 'shopinforeview-longitude', 'shopinforeview-latitude');
-   
-});
 
-    
+
+});     
 </script>
 
 <?php
