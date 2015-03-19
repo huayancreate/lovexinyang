@@ -12,51 +12,40 @@ use yii\helpers\ArrayHelper;
 <div class="sto-store-info-form">
 
     <?php $form = ActiveForm::begin(['layout' => 'horizontal','id'=>'stostoreinfoFrom']); ?>
-
-  <!--   <?= $form->field($model, 'createTime')->textInput() ?> -->
-
-    <?= $form->field($model, 'storeAddress')->textInput(['maxlength' => 150]) ?>
-    
-    <!--店铺类别-->
-    <!-- <?php $categoryModel->categoryName=$model->storeType;  ?>
-    <?= $form->field($categoryModel, 'categoryName')->dropDownList(
-        ArrayHelper::map($categoryList, 'id', 'categoryName'),
-        ['prompt' => '--店铺类别--'])->label('店铺类别') ?> -->
-        
+    <!--店铺名称-->
+    <?= $form->field($model, 'storeName')->textInput(['maxlength' => 150]) ?>
+     <!--店铺类别-->
     <div style="position: relative">
         <?= $form->field($categoryModel, 'categoryName')->textInput(['id' => 'parentCategoryId', 'value' => $category->categoryName,'readonly'=>true]) ?>
         <div id="menuContent" class="menuContent" style="display:none; position:absolute;z-index:1;width: 80%;">
             <ul id="treeDemo" class="ztree" style="width:100%;height:300px"></ul>
         </div>
     </div>
-
-    <!-- <input type="hidden" id="storeType" name="StoStoreInfo[storeType]" value=<?= $model->storeType ?>>  -->
+    <!--店铺类别-->
     <?= $form->field($model, 'storeType')->hiddenInput(['id' => 'hiddenCategoryId'])->label(false) ?>
-
-    <?= $form->field($model, 'storeName')->textInput(['maxlength' => 150]) ?>
-
+    <!--店铺地址-->
+    <?= $form->field($model, 'storeAddress')->textInput(['maxlength' => 150]) ?>
+    <!--联系方式-->
     <?= $form->field($model, 'contactWay')->textInput(['maxlength' => 50]) ?>
-
-<!--     <?= $form->field($model, 'sellerId')->textInput() ?>
-
-    <?= $form->field($model, 'validity')->textInput(['maxlength' => 2]) ?> -->
-
+    <!--营业时间-->
     <?= $form->field($model, 'businessHours')->textInput(['maxlength' => 150]) ?>
-
-     <div class="col-lg-offset-4">
+    <!--地图标注-->
+    <div class="col-lg-offset-4">
         <div class="form-group">
             <?= Html::button('在地图上标注', ['class' => 'btn btn-warning', 'id' => 'map_button']) ?>
             <label id="loglat" style="margin-left:5px;color:red;"></label>
         </div>
     </div>
-
+    <!--经度-->
     <?= $form->field($model, 'longitude')->textInput(['maxlength' => 100,'readonly'=>true]) ?>
-
+    <!--纬度-->
     <?= $form->field($model, 'latitude')->textInput(['maxlength' => 100,'readonly'=>true]) ?>
 
-    <!-- <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div> -->
+    <div class="col-lg-7">
+        <div class="form-group pull-right">
+            <?= Html::submitButton($model->isNewRecord ? '保存' : '修改', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        </div>
+    </div>
 
     <?php ActiveForm::end(); ?>
 

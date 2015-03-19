@@ -140,7 +140,7 @@ class ComCountyController extends BackendController
         $model = new ComCounty();
         //区县添加
        if ($model->load(Yii::$app->request->post())) {
-            if ($model->validate()) {
+            
                  //获取市区id
                  if($ComCity->load(Yii::$app->request->post())){
                        $cId=(int)$ComCity->cityCenterName;
@@ -148,25 +148,16 @@ class ComCountyController extends BackendController
                   }
                 
                 $model->save();
-                
-                $message=$model->getErrors();
-                $message["success"]=True;
-
-                return json_encode($message);
-            }
-            else{
-                  //数据验证失败
-                  $message=$model->getErrors();
-                  $message["success"]=False;
-                 return json_encode($message);
-            }
+                return $this->redirect(['index']);
+           
         } 
         else 
         {
              $model->isValid='1';
-             return $this->renderPartial('create', [
+             return $this->renderAjax('create', [
                     'model' => $model,
                     'mCity'=>$ComCity,'mCitys'=>$ComCitys,
+                    'cityCenterId'=>1,
                    
              ]);
          }
@@ -186,24 +177,14 @@ class ComCountyController extends BackendController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
-            if ($model->validate()) {
+           
                 if($ComCity->load(Yii::$app->request->post())){
                              $cId=(int)$ComCity->cityCenterName;
                              $model->cityCenterId=$cId;
                          }
                 $model->save();
-                $message=$model->getErrors();
-                $message["success"]=True;
 
-                return json_encode($message);
-            }
-            else{
-                 //数据验证失败
-                  $message=$model->getErrors();
-                  $message["success"]=False;
-                 return json_encode($message);
-            }
-         
+                return $this->redirect(['index']);
             
         } else {
             return $this->renderPartial('update', [

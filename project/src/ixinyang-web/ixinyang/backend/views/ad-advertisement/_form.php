@@ -19,6 +19,7 @@ use yii\helpers\Url;
     <?php $form = ActiveForm::begin([
       'layout' => 'horizontal',
       'options' => ['enctype' =>'multipart/form-data'],
+      'id'=>'adForm'
     ]); ?>
 
  <div class="row">

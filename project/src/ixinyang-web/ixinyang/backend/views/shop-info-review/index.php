@@ -152,9 +152,6 @@ function getView(title,url){
     JuiDialog.dialogView("dialogId",title,url);
 }
 
-function getEdit(url,fromId,gridId,title){
-    JuiDialog.dialog("dialogId",title,url,fromId,gridId);
-}
 function expurgate(url){
     if(confirm("确定要删除数据吗")){
         JuiDialog.del(url,"gridList");

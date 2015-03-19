@@ -69,7 +69,7 @@ use backend\models\FileUpload;
     <?= $form->field($model, 'price')->textInput() ?>
 
     <div style="position: relative">
-        <?= $form->field($categoryModel, 'categoryName')->textInput(['id' => 'parentCategoryId', 'value' => $category->categoryName]) ?>
+        <?= $form->field($categoryModel, 'categoryName')->textInput(['id' => 'parentCategoryId', 'value' => $category->categoryName,'readonly'=>true]) ?>
         <div id="menuContent" class="menuContent" style="display:none; position:absolute;z-index:1;width: 80%;">
             <ul id="treeDemo" class="ztree" style="width:100%;height:300px"></ul>
         </div>

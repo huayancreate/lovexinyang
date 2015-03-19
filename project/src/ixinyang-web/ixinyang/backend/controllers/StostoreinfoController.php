@@ -104,14 +104,18 @@ class StostoreinfoController extends BackendController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->scenario ='update';
+
         if ($model->load(Yii::$app->request->post())) {
 
             $model->save();
 
-            $message=$model->getErrors();
+            /*$message=$model->getErrors();
             $message["success"]=True;
 
-            return json_encode($message);
+            return json_encode($message);*/
+
+            return $this->redirect(['stostoreinfo/index']);
 
         } else {
             $categoryModel=new ComCategoryMaintain();
@@ -123,7 +127,7 @@ class StostoreinfoController extends BackendController
                 $category->categoryName = '';
             }
 
-            return $this->renderPartial('update', [
+            return $this->renderAjax('update', [
                 'model' => $model,'categoryModel'=>$categoryModel,'categoryList'=>$categoryList,
                 'category'=>$category
             ]);

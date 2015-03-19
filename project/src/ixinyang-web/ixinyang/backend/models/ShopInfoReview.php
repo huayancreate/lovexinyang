@@ -61,6 +61,8 @@ class ShopInfoReview extends \yii\db\ActiveRecord
             [['alipayName'], 'string', 'max' => 150],
             //去掉前后空格
             [['shopName','alipayNo','alipayName','contact','address','businessHours'],'trim'],
+            [['contact'], 'match', 'pattern' => '/^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/', 'message' => '门店电话格式不正确，正确格式为0551-12345678'],
+            [['alipayNo'], 'email', 'message' => '格式错误.'],
             //不能为空
             [['shopName', 'storeType','alipayNo', 'alipayName','contact', 'businessDistrictId', 'cityId', 'countyId','address','businessHours','storeOutline','longitude','latitude'],'required','message'=>'{attribute}不能为空'],
         ];

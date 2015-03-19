@@ -33,6 +33,14 @@ class StoStoreInfo extends \yii\db\ActiveRecord
         return 'sto_store_info';
     }
 
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios['update'] = ['storeName','storeType','storeAddress','contactWay','businessHours','longitude', 'latitude'];
+        
+        return $scenarios;
+    }
+
     /**
      * @inheritdoc
      */
@@ -48,7 +56,9 @@ class StoStoreInfo extends \yii\db\ActiveRecord
             [['contactWay'], 'string', 'max' => 50],
             [['longitude', 'latitude'], 'number'],
             [['alipayNo'], 'string', 'max' => 40],
-            [['accountBalance'], 'number']
+            [['accountBalance'], 'number'],
+            [['storeName','storeType','storeAddress','contactWay','businessHours','longitude', 'latitude'],'required','message'=>'{attribute}不能为空','on'=>'update'],
+            [['contactWay'], 'match', 'pattern' => '/^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/', 'message' => '门店电话格式不正确，正确格式为0551-12345678','on'=>'update'],
         ];
     }
 

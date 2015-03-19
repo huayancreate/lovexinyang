@@ -50,7 +50,7 @@ class StoApplyInfo extends \yii\db\ActiveRecord
     {
         return [
             //去掉前后空格
-            [['city', 'storeName', 'regional', 'businessZone', 'storePhone', 'phone', 'address', 'name'], 'required', 'message' => '{attribute}不能为空.'],
+            [['city', 'storeName', 'regional', 'businessZone', 'storePhone', 'phone', 'address', 'name','businessHours','daySales','storeCategoryId'], 'required', 'message' => '{attribute}不能为空.'],
             ['storeName','unique','message'=>'门店名称已经存在.'],
             [['remark'], 'trim'],
             [['longitude', 'latitude', 'daySales'], 'number'],
@@ -63,7 +63,9 @@ class StoApplyInfo extends \yii\db\ActiveRecord
             [['remark'], 'string', 'max' => 200],
             [['scopeBusiness'], 'string'],
             [['storeName', 'address', 'name'], 'string', 'max' => 250],
-            [['businessHours'], 'string', 'max' => 150]
+            [['businessHours'], 'string', 'max' => 150],
+            [['otherContact'], 'match', 'pattern' => '/^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/', 'message' => '门店电话格式不正确，正确格式为0551-12345678'],
+
         ];
     }
 
