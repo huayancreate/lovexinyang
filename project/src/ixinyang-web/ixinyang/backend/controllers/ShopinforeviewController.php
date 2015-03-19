@@ -76,7 +76,7 @@ class ShopinforeviewController extends BackendController
             $transaction=\Yii::$app->db->beginTransaction(); 
             try{
 
-                $model->storeAccount="storeAdmin"; //商家账号
+                $model->storeAccount=Yii::$app->user->identity->role; //商家账号
                 $model->applyTime=date("Y-m-d H:i:s");//申请时间
                 $model->applyUserId=Yii::$app->user->identity->id;//申请人ID
                 $model->applyUserName=Yii::$app->user->identity->role;//申请人姓名
@@ -91,12 +91,12 @@ class ShopinforeviewController extends BackendController
 
                 $transaction->commit(); //事务结束
 
-                $message=$model->getErrors();
-                $message["success"]=True;
+                /*$message=$model->getErrors();
+                $message["success"]=True;*/
 
-                return json_encode($message);
+                //return json_encode($message);
                 
-                //return $this->redirect(['view', 'id' => $model->id]);
+                 return $this->redirect(['stostoreinfo/index']);
 
             } catch (Exception $e) {
                 $transaction->rollBack();
@@ -110,7 +110,7 @@ class ShopinforeviewController extends BackendController
             //获取店铺类别
             $categoryList =ComCategoryMaintain::find()->where(['categoryType'=>1])->all();
 
-            return $this->renderPartial('create', [
+            return $this->renderAjax('create', [
                 'model' => $model,'cityModel'=>$cityModel,'cityList'=>$cityList,
                 'categoryModel'=>$categoryModel,
                 'categoryList'=>$categoryList,

@@ -109,10 +109,44 @@ $this->params['breadcrumbs'][] = $this->title;
 
 $(function(){
     $("#btnAdd").click(function(){
-        var url="shop-info-review/create";
-        JuiDialog.dialog("dialogId","分店申请",url,"shopinforeviewFrom","gridList");
+        /*var url="shop-info-review/create";
+        JuiDialog.dialog("dialogId","分店申请",url,"shopinforeviewFrom","gridList");*/
+
+         //加载店铺申请信息
+            getCreateInfo();
+            $("#dialogId").dialog("open");
+            $("#dialogId").dialog({
+                            autoOpen:false,
+                            modal: true,
+                            title:"分店申请",
+                            show: "blind",             //show:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果
+                            hide: "explode",       //hide:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果
+                            resizable: true,
+                            overlay: {
+                                opacity: 0.5,
+                                background: "black",
+                                overflow: 'auto'
+                            },
+                        buttons: {
+                         
+                        },
+                        close: function () {
+                            $("#dialogId").dialog("close");
+                        },  
+            });
     });
 });
+
+//弹出dialog 添加对话框
+function getCreateInfo(){
+     $.ajax({
+         type:"post",
+         url:"index.php?r=shop-info-review/create",
+         success:function(data) {
+            $("#dialogId").html(data);
+         }
+       });
+}
 
 function getView(title,url){
     JuiDialog.dialogView("dialogId",title,url);

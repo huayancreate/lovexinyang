@@ -17,7 +17,6 @@ use yii\helpers\Url;
 
 
     <?php $form = ActiveForm::begin([
-      'id'=>'advertisementForm',
       'layout' => 'horizontal',
       'options' => ['enctype' =>'multipart/form-data'],
     ]); ?>
@@ -109,7 +108,7 @@ use yii\helpers\Url;
 <div class="col-lg-7">
     <div class="form-group pull-right">
 
-    <?= Html::submitButton($model->isNewRecord ? '保存' : '更新', ['id'=>$model->isNewRecord ? 'btnSave' : 'btnUpdate','class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    <?= Html::submitButton($model->isNewRecord ? '保存' : '更新', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
    
     </div>
 </div>
@@ -122,25 +121,6 @@ use yii\helpers\Url;
 
 <script type="text/javascript">
   $(function(){
-
-    $("#btnSave").click(function(){
-      if(!$("div").hasClass("required has-error")){
-         document.getElementById("advertisementForm").submit();
-      }
-      else{
-        return false;
-      }
-    });
-
-    $("#btnUpdate").click(function(){
-      if(!$("div").hasClass("required has-error")){
-         document.getElementById("advertisementForm").submit();
-      }
-      else{
-        return false;
-      }
-    });
-   
 
     $("input[name='Ad[adType]']").click(function(){
         <!-- 1  手机端   2 web端-->
