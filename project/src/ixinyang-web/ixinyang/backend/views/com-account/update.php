@@ -13,8 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="com-account-update">
     <?= $this->render('_form', [
-        'model' => $model,'role'=>$role,'roles'=>$roles,
-        'roleId'=>$roleId,
+        'model' => $model,
     ]) ?>
   
 </div>

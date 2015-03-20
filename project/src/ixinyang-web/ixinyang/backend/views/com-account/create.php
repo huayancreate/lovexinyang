@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = '账号管理';
     <div class="com-account-create">
 
         <?= $this->render('_form', [
-            'model' => $model, 'role' => $role, 'roles' => $roles, 'roleId' => 0,
+            'model' => $model, 'role' => $role, 'roles' => $roles, 'roleId' => $roleId,
         ]) ?>
     </div>
 </div>

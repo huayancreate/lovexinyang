@@ -30,24 +30,33 @@ class ComAccount extends \yii\db\ActiveRecord
         return 'com_account';
     }
 
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+       
+        $scenarios['update'] = ['userName', 'email', 'nickname', 'address', 'phoneNumber'];
+       
+        return $scenarios;
+    }
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['userName', 'email', 'nickname', 'address', 'phoneNumber'], 'trim'],
-            [['userName', 'email', 'nickname', 'address', 'phoneNumber'], 'required', 'message' => '{attribute}不能为空.'],
+            [['email', 'nickname', 'address', 'phoneNumber'], 'trim'],
+            [['email', 'nickname', 'address', 'phoneNumber'], 'required', 'message' => '{attribute}不能为空.','on'=>'update'],
             [['email'], 'email', 'message' => '邮箱格式错误.'],
             ['userName', 'unique', 'message' => '账号已被使用.'],
-
             [['createTime', 'updateTime'], 'safe'],
             [['accountStatus'], 'integer'],
             [['email', 'nickname', 'userName'], 'string', 'max' => 50],
             [['phoneNumber', 'password'], 'string', 'max' => 20],
             [['sex'], 'string', 'max' => 4],
             [['address'], 'string', 'max' => 200],
-            [['isFirstLogin'], 'string', 'max' => 4]
+            [['isFirstLogin'], 'string', 'max' => 4],
+            [['phoneNumber'], 'match', 'pattern' => '/^0?(13[0-9]|15[012356789]|18[0236789]|14[57])[0-9]{8}$/', 'message' => '手机号码格式不正确','on'=>'update'],
         ];
     }
 
@@ -60,7 +69,7 @@ class ComAccount extends \yii\db\ActiveRecord
             'id' => 'ID',
             'email' => '邮箱',
             'createTime' => '创建时间',
-            'phoneNumber' => '电话',
+            'phoneNumber' => '手机号码',
             'updateTime' => '更新时间',
             'password' => '密码',
             'sex' => '性别',
@@ -182,6 +191,7 @@ class ComAccount extends \yii\db\ActiveRecord
     //获取所有角色
     public function getAllRole()
     {
-        return ComRole::find()->where(["isValid" => '1'])->all();
+       // return ComRole::find()->where(["isValid" => '1'])->all();
+       return AuthItem::find()->where(["type" => 1])->all();
     }
 }

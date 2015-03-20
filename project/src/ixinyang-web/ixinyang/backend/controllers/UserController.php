@@ -13,6 +13,7 @@ use yii\web\UploadedFile;
 use yii\widgets\ActiveForm;
 use common\models\User;
 use common\models\SignupForm;
+use backend\models\ComAccount;
 
 class UserController extends BackendController {
     /*
@@ -114,9 +115,16 @@ class UserController extends BackendController {
 
     public function actionLoadhtml() {
         $model = new SignupForm();
+        //账户详细
+        $comAccountModel=new ComAccount();
+
         if($model->load(Yii::$app->request->post())){
             $user=$model->signup();
-            if($user!=null){
+            //用户名
+            $comAccountModel->userName=$model->username;
+            $comAccountModel->save();
+            
+            if($user!=null && $comAccountModel!=null){
                 return $this->redirect(['user/index']);
             }else{
                 Yii::$app->session->setFlash('error','添加失败！');

@@ -17,6 +17,7 @@ use yii\base\Exception;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\models\AuthItem;
 
 /**
  * ComAccountController implements the CRUD actions for ComAccount model.
@@ -80,26 +81,30 @@ class ComAccountController extends BackendController
         $searchModel = new ComAccountSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        $role = new ComRole();
+        //$role = new ComRole();
+        $role=new AuthItem();
 
         if ($model->load(Yii::$app->request->post())) {
             if ($role->load(Yii::$app->request->post())) {
-                if ($model->validate()) {
-                    $roleIdArr = $this->stringInArray($role->roleName);
-                    $model->saveUserAccount($roleIdArr);
-                    return count($model->getErrors()) > 0 ? '{"msg":"error"}' : '{"msg":"success"}';
-                }
+                
+                $roleIdArr = $this->stringInArray($role->roleName);
+                $model->saveUserAccount($roleIdArr);
+                //return count($model->getErrors()) > 0 ? '{"msg":"error"}' : '{"msg":"success"}';
+                
+                //print_r($model->getErrors());
+                return $this->redirect(['index']);
             }
 
         } else {
             $model->sex = "男";
             $roles = $model->getAllRole();
-            return $this->renderPartial('create', [
+            return $this->renderAjax('create', [
                 'model' => $model,
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
                 'roles' => $roles,
                 'role' => $role,
+                'roleId' => 0,
             ]);
         }
     }
@@ -113,24 +118,17 @@ class ComAccountController extends BackendController
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
-        $role = new ComRole();
+        $model = $this->findModel( $id);                
+        $model->scenario='update';
+        
         if ($model->load(Yii::$app->request->post())) {
-            if ($role->load(Yii::$app->request->post())) {
-                if ($model->validate()) {
-                    $roleIdArr = $this->stringInArray($role->roleName);
-                    $model->updateAccount($roleIdArr);
-                    return count($model->getErrors()) > 0 ? '{"msg":"error"}' : '{"msg":"success"}';
-                }
-            }
+           $model->save();
+            return $this->redirect(['index']);
+
         } else {
-            $roles = $model->getAllRole();
-            $roleId = $model->getAllRoleId($id);
-            return $this->renderPartial('update', [
+           
+            return $this->renderAjax('update', [
                 'model' => $model,
-                'roles' => $roles,
-                'role' => $role,
-                'roleId' => $roleId,
             ]);
         }
 

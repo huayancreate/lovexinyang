@@ -14,13 +14,13 @@ use yii\jui\Dialog;
 use yii\web\JqueryAsset;
 
 
-$this->title = '录入新工号';
+$this->title = '账户信息';
 $this->params['breadcrumbs'][] = '账号管理';
 ?>
     <div class="com-category-maintain-index">
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
         <p>
-            <?= Html::a('创建账号', 'javascript:void(0)', ['class' => 'btn btn-success', 'onClick' => 'View("创建账号","com-account/create")']) ?>
+            <!-- <?= Html::a('创建账号', 'javascript:void(0)', ['class' => 'btn btn-success', 'onClick' => 'View("创建账号","com-account/create")']) ?> -->
             <!--        <a class="btn btn-success" href="#" onclick="View('创建类别','index.php?r=com-category-maintain/create','')">创建类别</a>-->
         </p>
 
@@ -60,7 +60,7 @@ $this->params['breadcrumbs'][] = '账号管理';
                                     [
                                         'title' => Yii::t('yii', 'Update'),
                                         'data-pjax' => true,
-                                        'onClick' => 'View("账号修改","com-account/update&id=' . $model['id'] . '&roleId=' . $person->id . '")'
+                                        'onClick' => 'View("账号修改","com-account/update&id=' . $model['id'] . '")'
                                     ]);
                             },
                             'delete' => function ($url, $model) {
@@ -88,9 +88,9 @@ $this->params['breadcrumbs'][] = '账号管理';
         ?>
     </div>
     <script type="text/javascript">
-        function View(title, url) {
+       /* function View(title, url) {
             JuiDialog.showDialogWithValid('viewDialog', title, url, url, 'accountForm', 'accountList');
-        }
+        }*/
         function Detail(title, url) {
             $("#viewDialog").empty();
             JuiDialog.dialogView("viewDialog", title, url);
@@ -101,6 +101,42 @@ $this->params['breadcrumbs'][] = '账号管理';
                     JuiDialog.del(url, "accountList");
                 }
             });
+        }
+
+        function View(title, url){
+            //加载创建账号页面
+            getCreateInfo(url);
+            $("#viewDialog").dialog("open");
+            $("#viewDialog").dialog({
+                            autoOpen:false,
+                            modal: true,
+                            title:title,
+                            show: "blind",             //show:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果
+                            hide: "explode",       //hide:"blind",clip,drop,explode,fold,puff,slide,scale,size,pulsate  所呈现的效果
+                            resizable: true,
+                            overlay: {
+                                opacity: 0.5,
+                                background: "black",
+                                overflow: 'auto'
+                            },
+                        buttons: {
+                         
+                        },
+                        close: function () {
+                            $("#viewDialog").dialog("close");
+                        },  
+                      });
+        }
+
+        //弹出dialog 添加对话框
+        function getCreateInfo(url){
+             $.ajax({
+                 type:"post",
+                 url:"index.php?r="+url,
+                 success:function(data) {
+                    $("#viewDialog").html(data);
+                 }
+               });
         }
     </script>
 <?php
