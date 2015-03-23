@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'rebatePrice',
             [
                 'attribute' => 'CodeStatus',
-                'label'=>'×´Ì¬',
+                'label'=>'çŠ¶æ€',
                 'format'=>'html',
                 'value'=>
                     function($model){
@@ -39,16 +39,19 @@ $this->params['breadcrumbs'][] = $this->title;
     ]); ?>
 </div>
 
-<?php
-    $this->registerJs(
-        '$(function(){
+<script type='text/javascript'>
+    <?php
+      $this->beginBlock('JS_END');
+    ?>
+
+    $(function(){
             $("#btnSave").click(function(){
                 var keys = $("#gridList").yiiGridView("getSelectedRows");
                 if(keys==""){
-                    alert("ÇëÑ¡ÔñÏû·ÑÏî£¡");
+                    alert("è¯·é€‰æ‹©æ¶ˆè´¹é¡¹ï¼");
                     return;
                 }
-                if(confirm("ÊÇ·ñÈ·ÈÏÏû·Ñ£¡")){
+                if(confirm("æ˜¯å¦ç¡®è®¤æ¶ˆè´¹ï¼")){
                     var url="cus-order-details/consumption";
                     $.ajax({
                         cache: true,
@@ -62,6 +65,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             });
            
-        });'
-    )
+    });
+
+    <?php
+      $this->endBlock();
+    ?>
+</script>
+<?php
+    $this->registerJs($this->blocks['JS_END'], \yii\web\View::POS_END);
 ?>
