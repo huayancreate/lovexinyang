@@ -34,7 +34,7 @@ class ComAccount extends \yii\db\ActiveRecord
     {
         $scenarios = parent::scenarios();
        
-        $scenarios['update'] = ['userName', 'email', 'nickname', 'address', 'phoneNumber'];
+        $scenarios['update'] = ['userName', 'email', 'nickname', 'address', 'phoneNumber','sex','createTime', 'updateTime'];
        
         return $scenarios;
     }

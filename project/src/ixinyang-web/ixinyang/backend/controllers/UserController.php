@@ -122,6 +122,9 @@ class UserController extends BackendController {
             $user=$model->signup();
             //用户名
             $comAccountModel->userName=$model->username;
+            $comAccountModel->accountStatus=1;
+            $comAccountModel->createTime=date("Y-m-d H:i:s");
+            $comAccountModel->isFirstLogin = '1';
             $comAccountModel->save();
             
             if($user!=null && $comAccountModel!=null){

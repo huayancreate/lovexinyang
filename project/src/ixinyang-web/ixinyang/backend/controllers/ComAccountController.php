@@ -122,7 +122,8 @@ class ComAccountController extends BackendController
         $model->scenario='update';
         
         if ($model->load(Yii::$app->request->post())) {
-           $model->save();
+            $model->updateTime=date("Y-m-d H:i:s");
+            $model->save();
             return $this->redirect(['index']);
 
         } else {
