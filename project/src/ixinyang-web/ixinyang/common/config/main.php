@@ -14,7 +14,12 @@ return [
             'targets' => [
                 'file' => [
                     'class' => 'yii\log\FileTarget',
-                    'levels' => [ 'error'],
+                    'prefix' => function ($message) {
+                        $user = Yii::$app->has('user', true) ? Yii::$app->get('user') : null;
+                        $userID = $user ? $user->getId(false) : '-';
+                        return "[$userID]";
+                     },
+                    'levels' => ['trace', 'info', 'error'],
                     'categories' => ['yii\*'],
                 ],
             ],

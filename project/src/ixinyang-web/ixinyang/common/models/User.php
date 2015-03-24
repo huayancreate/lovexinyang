@@ -28,7 +28,6 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;  //启用
     const STATUS_VALIDITY=0;  //锁定
-    const STATUS_DELETE=-1; //删除
     const ROLE_USER = 10;
     /**
      * @inheritdoc
