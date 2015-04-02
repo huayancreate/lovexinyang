@@ -4,16 +4,7 @@ package util;
 
 public class JsonTools {
 
-	public JsonTools() {}
-
 	
-	
-	/***
-	 * 根据goodsId获得Contact
-	 * 
-	 * @param jsonString
-	 * @return
-	 */
 //	public static Contact getContactByShopId(String jsonString) {
 //		Contact contact = null;
 //		try {

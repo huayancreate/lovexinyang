@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Gallery;
 
+import com.huayan.life.R;
 import com.huayan.life.adapter.AlbumAdapter;
 import com.huayan.life.model.AlbumImage;
 
@@ -32,10 +33,10 @@ public class EvaPicActivity extends BaseActivity {
 			img = new AlbumImage();
 			if(i%2==1){
 			img.setTitle(i+ ".瑞雅时光一次，男士专享spa");
-			img.setImgurl(	getResources().getDrawable(R.drawable.advertising_default_1));
+			img.setImgurl("http://img.taobaocdn.com/bao/uploaded/i2/18783042962806492/TB2HqSYXVXXXXXDXXXXXXXXXXXX_!!1060668783-0-rate.jpg");
 			}else{
 				img.setTitle(i+ ".瑞雅时光，舒适尽享");
-				img.setImgurl(	getResources().getDrawable(R.drawable.pic));
+				img.setImgurl("http://img.taobaocdn.com/bao/uploaded/i2/18783042962806492/TB2HqSYXVXXXXXDXXXXXXXXXXXX_!!1060668783-0-rate.jpg");
 			}
 			list.add(img);
 		}

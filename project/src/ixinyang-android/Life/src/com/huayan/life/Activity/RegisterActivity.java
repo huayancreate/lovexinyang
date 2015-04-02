@@ -1,5 +1,9 @@
 package com.huayan.life.Activity;
 
+import org.apache.http.Header;
+
+import util.HttpUrl;
+import util.HttpUtils;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +12,14 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONException;
+import com.alibaba.fastjson.JSONObject;
+import com.huayan.life.R;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 /**
  *免费注册
@@ -44,12 +56,9 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.check_code:
 			if(validate()&&cbAgreement.isChecked()){
-				//发送验证码并跳转
-				jumpToActivity(RegisterActivity.this, RegStepTwoActivity.class);
-				finish();
+				loginValidate();
 			}
-			break;
-			
+			break;			
 		case R.id.go_back:
 			finish();
 			break;
@@ -58,6 +67,45 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 			break;
 		}
 	}
+	
+	/**
+	 * 发送手机号码并跳转
+	 */
+	private void loginValidate() {		
+		String phone = editPhone.getText().toString().trim();
+		RequestParams params = new RequestParams(); // 绑定参数
+		params.put("phoneNumber", phone);
+		params.put("opeType", "signin");
+		params.put("requestType", 1);
+		params.put("mobile", 1);
+		 
+		 HttpUtils.post(HttpUrl.USERACTION, params, new JsonHttpResponseHandler(){
+
+			@Override
+			public void onSuccess(int statusCode, Header[] arg1, String responseString) {
+				 if(statusCode==200){
+						try {
+							JSONObject obj =  JSON.parseObject(responseString);
+							Boolean result=obj.getBoolean("result");
+							if(result){
+								jumpToActivity(RegisterActivity.this, RegStepTwoActivity.class);		
+								finish();
+							}else{
+								Toast.makeText(RegisterActivity.this, "发送失败", Toast.LENGTH_SHORT).show();
+							}							
+						} catch (JSONException e) {
+							e.printStackTrace();
+						}
+				 }			
+			}
+			
+			@Override
+			public void onFailure(int statusCode, Header[] arg1, String responseString,Throwable error) {
+					error.printStackTrace();
+			}			 
+		 });
+	}
+	
 	
 	private boolean validate(){
 		String phone=editPhone.getText().toString().trim();

@@ -16,6 +16,8 @@ import android.widget.TextView;
 import cn.sharesdk.framework.AbstractWeibo;
 import cn.sharesdk.onekeyshare.ShareAllGird;
 
+import com.huayan.life.R;
+
 /**
  * ∑÷œÌ…Ë÷√
  * @author wzz

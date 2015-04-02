@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="50dip"
-        android:background="@drawable/bg_actionbar"
+        android:background="@color/bg_actionbar"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
@@ -83,6 +83,7 @@
         android:divider="@null"
         android:fadingEdge="none"
         android:fastScrollEnabled="false"
+        android:background="@color/white"
         android:scrollbars="none"
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"

@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
+import com.huayan.life.R;
 import com.huayan.life.camera.CameraManager;
 import com.huayan.life.decoding.CaptureActivityHandler;
 import com.huayan.life.decoding.InactivityTimer;

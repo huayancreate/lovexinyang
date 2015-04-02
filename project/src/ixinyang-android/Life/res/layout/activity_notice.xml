@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -11,7 +11,7 @@
         android:layout_width="fill_parent"
         android:layout_height="50dip"
         android:layout_weight="0"
-        android:background="@drawable/bg_actionbar"
+        android:background="@color/bg_actionbar"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
@@ -60,6 +60,7 @@
                 android:gravity="center" >
 
                 <TextView
+                    android:id="@+id/tv_notice_clean"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/notice_clean"

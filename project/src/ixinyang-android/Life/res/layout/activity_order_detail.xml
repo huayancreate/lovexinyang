@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ll_store"
     android:layout_width="fill_parent"
@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="50dip"
-        android:background="@drawable/bg_actionbar"
+        android:background="@color/bg_actionbar"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
@@ -45,13 +45,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <RelativeLayout
+                  <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white" >
 
                 <ImageView
-                    android:id="@+id/img_blumn_order"
+                    android:id="@+id/img_blumn_order_eva"
                     android:layout_width="120dp"
                     android:layout_height="110dp"
                     android:layout_marginLeft="10.0dip"
@@ -61,24 +61,24 @@
                     android:src="@drawable/pic" />
 
                 <TextView
-                    android:id="@+id/txt_order_title"
+                    android:id="@+id/txt_order_eva_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/img_blumn_order"
+                    android:layout_alignTop="@id/img_blumn_order_eva"
                     android:layout_marginBottom="10.0dip"
                     android:layout_marginTop="1.0dip"
-                    android:layout_toRightOf="@id/img_blumn_order"
+                    android:layout_toRightOf="@id/img_blumn_order_eva"
                     android:singleLine="true"
                     android:text="飞逸摄影"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_17" />
 
                 <TextView
-                    android:id="@+id/tv_order_content"
+                    android:id="@+id/tv_order_eva_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@id/txt_order_title"
-                    android:layout_below="@id/txt_order_title"
+                    android:layout_alignLeft="@id/txt_order_eva_title"
+                    android:layout_below="@id/txt_order_eva_title"
                     android:ellipsize="end"
                     android:lineSpacingMultiplier="1.3"
                     android:maxLines="2"
@@ -87,37 +87,37 @@
                     android:textSize="@dimen/default_text_size" />
 
                 <TextView
-                    android:id="@+id/tv_order_jiage"
+                    android:id="@+id/tv_order_eva_jiage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@id/tv_order_content"
-                    android:layout_below="@id/tv_order_content"
+                    android:layout_alignLeft="@id/tv_order_eva_content"
+                    android:layout_below="@id/tv_order_eva_content"
                     android:layout_marginBottom="10.0dip"
                     android:text="198"
                     android:textColor="@color/text_green"
                     android:textSize="@dimen/price_text_size" />
 
                 <TextView
-                    android:id="@+id/tv_order_yuan"
+                    android:id="@+id/tv_order_eva_yuan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@id/tv_order_jiage"
-                    android:layout_below="@id/tv_order_content"
+                    android:layout_alignBaseline="@id/tv_order_eva_jiage"
+                    android:layout_below="@id/tv_order_eva_content"
                     android:layout_marginBottom="10.0dip"
-                    android:layout_toRightOf="@id/tv_order_jiage"
+                    android:layout_toRightOf="@id/tv_order_eva_jiage"
                     android:text="元"
                     android:textColor="@color/viewfinder_mask"
                     android:textSize="@dimen/default_text_size" />
 
                 <TextView
-                    android:id="@+id/tv_order_old_jiage"
+                    android:id="@+id/tv_order_eva_old_jiage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@id/tv_order_jiage"
-                    android:layout_below="@id/tv_order_content"
+                    android:layout_alignBaseline="@id/tv_order_eva_jiage"
+                    android:layout_below="@id/tv_order_eva_content"
                     android:layout_marginBottom="10.0dip"
                     android:layout_marginLeft="10.0dip"
-                    android:layout_toRightOf="@id/tv_order_yuan"
+                    android:layout_toRightOf="@id/tv_order_eva_yuan"
                     android:text="388元"
                     android:textColor="@color/viewfinder_mask"
                     android:textSize="@dimen/default_text_size" />
@@ -125,64 +125,11 @@
                 <ImageView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_order_jiage"
+                    android:layout_below="@id/tv_order_eva_jiage"
                     android:layout_marginBottom="10.0dip"
                     android:background="@drawable/divider"
                     android:scaleType="centerCrop" />
             </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10.0dip"
-                android:background="@color/white" >
-
-                <TextView
-                    android:id="@+id/tv_dd1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginBottom="25.0dip"
-                    android:layout_marginLeft="10.0dip"
-                    android:layout_marginTop="25.0dp"
-                    android:drawableLeft="@drawable/ic_support_refund"
-                    android:drawablePadding="3.0dip"
-                    android:gravity="center_vertical"
-                    android:text="随时退款"
-                    android:textColor="@color/text_color_gray"
-                    android:textSize="@dimen/default_text_size" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginBottom="25.0dip"
-                    android:layout_marginLeft="15.0dip"
-                    android:layout_marginTop="25.0dp"
-                    android:layout_toRightOf="@id/tv_dd1"
-                    android:drawableLeft="@drawable/ic_support_refund"
-                    android:drawablePadding="3.0dip"
-                    android:gravity="center_vertical"
-                    android:text="过期退款"
-                    android:textColor="@color/text_color_gray"
-                    android:textSize="@dimen/default_text_size" />
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/txt_pay"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10.0dip"
-                android:layout_marginLeft="20.0dip"
-                android:layout_marginRight="20.0dip"
-                android:layout_marginTop="10.0dip"
-                android:background="@drawable/shape_fe9900"
-                android:gravity="center"
-                android:paddingBottom="10.0dip"
-                android:paddingTop="10.0dip"
-                android:text="@string/payment"
-                android:textColor="@color/white"
-                android:textSize="@dimen/group_purchase_title" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -212,6 +159,7 @@
                     android:scaleType="centerCrop" />
 
                 <TextView
+                    android:id="@+id/ tv_orderId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10.0dip"
@@ -232,6 +180,7 @@
                     android:scaleType="centerCrop" />
 
                 <TextView
+                    android:id="@+id/tv_orderTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10.0dip"
@@ -252,6 +201,7 @@
                     android:scaleType="centerCrop" />
 
                 <TextView
+                    android:id="@+id/tv_orderTel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10.0dip"
@@ -272,6 +222,7 @@
                     android:scaleType="centerCrop" />
 
                 <TextView
+                    android:id="@+id/tv_orderNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10.0dip"
@@ -292,6 +243,7 @@
                     android:scaleType="centerCrop" />
 
                 <TextView
+                     android:id="@+id/tv_orderPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10.0dip"

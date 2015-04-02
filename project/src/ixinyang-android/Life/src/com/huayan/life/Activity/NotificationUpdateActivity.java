@@ -8,7 +8,9 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import cn.jpush.android.api.JPushInterface;
 
+import com.huayan.life.R;
 import com.huayan.life.model.MyApp;
 import com.huayan.life.service.DownloadService;
 import com.huayan.life.service.DownloadService.DownloadBinder;
@@ -54,6 +56,7 @@ public class NotificationUpdateActivity extends Activity {
 			bindService(it, conn, Context.BIND_AUTO_CREATE);
 		}
 		System.out.println(" notification  onresume");
+		JPushInterface.onResume(this);
 	}
 
 	@Override
@@ -76,6 +79,7 @@ public class NotificationUpdateActivity extends Activity {
 	protected void onPause() {
 		super.onPause();
 		System.out.println(" notification  onPause");
+		JPushInterface.onPause(this);
 	}
 
 	@Override

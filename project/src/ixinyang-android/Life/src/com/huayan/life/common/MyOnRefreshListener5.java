@@ -14,11 +14,13 @@ public class MyOnRefreshListener5 implements OnRefreshListener2<ListView> {
 	private PullToRefreshListView mPtflv;
 	private Context mContext;
 	private StoreListAdapter newAdapter;
+	private int type;
 	
-	public MyOnRefreshListener5(PullToRefreshListView ptflv, Context context,StoreListAdapter adapter) {
+	public MyOnRefreshListener5(PullToRefreshListView ptflv, Context context,StoreListAdapter adapter,int type) {
 		this.mPtflv = ptflv;
 		this.mContext = context;
 		this.newAdapter=adapter;
+		this.type=type;
 	}
 
 	@Override
@@ -30,13 +32,13 @@ public class MyOnRefreshListener5 implements OnRefreshListener2<ListView> {
 						| DateUtils.FORMAT_ABBREV_ALL);
 
 		refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
-		new GetStoreTask(mPtflv, mContext,newAdapter).execute();
+		new GetStoreTask(mPtflv, mContext,newAdapter,type).execute();
 
 	}
 
 	@Override
 	public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
 		// иою╜╪сть
-		new GetStoreTask(mPtflv, mContext,newAdapter).execute();
+		new GetStoreTask(mPtflv, mContext,newAdapter,type).execute();
 	}
 }

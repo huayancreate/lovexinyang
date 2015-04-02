@@ -23,7 +23,7 @@ import android.widget.RemoteViews;
 
 import com.huayan.life.Activity.NotificationUpdateActivity;
 import com.huayan.life.Activity.NotificationUpdateActivity.ICallbackResult;
-import com.huayan.life.Activity.R;
+import com.huayan.life.R;
 import com.huayan.life.model.MyApp;
 
 public class DownloadService extends Service {

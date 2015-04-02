@@ -7,6 +7,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.huayan.life.R;
+
 /**
  *免费注册第三步
  * @author wzz
@@ -37,16 +39,14 @@ public class RegStepThreeActivity extends BaseActivity implements OnClickListene
 		switch (v.getId()) {
 		case R.id.submit_pwd:
 			if(validate()){
-				//发送验证码并跳转		
+				//发送密码并跳转		
 				jumpToActivity(RegStepThreeActivity.this, LoginActivity.class);
 				finish();
 			}
-			break;
-			
+			break;			
 		case R.id.go_back:
 			finish();
 			break;
-	
 		}
 	}
 	

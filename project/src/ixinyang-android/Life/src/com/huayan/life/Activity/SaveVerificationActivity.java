@@ -2,6 +2,8 @@ package com.huayan.life.Activity;
 
 import android.os.Bundle;
 
+import com.huayan.life.R;
+
 /**
  * 安全验证
  * @author wzz

@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.BufferType;
 
-import com.huayan.life.Activity.R;
+import com.huayan.life.R;
 
 @SuppressLint("DrawAllocation")
 public class CollapsibleTextView extends LinearLayout implements

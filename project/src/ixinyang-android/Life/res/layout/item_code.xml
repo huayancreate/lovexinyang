@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_code_yan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10.0dip"
+            android:paddingBottom="10.0dip"
+            android:paddingTop="10.0dip"
+            android:text="券码01:1474 1310 9862"
+            android:textColor="@color/black"
+            android:textSize="@dimen/head_text_size" />
+
+        <TextView
+            android:id="@+id/tv_used"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15.0dip"
+            android:gravity="center"
+            android:paddingBottom="10.0dip"
+            android:paddingTop="10.0dip"
+            android:text="@string/used"
+            android:textColor="@color/text_color_gray"
+            android:textSize="@dimen/head_text_size" />
+
+        <ImageView
+            android:id="@+id/img_line44"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_code_yan"
+            android:layout_marginBottom="10.0dip"
+            android:layout_marginTop="10.0dip"
+            android:background="@drawable/divider"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tv_refund_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/img_line44"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:drawableRight="@drawable/ic_global_arrow_right_2px"
+            android:gravity="center"
+            android:paddingBottom="10.0dip"
+            android:paddingTop="5.0dp"
+            android:text="@string/refund_details"
+            android:textColor="@color/text_green"
+            android:textSize="@dimen/head_text_size" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -2,14 +2,12 @@ package com.huayan.life.model;
 
 import java.io.Serializable;
 
-import android.graphics.drawable.Drawable;
-
-public class AlbumImage implements Serializable {
+public class AlbumImage extends BaseModel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String title;
-	private Drawable imgurl;// Í¼Æ¬Â·¾¶
-	
+	private String imgurl;// Í¼Æ¬Â·¾¶
+
 	public String getTitle() {
 		return title;
 	}
@@ -18,11 +16,12 @@ public class AlbumImage implements Serializable {
 		this.title = title;
 	}
 
-	public Drawable getImgurl() {
+	public String getImgurl() {
 		return imgurl;
 	}
 
-	public void setImgurl(Drawable imgurl) {
+	public void setImgurl(String imgurl) {
 		this.imgurl = imgurl;
 	}
+
 }

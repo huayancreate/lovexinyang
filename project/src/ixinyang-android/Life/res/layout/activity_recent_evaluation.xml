@@ -9,7 +9,7 @@
         android:layout_width="fill_parent"
         android:layout_height="50dip"
         android:layout_weight="0"
-        android:background="@drawable/bg_actionbar"
+        android:background="@color/bg_actionbar"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 

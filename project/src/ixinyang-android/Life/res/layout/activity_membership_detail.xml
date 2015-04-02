@@ -2,203 +2,233 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/citylist_divider">
-    
-<LinearLayout
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:background="@color/citylist_divider" >
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="50.0dip"
-        android:background="@drawable/bg_actionbar"
-        android:gravity="center_vertical"
-        android:orientation="horizontal" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:background="@color/bg_actionbar"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:src="@drawable/abs__ic_ab_back_holo_dark" />
+
+            <ImageButton
+                android:id="@+id/ib_goback_pre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dip"
+                android:background="@drawable/ic_action_home" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:text="@string/membership_detail"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/head_text_size" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/ms_album"
+            android:layout_width="fill_parent"
+            android:layout_height="200.0dip"
+            android:layout_margin="3.0dip"
+            android:background="@drawable/ms_bg" >
+
+            <TextView
+                android:id="@+id/sto_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10.0dip"
+                android:text="百脑汇"
+                android:textColor="@color/white"
+                android:textSize="@dimen/head_text_size" />
+
+            <TextView
+                android:id="@+id/ms_grade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="10.0dip"
+                android:text="VIP1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/head_text_size" />
+
+            <TextView
+                android:id="@+id/ms_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10.0dip"
+                android:text="NO. 1000 0329 56"
+                android:textColor="@color/white"
+                android:textSize="@dimen/head_text_size" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="10.0dip"
+            android:text="@string/card_des"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_19" />
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dip"
-            android:src="@drawable/abs__ic_ab_back_holo_dark" />
-
-        <ImageButton
-            android:id="@+id/ib_goback_pre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dip"
-            android:background="@drawable/ic_action_home" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dip"
-            android:text="@string/membership_detail"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/head_text_size" />
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/ms_album"
-        android:layout_width="fill_parent"
-        android:layout_height="200.0dip"
-        android:layout_margin="3.0dip"
-        android:background="@drawable/ms_bg" >
-
-        <TextView
-            android:id="@+id/sto_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10.0dip"
-            android:text="百脑汇"
-            android:textColor="@color/white"
-            android:textSize="@dimen/head_text_size" />
-
-        <TextView
-            android:id="@+id/ms_grade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_margin="10.0dip"
-            android:text="VIP1"
-            android:textColor="@color/white"
-            android:textSize="@dimen/head_text_size" />
-
-        <TextView
-            android:id="@+id/ms_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_margin="10.0dip"
-            android:text="NO. 1000 0329 56"
-            android:textColor="@color/white"
-            android:textSize="@dimen/head_text_size" />
-    </RelativeLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5.0dip"
-        android:layout_marginLeft="10.0dip"
-        android:layout_marginTop="10.0dip"
-        android:text="@string/card_des"
-        android:textColor="@android:color/black"
-        android:textSize="@dimen/text_19" />
-
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5.0dip"
-        android:layout_marginLeft="10.0dip"
-        android:layout_marginRight="10.0dip"
-        android:layout_marginTop="5.0dip"
-        android:background="@drawable/divider"
-        android:scaleType="centerCrop" />
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="3.0dip"
-        android:layout_marginLeft="10.0dip"
-        android:layout_marginRight="10.0dip"
-        android:layout_marginTop="3.0dip" >
-
-        <TextView
-            android:id="@+id/tv_grade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10.0dip"
+            android:layout_marginBottom="5.0dip"
             android:layout_marginLeft="10.0dip"
             android:layout_marginRight="10.0dip"
-            android:text="当前等级：VIP1"
-            android:textColor="@color/text_color_gray"
-            android:textSize="@dimen/head_text_size" />
+            android:layout_marginTop="5.0dip"
+            android:background="@drawable/divider"
+            android:scaleType="centerCrop" />
 
-        <TextView
-            android:id="@+id/tv_growth_value"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10.0dip"
-            android:layout_marginLeft="15.0dip"
-            android:layout_toRightOf="@id/tv_grade"
-            android:text="成长值：423"
-            android:textColor="@color/text_color_gray"
-            android:textSize="@dimen/head_text_size" />
-
-        <TextView
-            android:id="@+id/tv_money"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/tv_grade"
-            android:layout_below="@id/tv_grade"
-            android:layout_gravity="center_vertical"
-            android:layout_marginBottom="10.0dip"
-            android:layout_marginLeft="20.0dip"
+            android:layout_gravity="center"
+            android:layout_marginBottom="3.0dip"
+            android:layout_marginLeft="10.0dip"
             android:layout_marginRight="10.0dip"
-            android:layout_marginTop="10.0dip"
-            android:text="￥105.0"
-            android:textColor="@color/orange_text"
+            android:layout_marginTop="3.0dip" >
+
+            <TextView
+                android:id="@+id/tv_grade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:text="当前等级：VIP1"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/head_text_size" />
+
+            <TextView
+                android:id="@+id/tv_growth_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10.0dip"
+                android:layout_marginLeft="15.0dip"
+                android:layout_toRightOf="@id/tv_grade"
+                android:text="成长值：423"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/head_text_size" />
+
+            <TextView
+                android:id="@+id/tv_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/tv_grade"
+                android:layout_below="@id/tv_grade"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="10.0dip"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginRight="10.0dip"
+                android:layout_marginTop="10.0dip"
+                android:text="￥105.0"
+                android:textColor="@color/orange_text"
+                android:textSize="@dimen/group_purchase_title" />
+
+            <TextView
+                android:id="@+id/tv_degree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/tv_growth_value"
+                android:layout_below="@id/tv_growth_value"
+                android:layout_marginBottom="10.0dip"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginRight="10.0dip"
+                android:layout_marginTop="10.0dip"
+                android:layout_toRightOf="@id/tv_money"
+                android:text="3次"
+                android:textColor="@color/orange_text"
+                android:textSize="@dimen/group_purchase_title" />
+
+            <TextView
+                android:id="@+id/tv_danwei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/tv_grade"
+                android:layout_below="@id/tv_money"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="10.0dip"
+                android:layout_marginLeft="25.0dip"
+                android:layout_marginRight="10.0dip"
+                android:layout_marginTop="10.0dip"
+                android:text="@string/spend"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/head_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/tv_growth_value"
+                android:layout_below="@id/tv_degree"
+                android:layout_marginBottom="10.0dip"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginRight="10.0dip"
+                android:layout_marginTop="10.0dip"
+                android:layout_toRightOf="@id/tv_danwei"
+                android:text="@string/spend_num"
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/head_text_size" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txt_card_use"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20.0dip"
+            android:background="@drawable/shape_00aeef"
+            android:gravity="center"
+            android:paddingBottom="10.0dip"
+            android:paddingTop="10.0dip"
+            android:text="@string/user_card"
+            android:textColor="@color/white"
             android:textSize="@dimen/group_purchase_title" />
 
-        <TextView
-            android:id="@+id/tv_degree"
+         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/tv_growth_value"
-            android:layout_below="@id/tv_growth_value"
-            android:layout_marginBottom="10.0dip"
-            android:layout_marginLeft="20.0dip"
-            android:layout_marginRight="10.0dip"
+            android:layout_marginBottom="5.0dip"
+            android:layout_marginLeft="10.0dip"
             android:layout_marginTop="10.0dip"
-            android:layout_toRightOf="@id/tv_money"
-            android:text="3次"
-            android:textColor="@color/orange_text"
-            android:textSize="@dimen/group_purchase_title" />
+            android:text="@string/card_recored"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_19" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="5.0dip"
+            android:background="@drawable/divider"
+            android:scaleType="centerCrop" />
         
-    <TextView
-       		android:id="@+id/tv_danwei"
-            android:layout_width="wrap_content"
+        <ListView
+            android:id="@+id/lv_records_consumption"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/tv_grade"
-            android:layout_below="@id/tv_money"
-            android:layout_gravity="center_vertical"
-            android:layout_marginBottom="10.0dip"
-            android:layout_marginLeft="25.0dip"
-            android:layout_marginRight="10.0dip"
-            android:layout_marginTop="10.0dip"
-            android:text="@string/spend"
-            android:textColor="@color/text_color_gray"
-            android:textSize="@dimen/head_text_size" />
+            android:layout_margin="10.0dip"
+            android:divider="@drawable/divider"
+            android:scrollbars="none" >
+        </ListView>
+    </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/tv_growth_value"
-            android:layout_below="@id/tv_degree"
-            android:layout_marginBottom="10.0dip"
-            android:layout_marginLeft="5.0dip"
-            android:layout_marginRight="10.0dip"
-            android:layout_marginTop="10.0dip"
-            android:layout_toRightOf="@id/tv_danwei"
-            android:text="@string/spend_num"
-            android:textColor="@color/text_color_gray"
-            android:textSize="@dimen/head_text_size" />
-    </RelativeLayout>
-
-      <TextView
-        android:id="@+id/txt_card_use"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20.0dip"
-        android:background="@drawable/shape_fe9900"
-        android:gravity="center"
-        android:paddingBottom="10.0dip"
-        android:paddingTop="10.0dip"
-        android:text="@string/user_card"
-        android:textColor="@color/white"
-        android:textSize="@dimen/group_purchase_title" />
-</LinearLayout>
 </ScrollView>

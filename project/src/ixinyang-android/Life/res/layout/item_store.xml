@@ -15,8 +15,8 @@
             android:id="@+id/img_biao_icon"
             android:layout_width="120dp"
             android:layout_height="100dp"
-            android:scaleType="centerCrop"
             android:layout_marginRight="10dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/pic" />
 
         <TextView
@@ -27,44 +27,44 @@
             android:layout_marginBottom="10.0dip"
             android:layout_marginTop="5.0dip"
             android:layout_toRightOf="@id/img_biao_icon"
+            android:ellipsize="end"
+            android:maxEms="10"
             android:singleLine="true"
             android:text="贝斯特韦斯特精品酒店"
-            android:maxLength="10"
-            android:ellipsize="end"
             android:textColor="@color/black"
             android:textSize="@dimen/text_17" />
 
-          <RatingBar
-                    android:id="@+id/rtb_item_store"
-                    style="@style/roomRatingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@id/txt_biao_title"
-                    android:layout_below="@id/txt_biao_title"
-                    android:layout_marginBottom="10.0dip"
-                    android:numStars="5"
-                    android:rating="2" >
-                </RatingBar>
-                
-                  <TextView
-                    android:id="@+id/tv_biao_pingjia"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/txt_biao_title"
-                    android:layout_marginBottom="10.0dip"
-                    android:layout_marginLeft="10.0dip"
-                    android:layout_toRightOf="@id/rtb_item_store"
-                    android:text="116人评价"
-                    android:textColor="@color/viewfinder_mask"
-                    android:textSize="@dimen/default_text_size" />
+        <RatingBar
+            android:id="@+id/rtb_item_store"
+            style="@style/roomRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/txt_biao_title"
+            android:layout_below="@id/txt_biao_title"
+            android:layout_marginBottom="10.0dip"
+            android:numStars="5"
+            android:rating="2" >
+        </RatingBar>
+
+        <TextView
+            android:id="@+id/tv_biao_pingjia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_biao_title"
+            android:layout_marginBottom="10.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_toRightOf="@id/rtb_item_store"
+            android:text="116人评价"
+            android:textColor="@color/viewfinder_mask"
+            android:textSize="@dimen/default_text_size" />
 
         <TextView
             android:id="@+id/tv_biao_cate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/rtb_item_store"
             android:layout_below="@id/rtb_item_store"
             android:layout_marginBottom="10.0dip"
-            android:layout_alignLeft="@id/rtb_item_store"
             android:text="数码产品"
             android:textColor="@color/viewfinder_mask"
             android:textSize="@dimen/default_text_size" />
@@ -91,7 +91,6 @@
             android:text="9.1km"
             android:textColor="@color/viewfinder_mask"
             android:textSize="@dimen/default_text_size" />
-
     </RelativeLayout>
 
 </LinearLayout>

@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="50dip"
-        android:background="@drawable/bg_actionbar"
+        android:background="@color/bg_actionbar"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
@@ -19,7 +19,7 @@
             android:src="@drawable/abs__ic_ab_back_holo_dark" />
 
         <ImageButton
-            android:id="@+id/imgb_back"
+            android:id="@+id/imgb_back_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="3dip"
@@ -70,11 +70,11 @@
         android:textSize="@dimen/text_17" />
 
     <TextView
-        android:id="@+id/txt_confirm"
+        android:id="@+id/txt_confirm_modify"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20.0dip"
-        android:background="@drawable/shape_ff32b9aa"
+        android:background="@drawable/shape_00aeef"
         android:gravity="center"
         android:paddingBottom="10.0dip"
         android:paddingTop="10.0dip"

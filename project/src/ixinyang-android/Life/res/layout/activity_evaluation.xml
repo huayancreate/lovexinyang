@@ -63,7 +63,6 @@
                     android:ellipsize="end"
                     android:lineSpacingMultiplier="1.1"
                     android:maxLines="3"
-                    android:text="@string/xuzhi"
                     android:textColor="@color/viewfinder_mask"
                     android:textSize="@dimen/default_text_size" />
             </RelativeLayout>

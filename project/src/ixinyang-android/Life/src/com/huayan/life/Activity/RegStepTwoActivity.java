@@ -7,6 +7,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.huayan.life.R;
+
 /**
  *免费注册第二步
  * @author wzz
@@ -45,8 +47,7 @@ public class RegStepTwoActivity extends BaseActivity implements OnClickListener 
 			
 		case R.id.go_back:
 			finish();
-			break;
-	
+			break;	
 		}
 	}
 	

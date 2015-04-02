@@ -30,7 +30,7 @@ import android.util.Log;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.huayan.life.Activity.MipcaActivityCapture;
-import com.huayan.life.Activity.R;
+import com.huayan.life.R;
 import com.huayan.life.camera.CameraManager;
 import com.huayan.life.view.ViewfinderResultPointCallback;
 

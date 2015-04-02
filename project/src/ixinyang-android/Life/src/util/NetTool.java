@@ -41,7 +41,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.huayan.life.Activity.R;
+import com.huayan.life.R;
 
 
 

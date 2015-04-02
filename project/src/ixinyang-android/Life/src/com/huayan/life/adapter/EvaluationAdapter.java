@@ -18,7 +18,7 @@ import android.widget.TextView;
 import android.widget.TextView.BufferType;
 
 import com.huayan.life.Activity.EvaPicActivity;
-import com.huayan.life.Activity.R;
+import com.huayan.life.R;
 import com.huayan.life.model.AlbumImage;
 import com.huayan.life.view.CollapsibleTextView;
 import com.huayan.life.view.MyGridView;
@@ -76,11 +76,10 @@ public class EvaluationAdapter extends BaseAdapter {
 			img = new AlbumImage();
 			if(i%2==1){
 			img.setTitle(i+ ".wzz 上传于 2014-12-11");
-			img.setImgurl(context.getResources().getDrawable(R.drawable.icon_luncher_big));
+			img.setImgurl("http://img.taobaocdn.com/bao/uploaded/i2/18783042962806492/TB2HqSYXVXXXXXDXXXXXXXXXXXX_!!1060668783-0-rate.jpg");
 			}else{
 				img.setTitle(i+ ".wzz 上传于 2014-12-11");
-				img.setImgurl(context.getResources().getDrawable(R.drawable.logo));
-			}
+				img.setImgurl("http://img.taobaocdn.com/bao/uploaded/i2/18783042962806492/TB2HqSYXVXXXXXDXXXXXXXXXXXX_!!1060668783-0-rate.jpg");			}
 			imgList.add(img);
 		}
 		adapter=new GridImageAdapter(context, imgList);

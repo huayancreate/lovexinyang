@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
+import com.huayan.life.R;
 import com.huayan.life.adapter.HotAdapter;
 import com.huayan.life.view.MyGridView;
 

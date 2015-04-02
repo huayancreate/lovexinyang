@@ -6,6 +6,8 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
+import com.huayan.life.R;
+
 /**
  * ÷ß∏∂√‹¬Î
  * @author wzz
@@ -29,10 +31,10 @@ public class PayPwdActivity extends BaseActivity implements OnClickListener {
 			finish();
 			break;
 		case R.id.rl_modify_pay_pwd:
-			jumpToActivity(PayPwdActivity.this, ModifyPayPwdActivity.class);
+			jumpToActivity(PayPwdActivity.this, ModifyPayPwdActivity.class);//–ﬁ∏ƒ÷ß∏∂√‹¬Î
 			break;
 	case R.id.rel_find_pwd:
-			jumpToActivity(PayPwdActivity.this, SaveVerificationActivity.class);
+			jumpToActivity(PayPwdActivity.this, SaveVerificationActivity.class);//’“ªÿ÷ß∏∂√‹¬Î
 			break;
 		default:
 			break;

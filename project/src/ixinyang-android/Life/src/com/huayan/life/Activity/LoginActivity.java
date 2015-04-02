@@ -2,8 +2,11 @@ package com.huayan.life.Activity;
 
 import java.util.HashMap;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import org.apache.http.Header;
+
+import util.HttpUrl;
+import util.HttpUtils;
+import util.ShareUtil;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Handler.Callback;
@@ -21,15 +24,18 @@ import cn.sharesdk.framework.WeiboActionListener;
 import cn.sharesdk.sina.weibo.SinaWeibo;
 import cn.sharesdk.tencent.qzone.QZone;
 
-public class LoginActivity extends BaseActivity implements Callback,
-		OnClickListener, WeiboActionListener {
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONException;
+import com.alibaba.fastjson.JSONObject;
+import com.huayan.life.R;
+import com.huayan.life.model.User;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+public class LoginActivity extends BaseActivity implements Callback,OnClickListener, WeiboActionListener {
 
 	EditText et_username, et_userpwd;
 	Button btn_login, btnRegView, txtQuickRegView;
-	// private DBOperation mDBHelper;
-	// private User myUser;
-	// private ShareUtil share;
-	int userID;
 	// 创建handler对象
 	private Handler handler;
 	// 创建接口Runnable
@@ -139,35 +145,55 @@ public class LoginActivity extends BaseActivity implements Callback,
 
 
 	/**
-	 * 
 	 * 验证登录帐号
 	 */
-	private boolean loginPro() {
-		// String username = et_username.getText().toString().trim();
-		// String password = et_userpwd.getText().toString().trim();
-		// User user = new User(username, password);
-		// myUser = mDBHelper.select(user);
-		// if (myUser != null) {
-		// userID = myUser.getUserId();
-		// return true;
-		// }
-		return true;
+	private void loginPro() {		
+		final String username = et_username.getText().toString().trim();
+		String password = et_userpwd.getText().toString().trim();
+
+		RequestParams params = new RequestParams(); // 绑定参数
+		params.put("username", username);
+		params.put("password", password);
+		params.put("opeType", "login");
+		params.put("requestType", 1);
+		params.put("mobile", 1);	
+		 
+		 HttpUtils.post(HttpUrl.USERACTION, params, new JsonHttpResponseHandler(){
+
+			@Override
+			public void onSuccess(int statusCode, Header[] arg1, String responseString) {
+				 if(statusCode==200){
+						try {
+							JSONObject obj =  JSON.parseObject(responseString); 
+							String content=obj.getString("content");			
+							JSONObject objContent=JSON.parseObject(content);
+							Boolean result=objContent.getBoolean("result");
+							String message=objContent.getString("message");//(true:message传递token值, false:message传递错误信息)
+
+							if(result){
+								User myUser=new User();
+								myUser.setID(objContent.getInteger("ID"));
+								myUser.setUsername(username);
+								myUser.setToken(message);
+								ShareUtil.saveUser(myUser, context);							
+								jumpToActivity(LoginActivity.this, MyActivity.class);		//登录成功，跳转到我的模块						
+							}else{
+								Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+							}							
+						} catch (JSONException e) {
+							e.printStackTrace();
+						}
+				 }			
+			}
+			
+			@Override
+			public void onFailure(int statusCode, Header[] arg1, String responseString,Throwable error) {
+					error.printStackTrace();
+			}			 
+		 });
 	}
 
 	/**
-	 * save User
-	 */
-	private void saveUser() {
-		// User mUser = new User();
-		// mUser.setUserName(userName.getText().toString().trim());
-		// mUser.setUserPassword(userPass.getText().toString().trim());
-		// mUser.setUserId(userID);
-		// share = new ShareUtil();
-		// share.saveUser(mUser, this);
-	}
-
-	/**
-	 * 
 	 * 输入为空
 	 */
 	private boolean validate() {
@@ -184,15 +210,6 @@ public class LoginActivity extends BaseActivity implements Callback,
 		return true;
 	}
 
-	private void showDialog(String mess) {
-		new AlertDialog.Builder(LoginActivity.this).setTitle("温馨提示")
-				.setIcon(android.R.drawable.ic_dialog_info).setMessage(mess)
-				.setNegativeButton("确定", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int which) {
-						dialog.dismiss();
-					}
-				}).show();
-	}
 
 	@Override
 	public void onClick(View v) {
@@ -213,13 +230,9 @@ public class LoginActivity extends BaseActivity implements Callback,
 				public void run() {
 					if (!validate()) {
 						return;
+					}else{
+						loginPro();
 					}
-					if (loginPro() == true) {
-						saveUser();
-						jumpToActivity(LoginActivity.this, MainActivity.class);
-						return;
-					}
-					showDialog("用户名或密码错误，请重新输入!");
 				}
 			};
 			handler.post(updateThread);

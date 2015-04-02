@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import util.GetLocation;
 import util.Network;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -21,6 +22,10 @@ import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+import cn.jpush.android.api.JPushInterface;
+
+import com.huayan.life.R;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 
 /**
@@ -36,8 +41,9 @@ public abstract class BaseActivity extends Activity{
 	public static List<Activity> activityList = new ArrayList<Activity>();
     public String tag = this.getClass().getSimpleName(); // tag 用于测试log用
 	public  Context context; // 存储上下文对象
-	
 	public int show_title = 0;
+	GetLocation loc=null;
+	protected ImageLoader imageLoader = ImageLoader.getInstance();
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,8 @@ public abstract class BaseActivity extends Activity{
         activityList.add(this);
         context = this;
         
+        loc=new GetLocation(context);
+        loc.getLocation();
       //控制切屏模式
 //		this.setRequestedOrientation(Configuration.ORIENTATION_LANDSCAPE);
 		this.setRequestedOrientation(Configuration.ORIENTATION_PORTRAIT);        
@@ -216,6 +224,21 @@ public abstract class BaseActivity extends Activity{
 	
 	
 	/**
+	 * 对话框
+	 * @param mess
+	 */
+	public void showDialog(String mess) {
+		new AlertDialog.Builder(BaseActivity.this).setTitle(getResources().getString(R.string.reminder))
+				.setIcon(android.R.drawable.ic_dialog_info).setMessage(mess)
+				.setNegativeButton(getResources().getString(R.string.confirm), new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+				}).show();
+	}
+	
+	
+	/**
 	 * app字体不随系统字体的大小改变而改变
 	 */
 	@Override  
@@ -226,5 +249,17 @@ public abstract class BaseActivity extends Activity{
 	    res.updateConfiguration(config,res.getDisplayMetrics() );  
 	    return res;  
 	}  
+	
+	@Override
+	public void onPause() {
+		super.onPause();
+		JPushInterface.onPause(this);
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		JPushInterface.onResume(this);
+	}
 
 }

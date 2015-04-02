@@ -31,7 +31,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.google.zxing.ResultPoint;
-import com.huayan.life.Activity.R;
+import com.huayan.life.R;
 import com.huayan.life.camera.CameraManager;
 
 /**

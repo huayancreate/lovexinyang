@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="50dip"
-        android:background="@drawable/bg_actionbar"
+        android:background="@color/bg_actionbar"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
@@ -54,8 +54,9 @@
                     android:layout_width="120dp"
                     android:layout_height="110dp"
                     android:layout_marginLeft="10.0dip"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="10.0dip"
                     android:layout_marginTop="10.0dip"
+                    android:paddingBottom="10.0dip"
                     android:scaleType="centerCrop"
                     android:src="@drawable/pic" />
 
@@ -120,52 +121,14 @@
                     android:text="388元"
                     android:textColor="@color/viewfinder_mask"
                     android:textSize="@dimen/default_text_size" />
-
-                <ImageView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_order_eva_jiage"
-                    android:layout_marginBottom="10.0dip"
-                    android:background="@drawable/divider"
-                    android:scaleType="centerCrop" />
             </RelativeLayout>
 
-            <RelativeLayout
+            <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10.0dip"
-                android:background="@color/white" >
-
-                <TextView
-                    android:id="@+id/tv_cc2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginBottom="25.0dip"
-                    android:layout_marginLeft="10.0dip"
-                    android:layout_marginTop="25.0dp"
-                    android:drawableLeft="@drawable/ic_support_refund"
-                    android:drawablePadding="3.0dip"
-                    android:gravity="center_vertical"
-                    android:text="随时退款"
-                    android:textColor="@color/text_color_gray"
-                    android:textSize="@dimen/default_text_size" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginBottom="25.0dip"
-                    android:layout_marginLeft="15.0dip"
-                    android:layout_marginTop="25.0dp"
-                    android:layout_toRightOf="@id/tv_cc2"
-                    android:drawableLeft="@drawable/ic_support_refund"
-                    android:drawablePadding="3.0dip"
-                    android:gravity="center_vertical"
-                    android:text="过期退款"
-                    android:textColor="@color/text_color_gray"
-                    android:textSize="@dimen/default_text_size" />
-            </RelativeLayout>
+                android:background="@drawable/divider"
+                android:scaleType="centerCrop" />
 
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -205,59 +168,15 @@
                     android:background="@drawable/divider"
                     android:scaleType="centerCrop" />
 
-                <TextView
-                    android:id="@+id/tv_code_yan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/img_line2"
-                    android:layout_marginLeft="10.0dip"
-                    android:paddingBottom="5.0dip"
-                    android:paddingTop="5.0dip"
-                    android:text="券码01:1474 1310 9862"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/head_text_size" />
-
-                <TextView
-                    android:id="@+id/tv_used"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@id/img_line2"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="15.0dip"
-                    android:gravity="center"
-                    android:paddingBottom="5.0dip"
-                    android:paddingTop="5.0dip"
-                    android:text="@string/yi_refund"
-                    android:textColor="@color/yituiColor"
-                    android:textSize="@dimen/head_text_size" />
-
-                <ImageView
-                    android:id="@+id/img_line3"
+                <ListView
+                    android:id="@+id/lv_order_codes"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_code_yan"
-                    android:layout_marginBottom="10.0dip"
-                    android:layout_marginTop="10.0dip"
-                    android:background="@drawable/divider"
-                    android:scaleType="centerCrop" />
-
-                <TextView
-                    android:id="@+id/tv_refund_details"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@id/img_line3"
-                    android:layout_centerVertical="true"
-                    android:paddingBottom="15.0dip"
-                    android:layout_marginBottom="10.0dip"
-                    android:layout_marginRight="10.0dip"
-                    android:drawableRight="@drawable/ic_global_arrow_right_2px"
-                    android:gravity="center"
-                    android:paddingTop="5.0dp"
-                    android:text="@string/refund_details"
-                    android:textColor="@color/text_green"
-                    android:textSize="@dimen/head_text_size" />
+                    android:layout_below="@id/img_line2"
+                    android:background="@color/white"
+                    android:divider="@drawable/divider"
+                    android:scrollbars="none" >
+                </ListView>
             </RelativeLayout>
 
             <LinearLayout
@@ -274,7 +193,7 @@
                     android:layout_marginLeft="10.0dip"
                     android:layout_marginTop="10.0dip"
                     android:text="@string/order_detail"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/head_text_size" />
 
                 <ImageView
@@ -288,6 +207,7 @@
                     android:scaleType="centerCrop" />
 
                 <TextView
+                    android:id="@+id/ tv_orderId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10.0dip"
@@ -308,6 +228,7 @@
                     android:scaleType="centerCrop" />
 
                 <TextView
+                    android:id="@+id/tv_orderTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10.0dip"
@@ -328,6 +249,7 @@
                     android:scaleType="centerCrop" />
 
                 <TextView
+                    android:id="@+id/tv_orderTel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10.0dip"
@@ -348,6 +270,7 @@
                     android:scaleType="centerCrop" />
 
                 <TextView
+                    android:id="@+id/tv_orderNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10.0dip"
@@ -368,6 +291,7 @@
                     android:scaleType="centerCrop" />
 
                 <TextView
+                    android:id="@+id/tv_orderPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10.0dip"

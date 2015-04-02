@@ -9,7 +9,7 @@
         android:layout_width="fill_parent"
         android:layout_height="50dip"
         android:layout_weight="0"
-        android:background="@drawable/bg_actionbar"
+        android:background="@color/bg_actionbar"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
@@ -46,6 +46,7 @@
         android:textSize="@dimen/city_16_text" />
 
     <EditText
+        android:id="@+id/old_pay_pwd"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -64,7 +65,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20.0dip"
-        android:background="@drawable/shape_ff32b9aa"
+        android:background="@drawable/shape_00aeef"
         android:gravity="center"
         android:paddingBottom="10.0dip"
         android:paddingTop="10.0dip"

@@ -10,6 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.huayan.life.R;
+
 /**
  * ÆÀ¼Û
  * 

@@ -11,7 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.huayan.life.Activity.R;
+import com.huayan.life.R;
 
 public class CategoryListAdapter extends BaseAdapter {
 
@@ -23,13 +23,14 @@ public class CategoryListAdapter extends BaseAdapter {
 		this.context = context;
 		this.itemList = item;
 	}
+	
 	@Override
 	public int getCount() {
 		return itemList.size();
 	}
 
 	@Override
-	public Object getItem(int position) {
+	public HashMap<String,Object> getItem(int position) {
 		return itemList.get(position);
 	}
 
@@ -39,19 +40,20 @@ public class CategoryListAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
-		
+	public View getView(int position, View convertView, ViewGroup parent) {		
 		Datalist data = new Datalist();
 		convertView = LayoutInflater.from(context).inflate(R.layout.category_item, null);
 		data.mNameTextView =(TextView) convertView.findViewById(R.id.cate_name);
 		data.countTextView = (TextView) convertView.findViewById(R.id.count);
 		data.mImage = (ImageView) convertView.findViewById(R.id.haschild);
 		
+		
 		data.mNameTextView.setText(itemList.get(position).get("name").toString());
 		data.countTextView.setText(itemList.get(position).get("count").toString());
 		data.mImage.setVisibility(View.VISIBLE);
 		return convertView;
 	}
+	
 	private class Datalist{
 		public TextView mNameTextView,countTextView;
 		public ImageView mImage;

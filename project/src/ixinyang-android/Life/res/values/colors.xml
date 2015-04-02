@@ -11,28 +11,31 @@
     <color name="text_normal">#cdcdcd</color>
     <color name="text_press">#9d9c9c</color>
     <color name="border_gray">#ffcccccc</color>
-    <color name="text_green">#ff32b9aa</color>
+    <color name="text_green">#00aeef</color>
     <color name="default_alphabet_view_text_color">@android:color/white</color>
     <color name="bg_table_subtitle">#ffe9e9e9</color>
-    <color name="citylist_divider">#f8f8f8f8</color>
+    <color name="citylist_divider">#f4f4f4</color>
     <color name="abs__bright_foreground_disabled_holo_dark">#ff4c4c4c</color>
     <color name="hui2">#ff9b9b97</color>
     <color name="orange_text">#fe9900</color>
-    <color name="red_price">#dd4422</color>
- <color name="text_bg">#33000000</color>
- 
- <color name="red">#900</color>
+    <color name="text_bg">#33000000</color>
+    <color name="text_red">#fd6566</color>
+    
+    <color name="bg_actionbar">#00aeef</color>
+    <color name="clean_text">#64cbc3</color>
+    
+    <color name="red">#900</color>
     <color name="green1">#090</color>
     <color name="blue">#009</color>
-    <color name="white">#FFF</color>
+    <color name="white">#ffffff</color>
     <color name="black">#ff000000</color>
     <color name="transparent">#0000</color>
     <color name="backColor">#2000</color>
-    <color name="detail_bgColor">#f5f5f5</color> 
+    <color name="detail_bgColor">#f5f5f5</color>
     <color name="defaultTextColor">#666</color>
-    <color  name="nonConsumptionColor">#a6c04c</color>
+    <color name="nonConsumptionColor">#a6c04c</color>
     <color name="yituiColor">#db6533</color>
-    
+
     <!-- start zxing -->
     <color name="viewfinder_frame">#2477ab</color>
     <color name="viewfinder_mask">#60000000</color>
@@ -40,15 +43,13 @@
     <color name="result_view">#b0000000</color>
     <!-- end zxing -->
     <!-- 点击选择类的颜色 -->
-	<color name="unfocused">#ccffffff</color>
-	<color name="pressed">#ffcccccc</color>
-	<color name="selected">#fff33fff</color>
-	<color name="focused">#ffff44ff</color>
-	
-	<color name="pathbtnBg">#cc474747</color>
-	<color name="pathbtnBg1">#00474747</color>
-	
-	<color name="hintcolor">#b2b2b2</color>
-	<color name="hintbgcolor">#ffffffff</color>
-	
+    <color name="unfocused">#ccffffff</color>
+    <color name="pressed">#ffcccccc</color>
+    <color name="selected">#fff33fff</color>
+    <color name="focused">#ffff44ff</color>
+    <color name="pathbtnBg">#cc474747</color>
+    <color name="pathbtnBg1">#00474747</color>
+    <color name="hintcolor">#b2b2b2</color>
+    <color name="hintbgcolor">#ffffffff</color>
+
 </resources>

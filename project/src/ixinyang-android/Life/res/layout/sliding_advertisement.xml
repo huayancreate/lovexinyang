@@ -9,16 +9,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
 
-        <ImageView
-            android:id="@+id/img_close"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginRight="5.0dp"
-            android:layout_marginTop="5.0dp"
-            android:src="@drawable/close"
-            android:visibility="visible" />
-
         <com.huayan.life.view.AdvViewPager
             android:id="@+id/vpAdv"
             android:layout_width="fill_parent"

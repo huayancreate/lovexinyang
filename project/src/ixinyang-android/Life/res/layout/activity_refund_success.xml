@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/citylist_divider"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:background="@color/bg_actionbar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:src="@drawable/abs__ic_ab_back_holo_dark" />
+
+        <ImageButton
+            android:id="@+id/img_goback_refund"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:background="@drawable/ic_action_home" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="@string/apply_tuikuan"
+            android:textColor="@color/white"
+            android:textSize="@dimen/head_text_size" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:id="@+id/img_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="120dip"
+                android:layout_marginRight="60dip"
+                android:background="@drawable/widget_line"
+                android:contentDescription="@id/img_min" />
+
+            <LinearLayout
+                android:id="@+id/ll_close"
+                android:layout_width="60dip"
+                android:layout_height="50dip"
+                android:layout_alignParentRight="true"
+                android:layout_toLeftOf="@id/img_min"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/tv_refund_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/close"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/head_text_size" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       	android:layout_gravity="center"
+        android:layout_marginBottom="20.0dip"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginTop="20.0dip"
+        android:text="@string/refund_success"
+        android:gravity="center"
+        android:drawablePadding="10.0dip"
+        android:drawableLeft="@drawable/ic_payment_result_succeed"
+        android:textColor="@color/black"
+        android:textSize="@dimen/head_text_size" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingBottom="15.0dip"
+        android:paddingTop="15.0dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5.0dip"
+            android:lineSpacingMultiplier="1.2"
+            android:text="@string/success_hint"
+            android:textColor="@color/text_color_gray"
+            android:textSize="@dimen/city_16_text" />
+    
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt_look_order"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20.0dip"
+        android:background="@drawable/shape_00aeef"
+        android:gravity="center"
+        android:paddingBottom="10.0dip"
+        android:paddingTop="10.0dip"
+        android:text="@string/look_order"
+        android:textColor="@color/white"
+        android:textSize="@dimen/group_purchase_title" />
+
+</LinearLayout>

@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/ll_register3"
             android:layout_margin="15.0dip"
-            android:background="@drawable/shape_ff32b9aa"
+            android:background="@drawable/shape_00aeef"
             android:gravity="center"
             android:paddingBottom="10.0dp"
             android:paddingTop="10.0dp"

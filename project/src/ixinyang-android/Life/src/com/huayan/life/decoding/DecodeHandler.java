@@ -30,7 +30,7 @@ import com.google.zxing.ReaderException;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 import com.huayan.life.Activity.MipcaActivityCapture;
-import com.huayan.life.Activity.R;
+import com.huayan.life.R;
 import com.huayan.life.camera.CameraManager;
 import com.huayan.life.camera.PlanarYUVLuminanceSource;
 

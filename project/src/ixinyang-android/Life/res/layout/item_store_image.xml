@@ -7,10 +7,9 @@
         android:id="@+id/img_store_album"
         android:layout_width="160.0dip"
         android:layout_height="160.0dip"
-        android:background="@drawable/image_click_style"
+        android:background="@color/white"
         android:scaleType="fitXY"
-        android:padding="1.0dip"
         android:contentDescription="@id/child_image"
-        android:src="@drawable/default_image" />
+        android:src="@drawable/pic" />
 
 </RelativeLayout>

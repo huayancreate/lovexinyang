@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/img_blumn_order"
+            android:layout_width="120dp"
+            android:layout_height="110dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/pic" />
+
+        <TextView
+            android:id="@+id/txt_order_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/img_blumn_order"
+            android:layout_marginBottom="10.0dip"
+            android:layout_marginTop="1.0dip"
+            android:layout_toRightOf="@id/img_blumn_order"
+            android:singleLine="true"
+            android:text="飞逸摄影"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_17" />
+
+        <TextView
+            android:id="@+id/tv_order_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/txt_order_title"
+            android:layout_below="@id/txt_order_title"
+            android:layout_marginBottom="8.0dip"
+            android:drawableRight="@drawable/ic_global_arrow_right_2px"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.2"
+            android:maxLines="2"
+            android:text="个性写真套系，为你打造专属于自己的好气质"
+            android:textColor="@color/viewfinder_mask"
+            android:textSize="@dimen/default_text_size" />
+
+        <TextView
+            android:id="@+id/tv_order_jiage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tv_order_content"
+            android:layout_below="@id/tv_order_content"
+            android:layout_marginBottom="10.0dip"
+            android:text="总价：45元"
+            android:textColor="@color/viewfinder_mask"
+            android:textSize="@dimen/city_16_text" />
+
+        <TextView
+            android:id="@+id/tv_order_old_jiage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tv_order_jiage"
+            android:layout_below="@id/tv_order_content"
+            android:layout_marginBottom="10.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_toRightOf="@id/tv_order_jiage"
+            android:text="数量：3"
+            android:textColor="@color/viewfinder_mask"
+            android:textSize="@dimen/default_text_size" />   
+            
+        <TextView
+            android:id="@+id/tv_order_category1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_order_jiage"
+       		android:visibility="gone"
+            android:textSize="@dimen/city_16_text" />
+        
+    </RelativeLayout>
+
+</LinearLayout>

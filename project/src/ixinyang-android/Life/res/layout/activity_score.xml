@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="50.0dip"
-        android:background="@drawable/bg_actionbar"
+        android:background="@color/bg_actionbar"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
@@ -78,6 +78,7 @@
             android:layout_height="10.0dip"
             android:layout_below="@id/tv_grade"
             android:layout_marginBottom="5.0dip"
+            android:indeterminateDrawable="@drawable/score_progressbar"
             android:layout_marginTop="10.0dip"
             android:layout_toRightOf="@id/tv_money"
             android:max="100"
@@ -129,6 +130,7 @@
                 android:src="@drawable/ic_global_account_integral" />
 
             <TextView
+                android:id="@+id/tv_current_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/img_now"

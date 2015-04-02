@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="50dip"
-        android:background="@drawable/bg_actionbar"
+        android:background="@color/bg_actionbar"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
@@ -76,7 +76,9 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp" >
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp" >
 
                 <ImageView
                     android:id="@+id/img_blumn"
@@ -87,6 +89,7 @@
                     android:src="@drawable/pic" />
 
                 <TextView
+                    android:id="@+id/photosNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/img_blumn"
@@ -107,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/img_blumn"
                     android:layout_marginBottom="10.0dip"
-                    android:layout_marginTop="15.0dip"
+                    android:layout_marginTop="10.0dip"
                     android:layout_toRightOf="@id/img_blumn"
                     android:singleLine="true"
                     android:text="晨色宝贝"
@@ -146,7 +149,7 @@
                     android:layout_marginBottom="10.0dip"
                     android:layout_marginLeft="5.0dip"
                     android:layout_toRightOf="@id/tv_fenshu"
-                    android:text="16评价"
+                    android:text="425评价"
                     android:textColor="@color/viewfinder_mask"
                     android:textSize="@dimen/default_text_size" />
 
@@ -168,7 +171,7 @@
                     android:layout_below="@id/rtb_store"
                     android:layout_marginLeft="20.0dip"
                     android:layout_toRightOf="@id/vip"
-                    android:background="@drawable/shape_fe9900"
+                    android:background="@drawable/shape_00aeef"
                     android:paddingBottom="8.0dip"
                     android:paddingLeft="15.0dip"
                     android:paddingRight="15.0dip"
@@ -215,11 +218,11 @@
                 android:drawableLeft="@drawable/ic_addr"
                 android:drawablePadding="5.0dip"
                 android:drawableRight="@drawable/ic_global_arrow_right_2px"
-                android:gravity="center_vertical"
                 android:ellipsize="end"
+                android:gravity="center_vertical"
                 android:maxLines="2"
                 android:text="瑶海区长江东路1137号圣大国际商贸中心708.709室"
-               android:textColor="@color/text_color_gray"
+                android:textColor="@color/text_color_gray"
                 android:textSize="@dimen/text_17" />
 
             <ImageView
@@ -242,8 +245,6 @@
             <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10.0dip"
-                android:layout_marginRight="10.0dip"
                 android:background="@drawable/cursor"
                 android:scaleType="centerCrop" />
 
@@ -251,8 +252,9 @@
                 android:id="@+id/lv_near_store"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10.0dip"
-                android:divider="@null"
+                android:layout_margin="3.0dip"
+                android:background="@color/white"
+                android:divider="@drawable/divider"
                 android:scrollbars="none" >
             </ListView>
 
@@ -270,8 +272,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5.0dip"
-                android:layout_marginLeft="10.0dip"
-                android:layout_marginRight="10.0dip"
                 android:layout_marginTop="5.0dip"
                 android:background="@drawable/cursor"
                 android:scaleType="centerCrop" />
@@ -280,7 +280,7 @@
                 android:id="@+id/lv_evaluation"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10.0dip"
+                android:layout_margin="3.0dip"
                 android:divider="@drawable/divider"
                 android:scrollbars="none" >
             </ListView>
@@ -291,7 +291,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_margin="10.0dip"
-                android:background="@drawable/shape_ff32b9aa"
+                android:background="@drawable/shape_00aeef"
                 android:paddingBottom="8.0dip"
                 android:paddingLeft="15.0dip"
                 android:paddingRight="15.0dip"

@@ -7,6 +7,8 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.huayan.life.R;
+
 /**
  * 用户协议
  * @author wzz

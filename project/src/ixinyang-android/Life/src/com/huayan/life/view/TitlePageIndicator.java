@@ -38,7 +38,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 
-import com.huayan.life.Activity.R;
+import com.huayan.life.R;
 
 
 

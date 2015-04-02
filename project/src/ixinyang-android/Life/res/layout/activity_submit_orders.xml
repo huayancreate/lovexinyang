@@ -9,7 +9,7 @@
         android:layout_width="fill_parent"
         android:layout_height="50dip"
         android:layout_weight="0"
-        android:background="@drawable/bg_actionbar"
+        android:background="@color/bg_actionbar"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
@@ -51,6 +51,7 @@
             android:layout_marginTop="12.0dip" >
 
             <TextView
+                android:id="@+id/tv_orderName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="上岛咖啡2人餐"
@@ -58,7 +59,7 @@
                 android:textSize="@dimen/text_17" />
 
             <TextView
-                android:id="@+id/tv_sub_price"
+                android:id="@+id/tv_unit_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -162,7 +163,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:text="98元"
-                android:textColor="@color/red_price"
+                android:textColor="@color/text_red"
                 android:textSize="@dimen/text_17" />
         </RelativeLayout>
     </LinearLayout>
@@ -194,6 +195,7 @@
             android:layout_marginTop="12.0dip" >
 
             <TextView
+                android:id="@+id/tv_binding_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="138****7363"
@@ -216,7 +218,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20.0dip"
-        android:background="@drawable/shape_fe9900"
+        android:background="@drawable/shape_00aeef"
         android:gravity="center"
         android:paddingBottom="10.0dip"
         android:paddingTop="10.0dip"

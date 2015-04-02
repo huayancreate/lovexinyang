@@ -16,7 +16,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
+import cn.jpush.android.api.JPushInterface;
 
+import com.huayan.life.R;
 import com.huayan.life.view.PageIndicator;
 
 /**
@@ -99,7 +101,7 @@ public class OrderActivity extends FragmentActivity implements OnClickListener {
 
 		@Override
 		protected void onPostExecute(String result) {
-			// TODO Auto-generated method stub    
+			// 0全部 1未付款 2未消费 3待评价 4退款 
 			mTabsAdapter.addTab(getString(R.string.film_xuan),new MyFragment(OrderActivity.this, 0));
 			mTabsAdapter.addTab(getString(R.string.hotel_order),new MyFragment(OrderActivity.this, 1));
 			mTabsAdapter.addTab(getString(R.string.non_consumption), new MyFragment(OrderActivity.this, 2));
@@ -172,5 +174,17 @@ public class OrderActivity extends FragmentActivity implements OnClickListener {
 	    res.updateConfiguration(config,res.getDisplayMetrics() );  
 	    return res;  
 	}  
+	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		JPushInterface.onPause(this);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		JPushInterface.onResume(this);
+	}
 
 }

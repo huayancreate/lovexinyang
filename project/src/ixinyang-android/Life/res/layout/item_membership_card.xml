@@ -16,7 +16,7 @@
             android:layout_width="120dp"
             android:layout_height="100dp"
             android:layout_marginRight="10dp"
-       		android:scaleType="centerCrop"
+            android:scaleType="centerCrop"
             android:src="@drawable/pic" />
 
         <TextView
@@ -28,7 +28,7 @@
             android:layout_marginTop="5.0dip"
             android:layout_toRightOf="@id/img_icon_store"
             android:ellipsize="end"
-            android:maxLength="8"
+            android:maxEms="8"
             android:singleLine="true"
             android:text="爱时尚生活包铺"
             android:textColor="@color/black"
@@ -58,15 +58,22 @@
             android:textSize="@dimen/default_text_size" />
 
         <TextView
+            android:id="@+id/tv_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/tv_youhui"
+            android:layout_alignParentRight="true"
             android:layout_below="@id/tv_number"
             android:layout_marginBottom="10.0dip"
-            android:layout_marginLeft="10.0dip"
-            android:layout_toRightOf="@id/tv_youhui"
-            android:textColor="@color/viewfinder_mask"
-            android:textSize="@dimen/store_text_size" />
+            android:layout_marginRight="10.0dip"
+            android:background="@drawable/shape_dd4422"
+            android:paddingBottom="7.0dip"
+            android:paddingLeft="15.0dip"
+            android:visibility="gone"
+            android:paddingRight="15.0dip"
+            android:paddingTop="7.0dip"
+            android:text="@string/delete"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size" />
     </RelativeLayout>
 
 </LinearLayout>

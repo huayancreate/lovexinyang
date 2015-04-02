@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.huayan.life.Activity.R;
+import com.huayan.life.R;
 
 public class HotAdapter extends BaseAdapter {
 

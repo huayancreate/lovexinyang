@@ -6,8 +6,8 @@
 
     <ImageView
         android:id="@+id/img_gy_alb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="450.0dip"
+        android:layout_height="430.0dip"
         android:layout_centerInParent="true"
         android:scaleType="centerCrop"
         android:src="@drawable/pic" />
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="40.0dip"
-        android:layout_marginLeft="20.0dip"
+        android:layout_marginLeft="10.0dip"
         android:text="TextView"
         android:textColor="@color/white"
         android:textSize="@dimen/default_text_size" />

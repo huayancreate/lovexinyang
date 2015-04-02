@@ -21,6 +21,7 @@ import android.widget.Toast;
 import cn.sharesdk.framework.AbstractWeibo;
 import cn.sharesdk.onekeyshare.ShareAllGird;
 
+import com.huayan.life.R;
 import com.huayan.life.model.MyApp;
 
 /**
@@ -155,7 +156,7 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
 				fos.close();
 			}
 		} catch(Throwable t) {
-			t.printStackTrace();
+			t.printStackTrace();			
 			TEST_IMAGE = null;
 		}
 	}
@@ -179,7 +180,7 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
 				}).setNegativeButton("下次再说",
 				new DialogInterface.OnClickListener() {
 
-					@Override
+					@Override				
 					public void onClick(DialogInterface dialog, int which) {
 					}
 				});

@@ -14,12 +14,14 @@ public class MyOnRefreshListener9 implements OnRefreshListener2<ListView> {
 	private PullToRefreshListView mPtflv;
 	private Context mContext;
 	private NearTuanGouAdapter newAdapter;
+	private int type;
 
 	public MyOnRefreshListener9(PullToRefreshListView ptflv, Context context,
-			NearTuanGouAdapter adapter) {
+			NearTuanGouAdapter adapter,int type) {
 		this.mPtflv = ptflv;
 		this.mContext = context;
 		this.newAdapter = adapter;
+		this.type=type;
 	}
 
 	@Override
@@ -31,13 +33,13 @@ public class MyOnRefreshListener9 implements OnRefreshListener2<ListView> {
 						| DateUtils.FORMAT_ABBREV_ALL);
 
 		refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
-		new GetNearTuanTask(mPtflv, mContext, newAdapter).execute();
+		new GetNearTuanTask(mPtflv, mContext, newAdapter,type).execute();
 
 	}
 
 	@Override
 	public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
 		// иою╜╪сть
-		new GetNearTuanTask(mPtflv, mContext, newAdapter).execute();
+		new GetNearTuanTask(mPtflv, mContext, newAdapter,type).execute();
 	}
 }

@@ -9,7 +9,6 @@ import android.view.View;
 public class AdvAdapter extends PagerAdapter {
 
 	private List<View> advs;
-
 	public AdvAdapter(List<View> adv) {
 		this.advs = adv;
 	}

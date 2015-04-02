@@ -14,11 +14,13 @@ public class MyOnRefreshListener6 implements OnRefreshListener2<ListView> {
 	private PullToRefreshListView mPtflv;
 	private Context mContext;
 	private RecommendAdapter newAdapter;
+	private String search=null;
 	
-	public MyOnRefreshListener6(PullToRefreshListView ptflv, Context context,RecommendAdapter adapter) {
+	public MyOnRefreshListener6(PullToRefreshListView ptflv, Context context,RecommendAdapter adapter,String searchString) {
 		this.mPtflv = ptflv;
 		this.mContext = context;
 		this.newAdapter=adapter;
+		this.search=searchString;
 	}
 
 	@Override
@@ -30,14 +32,14 @@ public class MyOnRefreshListener6 implements OnRefreshListener2<ListView> {
 						| DateUtils.FORMAT_ABBREV_ALL);
 
 		refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
-		new GetRecommendTask(mPtflv, mContext,newAdapter).execute();
+		new GetRecommendTask(mPtflv, mContext,newAdapter,search).execute();
 
 	}
 
 	@Override
 	public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
 		// иою╜╪сть
-		new GetRecommendTask(mPtflv, mContext,newAdapter).execute();
+		new GetRecommendTask(mPtflv, mContext,newAdapter,search).execute();
 	}
 
 }

@@ -13,7 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import cn.jpush.android.api.JPushInterface;
 
+import com.huayan.life.R;
 import com.huayan.life.adapter.ViewPagerAdapter;
 
 /**
@@ -116,5 +118,17 @@ public class GuideActivity extends Activity implements OnPageChangeListener {
 	    res.updateConfiguration(config,res.getDisplayMetrics() );  
 	    return res;  
 	}  
+	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		JPushInterface.onPause(this);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		JPushInterface.onResume(this);
+	}
 	
 }

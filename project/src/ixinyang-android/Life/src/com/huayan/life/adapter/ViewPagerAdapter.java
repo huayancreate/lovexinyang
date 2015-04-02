@@ -15,7 +15,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
 import com.huayan.life.Activity.MainActivity;
-import com.huayan.life.Activity.R;
+import com.huayan.life.R;
 
 /**
  * 

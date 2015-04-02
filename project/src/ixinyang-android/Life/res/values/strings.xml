@@ -108,29 +108,12 @@
     <string name="payment_order">支付订单</string>
     <string name="pay_ok">确认支付</string>
     <string name="feedback">意见反馈</string>
-    <string name="hint_des">"温馨提示：
-      \u0009当支付不足时，代金券会被优先使用，其次才会使用爱信阳余额；代金券不找零，不兑现，请慎重使用。"</string>
     <string name="store_evaluation">商家评价</string>
-    <string name="xuzhi">  "\u0009有效期：014.8.29 至 2014.11.28 (周末、法定节假日通用)
-\u0009使用时间：09:00-21:00
-\u0009预约提醒：电话预约，请至少提前24小时致电商家预约，预约逾期不保留
-\u0009使用规则：每张美团券限制2人入镜，不允许超出人数限制
-\u0009本单需一次性拍摄完成
-\u0009若消费者原因延时拍摄不收费
-\u0009韩国宫专业级资深摄影师一对一全程拍摄服务
-\u0009韩国宫资专业级深化妆造型师一对一全程服务
-\u0009韩国宫专业级资深礼服师全程贴心指导新人整体形象服务
-\u0009韩国宫专业级资深造型师采用专业化妆品全程贴心服务
-\u0009韩国宫专业灯光师全程贴心服务
-\u0009韩国宫专业资深设计师全程贴心设计50张完美精修版精品相片及看样服务
-\u0009团购用户不可同时享受商家其他优惠
-\u0009提供免费WiFi
-\u0009美团券密码一旦验证即代表消费成功，不可申请“随时退款”和“过期退款”，请您合理安排验证时间
-\u0009特别提醒：为了保证您的权益，请选择美团网线上支付，用户与美团以外的任何第三方发生的交易行为如出现问题，美团网都不承担责任，谢谢您的理解与支持！"</string>
     <string name="recent_evaluation">半年内评价158</string>
     <string name="notice">通知</string>
     <string name="notice_clean">清空</string>
     <string name="order_detail">订单详情</string>
+    <string name="order_introduction">订单介绍</string>
     <string name="send">发送</string>
     <string name="feedback_hint">请输入反馈意见</string>
     <string name="bind_phone">您绑定的手机号码</string>
@@ -161,6 +144,7 @@
     <string name="user_card">使用会员卡</string>
     <string name="spend">消费金额</string>
     <string name="spend_num">消费次数</string>
+    <string name="card_recored">消费记录</string>
     <string name="card_des">会员卡说明</string>
     <string name="jifen_result">积分规则</string>
     <string name="jifen_jilv">积分记录</string>
@@ -188,34 +172,50 @@
     <string name="yi_refund">已退款</string>
     <string name="refunding">退款中</string>
     <string name="collect">收藏</string>
+    <string name="yi_shoucang">已收藏</string>
     <string name="total_eva">总体评价</string>
-      <string name="go_eva">去评价</string>
+    <string name="go_eva">去评价</string>
     <string name="hint_eva">（亲，您的评价将是其他用户的重要参考，请认真评价哦！）</string>
     <string name="niming_eva">匿名评价</string>
     <string name="tishi_eva">消费后超过90天的评价将无法获得积分</string>
     <string name="buy_quan">购买券</string>
     <string name="term_of_validity">有效期至：2014&#8211;12&#8211;29</string>
     <string name="used">已使用</string>
-	<string name="apply_tuikuan">申请退款</string>
-	<string name="refund_details">退款详情</string>
+    <string name="apply_tuikuan">申请退款</string>
+     <string name="cancel_tuikuan">取消退款</string>
+    <string name="refund_details">退款详情</string>
     <string name="hint_aiplay_tishi">将退至您的 支付宝账户</string>
     <string name="refund_flow">退款流程</string>
     <string name="refund_help">退款帮助</string>
-    <string name="order_pwd">订单密码(可多选)</string>
+    <string name="order_pwd">订单券码(可多选)</string>
     <string name="refund_content">退还内容</string>
     <string name="ready">现金：</string>
     <string name="refund_method">现金退还方式</string>
     <string name="method_one">退至爱信阳账户</string>
     <string name="hint_method1">（本单支持立刻到账）</string>
     <string name="method_two">原路退回</string>
-    <string name="hint_method2">（6&#8211;13个工作日内退款到原支付方）</string>
+    <string name="hint_method2">（3&#8211;10个工作日内退款到原支付方）</string>
     <string name="method_reason">退款原因</string>
     <string name="reason1">预约不上</string>
     <string name="reason2">去过了，不太满意</string>
     <string name="reason3">朋友/网上评论不好</string>
     <string name="reason4">买多了/买错了</string>
     <string name="reason5">计划有变，没时间消费</string>
-    <string name="reason6">后悔了，不想要了</string>    
+    <string name="reason6">后悔了，不想要了</string>
     <string name="reason7">商家说可以直接以折扣价到店消费</string>
-   
+    <string name="reminder">温馨提示</string>
+    <string name="no_newData">暂无新数据</string>
+    <string name="noLogin_hint">您还没有登录~</string>
+    <string name="hint_new_pay_pwd">请输入新的支付密码</string>
+    <string name="hint_confirm_pay_pwd">请输入确认支付密码</string>
+	<string name="store_info">商家信息</string>
+	<string name="buyNotice">购买须知</string>
+	<string name="othergoods">本店其他商品</string>
+	<string name="order_num">订单编号：</string>
+	<string name="refund_success">退款申请成功</string>
+	<string name="look_order">查看订单</string>
+	<string name="success_hint">温馨提示：原路退款时，若订单显示“已退款”，表示款项已经从平台返回原支付方，距离到账时间3&#8211;10个工作日（少量商品需要额外增加3个工作日）</string>
+    <string name="close">关闭</string>
+    <string name="delete">删除</string>
+	
 </resources>

@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.huayan.life.R;
 import com.huayan.life.adapter.EvaluationAdapter;
 import com.huayan.life.common.GetData;
 import com.huayan.life.common.MyOnRefreshListener7;

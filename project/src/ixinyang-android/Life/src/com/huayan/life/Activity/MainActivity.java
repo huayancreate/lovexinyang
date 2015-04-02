@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.huayan.life.R;
+
 /**
  * 主控制页面
  * 
@@ -34,19 +36,19 @@ public class MainActivity extends ActivityGroup {
 		mTabHost.setup(this.getLocalActivityManager());
 
 		Intent intent = new Intent(this, RecommendActivity.class);		
-		mTabHost.addTab(mTabHost.newTabSpec("首页").setContent(intent)
+		mTabHost.addTab(mTabHost.newTabSpec(getResources().getString(R.string.recommend)).setContent(intent)
 				.setIndicator(getTabView(R.drawable.selector_tab_home,getString(R.string.recommend),R.layout.app_tab_layout)));
 
 		intent = new Intent(this, StoreActivity.class);
-		mTabHost.addTab(mTabHost.newTabSpec("商家").setContent(intent)
+		mTabHost.addTab(mTabHost.newTabSpec(getResources().getString(R.string.my_store)).setContent(intent)
 				.setIndicator(getTabView(R.drawable.selector_tab_message,getString(R.string.my_store),R.layout.app_tab_layout)));
 		
 		intent = new Intent(this, MyActivity.class);
-		mTabHost.addTab(mTabHost.newTabSpec("我的").setContent(intent)
+		mTabHost.addTab(mTabHost.newTabSpec(getResources().getString(R.string.my_content)).setContent(intent)
 				.setIndicator(getTabView(R.drawable.selector_tab_contacts,getString(R.string.my_content),R.layout.app_tab_layout)));
 		
 		intent = new Intent(this, MoreActivity.class);
-		mTabHost.addTab(mTabHost.newTabSpec("更多").setContent(intent)
+		mTabHost.addTab(mTabHost.newTabSpec(getResources().getString(R.string.my_more)).setContent(intent)
 				.setIndicator(getTabView(R.drawable.selector_tab_home,getString(R.string.my_more),R.layout.app_tab_layout)));
 	}
 

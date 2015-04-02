@@ -7,6 +7,8 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.huayan.life.R;
+
 /**
  * 我的账户
  * @author wzz
@@ -41,7 +43,7 @@ public class MyAccountActivity extends BaseActivity implements OnClickListener {
 			jumpToActivity(MyAccountActivity.this, ModifyPwdActivity.class);//修改密码
 			break;
 		case R.id.rl_save_ver:
-			jumpToActivity(MyAccountActivity.this, SaveVerificationActivity.class);//安全验证
+			jumpToActivity(MyAccountActivity.this, SaveVerificationActivity.class);//修改绑定的手机号码
 			break;
 		case R.id.rel_pay_pwd:
 			jumpToActivity(MyAccountActivity.this, PayPwdActivity.class);//修改支付密码

@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="50dip"
-        android:background="@drawable/bg_actionbar"
+        android:background="@color/bg_actionbar"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
@@ -56,35 +56,14 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/head_text_size" />
 
-            <RelativeLayout
+            <ListView
+                android:id="@+id/lv_refund_codes"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:orientation="vertical"
-                android:paddingBottom="10.0dip"
-                android:paddingTop="10.0dip" >
-
-                <TextView
-                    android:id="@+id/tv_quan1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10.0dip"
-                    android:text="券码1：6302 4002 7523"
-                    android:textColor="@color/text_color_gray"
-                    android:textSize="@dimen/text_17" />
-
-                <CheckBox
-                    android:id="@+id/cb_ma"
-                    style="@style/CustomCheckboxTheme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="5.0dip"
-                    android:checked="true"
-                    android:clickable="true" />
-            </RelativeLayout>
+                android:divider="@drawable/divider"
+                android:scrollbars="none" >
+            </ListView>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -101,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:orientation="vertical"
-                  android:paddingBottom="15.0dip"
+                android:paddingBottom="15.0dip"
                 android:paddingTop="15.0dip" >
 
                 <TextView
@@ -119,8 +98,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10.0dip"
                     android:layout_toRightOf="@id/tv_xianjin_help"
-                    android:text="￥18.4"
-                    android:textColor="@color/orange_text"
+                    android:text="￥0.0"
+                    android:textColor="@color/text_red"
                     android:textSize="@dimen/text_17" />
             </RelativeLayout>
 
@@ -145,7 +124,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:orientation="vertical"
-                      android:paddingBottom="10.0dip"
+                    android:paddingBottom="10.0dip"
                     android:paddingTop="10.0dip" >
 
                     <TextView
@@ -192,7 +171,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:orientation="vertical"
-                      android:paddingBottom="10.0dip"
+                    android:paddingBottom="10.0dip"
                     android:paddingTop="10.0dip" >
 
                     <TextView
@@ -248,7 +227,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:orientation="vertical"
-                      android:paddingBottom="10.0dip"
+                    android:paddingBottom="10.0dip"
                     android:paddingTop="10.0dip" >
 
                     <TextView
@@ -286,7 +265,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:orientation="vertical"
-                      android:paddingBottom="10.0dip"
+                    android:paddingBottom="10.0dip"
                     android:paddingTop="10.0dip" >
 
                     <TextView
@@ -324,7 +303,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:orientation="vertical"
-                      android:paddingBottom="10.0dip"
+                    android:paddingBottom="10.0dip"
                     android:paddingTop="10.0dip" >
 
                     <TextView
@@ -362,7 +341,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:orientation="vertical"
-                      android:paddingBottom="10.0dip"
+                    android:paddingBottom="10.0dip"
                     android:paddingTop="10.0dip" >
 
                     <TextView
@@ -400,7 +379,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:orientation="vertical"
-                      android:paddingBottom="10.0dip"
+                    android:paddingBottom="10.0dip"
                     android:paddingTop="10.0dip" >
 
                     <TextView
@@ -438,7 +417,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:orientation="vertical"
-                      android:paddingBottom="10.0dip"
+                    android:paddingBottom="10.0dip"
                     android:paddingTop="10.0dip" >
 
                     <TextView
@@ -476,7 +455,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:orientation="vertical"
-                      android:paddingBottom="10.0dip"
+                    android:paddingBottom="10.0dip"
                     android:paddingTop="10.0dip" >
 
                     <TextView
@@ -506,7 +485,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20.0dip"
-                android:background="@drawable/shape_db6533"
+                android:background="@drawable/shape_00aeef"
                 android:gravity="center"
                 android:paddingBottom="10.0dip"
                 android:paddingTop="10.0dip"

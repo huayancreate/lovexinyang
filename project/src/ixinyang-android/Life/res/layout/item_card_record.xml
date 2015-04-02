@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_consume_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10.0dip"
+        android:maxLines="2"
+        android:text="【瑶海区】长江东路1137号圣大国际商贸中心708.709室"
+        android:textColor="@color/viewfinder_mask"
+        android:textSize="@dimen/default_text_size" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_consume_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10.0dip"
+            android:text="￥98"
+            android:textColor="@color/text_green"
+            android:textSize="@dimen/price_text_size" />
+
+        <TextView
+            android:id="@+id/tv_consume_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10.0dip"
+            android:layout_marginLeft="15.0dip"
+            android:layout_toRightOf="@id/tv_consume_money"
+            android:text="2014-09-04"
+            android:textColor="@color/viewfinder_mask"
+            android:textSize="@dimen/default_text_size" />
+    </RelativeLayout>
+
+</LinearLayout>

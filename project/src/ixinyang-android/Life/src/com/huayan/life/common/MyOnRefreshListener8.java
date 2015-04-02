@@ -26,8 +26,7 @@ public class MyOnRefreshListener8 implements OnRefreshListener2<ListView> {
 		// ÏÂÀ­Ë¢ÐÂ
 		String label = DateUtils.formatDateTime(
 				mContext.getApplicationContext(), System.currentTimeMillis(),
-				DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE
-						| DateUtils.FORMAT_ABBREV_ALL);
+				DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE| DateUtils.FORMAT_ABBREV_ALL);
 
 		refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
 		new GetMembershipTask(mPtflv, mContext,newAdapter).execute();

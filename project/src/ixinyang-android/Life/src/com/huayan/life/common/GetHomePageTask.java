@@ -40,7 +40,7 @@ public class GetHomePageTask extends AsyncTask<String, Void, Integer> {
 		super.onPostExecute(result);
 		switch (result) {
 		case HTTP_REQUEST_SUCCESS:
-			newAdapter.addNews(GetData.getHomePageList(3));
+//			newAdapter.addNews(GetData.getHomePageList(3));
 			newAdapter.notifyDataSetChanged();
 			break;
 		case HTTP_REQUEST_ERROR:

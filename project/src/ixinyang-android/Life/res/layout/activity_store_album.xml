@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5.0dip"
             android:cacheColorHint="@android:color/transparent"
-            android:columnWidth="170.0dip"
+            android:columnWidth="160.0dip"
             android:focusable="false"
             android:gravity="center"
             android:horizontalSpacing="10dip"

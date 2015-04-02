@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -9,7 +9,7 @@
         android:layout_width="fill_parent"
         android:layout_height="50dip"
         android:layout_weight="0"
-        android:background="@drawable/bg_actionbar"
+        android:background="@color/bg_actionbar"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
@@ -60,15 +60,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="上岛咖啡2人餐"
+                        android:text="@string/order_num"
                         android:textColor="@color/text_color_gray"
                         android:textSize="@dimen/text_17" />
 
                     <TextView
+                        android:id="@+id/tv_pay_unitPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:text="98元"
+                        android:text="9845671455"
                         android:textColor="@color/text_color_gray"
                         android:textSize="@dimen/text_17" />
                 </RelativeLayout>
@@ -94,6 +95,7 @@
                         android:textSize="@dimen/text_17" />
 
                     <TextView
+                        android:id="@+id/tv_pay_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
@@ -123,6 +125,7 @@
                         android:textSize="@dimen/text_17" />
 
                     <TextView
+                        android:id="@+id/tv_pay_totalPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
@@ -152,6 +155,7 @@
                         android:textSize="@dimen/text_17" />
 
                     <TextView
+                        android:id="@+id/tv_pay_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
@@ -181,11 +185,12 @@
                         android:textSize="@dimen/text_17" />
 
                     <TextView
+                         android:id="@+id/tv_payment_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:text="98元"
-                        android:textColor="@color/red_price"
+                        android:textColor="@color/text_red"
                         android:textSize="@dimen/text_17" />
                 </RelativeLayout>
             </LinearLayout>
@@ -259,7 +264,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20.0dip"
-                android:background="@drawable/shape_fe9900"
+                android:background="@drawable/shape_00aeef"
                 android:gravity="center"
                 android:paddingBottom="10.0dip"
                 android:paddingTop="10.0dip"
